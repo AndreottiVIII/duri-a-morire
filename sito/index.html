@@ -541,18 +541,29 @@ function dataDaWikidata(t, prec){
   return [a, 'anno'];
 }
 
-async function interroga(qids){
+const attendi = ms => new Promise(r => setTimeout(r, ms));
+
+// L'endpoint pubblico di Wikidata e' generoso ma capriccioso: ogni tanto
+// risponde 429 o 502 e basta riprovare tra qualche secondo.
+async function interroga(qids, tentativi){
   const query = 'SELECT ?p ?morte ?prec WHERE { VALUES ?p { ' +
     qids.map(q => 'wd:' + q).join(' ') +
     ' } ?p p:P570/psv:P570 [ wikibase:timeValue ?morte ; wikibase:timePrecision ?prec ] . }';
-  const r = await fetch(ENDPOINT, {method: 'POST', headers: {
-      'Accept': 'application/sparql-results+json',
-      'Content-Type': 'application/x-www-form-urlencoded'},
-    body: 'query=' + encodeURIComponent(query)});
-  if(!r.ok) throw new Error('Wikidata ha risposto ' + r.status);
-  const j = await r.json();
-  return j.results.bindings.map(b => ({
-    q: b.p.value.split('/').pop(), t: b.morte.value, prec: +b.prec.value}));
+  let ultimo;
+  for(let i = 0; i < (tentativi || 4); i++){
+    if(i) await attendi(2500 * i);
+    try {
+      const r = await fetch(ENDPOINT, {method: 'POST', headers: {
+          'Accept': 'application/sparql-results+json',
+          'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'query=' + encodeURIComponent(query)});
+      if(!r.ok){ ultimo = new Error('Wikidata ha risposto ' + r.status); continue; }
+      const j = await r.json();
+      return j.results.bindings.map(b => ({
+        q: b.p.value.split('/').pop(), t: b.morte.value, prec: +b.prec.value}));
+    } catch(e){ ultimo = e; }
+  }
+  throw ultimo;
 }
 
 async function controllaOra(){
@@ -566,7 +577,8 @@ async function controllaOra(){
     for(let i = 0; i < daVedere.length; i += 250) lotti.push(daVedere.slice(i, i + 250));
     const trovati = [];
     for(let i = 0; i < lotti.length; i++){
-      avanzamento.messaggio = 'lotto ' + (i + 1) + ' di ' + lotti.length;
+      avanzamento.messaggio = 'lotto ' + (i + 1) + ' di ' + lotti.length +
+        ' (Wikidata e’ lento, abbi pazienza)';
       disegna();
       (await interroga(lotti[i])).forEach(r => {
         const d = dataDaWikidata(r.t, r.prec);
@@ -614,6 +626,9 @@ PAGINE[600] = () => {
     r.push([seg(' NON RIUSCITO ', 'invr')]);
     r.push(vuota());
     r.push([seg(' ' + tronca(avanzamento.messaggio, W - 2), 'r')]);
+    r.push(vuota());
+    r.push([seg(' Wikidata non risponde. Succede:', 'd')]);
+    r.push([seg(' riprova fra qualche minuto.', 'd')]);
   } else {
     if(!avanzamento.cambi.length){
       r.push([seg(' Nessuna novità: sono ancora tutti', 'v')]);
