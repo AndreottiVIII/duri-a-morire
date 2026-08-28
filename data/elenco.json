@@ -1373,26 +1373,6 @@
    "hall_of_fame": false
   },
   {
-   "qid": "Q15629878",
-   "nome": "Agatone De Luca Tronchet",
-   "nascita": "1900",
-   "prec_nascita": "anno",
-   "morte": null,
-   "prec_morte": null,
-   "foto": null,
-   "wikipedia": null,
-   "mandati": [
-    "Costituente"
-   ],
-   "cariche": [
-    "deputato dell'Assemblea Costituente della Repubblica Italiana"
-   ],
-   "partiti": [],
-   "stato": "ignoto",
-   "non_eletto": false,
-   "hall_of_fame": false
-  },
-  {
    "qid": "Q1240927",
    "nome": "Agazio Loiero",
    "nascita": "1940-01-14",
@@ -23822,28 +23802,6 @@
    ],
    "partiti": [
     "Democrazia Cristiana"
-   ],
-   "stato": "vivente",
-   "non_eletto": false,
-   "hall_of_fame": false
-  },
-  {
-   "qid": "Q99640548",
-   "nome": "Claudio Bonansea",
-   "nascita": "1951-08-17",
-   "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
-   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Claudio%20Bonansea%20XII.jpg",
-   "wikipedia": "https://it.wikipedia.org/wiki/Claudio_Bonansea",
-   "mandati": [
-    "XI"
-   ],
-   "cariche": [
-    "senatore della Repubblica Italiana"
-   ],
-   "partiti": [
-    "Centro Cristiano Democratico"
    ],
    "stato": "vivente",
    "non_eletto": false,
@@ -47671,6 +47629,7 @@
     "Partito Comunista Italiano",
     "Partito Democratico della Sinistra"
    ],
+   "id_camera": "22820",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -89536,32 +89495,6 @@
    ],
    "id_camera": "34920",
    "stato": "deceduto",
-   "non_eletto": false,
-   "hall_of_fame": false
-  },
-  {
-   "qid": "Q1532642",
-   "nome": "Paolo Romani",
-   "nascita": "1947-09-18",
-   "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
-   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Paolo%20Romani%20datisenato%202018.jpg",
-   "wikipedia": "https://it.wikipedia.org/wiki/Paolo_Romani",
-   "mandati": [
-    "IX",
-    "X",
-    "XI"
-   ],
-   "cariche": [
-    "deputato della Repubblica Italiana"
-   ],
-   "partiti": [
-    "Cambiamo!",
-    "Forza Italia",
-    "Il Popolo della Libertà"
-   ],
-   "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
   },

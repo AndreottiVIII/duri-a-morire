@@ -39,6 +39,12 @@ def main():
         except Exception as e:
             print('%s non raggiungibile: %s' % (etichetta, e))
 
+    alias = {}
+    percorso = os.path.join(QUI, '..', 'data', 'alias_registri.json')
+    if os.path.exists(percorso):
+        alias = {k: v for k, v in json.load(open(percorso, encoding='utf-8')).items()
+                 if not k.startswith('_')}
+
     per_nome, per_data, fuori, muti = [], [], [], []
     for p in vivi:
         # Un ministro tecnico non ha mai avuto un seggio: nessun registro
@@ -51,6 +57,9 @@ def main():
         for etichetta, modulo, reg, indice, per_mandato in registri:
             v, come = modulo.cerca_ampia(reg, indice, p['nome'], p['nascita'],
                                          eletto, per_mandato)
+            if not v and alias.get(p['qid']):
+                v, come = modulo.cerca_ampia(reg, indice, alias[p['qid']],
+                                             p['nascita'], eletto, per_mandato)
             if v:
                 esito = (etichetta, come, v)
                 break

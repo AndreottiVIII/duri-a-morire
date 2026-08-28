@@ -217,6 +217,14 @@ def scarica_cariche(persone, quali):
     print('  cariche ricostruite per %d persone' % len(grezze))
 
 
+def leggi_json(nome):
+    percorso = os.path.join(QUI, '..', 'data', nome)
+    if not os.path.exists(percorso):
+        return {}
+    return {k: v for k, v in json.load(open(percorso, encoding='utf-8')).items()
+            if not k.startswith('_')}
+
+
 def fondi_doppioni(persone):
     """Stesso nome e stessa legislatura vuol dire stessa persona.
 
@@ -296,6 +304,16 @@ def main():
             if qq in persone and wd.v(r, 'partitoLabel'):
                 persone[qq]['partiti'].add(wd.v(r, 'partitoLabel'))
 
+    # Comandano i registri ufficiali: chi loro collocano fuori dal perimetro
+    # esce, per quanto Wikidata insista. Le ragioni stanno scritte nel file,
+    # una per una, perche' togliere qualcuno da un archivio va motivato.
+    esclusi = leggi_json('esclusi.json')
+    fuori = [q for q in esclusi if q in persone and not q.startswith('_')]
+    for q in fuori:
+        print('  escluso %s (%s): %s' % (q, persone[q]['nome'], esclusi[q][:60]))
+        del persone[q]
+    print('Esclusi dal perimetro: %d' % len(fuori))
+
     hof = {}
     percorso_hof = os.path.join(QUI, '..', 'data', 'hall_of_fame.json')
     if os.path.exists(percorso_hof):
@@ -320,6 +338,7 @@ def main():
     # prova d'identita' lascerebbe in vita chi ha la data storta. Giovanni
     # Battista Melis su Wikidata e' del 1922, alla Camera del 1904.
     discordanze, contese = [], []
+    alias = leggi_json('alias_registri.json')
     for etichetta, modulo in [('Camera dei deputati', camera), ('Senato', senato)]:
         print('Incrocio con gli open data: %s...' % etichetta)
         try:
@@ -333,6 +352,10 @@ def main():
         for p in persone.values():
             v, come = modulo.cerca_ampia(reg, indice, p['nome'], p['nascita'],
                                          p['mandati'], per_mandato)
+            if not v and alias.get(p['qid']):
+                # Gianna Schelotto per i registri e' Giovanna Bochicchio.
+                v, come = modulo.cerca_ampia(reg, indice, alias[p['qid']],
+                                             p['nascita'], p['mandati'], per_mandato)
             if not v:
                 continue
             if come == 'data':

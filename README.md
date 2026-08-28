@@ -74,18 +74,31 @@ da Wikidata, accanto al cursus curato che resta come lo aveva scritto l'autore.
 
 **La verifica.** `scripts/verifica_viventi.py` passa in rassegna chi risulta
 vivo e chiede conto ai registri, perche' il silenzio di una fonte non e' una
-prova di vita. Degli 798 viventi, 781 sono confermati da Camera o Senato, 14 non
-sono mai stati eletti (i tecnici di Ciampi e Dini, che nessun registro
-parlamentare puo' contenere) e 3 restano non agganciati. **Nessuna
+prova di vita. Dei 796 viventi, **782 sono confermati da Camera o Senato e 14 non
+sono mai stati eletti** — i tecnici di Ciampi e Dini, che nessun registro
+parlamentare puo' contenere. Non ne resta fuori nessuno. **Nessuna
 contraddizione**: non esiste un solo caso in cui noi diamo per vivo qualcuno che
 un registro da' per morto. I venti viventi piu' anziani sono confermati tutti,
 decano compreso.
 
-**Il limbo.** I quattro di sorte ignota restano dove sono. Di tre nessuna delle
-tre fonti registra la morte e nessuna puo' registrarla: la voce di Wikipedia di
+**Chi non c'entra.** Comandano i registri: se Camera e Senato collocano qualcuno
+fuori dal perimetro I-XI, esce, per quanto Wikidata insista. Sono tre, elencati
+con la loro ragione in `data/esclusi.json`. Paolo Romani e Claudio Bonansea
+appartengono alla XII legislatura — Wikidata sbaglia le legislature di tre
+posizioni, attribuendo a Romani la IX con data d'inizio 1994. Agatone De Luca
+Tronchet invece ha il mandato che comincia il **21 gennaio 1849**: e' un deputato
+della Costituente della Repubblica Romana, e la sua nascita nel 1900 e' un
+segnaposto.
+
+Non basta pero' che un registro non trovi un nome per buttarlo fuori: Ignazio
+Silone alla Camera e' registrato col nome vero, Secondino Tranquilli, e Gianna
+Schelotto e' Giovanna Bochicchio. I nomi che le fonti scrivono in modo diverso
+stanno in `data/alias_registri.json`.
+
+**Il limbo.** I tre di sorte ignota restano dove sono. Nessuna delle tre fonti
+ne registra la morte e nessuna puo' registrarla: la voce di Wikipedia di
 Enrico Parri scrive *"10 gennaio 1902 -- ..."* e si ferma li'. Presumerli morti a
-centoventiquattro anni sarebbe una deduzione nostra spacciata per un fatto. Il
-quarto, Mario De Cristofaro, non ha data di nascita da nessuna parte: il suo
+centoventiquattro anni sarebbe una deduzione nostra spacciata per un fatto. Uno di loro, Mario De Cristofaro, non ha data di nascita da nessuna parte: il suo
 mandato comincia e finisce il 17 ottobre 1991, causale "Dimissioni".
 
 **Estetica.** Televideo RAI. Le pagine numerate non sono decorazione: sono il
@@ -98,10 +111,10 @@ né account. Poi, se piace, lo stesso repo su hosting gratuito con un job nottur
 
 | | |
 |---|---|
-| Censiti in tutto | 4.606 |
-| Viventi | 798 |
+| Censiti in tutto | 4.603 |
+| Viventi | 796 |
 | Deceduti | 3.804 |
-| Sorte ignota | 4 |
+| Sorte ignota | 3 |
 
 La Costituente e la I legislatura sono estinte al completo: l'ultimo costituente
 è stato Emilio Colombo, morto il 24 giugno 2013.
