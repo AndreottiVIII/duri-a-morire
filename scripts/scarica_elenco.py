@@ -7,7 +7,7 @@ servito come 1 gennaio, e preso alla lettera produrrebbe compleanni inventati.
 """
 import sys, os, json, time, datetime, re, urllib.parse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import wd
+import wd, camera
 
 QUI = os.path.dirname(os.path.abspath(__file__))
 CACHE = os.path.join(QUI, '..', 'data', 'cache')
@@ -178,6 +178,34 @@ def main():
         p['nome'] = nome_leggibile(p, hof.get(q))
         p['cariche'] = sorted(p['cariche'])
         p['partiti'] = sorted(p['partiti'])
+
+    # Seconda fonte. Wikidata dimentica i deputati di seconda fila: Giuseppe
+    # Sasso risultava vivo a 106 anni ed era morto nel 2015. La Camera tiene il
+    # registro dei propri ex deputati e sa quello che Wikidata ignora.
+    print('Incrocio con gli open data della Camera...')
+    try:
+        registro = camera.decessi()
+    except Exception as e:
+        registro = {}
+        print('  Camera non raggiungibile (%s): si prosegue senza.' % e)
+    recuperati = 0
+    for p in persone.values():
+        if p['morte']:
+            continue
+        v = registro.get(camera.chiave(p['nome'], ''))
+        # L'anno di nascita deve coincidere, altrimenti si finisce per seppellire
+        # un vivo al posto del suo omonimo deputato del Regno.
+        if not v or not v['nascita'] or not p['nascita']:
+            continue
+        if v['nascita'][:4] != p['nascita'][:4]:
+            continue
+        p['morte'] = v['morte']
+        p['prec_morte'] = 'giorno' if len(v['morte']) == 10 else 'anno'
+        p['fonte_morte'] = 'Camera dei deputati'
+        recuperati += 1
+    print('  %d decessi che Wikidata non registrava' % recuperati)
+
+    for q, p in persone.items():
         p['stato'] = stato_di(p, oggi)
         p['non_eletto'] = q not in eletti
         p['hall_of_fame'] = q in hof

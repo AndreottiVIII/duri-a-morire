@@ -223,8 +223,8 @@ PAGINE[100] = () => {
   const compleanni = compleanniDi(OGGI);
   const r = [
     titolo('INDICE'),
-    [seg(' chi è ancora vivo, e chi no', 'c')],
-    vuota(),
+    [seg(' chi è ancora vivo e chi no', 'c')],
+    [seg(' della Prima Repubblica', 'c')],
     vocemenu(101, 'VIVENTI', String(viventi.length), 'b'),
     vocemenu(300, 'IN MEMORIAM', String(defunti.length), 'd'),
     vocemenu(400, 'SORTE IGNOTA', String(ignoti.length), 'm'),
@@ -482,7 +482,7 @@ PAGINE[240] = paginaRighe(() => {
   P.forEach(p => { if(p.p){ (gruppi[p.p] = gruppi[p.p] || []).push(p); } });
   const righe = [];
   Object.keys(gruppi)
-    .filter(k => gruppi[k].length >= 3)
+    .filter(k => gruppi[k].length >= 1)
     .sort((a, b) => gruppi[b].length - gruppi[a].length)
     .forEach(k => {
       const gente = gruppi[k], vivi = gente.filter(p => p.s === 1);
@@ -501,7 +501,7 @@ PAGINE[240] = paginaRighe(() => {
       }
     });
   return righe;
-}, 'L’ULTIMO DEI… (PARTITI)', 'quando si è spento ogni partito');
+}, 'L’ULTIMO DEI… (PARTITI)', 'minori compresi. tocca un numero.');
 
 PAGINE[300] = paginaLista(
   () => defunti.filter(p => p.d).sort((a, b) => a.d < b.d ? 1 : -1),

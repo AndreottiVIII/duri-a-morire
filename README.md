@@ -26,9 +26,19 @@ nei dati. Sono 52 persone. La soglia si cambia in configurazione.
 aggiunto in automatico. Ad aggiornarsi da solo è soltanto il loro stato vivo/morto.
 Vivono in `data/hall_of_fame.json`, separati dall'elenco grande.
 
-**Fonte.** Wikidata, che è la versione interrogabile di Wikipedia. Copre l'intero
-perimetro: 4.414 parlamentari, 99,98% con data di nascita. Gli aggiornamenti
-vengono pubblicati senza approvazione manuale.
+**Due fonti.** Wikidata, che è la versione interrogabile di Wikipedia, copre
+l'intero perimetro ed è rapida sui personaggi noti. Ma sui deputati di seconda
+fila è cieca: di parecchi non registra la morte, e quelli restavano per sempre
+fra i viventi — Giuseppe Sasso risultava vivo a 106 anni ed era morto nel 2015.
+Il secondo controllo sono gli open data della **Camera dei deputati**, che tiene
+il registro dei propri ex e sa quello che Wikidata ignora: 148 decessi recuperati
+al primo incrocio. I due nomi vengono accoppiati solo se coincide anche l'anno di
+nascita, altrimenti si finisce per seppellire un vivo al posto del suo omonimo
+deputato del Regno. Gli aggiornamenti vengono pubblicati senza approvazione
+manuale.
+
+Il Senato non ha un equivalente raggiungibile: i senatori restano coperti dalla
+sola Wikidata, ed è li' che restano i buchi.
 
 **Estetica.** Televideo RAI. Le pagine numerate non sono decorazione: sono il
 sistema di navigazione, e sono la risposta al problema di far scorrere 897 nomi.
@@ -41,9 +51,9 @@ né account. Poi, se piace, lo stesso repo su hosting gratuito con un job nottur
 | | |
 |---|---|
 | Censiti in tutto | 4.616 |
-| Viventi | 913 |
-| Deceduti | 3.650 |
-| Sorte ignota | 53 |
+| Viventi | 810 |
+| Deceduti | 3.798 |
+| Sorte ignota | 8 |
 
 La Costituente e la I legislatura sono estinte al completo: l'ultimo costituente
 è stato Emilio Colombo, morto il 24 giugno 2013.

@@ -2429,8 +2429,8 @@
    "nome": "Alberto Garocchio",
    "nascita": "1938-11-20",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2014-12-23",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -2441,7 +2441,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -3685,8 +3686,8 @@
    "nome": "Aldo Gandolfi",
    "nascita": "1936-09-21",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2021-09-20",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -3696,7 +3697,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -5247,8 +5249,8 @@
    "nome": "Alfonso Cerreti",
    "nascita": "1897-03-09",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1969-06-12",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -5258,7 +5260,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -6072,8 +6075,8 @@
    "nome": "Alfredo Marraffini",
    "nascita": "1930-04-13",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2006-08-05",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -6084,7 +6087,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -8282,8 +8286,8 @@
    "nome": "Angelo Mancuso",
    "nascita": "1928-11-23",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2021-03-12",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Angelo%20Mancuso.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Angelo_Mancuso",
    "mandati": [
@@ -8295,7 +8299,8 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -8496,8 +8501,8 @@
    "nome": "Angelo Priore",
    "nascita": "1907-04-01",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1970-02-23",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -8507,7 +8512,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -9265,8 +9271,8 @@
    "nome": "Anna Maria Vietti",
    "nascita": "1923-02-23",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2016-11-19",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -9276,7 +9282,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -9800,8 +9807,8 @@
    "nome": "Antonino Germana'",
    "nascita": "1939-07-01",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2025-10-03",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -9811,7 +9818,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -12267,8 +12275,8 @@
    "nome": "Antonio Magnabosco",
    "nascita": "1937-09-14",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2018-01-07",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Antonio%20Magnabosco.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Antonio_Magnabosco",
    "mandati": [
@@ -12280,7 +12288,8 @@
    "partiti": [
     "Lega Nord"
    ],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -14127,8 +14136,8 @@
    "nome": "Aristide Tesini",
    "nascita": "1913-01-11",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2007-05-19",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -14139,7 +14148,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -14839,8 +14849,8 @@
    "nome": "Arnaldo Racchetti",
    "nascita": "1913-12-25",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1982-03-25",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -14851,7 +14861,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -15795,8 +15806,8 @@
    "nome": "Attilio Santoro",
    "nascita": "1950-11-27",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2022-11-30",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": "https://it.wikipedia.org/wiki/Attilio_Santoro",
    "mandati": [
@@ -15808,7 +15819,8 @@
    "partiti": [
     "Partito Liberale Italiano"
    ],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -16559,8 +16571,8 @@
    "nome": "Bartolomeo Romano",
    "nascita": "1899-04-20",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1978-07-28",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -16571,7 +16583,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -17044,8 +17057,8 @@
    "nome": "Benito Cerra",
    "nascita": "1933-05-19",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2018-11-06",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -17056,7 +17069,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -18598,8 +18612,8 @@
    "nome": "Calogero Corrao",
    "nascita": "1929-05-17",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2018-06-17",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -18609,7 +18623,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -18770,8 +18785,8 @@
    "nome": "Camillo Federico",
    "nascita": "1926-12-11",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2003-06-07",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -18781,7 +18796,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -19558,8 +19574,8 @@
    "nome": "Carlo Chirico",
    "nascita": "1937-06-08",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2025-10-12",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -19569,7 +19585,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -19578,8 +19595,8 @@
    "nome": "Carlo Cibotto",
    "nascita": "1900-11-04",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1967-03-02",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -19590,7 +19607,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -19779,8 +19797,8 @@
    "nome": "Carlo Di Re",
    "nascita": "1927-12-27",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2008-07-25",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -19790,7 +19808,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -19853,8 +19872,8 @@
    "nome": "Carlo Felici",
    "nascita": "1932-01-01",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2024-01-29",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Carlo%20Felici%20daticamera.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Carlo_Felici",
    "mandati": [
@@ -19869,7 +19888,8 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -20260,8 +20280,8 @@
    "nome": "Carlo Molè",
    "nascita": "1930-03-02",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2016-05-06",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Carlo%20Mol%C3%A8%20daticamera.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Carlo_Mol%C3%A8",
    "mandati": [
@@ -20276,7 +20296,8 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -20601,8 +20622,8 @@
    "nome": "Carlo Ricca",
    "nascita": "1921-06-10",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1984-11-14",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -20613,7 +20634,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -21687,8 +21709,8 @@
    "nome": "Cecilia Chiovini",
    "nascita": "1938-12-24",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2025-12-11",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Cecilia%20Chiovini%20daticamera.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Cecilia_Chiovini",
    "mandati": [
@@ -21702,7 +21724,8 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -21883,8 +21906,8 @@
    "nome": "Cesare Baroni",
    "nascita": "1919-01-05",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2003-06-10",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -21898,7 +21921,8 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -22869,8 +22893,8 @@
    "nome": "Claudio Bruno Corvatta",
    "nascita": "1928-03-13",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2009-06-29",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -22880,7 +22904,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -23837,8 +23862,8 @@
    "nome": "Corrado Scardavilla",
    "nascita": "1924-08-07",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2020-02-07",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -23848,7 +23873,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -24357,8 +24383,8 @@
    "nome": "Custode Fioriello",
    "nascita": "1933-05-13",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2015-06-11",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Custode%20Fioriello.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Custode_Fioriello",
    "mandati": [
@@ -24370,7 +24396,8 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -24970,8 +24997,8 @@
    "nome": "Dario Mengozzi",
    "nascita": "1929-09-04",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2020-03-30",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -24982,7 +25009,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -26065,8 +26093,8 @@
    "nome": "Domenico Conte",
    "nascita": "1924-01-19",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1981-09-03",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -26077,7 +26105,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -26218,8 +26247,8 @@
    "nome": "Domenico Ferrara",
    "nascita": "1895-08-24",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1975-09-17",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -26230,7 +26259,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -26631,8 +26661,8 @@
    "nome": "Domenico Petrella",
    "nascita": "1927-07-29",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2009-03-10",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -26642,7 +26672,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -27360,8 +27391,8 @@
    "nome": "Edmondo Sastro",
    "nascita": "1941-01-10",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1997-05-20",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -27371,7 +27402,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -27953,8 +27985,8 @@
    "nome": "Egizio Sandomenico",
    "nascita": "1928-03-13",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1989-07-18",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -27966,7 +27998,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -29146,8 +29179,8 @@
    "nome": "Emilio Chanoux",
    "nascita": "1944-09-07",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1993-04-09",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -29157,7 +29190,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -29956,8 +29990,8 @@
    "nome": "Ennio De Biagi",
    "nascita": "1909-09-18",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1970-04-13",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -29967,7 +30001,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -29999,8 +30034,8 @@
    "nome": "Ennio Palmitessa",
    "nascita": "1927-12-04",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1992-12-12",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -30010,7 +30045,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -30599,8 +30635,8 @@
    "nome": "Enrico Menziani",
    "nascita": "1925-06-15",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1989-12-22",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -30610,7 +30646,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -30810,8 +30847,8 @@
    "nome": "Enrico Piccone",
    "nascita": "1929-03-15",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2013-06-25",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -30822,7 +30859,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -30980,8 +31018,8 @@
    "nome": "Eny Nicola Di Lisa",
    "nascita": "1924-12-19",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1993-06-13",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -30991,7 +31029,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -31000,8 +31039,8 @@
    "nome": "Enza Marchi",
    "nascita": "1929-08-01",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2025-07-06",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -31011,7 +31050,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -31292,8 +31332,8 @@
    "nome": "Enzo Luraschi",
    "nascita": "1918-11-12",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2004-01-20",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -31303,7 +31343,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -31560,8 +31601,8 @@
    "nome": "Epifanio Cataldo Giudiceandrea",
    "nascita": "1929-01-18",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2025-09-05",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Epifanio%20Giudiceandrea.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Epifanio_Cataldo_Giudiceandrea",
    "mandati": [
@@ -31574,7 +31615,8 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -31954,8 +31996,8 @@
    "nome": "Ernesta Belussi",
    "nascita": "1920-06-06",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1987-06-26",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -31967,7 +32009,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -32780,8 +32823,8 @@
    "nome": "Eugenio Sarli",
    "nascita": "1931-06-01",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2009-12-21",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -32791,7 +32834,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -33058,8 +33102,8 @@
    "nome": "Ezio Citterio",
    "nascita": "1931-09-11",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2005-05-19",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -33070,7 +33114,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -34236,8 +34281,8 @@
    "nome": "Federico Ricotti",
    "nascita": "1936-12-31",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2019-05-02",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Federico%20Ricotti.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Federico_Ricotti",
    "mandati": [
@@ -34249,7 +34294,8 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -35559,8 +35605,8 @@
    "nome": "Filippo Di Filippo",
    "nascita": "1887-04-23",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1973-04-17",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -35570,7 +35616,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -35956,8 +36003,8 @@
    "nome": "Fiorenzo Maroli",
    "nascita": "1929-07-12",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2004-03-20",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -35968,7 +36015,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -35977,8 +36025,8 @@
    "nome": "Firmino Bertone",
    "nascita": "1906-08-13",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1987-03-22",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -35988,7 +36036,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -36422,8 +36471,8 @@
    "nome": "Francesca Lodolini",
    "nascita": "1922-11-17",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1998-03-05",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -36434,7 +36483,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -37011,8 +37061,8 @@
    "nome": "Francesco Cavallaro",
    "nascita": "1908-03-26",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1994-01-11",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -37022,7 +37072,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -37953,8 +38004,8 @@
    "nome": "Francesco Infantino",
    "nascita": "1921-05-14",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1977-06-04",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -37964,7 +38015,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -38410,8 +38462,8 @@
    "nome": "Francesco Mogliacci",
    "nascita": "1926-10-04",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1990-09-14",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -38421,7 +38473,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -38628,8 +38681,8 @@
    "nome": "Francesco Ottaviano",
    "nascita": "1944-02-14",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2024-03-17",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -38640,7 +38693,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -39124,8 +39178,8 @@
    "nome": "Francesco Rausa",
    "nascita": "1926-01-01",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2018-09-01",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -39136,7 +39190,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -39601,8 +39656,8 @@
    "nome": "Francesco Spina",
    "nascita": "1930-08-31",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2011-10-13",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -39612,7 +39667,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -40855,8 +40911,8 @@
    "nome": "Franco Pasini",
    "nascita": "1927-03-09",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2016-02-15",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -40866,7 +40922,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -41356,8 +41413,8 @@
    "nome": "Fulvio Fabbri",
    "nascita": "1895-04-20",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1954-05-02",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -41367,7 +41424,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -42394,8 +42452,8 @@
    "nome": "Gaetano Vairo",
    "nascita": "1939-03-09",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1999-08-10",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -42406,7 +42464,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -42440,8 +42499,8 @@
    "nome": "Gaetano Zanotti",
    "nascita": "1893-12-01",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1985-11-19",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -42451,7 +42510,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -43006,8 +43066,8 @@
    "nome": "Gennaro Guadagno",
    "nascita": "1907-12-17",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1979-01-01",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": "https://it.wikipedia.org/wiki/Gennaro_Guadagno",
    "mandati": [
@@ -43017,7 +43077,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -43343,8 +43404,8 @@
    "nome": "Germano Ollietti",
    "nascita": "1916-03-24",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1972-04-25",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -43354,7 +43415,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -46530,8 +46592,8 @@
    "nome": "Gino Ippolito",
    "nascita": "1915-12-29",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2007-03-19",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -46541,7 +46603,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -47834,8 +47897,8 @@
    "nome": "Giorgio Medri",
    "nascita": "1934-07-20",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2007-02-13",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -47846,7 +47909,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -49086,8 +49150,8 @@
    "nome": "Giovanni Battista Bruni",
    "nascita": "1926-05-28",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2020-04-28",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -49097,7 +49161,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -49683,8 +49748,8 @@
    "nome": "Giovanni Bonomo",
    "nascita": "1933-11-30",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2013-09-15",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -49694,7 +49759,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -49907,8 +49973,8 @@
    "nome": "Giovanni Caravita",
    "nascita": "1933-11-25",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2024-04-28",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -49918,7 +49984,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -49951,8 +50018,8 @@
    "nome": "Giovanni Carlo Bianchini",
    "nascita": "1938-11-04",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2022-12-03",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -49963,7 +50030,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -50157,8 +50225,8 @@
    "nome": "Giovanni Cobellis",
    "nascita": "1938-03-16",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2022-07-23",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -50169,7 +50237,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -50313,8 +50382,8 @@
    "nome": "Giovanni D'antonio",
    "nascita": "1923-01-10",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1987-05-29",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -50325,7 +50394,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -50643,8 +50713,8 @@
    "nome": "Giovanni Fantaci",
    "nascita": "1926-09-23",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1994-06-10",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": "https://it.wikipedia.org/wiki/Giovanni_Fantaci",
    "mandati": [
@@ -50654,7 +50724,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -51160,8 +51231,8 @@
    "nome": "Giovanni Grottola",
    "nascita": "1948-08-10",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2020-01-16",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -51171,7 +51242,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -51415,8 +51487,8 @@
    "nome": "Giovanni Mantovani",
    "nascita": "1888-01-01",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1968-10-14",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -51426,7 +51498,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -51458,8 +51531,8 @@
    "nome": "Giovanni Manzolini",
    "nascita": "1940-05-11",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2026-01-11",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giovanni%20Manzolini%20X.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Giovanni_Manzolini_(politico)",
    "mandati": [
@@ -51471,7 +51544,8 @@
    "partiti": [
     "Partito Socialista Democratico Italiano"
    ],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -52468,8 +52542,8 @@
    "nome": "Giovanni Salatiello",
    "nascita": "1914-07-02",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2000-05-05",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -52479,7 +52553,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -53803,8 +53878,8 @@
    "nome": "Giulio Bruno Togni",
    "nascita": "1919-10-08",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2012-01-06",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -53814,7 +53889,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -56101,8 +56177,8 @@
    "nome": "Giuseppe Ceni",
    "nascita": "1935-06-17",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2019-10-20",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -56112,7 +56188,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -59760,8 +59837,8 @@
    "nome": "Giuseppe Sasso",
    "nascita": "1920-05-25",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2015-01-21",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -59771,7 +59848,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -62389,8 +62467,8 @@
    "nome": "Guido Merizzi",
    "nascita": "1892-01-14",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1964-03-31",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -62400,7 +62478,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -62940,8 +63019,8 @@
    "nome": "Ida Matarazzo",
    "nascita": "1905-12-01",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1983-12-15",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -62951,7 +63030,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -63207,8 +63287,8 @@
    "nome": "Ilario Bianco",
    "nascita": "1924-05-18",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2014-02-27",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -63218,7 +63298,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -63391,8 +63472,8 @@
    "nome": "Ippazio Imperiale",
    "nascita": "1913-11-09",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1998-05-14",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": "https://it.wikipedia.org/wiki/Ippazio_Imperiale",
    "mandati": [
@@ -63403,7 +63484,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -63584,8 +63666,8 @@
    "nome": "Italico Santoro",
    "nascita": "1940-10-16",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2024-03-28",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -63596,7 +63678,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -64397,8 +64480,8 @@
    "nome": "Lamberto Bertucci",
    "nascita": "1917-12-31",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2019-10-28",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -64408,7 +64491,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -65052,8 +65136,8 @@
    "nome": "Leonardo Ciannamea",
    "nascita": "1924-07-04",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2011-12-13",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -65064,7 +65148,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -66114,8 +66199,8 @@
    "nome": "Livio Ligori",
    "nascita": "1921-09-24",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1999-01-31",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -66125,7 +66210,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -66154,8 +66240,8 @@
    "nome": "Livio Stefanelli",
    "nascita": "1937-01-09",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2024-09-05",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -66166,7 +66252,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -66371,8 +66458,8 @@
    "nome": "Lorenzo Cirasino",
    "nascita": "1945-09-30",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2025-01-06",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -66382,7 +66469,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -66935,8 +67023,8 @@
    "nome": "Luciana Sgarbi Bompani",
    "nascita": "1930-03-10",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2016-03-18",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -66947,7 +67035,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -69750,8 +69839,8 @@
    "nome": "Luigi Gioia",
    "nascita": "1925-01-16",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1989-06-17",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -69761,7 +69850,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -71047,8 +71137,8 @@
    "nome": "Luigi Sandirocco",
    "nascita": "1921-04-13",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2012-07-12",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -71058,7 +71148,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -71138,8 +71229,8 @@
    "nome": "Luigi Tagliaferri",
    "nascita": "1927-10-11",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2014-02-11",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -71150,7 +71241,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -71253,8 +71345,8 @@
    "nome": "Luigi Zanoni",
    "nascita": "1898-04-30",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1958-04-20",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -71264,7 +71356,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -71638,8 +71731,8 @@
    "nome": "Marcello Chiatante",
    "nascita": "1912-11-13",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1991-01-19",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -71649,7 +71742,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -72690,8 +72784,8 @@
    "nome": "Maria Luigia Buro",
    "nascita": "1941-02-08",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2017-09-30",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -72703,7 +72797,8 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -73071,8 +73166,8 @@
    "nome": "Maria Santa Piccoli",
    "nascita": "1933-01-06",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2018-10-25",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -73082,7 +73177,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -73687,8 +73783,8 @@
    "nome": "Mario Adriano Lavagnoli",
    "nascita": "1923-02-22",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2011-12-17",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -73699,7 +73795,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -73973,8 +74070,8 @@
    "nome": "Mario Berry",
    "nascita": "1908-12-23",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1987-06-05",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -73985,7 +74082,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -74150,8 +74248,8 @@
    "nome": "Mario Brancaccio",
    "nascita": "1933-01-30",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1989-01-16",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -74161,7 +74259,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -74730,8 +74829,8 @@
    "nome": "Mario Dino Marocco",
    "nascita": "1927-04-19",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2025-08-26",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -74745,7 +74844,8 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -77423,8 +77523,8 @@
    "nome": "Matteo Fornale",
    "nascita": "1916-10-15",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2016-06-20",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -77436,7 +77536,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -77750,8 +77851,8 @@
    "nome": "Maurizio Giraldi",
    "nascita": "1934-03-27",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1992-12-02",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -77761,7 +77862,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -77905,8 +78007,8 @@
    "nome": "Maurizio Pensa",
    "nascita": "1929-08-30",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2010-08-17",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -77916,7 +78018,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -78379,8 +78482,8 @@
    "nome": "Mauro Santoni",
    "nascita": "1928-01-20",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2023-03-12",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": "https://it.wikipedia.org/wiki/Mauro_Santoni",
    "mandati": [
@@ -78392,7 +78495,8 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -78961,8 +79065,8 @@
    "nome": "Michele Capra",
    "nascita": "1916-11-06",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1979-07-19",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -78973,7 +79077,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -78982,8 +79087,8 @@
    "nome": "Michele Cassano",
    "nascita": "1914-02-05",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1994-11-10",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -78993,7 +79098,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -79232,8 +79338,8 @@
    "nome": "Michele De Gregorio",
    "nascita": "1940-06-07",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2023-02-22",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -79244,7 +79350,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -80517,8 +80624,8 @@
    "nome": "Nanda Montanari Fornari",
    "nascita": "1934-02-17",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2023-02-14",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -80529,7 +80636,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -81558,8 +81666,8 @@
    "nome": "Nicola Cavallaro",
    "nascita": "1915-01-04",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2015-07-17",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -81570,7 +81678,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -81761,8 +81870,8 @@
    "nome": "Nicola Fortini",
    "nascita": "1903-03-06",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1988-07-20",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -81772,7 +81881,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -82530,8 +82640,8 @@
    "nome": "Nicolo' Di Bernardo",
    "nascita": "1914-03-19",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1986-01-14",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -82541,7 +82651,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -84072,8 +84183,8 @@
    "nome": "Otello Magnani",
    "nascita": "1906-01-17",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1972-02-17",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -84084,7 +84195,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -85193,8 +85305,8 @@
    "nome": "Paolo Correale",
    "nascita": "1924-01-02",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1995-04-27",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -85204,7 +85316,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -85715,8 +85828,8 @@
    "nome": "Paolo Pietro Broccoli",
    "nascita": "1935-08-04",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2024-11-14",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -85727,7 +85840,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -86017,8 +86131,8 @@
    "nome": "Paolo Tuffi",
    "nascita": "1940-07-14",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2021-09-13",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -86028,7 +86142,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -86478,8 +86593,8 @@
    "nome": "Pasquale Pascariello",
    "nascita": "1929-01-15",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2011-07-24",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -86490,7 +86605,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -86706,8 +86822,8 @@
    "nome": "Peppino Aldrovandi",
    "nascita": "1926-08-21",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2025-10-03",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Peppino%20Aldrovandi%20-%20VI%20Legislatura.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Peppino_Aldrovandi",
    "mandati": [
@@ -86720,7 +86836,8 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -87044,8 +87161,8 @@
    "nome": "Piergiorgio Allera",
    "nascita": "1936-11-13",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2021-07-29",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Piergiorgio%20Allera%20-%20VI%20Legislatura.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Piergiorgio_Allera",
    "mandati": [
@@ -87058,7 +87175,8 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -87951,8 +88069,8 @@
    "nome": "Pietro Bruschi",
    "nascita": "1928-12-09",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1983-12-15",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -87962,7 +88080,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -88712,8 +88831,8 @@
    "nome": "Pietro Longo",
    "nascita": "1935-10-29",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2024-11-25",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Pietro%20Longo%20IX%20Legislatura.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Pietro_Longo",
    "mandati": [
@@ -88728,7 +88847,8 @@
    "partiti": [
     "Partito Socialista Democratico Italiano"
    ],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": true,
    "cursus": "Bilancio (1983-1984), Segretario PSDI (1978-1985)",
@@ -88899,8 +89019,8 @@
    "nome": "Pietro Micheli",
    "nascita": "1921-01-13",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1978-01-30",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -88911,7 +89031,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -89487,8 +89608,8 @@
    "nome": "Pietro Valeggiani",
    "nascita": "1914-12-10",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1990-06-14",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -89499,7 +89620,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -90792,8 +90914,8 @@
    "nome": "Raffaele Mascolo",
    "nascita": "1925-01-14",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2015-12-19",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -90803,7 +90925,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -91433,8 +91556,8 @@
    "nome": "Raffaello Salutari",
    "nascita": "1906-10-14",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1986-11-06",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -91444,7 +91567,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -92009,8 +92133,8 @@
    "nome": "Renato Andreani",
    "nascita": "1939-05-21",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2018-07-05",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -92021,7 +92145,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -92668,8 +92793,8 @@
    "nome": "Renato Palumbo",
    "nascita": "1908-01-23",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1982-04-12",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -92679,7 +92804,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -93231,8 +93357,8 @@
    "nome": "Renzo Pasini",
    "nascita": "1915-02-01",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1987-09-16",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -93242,7 +93368,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -95474,8 +95601,8 @@
    "nome": "Rolando Rocchi",
    "nascita": "1940-10-23",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1988-05-17",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -95486,7 +95613,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -95997,8 +96125,8 @@
    "nome": "Rosario Chiriano",
    "nascita": "1934-01-23",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2026-03-30",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": "https://it.wikipedia.org/wiki/Rosario_Chiriano",
    "mandati": [
@@ -96010,7 +96138,8 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -96972,8 +97101,8 @@
    "nome": "Salvatore La Rocca",
    "nascita": "1929-12-11",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1999-01-20",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -96984,7 +97113,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -97273,8 +97403,8 @@
    "nome": "Salvatore Pollichino",
    "nascita": "1947-02-18",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2013-12-29",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -97284,7 +97414,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -97929,8 +98060,8 @@
    "nome": "Santino Picchetti",
    "nascita": "1928-06-24",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2021-07-23",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -97941,7 +98072,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -99744,8 +99876,8 @@
    "nome": "Silvio Magistroni",
    "nascita": "1942-04-26",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2026-01-20",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -99755,7 +99887,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -99994,8 +100127,8 @@
    "nome": "Siro Castrucci",
    "nascita": "1930-05-01",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1994-06-26",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -100005,7 +100138,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -101182,8 +101316,8 @@
    "nome": "Tiberio Cecere",
    "nascita": "1939-05-02",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1999-07-23",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -101193,7 +101327,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -101344,8 +101479,8 @@
    "nome": "Tomaso Palmiotti",
    "nascita": "1922-07-20",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1999-12-16",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -101355,7 +101490,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -101454,8 +101590,8 @@
    "nome": "Tommaso Alibrandi",
    "nascita": "1933",
    "prec_nascita": "anno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2019-01-20",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -101465,7 +101601,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -101727,8 +101864,8 @@
    "nome": "Tommaso Sicolo",
    "nascita": "1920-07-25",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1989-01-03",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -101739,7 +101876,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -103230,8 +103368,8 @@
    "nome": "Umberto Genovesi",
    "nascita": "1930-02-08",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1985-01-24",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -103241,7 +103379,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -104495,8 +104634,8 @@
    "nome": "Vincenzo Bianchi Di Lavagna",
    "nascita": "1938-05-10",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2003-08-19",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -104506,7 +104645,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -104629,8 +104769,8 @@
    "nome": "Vincenzo Casati",
    "nascita": "1922-11-26",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2004-11-19",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -104640,7 +104780,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -105051,8 +105192,8 @@
    "nome": "Vincenzo Marotta",
    "nascita": "1919-11-09",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1997-02-17",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -105063,7 +105204,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -105487,8 +105629,8 @@
    "nome": "Vincenzo Sangalli",
    "nascita": "1905-07-29",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1967-08-11",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -105500,7 +105642,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -105614,8 +105757,8 @@
    "nome": "Vincenzo Squicciarini",
    "nascita": "1930-01-01",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2009-11-23",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -105625,7 +105768,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -105871,8 +106015,8 @@
    "nome": "Vinicio Baldelli",
    "nascita": "1915-05-01",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2016-04-04",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -105882,7 +106026,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -106947,8 +107092,8 @@
    "nome": "Vittorino Monte",
    "nascita": "1910-03-11",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2000-05-29",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -106959,7 +107104,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -107188,8 +107334,8 @@
    "nome": "Vittorio De Stasio",
    "nascita": "1907-03-14",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1990-06-15",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -107199,7 +107345,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -107381,8 +107528,8 @@
    "nome": "Vittorio Korach",
    "nascita": "1918-01-28",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2014-11-16",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -107392,7 +107539,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "ignoto",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },

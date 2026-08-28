@@ -33,13 +33,32 @@ SIGLE = [
     ('Sudtiroler Volkspartei', 'SVP'),
     ('Volkspartei', 'SVP'),
     ('Rete', 'RETE'),
-    ('Uomo Qualunque', 'UQ'),
     ('Partito Nazionale Monarchico', 'PNM'),
+    ('Partito Monarchico Popolare', 'PMP'),
     ('Partito Monarchico', 'PNM'),
     ('sinistra indipendente', 'SI'),
     ('PSI-PSDI', 'PSU'),
     ('Partito Popolare Italiano', 'PPI'),
     ('Partito Nazionale Fascista', 'PNF'),
+    # I minori della Costituente e della prima Repubblica: pochi seggi, ma
+    # hanno fatto la storia di quegli anni e meritano la loro sigla.
+    ('Fronte dell’Uomo Qualunque', 'FUQ'),
+    ("Fronte dell'Uomo Qualunque", 'FUQ'),
+    ('Unione Democratica Nazionale', 'UDN'),
+    ('Blocco Nazionale della Libert', 'BNL'),
+    ('Partito Sardo d', 'PSdAz'),
+    ('Partito d’Azione', 'PdA'),
+    ("Partito d'Azione", 'PdA'),
+    ('Partito Democratico del Lavoro', 'PDLav'),
+    ('Partito Democratico Italiano di Unit', 'PDIUM'),
+    ('Union Vald', 'UV'),
+    ('Unione Siciliana Cristiano Sociale', 'USCS'),
+    ('Movimento Indipendentista Siciliano', 'MIS'),
+    ('Partito Socialista Unitario', 'PSU'),
+    ('Partito Comunista d', 'PCdI'),
+    ('Partito Fascista Repubblicano', 'PFR'),
+    ('Democrazia Nazionale', 'DN'),
+    ('Movimento per la Democrazia', 'RETE'),
 ]
 
 ORDINE_MANDATI = ['Costituente', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII',
@@ -69,13 +88,16 @@ def sigla(partiti, ripiego=None):
     return ''
 
 
-PAROLINE = {'di', 'del', 'della', 'dei', 'degli', 'delle', 'e', 'per',
-            'il', 'la', 'lo', 'i', 'gli', 'le', 'dell'}
+PAROLINE = {'di', 'del', 'della', 'dei', 'degli', 'delle', 'e', 'per', 'con',
+            'il', 'la', 'lo', 'i', 'gli', 'le', 'dell', 'è', 'a', 'da'}
 
 
 def acronimo(nome):
-    """Da 'Alleanza Nazionale' ad 'AN': meglio le iniziali che un troncone."""
-    parole = [w for w in re.split(r"[\s'’]+", nome)
+    """Da 'Alleanza Nazionale' ad 'AN': meglio le iniziali che un troncone.
+    Via le precisazioni fra parentesi e i trattini, che producevano sigle
+    come 'UC(' o 'DÈL–M'."""
+    nome = re.sub(r'\([^)]*\)', ' ', nome)
+    parole = [w for w in re.split(r'[^0-9A-Za-zÀ-ɏ]+', nome)
               if w and w.lower() not in PAROLINE]
     return ''.join(w[0] for w in parole).upper()[:6]
 
