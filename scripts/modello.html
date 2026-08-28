@@ -188,6 +188,10 @@ function vocemenu(num, testo, valore, clsValore){
    Sono ricalcolabili, non fisse: il tasto "aggiorna" puo' spostare qualcuno
    dai vivi ai morti mentre la pagina e' aperta. */
 const perMandato = m => P.filter(p => p.m.indexOf(m) >= 0);
+// Un governo non e' una legislatura: i tecnici di Ciampi e Dini non hanno mai
+// avuto un seggio, e vanno contati zero.
+const legislatureDi = p => p.m.filter(m => m.indexOf('Governo') !== 0);
+const governiDi = p => p.m.filter(m => m.indexOf('Governo') === 0);
 const perNascita = a => a.slice().sort((x, y) => (x.b||'9') < (y.b||'9') ? -1 : 1);
 let viventi, defunti, ignoti, hof, hofVivi, hofMorti;
 function ricalcola(){
@@ -304,6 +308,7 @@ PAGINE[130] = () => {
     vocemenu(133, 'PER PARTITO'),
     vocemenu(134, 'COMPLEANNI'),
     vocemenu(135, 'I CURSUS PIÙ LUNGHI'),
+    vocemenu(250, 'PIÙ LEGISLATURE (TUTTI)'),
     vuota(),
   ];
   if(ultimo){
@@ -380,6 +385,27 @@ PAGINE[134] = () => {
   return {righe: r.concat(righeCompleanni(hofVivi, 14)), sottopagine: 1};
 };
 
+// Quante legislature si e' fatto ognuno. Vale per tutti, ministri compresi:
+// chi ha fatto il ministro senza mai un seggio conta zero, ed e' giusto cosi'.
+function classificaLegislature(gente, intestazione, nota){
+  return paginaRighe(() => {
+    const ordinata = gente().map(p => [p, legislatureDi(p).length])
+      .filter(c => c[1] > 0)
+      .sort((a, b) => b[1] - a[1] || (a[0].n < b[0].n ? -1 : 1));
+    return ordinata.map(c => [
+      seg(' '), seg(c[0].h ? '■' : ' ', 'g'),
+      {t: tronca(c[0].n, 25).padEnd(25), c: c[0].s === 1 ? 'b' : 'd', link: c[0].q},
+      seg(String(c[1]).padStart(3), 'g'),
+      seg(c[1] === 1 ? ' leg.' : ' leg.', 'd')]);
+  }, intestazione, nota);
+}
+
+const LEGISLATURE_POSSIBILI =
+  DATI.legislature.filter(L => L[0].indexOf('Governo') !== 0).length;
+
+PAGINE[250] = classificaLegislature(() => P, 'PIÙ LEGISLATURE DI TUTTI',
+  () => 'su ' + LEGISLATURE_POSSIBILI + ' possibili, dal 1946 al 1994');
+
 PAGINE[135] = () => {
   const conCursus = hof.filter(p => p.c)
     .map(p => [p, p.c.split(/,\s*/).filter(x => x.trim()).length])
@@ -423,6 +449,7 @@ PAGINE[200] = () => {
     vocemenu(220, 'CURVA DI ESTINZIONE'),
     vocemenu(230, 'L’ULTIMO DEI… (LEGISLATURE)'),
     vocemenu(240, 'L’ULTIMO DEI… (PARTITI)'),
+    vocemenu(250, 'PIÙ LEGISLATURE'),
   ], sottopagine: 1};
 };
 
@@ -575,14 +602,15 @@ function scheda(q){
   if(e !== null) r.push(sxdx(p.d ? ' Aveva' : ' Ha', e + ' anni', 'b', 'g'));
   if(p.p) r.push(sxdx(' Partito', p.p, 'b', 'c'));
   r.push(vuota());
-  if(p.m.length){
-    r.push([seg(' MANDATI', 'invg')]);
-    let linea = '  ';
-    p.m.forEach(m => {
-      if((linea + m + '  ').length > W - 1){ r.push([seg(linea, 'c')]); linea = '  '; }
-      linea += m + '  ';
-    });
-    if(linea.trim()) r.push([seg(linea, 'c')]);
+  const leg = legislatureDi(p), gov = governiDi(p);
+  if(leg.length){
+    r.push([seg(' LEGISLATURE: ' + leg.length + ' ', 'invg')]);
+    avvolgi(leg.join('  '), '  ', '  ').forEach(l => r.push([seg(l, 'c')]));
+  }
+  if(gov.length){
+    r.push([seg(' GOVERNI', 'invg')]);
+    avvolgi(gov.map(g => g.replace('Governo ', '')).join('  '), '  ', '  ')
+      .forEach(l => r.push([seg(l, 'c')]));
   }
   if(p.x) r.push([seg(' (mai eletto: dentro ma sulla porta)', 'm')]);
   if(p.cd){
