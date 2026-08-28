@@ -62,6 +62,16 @@ In tutto: 160 persone che risultavano vive e non lo erano. I viventi scendono da
 913 a 798, e i dispersi da 53 a 4. Sulla scheda di ognuno c'è scritto da quale
 registro arriva la data.
 
+**Chi comanda sul decesso.** Il registro ufficiale, non Wikidata: e'
+l'istituzione che certifica i propri ex, mentre Wikidata la scrive chi passa.
+La data di Wikidata si tiene solo quando e' piu' precisa e non contraddice il
+registro. Cosi' sono state affinate 134 date di morte e corrette 42 di nascita.
+
+**Le cariche.** Il cursus scritto a mano e' una sintesi, e le sintesi perdono
+pezzi: a Sergio Mattarella mancavano la vicepresidenza del Consiglio, la Difesa
+e la Consulta. Sulla scheda dei 66 c'e' ora l'elenco completo e datato ricavato
+da Wikidata, accanto al cursus curato che resta come lo aveva scritto l'autore.
+
 **La verifica.** `scripts/verifica_viventi.py` passa in rassegna chi risulta
 vivo e chiede conto ai registri, perche' il silenzio di una fonte non e' una
 prova di vita. Degli 798 viventi, 781 sono confermati da Camera o Senato, 14 non

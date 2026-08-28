@@ -139,6 +139,70 @@ def stato_di(p, oggi):
     return 'vivente'
 
 
+Q_CARICHE = """SELECT ?p ?posLabel ?inizio ?fine WHERE {
+  VALUES ?p { %s }
+  ?p p:P39 ?st . ?st ps:P39 ?pos .
+  OPTIONAL { ?st pq:P580 ?inizio }
+  OPTIONAL { ?st pq:P582 ?fine }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "it,en". }
+}"""
+
+# Il seggio non e' una carica: i mandati hanno gia' la loro riga.
+SEGGI = ('deputato', 'senatore', 'membro del parlamento', 'member of')
+
+CODE_INUTILI = (' della repubblica italiana', ' della repubblica',
+                " del regno d'italia", ' italiano', ' italiana')
+
+
+def ripulisci_carica(etichetta):
+    """'ministro della difesa della Repubblica Italiana' -> 'Ministro della difesa'."""
+    e = (etichetta or '').strip()
+    basso = e.lower()
+    for coda in CODE_INUTILI:
+        if basso.endswith(coda):
+            tagliato = e[:len(e) - len(coda)]
+            # 'presidente della Repubblica Italiana' non puo' diventare
+            # 'Presidente': senza il seguito la carica non vuol dire niente.
+            e = tagliato if len(tagliato.split()) >= 2 else tagliato + ' della Repubblica'
+            break
+    return e[:1].upper() + e[1:] if e else e
+
+
+def scarica_cariche(persone, quali):
+    """Le cariche datate, prese da Wikidata per chi sta in hall of fame.
+
+    Il cursus scritto a mano e' una sintesi, e le sintesi perdono pezzi: a
+    Sergio Mattarella mancavano la vicepresidenza del Consiglio, la Difesa e
+    la Consulta. Qui l'elenco arriva completo e con gli anni.
+    """
+    lista = [q for q in quali if q in persone]
+    righe = []
+    for i in range(0, len(lista), 60):
+        blocco = ' '.join('wd:' + q for q in lista[i:i + 60])
+        righe += cache_o_query('cariche_%d' % i, Q_CARICHE % blocco)
+
+    grezze = {}
+    for r in righe:
+        q = wd.qid(r, 'p')
+        etichetta = wd.v(r, 'posLabel')
+        if not q or not etichetta or etichetta.lower().startswith(SEGGI):
+            continue
+        da = (wd.v(r, 'inizio') or '')[:4]
+        a = (wd.v(r, 'fine') or '')[:4]
+        grezze.setdefault(q, {}).setdefault(ripulisci_carica(etichetta), []).append((da, a))
+
+    for q, cariche in grezze.items():
+        fuori = []
+        for etichetta, periodi in cariche.items():
+            anni = sorted(x for coppia in periodi for x in coppia if x)
+            fuori.append({'carica': etichetta,
+                          'da': anni[0] if anni else None,
+                          'a': anni[-1] if anni and any(p[1] for p in periodi) else None})
+        fuori.sort(key=lambda c: c['da'] or '9999')
+        persone[q]['cariche_datate'] = fuori
+    print('  cariche ricostruite per %d persone' % len(grezze))
+
+
 def fondi_doppioni(persone):
     """Stesso nome e stessa legislatura vuol dire stessa persona.
 
@@ -241,7 +305,7 @@ def main():
     # nascita: e' proprio quella che a volte sbaglia Wikidata, e usarla come
     # prova d'identita' lascerebbe in vita chi ha la data storta. Giovanni
     # Battista Melis su Wikidata e' del 1922, alla Camera del 1904.
-    discordanze = []
+    discordanze, contese = [], []
     for etichetta, modulo in [('Camera dei deputati', camera), ('Senato', senato)]:
         print('Incrocio con gli open data: %s...' % etichetta)
         try:
@@ -264,18 +328,37 @@ def main():
                 # Sulla nascita crediamo al registro ufficiale, non a Wikidata.
                 p['nascita'] = v['nascita']
                 p['prec_nascita'] = 'giorno' if len(v['nascita']) == 10 else 'anno'
-            if p['morte'] or not v.get('morte'):
+            if v.get('id'):
+                p['id_camera'] = v['id']
+            if v.get('uri'):
+                p['id_senato'] = v['uri']
+            if not v.get('morte'):
                 continue
+            # Sul decesso comanda il registro: e' l'istituzione che certifica
+            # i propri ex, mentre Wikidata la scrive chi passa. Si tiene la
+            # data di Wikidata solo quando e' piu' precisa e non contraddice.
+            if p['morte']:
+                if p['morte'][:4] == v['morte'][:4] and len(p['morte']) >= len(v['morte']):
+                    continue
+                if p['morte'] != v['morte']:
+                    contese.append((p['nome'], p['morte'], v['morte'], etichetta))
+            else:
+                recuperati += 1
             p['morte'] = v['morte']
             p['prec_morte'] = 'giorno' if len(v['morte']) == 10 else 'anno'
             p['fonte_morte'] = etichetta
-            recuperati += 1
         print('  %d decessi che Wikidata non registrava' % recuperati)
     print('  %d date di nascita corrette sui registri ufficiali' % len(discordanze))
+    print('  %d date di morte corrette sui registri ufficiali' % len(contese))
+    for c in contese[:10]:
+        print('    %-26s wikidata %s -> %s (%s)' % (c[0], c[1], c[2], c[3]))
     for d in discordanze[:8]:
         print('    %-26s wikidata %s -> %s (%s)' % (d[0], d[1], d[2], d[3]))
 
     fondi_doppioni(persone)
+
+    print('Cariche della hall of fame...')
+    scarica_cariche(persone, list(hof))
 
     for q, p in persone.items():
         p['stato'] = stato_di(p, oggi)

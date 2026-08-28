@@ -114,6 +114,22 @@ function centro(t, c){
 function titolo(t){ return [seg(' ' + tronca(t, W - 2).padEnd(W - 1), 'invg')]; }
 function vuota(){ return [seg('')]; }
 
+/* Manda a capo per parole dentro le 40 colonne: il primo rientro per la riga
+   d'apertura, il secondo per quelle che seguono. */
+function avvolgi(testo, rientro, rientroSeguito){
+  const righe = [];
+  let linea = rientro;
+  String(testo).split(/\s+/).forEach(parola => {
+    if(linea.trim() && (linea + parola).length > W - 1){
+      righe.push(linea);
+      linea = rientroSeguito;
+    }
+    linea += parola + ' ';
+  });
+  if(linea.trim()) righe.push(linea.replace(/\s+$/, ''));
+  return righe;
+}
+
 /* ---------- date, età, precisione ---------- */
 const MESI = ['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'];
 function dataIt(s, prec){
@@ -558,15 +574,33 @@ function scheda(q){
     if(linea.trim()) r.push([seg(linea, 'c')]);
   }
   if(p.x) r.push([seg(' (mai eletto: dentro ma sulla porta)', 'm')]);
+  if(p.cd){
+    r.push(vuota());
+    r.push([seg(' CARICHE', 'invg')]);
+    p.cd.forEach(c => {
+      const anni = c[1] ? (c[2] && c[2] !== c[1] ? c[1] + '-' + c[2] : c[1] + '-') : '';
+      // la carica va a capo da sola, gli anni restano appesi a destra
+      const largo = W - 2 - (anni.length + 1);
+      let riga = '  ', prima = true;
+      c[0].split(' ').forEach(parola => {
+        if((riga + parola).length > (prima ? largo : W - 2)){
+          r.push(prima ? [seg(riga.padEnd(W - anni.length - 1), 'b'), seg(anni, 'c')]
+                       : [seg(riga, 'b')]);
+          riga = '   '; prima = false;
+        }
+        riga += parola + ' ';
+      });
+      if(riga.trim())
+        r.push(prima ? [seg(riga.padEnd(W - anni.length - 1), 'b'), seg(anni, 'c')]
+                     : [seg(riga, 'b')]);
+    });
+  }
   if(p.c){
     r.push(vuota());
-    r.push([seg(' CURSUS HONORUM', 'invg')]);
-    let linea = '  ';
-    p.c.split(/,\s*/).forEach(pezzo => {
-      if((linea + pezzo + ', ').length > W - 1){ r.push([seg(linea, 'b')]); linea = '  '; }
-      linea += pezzo + ', ';
-    });
-    if(linea.trim()) r.push([seg(linea.replace(/,\s*$/, ''), 'b')]);
+    r.push([seg(' CURSUS HONORUM (curato)', 'invg')]);
+    // Un pezzo di cursus puo' da solo essere piu' lungo di una riga, quindi
+    // si va a capo per parole e non per virgole.
+    avvolgi(p.c, '  ', '   ').forEach(l => r.push([seg(l, 'b')]));
   }
   return {righe: r, sottopagine: 1, persona: p};
 }
@@ -602,6 +636,21 @@ function dataDaWikidata(t, prec){
 
 const attendi = ms => new Promise(r => setTimeout(r, ms));
 
+// fetch da solo non ha un tempo massimo: se l'altro capo non risponde si
+// aspetta per sempre, e il tasto resta appeso senza dire niente.
+async function chiedi(url, opzioni, secondi){
+  const taglio = new AbortController();
+  const orologio = setTimeout(() => taglio.abort(), (secondi || 45) * 1000);
+  try {
+    return await fetch(url, Object.assign({signal: taglio.signal}, opzioni || {}));
+  } catch(e){
+    throw (e.name === 'AbortError'
+      ? new Error('nessuna risposta entro ' + (secondi || 45) + ' secondi') : e);
+  } finally {
+    clearTimeout(orologio);
+  }
+}
+
 // L'endpoint pubblico di Wikidata e' generoso ma capriccioso: ogni tanto
 // risponde 429 o 502 e basta riprovare tra qualche secondo.
 async function interroga(qids, tentativi){
@@ -612,10 +661,10 @@ async function interroga(qids, tentativi){
   for(let i = 0; i < (tentativi || 4); i++){
     if(i) await attendi(2500 * i);
     try {
-      const r = await fetch(ENDPOINT, {method: 'POST', headers: {
+      const r = await chiedi(ENDPOINT, {method: 'POST', headers: {
           'Accept': 'application/sparql-results+json',
           'Content-Type': 'application/x-www-form-urlencoded'},
-        body: 'query=' + encodeURIComponent(query)});
+        body: 'query=' + encodeURIComponent(query)}, 45);
       if(!r.ok){ ultimo = new Error('Wikidata ha risposto ' + r.status); continue; }
       const j = await r.json();
       return j.results.bindings.map(b => ({
@@ -623,6 +672,31 @@ async function interroga(qids, tentativi){
     } catch(e){ ultimo = e; }
   }
   throw ultimo;
+}
+
+// La Camera risponde anche alle chiamate del browser (il Senato no, non manda
+// le intestazioni che servono). Le si chiede chi e' morto di recente, e la
+// risposta si aggancia per identificativo: nessun nome da riaccoppiare qui.
+const CAMERA = 'https://dati.camera.it/sparql';
+
+async function interrogaCamera(dal){
+  const query = 'PREFIX foaf: <http://xmlns.com/foaf/0.1/> ' +
+    'PREFIX bio: <http://purl.org/vocab/bio/0.1/> ' +
+    'SELECT ?pers ?morte WHERE { ?pers a foaf:Person ; bio:Death ?d . ' +
+    '?d bio:date ?morte . FILTER(STR(?morte) > "' + dal + '") }';
+  const u = CAMERA + '?query=' + encodeURIComponent(query) +
+    '&format=' + encodeURIComponent('application/sparql-results+json');
+  const r = await chiedi(u, {headers: {'Accept': 'application/sparql-results+json'}}, 60);
+  if(!r.ok) throw new Error('la Camera ha risposto ' + r.status);
+  const j = await r.json();
+  const fuori = {};
+  j.results.bindings.forEach(b => {
+    const id = (b.pers.value.split('/p')[1] || '').trim();
+    const g = b.morte.value.trim();
+    if(id && /^\d{8}$/.test(g))
+      fuori[id] = g.slice(0,4) + '-' + g.slice(4,6) + '-' + g.slice(6,8);
+  });
+  return fuori;
 }
 
 async function controllaOra(){
@@ -636,14 +710,30 @@ async function controllaOra(){
     for(let i = 0; i < daVedere.length; i += 250) lotti.push(daVedere.slice(i, i + 250));
     const trovati = [];
     for(let i = 0; i < lotti.length; i++){
-      avanzamento.messaggio = 'lotto ' + (i + 1) + ' di ' + lotti.length +
-        ' (Wikidata e’ lento, abbi pazienza)';
+      avanzamento.messaggio = 'Wikidata, gruppo ' + (i + 1) + ' di ' + lotti.length;
       disegna();
       (await interroga(lotti[i])).forEach(r => {
         const d = dataDaWikidata(r.t, r.prec);
         trovati.push({q: r.q, d: d[0], dp: d[1]});
       });
     }
+    // Secondo giro, sul registro della Camera: due anni indietro, perche' un
+    // decesso puo' essere registrato parecchio dopo che e' avvenuto.
+    const inizio = new Date(DATI.generato);
+    inizio.setFullYear(inizio.getFullYear() - 2);
+    avanzamento.messaggio = 'ora il registro della Camera';
+    disegna();
+    try {
+      const registro = await interrogaCamera(
+        inizio.toISOString().slice(0,10).replace(/-/g, ''));
+      viventi.concat(ignoti).forEach(p => {
+        if(p.ci && registro[p.ci]) trovati.push({q: p.q, d: registro[p.ci], dp: 'giorno'});
+      });
+    } catch(e){
+      // Se la Camera non risponde resta comunque valido il giro su Wikidata.
+      avanzamento.camera = e.message;
+    }
+
     const cambi = trovati.filter(c => perQid[c.q] && !perQid[c.q].d);
     applicaCambi(cambi);
     ricalcola();
@@ -666,6 +756,8 @@ PAGINE[600] = () => {
   if(avanzamento.fase === 'fermo'){
     r.push([seg(' Rilegge lo stato di ' + (viventi.length + ignoti.length) +
                 ' persone', 'c')]);
+    r.push([seg(' su Wikidata e sul registro della', 'c')]);
+    r.push([seg(' Camera dei deputati,', 'c')]);
     r.push([seg(' e segna chi se n’è andato dopo', 'c')]);
     r.push([seg(' il ' + dataIt(DATI.generato) + '.', 'c')]);
     r.push(vuota());
@@ -701,6 +793,11 @@ PAGINE[600] = () => {
                 seg(dataIt(p.d, p.dp).padStart(12), 'r')]);
       });
     }
+  }
+  if(avanzamento.camera){
+    r.push(vuota());
+    r.push([seg(' la Camera non ha risposto:', 'd')]);
+    r.push([seg(' ' + tronca(avanzamento.camera, W - 2), 'd')]);
   }
   if(ultimoControllo){
     r.push(vuota());
