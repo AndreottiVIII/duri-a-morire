@@ -542,6 +542,8 @@ function scheda(q){
   r.push(vuota());
   r.push(sxdx(' Nato', dataIt(p.b, p.bp), 'b', 'c'));
   if(p.d) r.push(sxdx(' Morto', dataIt(p.d, p.dp), 'b', 'r'));
+  // quando la morte non viene da Wikidata vale la pena dire chi l'ha registrata
+  if(p.fd) r.push([seg(' via ' + tronca(p.fd, W - 6), 'd')]);
   const e = eta(p);
   if(e !== null) r.push(sxdx(p.d ? ' Aveva' : ' Ha', e + ' anni', 'b', 'g'));
   if(p.p) r.push(sxdx(' Partito', p.p, 'b', 'c'));

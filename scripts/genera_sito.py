@@ -135,6 +135,8 @@ def compatta(p):
         d['x'] = 1
     if p.get('cursus'):
         d['c'] = p['cursus']
+    if p.get('fonte_morte'):
+        d['fd'] = p['fonte_morte']
     return d
 
 

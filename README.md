@@ -37,8 +37,14 @@ nascita, altrimenti si finisce per seppellire un vivo al posto del suo omonimo
 deputato del Regno. Gli aggiornamenti vengono pubblicati senza approvazione
 manuale.
 
-Il Senato non ha un equivalente raggiungibile: i senatori restano coperti dalla
-sola Wikidata, ed è li' che restano i buchi.
+Terzo controllo, dall'altra parte del Parlamento: gli open data del **Senato**,
+che la Camera per forza di cose ignora. Ne aggiunge altri 9 — pochi perché molti
+senatori di quegli anni erano stati prima deputati, e la Camera li aveva già
+coperti.
+
+In tutto: 157 persone che risultavano vive e non lo erano. I viventi scendono da
+913 a 805, e i dispersi da 53 a 4. Sulla scheda di ognuno c'è scritto da quale
+registro arriva la data.
 
 **Estetica.** Televideo RAI. Le pagine numerate non sono decorazione: sono il
 sistema di navigazione, e sono la risposta al problema di far scorrere 897 nomi.
@@ -51,9 +57,9 @@ né account. Poi, se piace, lo stesso repo su hosting gratuito con un job nottur
 | | |
 |---|---|
 | Censiti in tutto | 4.616 |
-| Viventi | 810 |
-| Deceduti | 3.798 |
-| Sorte ignota | 8 |
+| Viventi | 805 |
+| Deceduti | 3.807 |
+| Sorte ignota | 4 |
 
 La Costituente e la I legislatura sono estinte al completo: l'ultimo costituente
 è stato Emilio Colombo, morto il 24 giugno 2013.
@@ -64,6 +70,7 @@ e la colonna resta vuota invece di inventarselo.
 ## Script
 
 - `scripts/wd.py` — utility per Wikidata (API di ricerca + SPARQL)
+- `scripts/camera.py`, `scripts/senato.py` — i registri dei decessi ufficiali
 - `scripts/aggancia_hall_of_fame.py` — collega i 66 nomi curati ai record Wikidata
 - `scripts/scarica_elenco.py` — scarica l'elenco grande in `data/elenco.json`
 - `scripts/genera_sito.py` + `scripts/modello.html` — costruiscono `sito/index.html`

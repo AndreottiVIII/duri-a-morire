@@ -3730,8 +3730,8 @@
    "nome": "Aldo Gregorelli",
    "nascita": "1937-07-24",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2024-02-24",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -3741,7 +3741,8 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "fonte_morte": "Senato",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -7020,8 +7021,8 @@
    "nome": "Andrea Filippa",
    "nascita": "1926-11-20",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2024-01-04",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Filippa%20V.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Andrea_Filippa_(politico)",
    "mandati": [
@@ -7034,7 +7035,8 @@
    "partiti": [
     "Partito Socialista Italiano di Unità Proletaria"
    ],
-   "stato": "vivente",
+   "fonte_morte": "Senato",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -11070,8 +11072,8 @@
    "nome": "Antonio Caruso",
    "nascita": "1905-06-01",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1987-10-17",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -11084,7 +11086,8 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
-   "stato": "ignoto",
+   "fonte_morte": "Senato",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -21335,8 +21338,8 @@
    "nome": "Carmelo Latino",
    "nascita": "1926-01-18",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2019-03-27",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Carmelo%20Latino.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Carmelo_Latino",
    "mandati": [
@@ -21348,7 +21351,8 @@
    "partiti": [
     "Partito Socialista Democratico Italiano"
    ],
-   "stato": "vivente",
+   "fonte_morte": "Senato",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -31534,8 +31538,8 @@
    "nome": "Enzo Zotti",
    "nascita": "1933-07-13",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2024-11-26",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Enzo%20Zotti%20XI.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Enzo_Zotti",
    "mandati": [
@@ -31547,7 +31551,8 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
-   "stato": "vivente",
+   "fonte_morte": "Senato",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -50426,8 +50431,8 @@
    "nome": "Giovanni De Gasperis",
    "nascita": "1896-09-18",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1984-01-23",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giovanni%20De%20Gasperis.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Giovanni_De_Gasperis",
    "mandati": [
@@ -50439,7 +50444,8 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
-   "stato": "ignoto",
+   "fonte_morte": "Senato",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -58943,8 +58949,8 @@
    "nome": "Giuseppe Pepe",
    "nascita": "1908-11-10",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1987-02-18",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": "https://it.wikipedia.org/wiki/Giuseppe_Pepe_(politico)",
    "mandati": [
@@ -58956,7 +58962,8 @@
    "partiti": [
     "Movimento Sociale Italiano"
    ],
-   "stato": "ignoto",
+   "fonte_morte": "Senato",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -60550,8 +60557,8 @@
    "nome": "Giuseppe Vignolo",
    "nascita": "1926-11-04",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2021-08-11",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giuseppe%20Vignolo.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Giuseppe_Vignolo",
    "mandati": [
@@ -60565,7 +60572,8 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
-   "stato": "vivente",
+   "fonte_morte": "Senato",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -81801,8 +81809,8 @@
    "nome": "Nicola De Falco",
    "nascita": "1910-08-04",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1994-07-08",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": "https://it.wikipedia.org/wiki/Nicola_De_Falco",
    "mandati": [
@@ -81815,7 +81823,8 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
-   "stato": "ignoto",
+   "fonte_morte": "Senato",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
