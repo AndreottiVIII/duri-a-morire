@@ -341,11 +341,12 @@ def main():
     alias = leggi_json('alias_registri.json')
     for etichetta, modulo in [('Camera dei deputati', camera), ('Senato', senato)]:
         print('Incrocio con gli open data: %s...' % etichetta)
-        try:
-            reg = modulo.registro()
-        except Exception as e:
-            print('  non raggiungibile (%s): si prosegue senza.' % e)
-            continue
+        # Nessun proseguimento al buio: senza registro il sito perde i morti
+        # che solo quel registro conosce, e li rimanda fra i vivi. Meglio non
+        # pubblicare niente che pubblicare una resurrezione di massa.
+        reg = modulo.registro()
+        if not reg:
+            raise SystemExit('%s: registro vuoto, mi fermo qui.' % etichetta)
         indice = modulo.indice_per_data(reg)
         per_mandato = modulo.indice_per_mandato(reg)
         recuperati = 0

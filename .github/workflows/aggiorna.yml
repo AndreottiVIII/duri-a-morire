@@ -38,8 +38,11 @@ jobs:
       - name: Genera il sito
         run: python scripts/genera_sito.py
 
+      # novita.py esce con errore se i morti tornano vivi in massa: vuol dire
+      # che una fonte e' caduta, e il lavoro si ferma prima di pubblicare.
       - name: Registra le novita'
         run: |
+          set -e
           MESSAGGIO="$(python scripts/novita.py)"
           if [ -z "$MESSAGGIO" ]; then
             echo "Nessuna novita': sono ancora tutti al loro posto."

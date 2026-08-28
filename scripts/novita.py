@@ -34,6 +34,17 @@ def main():
         elif vecchio[q][0] != stato:
             (morti if stato == 'deceduto' else tornati).append(nome)
 
+    # Un morto non torna vivo. Se succede in massa vuol dire che una fonte e'
+    # caduta e sta pubblicando un elenco monco: si ferma tutto.
+    if len(tornati) > 3:
+        sys.stderr.write(
+            'FERMO TUTTO: %d persone tornerebbero in vita.\n'
+            'Una fonte e\' caduta, e pubblicare adesso peggiorerebbe\n'
+            'il sito invece di aggiornarlo.\n' % len(tornati))
+        for nome in sorted(tornati)[:10]:
+            sys.stderr.write('  %s\n' % nome)
+        raise SystemExit(1)
+
     pezzi = []
     if morti:
         pezzi.append('ci lascia ' + ', '.join(sorted(morti)[:5])

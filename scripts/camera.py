@@ -99,12 +99,50 @@ def id_persona(uri_deputato):
     return m.group(1) if m else None
 
 
+ISTANTANEA = os.path.join(QUI, '..', 'data', 'registri', 'camera.json')
+
+
+def _salva_istantanea(dati):
+    os.makedirs(os.path.dirname(ISTANTANEA), exist_ok=True)
+    json.dump(dati, open(ISTANTANEA, 'w', encoding='utf-8'), ensure_ascii=False)
+
+
+def _istantanea():
+    """L'ultima copia buona del registro, versionata nel repository.
+
+    Serve da rete: se l'endpoint non risponde, il lavoro notturno deve poter
+    contare sull'ultimo elenco noto invece di pubblicare un sito peggiore. E'
+    gia' successo: la Camera non ha risposto dai server di GitHub e sono stati
+    pubblicati centocinquantuno morti tornati vivi.
+    """
+    if os.path.exists(ISTANTANEA):
+        return json.load(open(ISTANTANEA, encoding='utf-8'))
+    return None
+
+
 def registro(usa_cache=True):
-    """{chiave nome: {mandato: {'morte':…, 'nascita':…, 'id':…}}}"""
+    """{chiave nome: {mandato: {'morte':…, 'nascita':…, 'id':…}}}
+
+    Se l'endpoint tace si ripiega sulla copia versionata invece di restituire
+    il vuoto. Un registro vecchio di un giorno vale incomparabilmente piu' di
+    un registro assente, che rimanderebbe fra i vivi tutti i morti che solo
+    lui conosce.
+    """
     if usa_cache and os.path.exists(CACHE):
         return json.load(open(CACHE, encoding='utf-8'))
+    try:
+        return _costruisci()
+    except Exception as e:
+        vecchia = _istantanea()
+        if vecchia is None:
+            raise
+        sys.stderr.write('  la Camera non risponde (%s):\n'
+                         '  uso la copia versionata, %d voci.\n'
+                         % (e, len(vecchia)))
+        return vecchia
 
-    sys.stderr.write('  decessi registrati...\n')
+
+def _costruisci():
     def identificativo(r):
         pid = (r['pers']['value'].rsplit('/p', 1) + [''])[1]
         return pid if pid.isdigit() else None
@@ -140,8 +178,18 @@ def registro(usa_cache=True):
                          % (mandato, len(righe), con_morte))
         time.sleep(0.5)
 
+    # Una risposta molto piu' magra del solito e' un guasto travestito da
+    # successo: meglio l'ultima copia buona che un elenco dimezzato.
+    vecchia = _istantanea()
+    if vecchia and len(fuori) < len(vecchia) * 0.8:
+        sys.stderr.write('  ATTENZIONE: solo %d voci contro le %d note: '
+                         'uso la copia versionata.\n'
+                         % (len(fuori), len(vecchia)))
+        return vecchia
+
     os.makedirs(os.path.dirname(CACHE), exist_ok=True)
     json.dump(fuori, open(CACHE, 'w', encoding='utf-8'), ensure_ascii=False)
+    _salva_istantanea(fuori)
     return fuori
 
 
