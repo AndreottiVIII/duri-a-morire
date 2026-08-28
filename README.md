@@ -3,6 +3,12 @@
 Chi è ancora vivo, tra i parlamentari e i ministri della Prima Repubblica.
 Si aggiorna da solo. Ha il sapore del Televideo.
 
+**https://andreottiviii.github.io/duri-a-morire/**
+
+Ogni notte un lavoro automatico riscarica i dati da Wikidata, ricostruisce il
+sito e lo ripubblica. Committa solo quando è cambiato qualcosa di vero, così la
+cronologia del repository è il registro di chi se n'è andato e quando.
+
 ## Decisioni prese
 
 **Ambito.** Assemblea Costituente (1946) più le legislature I–XI (1948–1994).
