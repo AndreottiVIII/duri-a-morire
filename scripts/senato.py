@@ -30,6 +30,35 @@ SELECT DISTINCT ?nome ?cognome ?leg ?nascita ?morte WHERE {
 """
 
 
+# Il gruppo con cui il senatore entro' in quella legislatura. Un gruppo cambia
+# nome negli anni, quindi fra le sue denominazioni si sceglie quella in vigore
+# il giorno dell'adesione: nell'ottava legislatura il MSI e' "MSI - DN", non
+# quello che si chiamera' poi.
+Q_ADESIONI = """
+PREFIX osr: <http://dati.senato.it/osr/>
+PREFIX ocd: <http://dati.camera.it/ocd/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+SELECT ?nome ?cognome ?gr ?inizio WHERE {
+  ?s a osr:Senatore ; foaf:firstName ?nome ; foaf:lastName ?cognome ;
+     ocd:aderisce ?a .
+  ?a osr:legislatura %d ; osr:gruppo ?gr ; osr:inizio ?inizio .
+}
+"""
+
+# Le denominazioni si chiedono a parte. Chiedendole insieme alle adesioni si
+# moltiplicano fra loro, e la risposta sbatte contro il tetto di diecimila
+# righe dell'endpoint: la prima legislatura da sola lo sfondava.
+Q_DENOMINAZIONI = """
+PREFIX osr: <http://dati.senato.it/osr/>
+SELECT ?gr ?titolo ?breve ?dInizio ?dFine WHERE {
+  ?gr osr:denominazione ?d . ?d osr:titolo ?titolo .
+  OPTIONAL { ?d osr:titoloBreve ?breve }
+  OPTIONAL { ?d osr:inizio ?dInizio }
+  OPTIONAL { ?d osr:fine ?dFine }
+}
+"""
+
+
 def interroga(query, tentativi=4):
     ultimo = None
     for i in range(tentativi):
@@ -96,8 +125,56 @@ def registro(usa_cache=True):
         return vecchia
 
 
+def _gruppi():
+    """{(chiave nome, mandato): sigla} col gruppo d'ingresso in quella legislatura."""
+    import camera
+
+    # nome del gruppo valido in un certo giorno
+    denominazioni = {}
+    for r in interroga(Q_DENOMINAZIONI):
+        gr = r['gr']['value']
+        titolo = (r.get('breve', {}).get('value')
+                  or r.get('titolo', {}).get('value') or '').strip()
+        if titolo:
+            denominazioni.setdefault(gr, []).append((
+                (r.get('dInizio', {}).get('value') or '')[:10],
+                (r.get('dFine', {}).get('value') or '')[:10], titolo))
+
+    def come_si_chiamava(gr, giorno):
+        candidate = denominazioni.get(gr) or []
+        for da, a, titolo in candidate:
+            if da and giorno and da > giorno:
+                continue
+            if a and giorno and a < giorno:
+                continue
+            return titolo
+        return candidate[0][2] if candidate else None
+
+    scelte = {}
+    for numero, mandato in sorted(LEGISLATURE.items()):
+        righe = interroga(Q_ADESIONI % numero)
+        if len(righe) >= 10000:
+            raise RuntimeError('legislatura %d troncata' % numero)
+        for r in righe:
+            k = camera.chiave(r.get('nome', {}).get('value'),
+                              r.get('cognome', {}).get('value'))
+            adesione = (r.get('inizio', {}).get('value') or '')[:10]
+            if not k:
+                continue
+            titolo = come_si_chiamava(r['gr']['value'], adesione)
+            if not titolo:
+                continue
+            voce = scelte.get((k, mandato))
+            # a parita', vince l'adesione piu' antica: e' quella d'ingresso
+            if not voce or adesione < voce[0]:
+                scelte[(k, mandato)] = (adesione, titolo)
+        time.sleep(0.3)
+    return {k: v[1] for k, v in scelte.items()}
+
+
 def _costruisci():
     import camera
+    gruppi = _gruppi()
     fuori = {}
     for r in interroga(Q_SENATORI):
         mandato = LEGISLATURE.get(int(float(r['leg']['value'])))
@@ -107,9 +184,11 @@ def _costruisci():
                           r.get('cognome', {}).get('value'))
         if not k:
             continue
-        fuori.setdefault(k, {})[mandato] = {
-            'morte': data_iso(r.get('morte', {}).get('value')),
-            'nascita': data_iso(r.get('nascita', {}).get('value'))}
+        voce = {'morte': data_iso(r.get('morte', {}).get('value')),
+                'nascita': data_iso(r.get('nascita', {}).get('value'))}
+        if (k, mandato) in gruppi:
+            voce['gruppo'] = gruppi[(k, mandato)]
+        fuori.setdefault(k, {})[mandato] = voce
     # Una risposta molto piu' magra del solito e' un guasto travestito da
     # successo: meglio l'ultima copia buona che un elenco dimezzato.
     vecchia = _istantanea()

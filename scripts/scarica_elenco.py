@@ -368,6 +368,11 @@ def main():
                 p['prec_nascita'] = 'giorno' if len(v['nascita']) == 10 else 'anno'
             if v.get('id'):
                 p['id_camera'] = v['id']
+            # Il gruppo parlamentare e' il partito di allora. Wikidata elenca
+            # anche le militanze successive, e per Vittorio Sgarbi finiva per
+            # dire Forza Italia di un deputato che sedeva col PLI.
+            if v.get('gruppo') and not p.get('gruppo_eletto'):
+                p['gruppo_eletto'] = v['gruppo']
             if v.get('uri'):
                 p['id_senato'] = v['uri']
             if not v.get('morte'):

@@ -58,6 +58,29 @@ SELECT DISTINCT ?pers ?nascita WHERE {
 """
 
 
+# Il gruppo parlamentare e' il partito di allora, non quello di poi: Vittorio
+# Sgarbi su Wikidata risulta Forza Italia, ma nell'XI legislatura sedeva col
+# gruppo del Partito Liberale Italiano, ed e' quello che conta qui.
+Q_GRUPPI = """
+PREFIX ocd: <http://dati.camera.it/ocd/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?dep ?g WHERE {
+  ?dep a ocd:deputato ;
+       ocd:rif_leg <http://dati.camera.it/ocd/legislatura.rdf/%s> ;
+       ocd:aderisce ?a .
+  ?a rdfs:label ?g .
+}
+"""
+
+
+def spezza_gruppo(etichetta):
+    """'PARTITO LIBERALE ITALIANO (06.05.1992-14.04.1994)' -> nome e inizio."""
+    m = re.match(r'^(.*?)\s*\((\d{2})\.(\d{2})\.(\d{4})', etichetta or '')
+    if not m:
+        return (etichetta or '').strip(), ''
+    return m.group(1).strip(), m.group(4) + m.group(3) + m.group(2)
+
+
 def interroga(query, tentativi=4):
     ultimo = None
     for i in range(tentativi):
@@ -162,6 +185,17 @@ def _costruisci():
 
     fuori = {}
     for mandato, codice in LEGISLATURE:
+        # Il gruppo di elezione: se qualcuno ne ha cambiati durante la
+        # legislatura si tiene il primo, che e' quello con cui e' entrato.
+        gruppi = {}
+        for r in interroga(Q_GRUPPI % codice):
+            pid = id_persona(r['dep']['value'])
+            nome_g, inizio = spezza_gruppo(r['g']['value'])
+            if not pid or not nome_g:
+                continue
+            if pid not in gruppi or inizio < gruppi[pid][1]:
+                gruppi[pid] = (nome_g, inizio)
+
         righe = interroga(Q_DEPUTATI % codice)
         con_morte = 0
         for r in righe:
@@ -171,6 +205,8 @@ def _costruisci():
                 continue
             voce = dict(dati_persona.get(pid) or {'morte': None, 'nascita': None})
             voce['id'] = pid
+            if pid in gruppi:
+                voce['gruppo'] = gruppi[pid][0]
             fuori.setdefault(k, {})[mandato] = voce
             if voce['morte']:
                 con_morte += 1

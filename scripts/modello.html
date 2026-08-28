@@ -91,6 +91,8 @@ const W = 40, RIGHE_LISTA = 18;
 const P = DATI.persone;
 const perQid = {}; P.forEach(p => perQid[p.q] = p);
 const OGGI = new Date();
+const NOMI_PARTITI = DATI.nomi_partiti || {};
+const perEsteso = s => NOMI_PARTITI[s] || '';
 
 /* ---------- costruzione delle righe, rigorosamente a 40 colonne ---------- */
 const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
@@ -341,6 +343,8 @@ PAGINE[133] = () => {
   ordinate.forEach(o => {
     const largo = 16, vivi = Math.round(o[2] / max * largo);
     const tot = Math.max(1, Math.round(o[1] / max * largo));
+    const esteso = perEsteso(o[0]);
+    if(esteso) r.push([seg('  ' + tronca(esteso, W - 3), 'd')]);
     r.push([seg(' ' + tronca(o[0], 6).padEnd(7), 'b'),
             seg('█'.repeat(vivi), 'v'),
             seg('█'.repeat(Math.max(0, tot - vivi)), 'd'),
@@ -475,14 +479,25 @@ function istogramma(coppie, larghezza){
   });
 }
 
-PAGINE[210] = () => {
+/* Barra piu' riga con la denominazione per esteso: una sigla sola dice poco a
+   chi non ha vissuto quegli anni, e 'FUQ' o 'PDIUM' non le indovina nessuno. */
+function istogrammaConNomi(coppie, larghezza){
+  const fuori = [];
+  istogramma(coppie, larghezza).forEach((riga, i) => {
+    fuori.push(riga);
+    const esteso = perEsteso(coppie[i][0]);
+    if(esteso) fuori.push([seg('  ' + tronca(esteso, W - 3), 'd')]);
+  });
+  return fuori;
+}
+
+PAGINE[210] = (sub) => {
   const conta = {};
   viventi.forEach(p => { if(p.p) conta[p.p] = (conta[p.p] || 0) + 1; });
   const ordinate = Object.keys(conta).map(k => [k, conta[k], 'partito:' + k])
-    .sort((a, b) => b[1] - a[1]).slice(0, 14);
-  return {righe: [titolo('SOPRAVVISSUTI PER PARTITO'),
-    [seg(' chi è ancora vivo tocca un numero per i nomi', 'c')], vuota()]
-    .concat(istogramma(ordinate, 18)), sottopagine: 1};
+    .sort((a, b) => b[1] - a[1]);
+  return paginaRighe(() => istogrammaConNomi(ordinate, 18),
+    'SOPRAVVISSUTI PER PARTITO', 'tocca un numero per i nomi')(sub);
 };
 
 PAGINE[220] = () => {
@@ -530,7 +545,10 @@ PAGINE[240] = paginaRighe(() => {
     .sort((a, b) => gruppi[b].length - gruppi[a].length)
     .forEach(k => {
       const gente = gruppi[k], vivi = gente.filter(p => p.s === 1);
+      const esteso = perEsteso(k);
       righe.push([seg(' ' + tronca(k, 7).padEnd(8), 'g'),
+                  seg(tronca(esteso, W - 10), 'b')]);
+      righe.push([seg('   '),
         vivi.length
           ? {t: ancoraVivi(vivi.length), c: 'c', el: 'partito:' + k}
           : seg('ESTINTO', 'r')]);
@@ -587,14 +605,13 @@ PAGINE[260] = () => {
   return {righe: r, sottopagine: 1};
 };
 
-PAGINE[261] = () => {
+PAGINE[261] = (sub) => {
   const conta = {};
   defunti.forEach(p => { if(p.p) conta[p.p] = (conta[p.p] || 0) + 1; });
   const ordinate = Object.keys(conta).map(k => [k, conta[k], 'mortipartito:' + k])
-    .sort((a, b) => b[1] - a[1]).slice(0, 14);
-  return {righe: [titolo('DEFUNTI PER PARTITO'),
-    [seg(' tocca un numero per i nomi', 'c')], vuota()]
-    .concat(istogramma(ordinate, 18)), sottopagine: 1};
+    .sort((a, b) => b[1] - a[1]);
+  return paginaRighe(() => istogrammaConNomi(ordinate, 18),
+    'DEFUNTI PER PARTITO', 'tocca un numero per i nomi')(sub);
 };
 
 PAGINE[300] = paginaLista(
@@ -651,7 +668,10 @@ function scheda(q){
   if(p.fd) r.push([seg(' via ' + tronca(p.fd, W - 6), 'd')]);
   const e = eta(p);
   if(e !== null) r.push(sxdx(p.d ? ' Aveva' : ' Ha', e + ' anni', 'b', 'g'));
-  if(p.p) r.push(sxdx(' Partito', p.p, 'b', 'c'));
+  if(p.p){
+    r.push(sxdx(' Partito', p.p, 'b', 'c'));
+    if(perEsteso(p.p)) r.push([seg('  ' + tronca(perEsteso(p.p), W - 3), 'd')]);
+  }
   r.push(vuota());
   const leg = legislatureDi(p), gov = governiDi(p);
   if(leg.length){
@@ -920,19 +940,23 @@ PAGINE[600] = () => {
 function paginaFiltrata(chiave){
   const i = chiave.indexOf(':');
   const tipo = chiave.slice(0, i), valore = chiave.slice(i + 1);
-  let elenco = [], intestazione = 'ELENCO';
+  let elenco = [], intestazione = 'ELENCO', esteso = '';
   if(tipo === 'mandato'){
     elenco = perNascita(perMandato(valore).filter(p => p.s === 1));
+    esteso = perEsteso(valore);
     intestazione = 'VIVI — ' + valore;
   } else if(tipo === 'partito'){
     elenco = perNascita(viventi.filter(p => p.p === valore));
+    esteso = perEsteso(valore);
     intestazione = 'VIVI — ' + valore;
   } else if(tipo === 'hof'){
     elenco = perNascita(hof.filter(p => p.p === valore && p.s === 1));
+    esteso = perEsteso(valore);
     intestazione = 'HALL OF FAME — ' + valore;
   } else if(tipo === 'mortipartito'){
     elenco = defunti.filter(p => p.p === valore)
       .sort((a, b) => (a.d || '') < (b.d || '') ? 1 : -1);
+    esteso = perEsteso(valore);
     intestazione = 'DEFUNTI — ' + valore;
   } else if(tipo === 'morti'){
     elenco = defunti.filter(p => anno(p.d) === +valore)
@@ -940,7 +964,8 @@ function paginaFiltrata(chiave){
     intestazione = 'MORTI NEL ' + valore;
   }
   const quante = elenco.length === 1 ? '1 persona' : elenco.length + ' persone';
-  return paginaLista(() => elenco, intestazione, quante);
+  return paginaLista(() => elenco, intestazione,
+                     esteso ? tronca(esteso, W - 14) + ', ' + quante : quante);
 }
 
 /* ---------- motore ---------- */

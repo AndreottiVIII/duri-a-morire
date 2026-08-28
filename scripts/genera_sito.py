@@ -61,6 +61,150 @@ SIGLE = [
     ('Movimento per la Democrazia', 'RETE'),
 ]
 
+# I gruppi parlamentari come li scrivono i registri. Vanno prima delle SIGLE
+# generiche perche' certi nomi ingannano: il gruppo "PARTITO SOCIALISTA
+# ITALIANO - PARTITO SOCIALISTA DEMOCRATICO ITALIANO UNIFICATI" contiene per
+# intero il nome del PSDI, ma era il PSU.
+GRUPPI = [
+    ('PARTITO SOCIALISTA ITALIANO - PARTITO SOCIALISTA DEMOCRATICO', 'PSU'),
+    ('PSI-PSDI', 'PSU'),
+    ('PARTITO SOCIALISTA UNITARIO', 'PSU'),
+    ("PARTITO SOCIALISTA ITALIANO DI UNITA' PROLETARIA", 'PSIUP'),
+    ('PARTITO SOCIALISTA DEI LAVORATORI', 'PSLI'),
+    ('PARTITO SOCIALISTA LAVORATORI', 'PSLI'),
+    ("UNITA' SOCIALISTA", 'US'),
+    ('PARTITO SOCIALISTA DEMOCRATICO', 'PSDI'),
+    ('PARTITO SOCIALISTA ITALIANO', 'PSI'),
+    ('PARTITO SOCIALISTA', 'PSI'),
+    ('DEMOCRATICO CRISTIANO', 'DC'),
+    ('DEMOCRAZIA CRISTIANA', 'DC'),
+    ('CENTRO CRISTIANO DEMOCRATICO', 'CCD'),
+    ('COMUNISTA - PDS', 'PDS'),
+    ('RIFONDAZIONE COMUNISTA', 'PRC'),
+    ('DP-COMUNISTI', 'DP'),
+    ('DEMOCRAZIA PROLETARIA', 'DP'),
+    ('PARTITO COMUNISTA ITALIANO', 'PCI'),
+    ('COMUNISTA', 'PCI'),
+    ('SINISTRA INDIPENDENTE', 'SI'),
+    ('SIN. IND.', 'SI'),
+    ('MSI-DESTRA NAZIONALE', 'MSI'),
+    ('MOVIMENTO SOCIALE ITALIANO', 'MSI'),
+    ('MSI - DN', 'MSI'),
+    ('MSI', 'MSI'),
+    ('COSTITUENTE DI DESTRA', 'DN'),
+    ('DEMOCRAZIA NAZIONALE', 'DN'),
+    ("FRONTE LIBERALE DEMOCRATICO DELL'UOMO QUALUNQUE", 'FUQ'),
+    ('UOMO QUALUNQUE', 'FUQ'),
+    ('PARTITO LIBERALE ITALIANO', 'PLI'),
+    ('LIBERALE', 'PLI'),
+    ('PARTITO REPUBBLICANO', 'PRI'),
+    ('REPUBBLICANO', 'PRI'),
+    ("PARTITO DEMOCRATICO ITALIANO DI UNITA'", 'PDIUM'),
+    ('PARTITO DEMOCRATICO ITALIANO', 'PDI'),
+    ('PARTITO NAZIONALE MONARCHICO', 'PNM'),
+    ('PARTITO MONARCHICO POPOLARE', 'PMP'),
+    ('UNIONE DEMOCRATICA NAZIONALE', 'UDN'),
+    ("BLOCCO NAZIONALE DELLA LIBERTA'", 'BNL'),
+    ('DEMOCRAZIA DEL LAVORO', 'DL'),
+    ('MOVIMENTO PER LA DEMOCRAZIA', 'RETE'),
+    ('PARTITO RADICALE', 'PR'),
+    ('RADICALE', 'PR'),
+    ('LEGA NORD', 'LN'),
+    ('FEDERALISTA EUROPEO', 'FE'),
+    ('UNIONE NAZIONALE', 'UN'),
+    ('AUTONOMISTA', 'AUT'),
+    ('VERDE', 'VERDI'),
+    ('VERDI', 'VERDI'),
+    ('SUDTIROLER', 'SVP'),
+    ('MISTO', 'MISTO'),
+    # forme abbreviate e puntate con cui il Senato scrive certi gruppi
+    ('RIF.COM', 'PRC'),
+    ('DEM. SIN', 'DS'),
+    ('LIB. SOC. REP', 'LSR'),
+    ('FED. EUR', 'FE'),
+    ('PSDI - LIB', 'PSDI'),
+]
+
+
+def sigla_gruppo(gruppo):
+    """Dal nome del gruppo parlamentare alla sigla.
+
+    Il Senato certi gruppi li scrive gia' abbreviati ('PLI', 'PSIUP'): quelle
+    vanno lasciate stare, non ridotte alla loro iniziale come farebbe
+    l'acronimo automatico.
+    """
+    g = (gruppo or '').upper().replace('’', "'")
+    if not g:
+        return ''
+    for lungo, corto in GRUPPI:
+        if lungo in g:
+            return corto
+    compatto = re.sub(r'[^A-Z]', '', g)
+    if len(compatto) <= 6 and len(g) <= 8:
+        return compatto
+    return acronimo(gruppo)
+
+
+# Le sigle per esteso. Una sigla sola dice poco a chi non ha vissuto quegli
+# anni, e "FUQ" o "PDIUM" non le indovina nessuno.
+NOMI_PARTITI = {
+    'DC': 'Democrazia Cristiana',
+    'PCI': 'Partito Comunista Italiano',
+    'PSI': 'Partito Socialista Italiano',
+    'MSI': 'Movimento Sociale Italiano',
+    'MISTO': 'Gruppo misto',
+    'PRI': 'Partito Repubblicano Italiano',
+    'PSDI': 'Partito Socialista Democratico Italiano',
+    'PLI': 'Partito Liberale Italiano',
+    'PDS': 'Partito Democratico della Sinistra',
+    'LN': 'Lega Nord',
+    'PSU': 'PSI-PSDI Unificati',
+    'SI': 'Sinistra Indipendente',
+    'PNM': 'Partito Nazionale Monarchico',
+    'PRC': 'Partito della Rifondazione Comunista',
+    'FUQ': "Fronte dell'Uomo Qualunque",
+    'UDN': 'Unione Democratica Nazionale',
+    'VERDI': 'Federazione dei Verdi',
+    'PR': 'Partito Radicale',
+    'PSIUP': "Partito Socialista Italiano di Unita' Proletaria",
+    'PSLI': 'Partito Socialista dei Lavoratori Italiani',
+    'US': "Unita' Socialista",
+    'DP': 'Democrazia Proletaria',
+    'DN': 'Democrazia Nazionale',
+    'PDIUM': "Partito Democratico Italiano di Unita' Monarchica",
+    'PMP': 'Partito Monarchico Popolare',
+    'PDI': 'Partito Democratico Italiano',
+    'BNL': "Blocco Nazionale della Liberta'",
+    'DL': 'Democrazia del Lavoro',
+    'RETE': 'Movimento per la Democrazia: La Rete',
+    'CCD': 'Centro Cristiano Democratico',
+    'FE': 'Federalista Europeo',
+    'UN': 'Unione Nazionale',
+    'AUT': 'Autonomista',
+    'SVP': 'Sudtiroler Volkspartei',
+    'IND.': 'Indipendente',
+    'RAD.': 'Radicali',
+    'LSR': 'Liberale Socialista Repubblicano',
+    'PUPC': "Partito di Unita' Proletaria per il Comunismo",
+    'DS': 'Democratici di Sinistra',
+    'PSDAZ': "Partito Sardo d'Azione",
+    'PSdAz': "Partito Sardo d'Azione",
+    'PdA': "Partito d'Azione",
+    'PDA': "Partito d'Azione",
+    'UV': 'Union Valdotaine',
+    'USCS': 'Unione Siciliana Cristiano Sociale',
+    'PPI': 'Partito Popolare Italiano',
+    'PD': 'Partito Democratico',
+    'FI': 'Forza Italia',
+    'AN': 'Alleanza Nazionale',
+    'PNF': 'Partito Nazionale Fascista',
+    'MIS': 'Movimento Indipendentista Siciliano',
+    'PDLav': 'Partito Democratico del Lavoro',
+    'PCdI': "Partito Comunista d'Italia",
+    'PFR': 'Partito Fascista Repubblicano',
+    'PDL': "Il Popolo della Liberta'",
+}
+
 ORDINE_MANDATI = ['Costituente', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII',
                   'VIII', 'IX', 'X', 'XI', 'Governo Ciampi', 'Governo Dini']
 
@@ -122,8 +266,11 @@ def compatta(p):
         # Per i 66 curati comanda la colonna scritta a mano: e' una scelta
         # editoriale su quale partito li definisca in quegli anni, e Wikidata
         # (che elenca anche le militanze successive) non la puo' rimpiazzare.
-        'p': sigla_curata(p['partito_hof']) if p.get('partito_hof')
-             else sigla(p['partiti']),
+        # Ordine di precedenza: la scelta editoriale sui 66, poi il gruppo
+        # parlamentare di allora, e solo in mancanza di entrambi Wikidata.
+        'p': (sigla_curata(p['partito_hof']) if p.get('partito_hof')
+              else sigla_gruppo(p['gruppo_eletto']) if p.get('gruppo_eletto')
+              else sigla(p['partiti'])),
     }
     if p.get('foto'):
         d['f'] = foto_url(p['foto'])
@@ -163,6 +310,7 @@ def main():
             ['IX', '1983-87'], ['X', '1987-92'], ['XI', '1992-94'],
             ['Governo Ciampi', '1993-94'], ['Governo Dini', '1995-96'],
         ],
+        'nomi_partiti': NOMI_PARTITI,
         'persone': persone,
     }
 
