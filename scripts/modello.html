@@ -404,7 +404,7 @@ const LEGISLATURE_POSSIBILI =
   DATI.legislature.filter(L => L[0].indexOf('Governo') !== 0).length;
 
 PAGINE[250] = classificaLegislature(() => P, 'PIÙ LEGISLATURE DI TUTTI',
-  () => 'su ' + LEGISLATURE_POSSIBILI + ' possibili, dal 1946 al 1994');
+  () => 'vivi in bianco, defunti in grigio');
 
 PAGINE[135] = () => {
   const conCursus = hof.filter(p => p.c)
@@ -450,6 +450,7 @@ PAGINE[200] = () => {
     vocemenu(230, 'L’ULTIMO DEI… (LEGISLATURE)'),
     vocemenu(240, 'L’ULTIMO DEI… (PARTITI)'),
     vocemenu(250, 'PIÙ LEGISLATURE'),
+    vocemenu(260, 'STATISTICHE DEI DEFUNTI'),
   ], sottopagine: 1};
 };
 
@@ -545,6 +546,56 @@ PAGINE[240] = paginaRighe(() => {
     });
   return righe;
 }, 'L’ULTIMO DEI… (PARTITI)', 'minori compresi. tocca un numero.');
+
+// Le statistiche finora guardavano solo chi resta. Ma il grosso dell'elenco
+// sono i tremilaottocento che se ne sono andati, e hanno le loro storie.
+function etaAllaMorte(p){
+  if(!p.d || !p.b) return null;
+  const e = eta(p);
+  return (e !== null && e >= 0 && e < 115) ? e : null;
+}
+
+PAGINE[260] = () => {
+  const conEta = defunti.map(p => [p, etaAllaMorte(p)]).filter(c => c[1] !== null);
+  const media = conEta.reduce((a, c) => a + c[1], 0) / (conEta.length || 1);
+  const ordinati = conEta.slice().sort((a, b) => b[1] - a[1]);
+  const vecchio = ordinati[0], giovane = ordinati[ordinati.length - 1];
+  const scorso = OGGI.getFullYear() - 1;
+  const nelloScorso = defunti.filter(p => anno(p.d) === scorso).length;
+  const r = [
+    titolo('I DEFUNTI'), vuota(),
+    rigaValore('Sono in tutto', defunti.length, 'd', 300),
+    sxdx(' Età media alla morte', media.toFixed(1) + ' anni', 'b', 'c'),
+    sxdx(' Nel ' + scorso, nelloScorso + ' morti', 'b', 'r'),
+    vuota(),
+    [seg(' IL PIÙ LONGEVO', 'invg')],
+    [seg('  '), {t: tronca(vecchio[0].n, 26).padEnd(26), c: 'g', link: vecchio[0].q},
+     seg(String(vecchio[1]).padStart(4), 'g'), seg(' anni', 'g')],
+    [seg('  ' + dataIt(vecchio[0].b, vecchio[0].bp) + ' — ' +
+         dataIt(vecchio[0].d, vecchio[0].dp), 'd')],
+    vuota(),
+    [seg(' IL PIÙ GIOVANE', 'invr')],
+    [seg('  '), {t: tronca(giovane[0].n, 26).padEnd(26), c: 'r', link: giovane[0].q},
+     seg(String(giovane[1]).padStart(4), 'r'), seg(' anni', 'r')],
+    [seg('  ' + dataIt(giovane[0].b, giovane[0].bp) + ' — ' +
+         dataIt(giovane[0].d, giovane[0].dp), 'd')],
+    vuota(),
+    vocemenu(261, 'DEFUNTI PER PARTITO'),
+    vocemenu(220, 'CURVA DI ESTINZIONE'),
+    vocemenu(250, 'PIÙ LEGISLATURE'),
+  ];
+  return {righe: r, sottopagine: 1};
+};
+
+PAGINE[261] = () => {
+  const conta = {};
+  defunti.forEach(p => { if(p.p) conta[p.p] = (conta[p.p] || 0) + 1; });
+  const ordinate = Object.keys(conta).map(k => [k, conta[k], 'mortipartito:' + k])
+    .sort((a, b) => b[1] - a[1]).slice(0, 14);
+  return {righe: [titolo('DEFUNTI PER PARTITO'),
+    [seg(' tocca un numero per i nomi', 'c')], vuota()]
+    .concat(istogramma(ordinate, 18)), sottopagine: 1};
+};
 
 PAGINE[300] = paginaLista(
   () => defunti.filter(p => p.d).sort((a, b) => a.d < b.d ? 1 : -1)
@@ -658,11 +709,15 @@ function leggiSalvati(){
   try { return JSON.parse(localStorage.getItem(CHIAVE_SALVATAGGIO) || 'null'); }
   catch(e){ return null; }
 }
+// REGOLA FERMA: il ricontrollo puo' solo aggiungere morti, mai toglierne.
+// Una data si scrive unicamente dove non ce n'e' gia' una, e nessuno torna
+// dai defunti ai viventi. Se una fonte tace su qualcuno, il silenzio non
+// cancella cio' che un'altra fonte ha gia' certificato.
 function applicaCambi(cambi){
   let n = 0;
   cambi.forEach(c => {
     const p = perQid[c.q];
-    if(p && !p.d){ p.d = c.d; p.dp = c.dp; p.s = 2; p.nuovo = 1; n++; }
+    if(p && !p.d && c.d){ p.d = c.d; p.dp = c.dp; p.s = 2; p.nuovo = 1; n++; }
   });
   return n;
 }
@@ -774,8 +829,18 @@ async function controllaOra(){
     }
 
     const cambi = trovati.filter(c => perQid[c.q] && !perQid[c.q].d);
+    const primaDefunti = defunti.length;
     applicaCambi(cambi);
     ricalcola();
+    // Rete di sicurezza, non dovrebbe scattare mai: se per un difetto il
+    // conto dei defunti scendesse, si ricarica e si perde l'aggiornamento
+    // invece di mostrare gente resuscitata.
+    if(defunti.length < primaDefunti){
+      avanzamento = {fase: 'errore', cambi: [],
+        messaggio: 'il conto dei defunti sarebbe sceso'};
+      disegna();
+      return;
+    }
     ultimoControllo = new Date().toISOString();
     const prima = leggiSalvati();
     try {
@@ -796,9 +861,12 @@ PAGINE[600] = () => {
     r.push([seg(' Rilegge lo stato di ' + (viventi.length + ignoti.length) +
                 ' persone', 'c')]);
     r.push([seg(' su Wikidata e sul registro della', 'c')]);
-    r.push([seg(' Camera dei deputati,', 'c')]);
-    r.push([seg(' e segna chi se n’è andato dopo', 'c')]);
-    r.push([seg(' il ' + dataIt(DATI.generato) + '.', 'c')]);
+    r.push([seg(' Camera, e segna chi se n’è andato', 'c')]);
+    r.push([seg(' dopo il ' + dataIt(DATI.generato) + '.', 'c')]);
+    r.push(vuota());
+    r.push([seg(' Puo’ solo aggiungere morti, mai', 'v')]);
+    r.push([seg(' toglierne: se una fonte tace, il', 'v')]);
+    r.push([seg(' silenzio non cancella niente.', 'v')]);
     r.push(vuota());
     r.push([seg(' Premi AGGIORNA, qui sotto.', 'g')]);
     if(location.protocol === 'file:'){
@@ -862,6 +930,10 @@ function paginaFiltrata(chiave){
   } else if(tipo === 'hof'){
     elenco = perNascita(hof.filter(p => p.p === valore && p.s === 1));
     intestazione = 'HALL OF FAME — ' + valore;
+  } else if(tipo === 'mortipartito'){
+    elenco = defunti.filter(p => p.p === valore)
+      .sort((a, b) => (a.d || '') < (b.d || '') ? 1 : -1);
+    intestazione = 'DEFUNTI — ' + valore;
   } else if(tipo === 'morti'){
     elenco = defunti.filter(p => anno(p.d) === +valore)
       .sort((a, b) => (a.d || '') < (b.d || '') ? -1 : 1);

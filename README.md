@@ -153,6 +153,8 @@ niente server, niente installazioni. Le foto arrivano da Wikimedia Commons.
     150  ricerca               300  in memoriam
     500  compleanni            400  sorte ignota
 
+    250  piu' legislature di tutti
+    260  statistiche dei defunti   261  defunti per partito
     600  ricontrollo dal vivo su Wikidata
 
     sezione hall of fame
@@ -167,6 +169,12 @@ ricontrolla, una per una, le persone date per viventi o di sorte ignota. Chi nel
 frattempo e' morto viene spostato subito, e il risultato resta nel browser di chi
 guarda: il file su disco non viene toccato, e per renderlo definitivo si rilanciano
 i due script.
+
+**Puo' solo aggiungere morti, mai toglierne.** Una data viene scritta solo dove
+non ce n'e' gia' una, e nessuno torna dai defunti ai viventi: se una fonte tace
+su qualcuno, il silenzio non cancella cio' che un'altra ha gia' certificato. C'e'
+anche una rete che non dovrebbe scattare mai, e che annulla l'aggiornamento se
+per un difetto il conto dei defunti scendesse.
 
 Funziona solo se il sito e' servito da un indirizzo (il server locale, o l'hosting).
 Aperto col doppio clic dal disco il browser blocca le chiamate verso l'esterno, e
