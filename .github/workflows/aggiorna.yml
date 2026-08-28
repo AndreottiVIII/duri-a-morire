@@ -1,0 +1,62 @@
+name: Aggiorna e pubblica
+
+# Ogni notte alle 4 UTC (le 6 italiane d'estate, le 5 d'inverno). GitHub fa
+# partire i lavori programmati quando le sue macchine sono libere, quindi
+# l'orario e' un'indicazione, non un appuntamento.
+on:
+  schedule:
+    - cron: '0 4 * * *'
+  workflow_dispatch:        # per lanciarlo a mano dalla scheda Actions
+  push:
+    branches: [main]
+
+permissions:
+  contents: write           # per il commit delle novita'
+  pages: write              # per pubblicare
+  id-token: write
+
+concurrency:
+  group: pagine
+  cancel-in-progress: false
+
+jobs:
+  aggiorna:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.pubblicazione.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Scarica i dati da Wikidata
+        run: python scripts/scarica_elenco.py --fresco
+
+      - name: Genera il sito
+        run: python scripts/genera_sito.py
+
+      - name: Registra le novita'
+        run: |
+          MESSAGGIO="$(python scripts/novita.py)"
+          if [ -z "$MESSAGGIO" ]; then
+            echo "Nessuna novita': sono ancora tutti al loro posto."
+            exit 0
+          fi
+          echo "Novita': $MESSAGGIO"
+          git config user.name  "Duri a morire"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/elenco.json sito/index.html
+          git commit -m "$(date -u +%Y-%m-%d): $MESSAGGIO"
+          git push
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: sito
+
+      - id: pubblicazione
+        uses: actions/deploy-pages@v4

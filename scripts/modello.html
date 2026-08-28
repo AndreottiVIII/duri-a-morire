@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Duri a morire — Prima Repubblica edition</title>
+<style>
+  :root{
+    --nero:#000; --bianco:#fff; --giallo:#ff0; --ciano:#0ff;
+    --verde:#0f0; --magenta:#f0f; --rosso:#f22; --blu:#00f;
+    --spento:#6f6f6f;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#0a0a0a;color:var(--bianco);
+    font-family:"Cascadia Mono","Consolas","DejaVu Sans Mono","Liberation Mono",monospace;}
+  body{display:flex;flex-direction:column;align-items:center;min-height:100vh;padding:10px 6px 24px}
+
+  #tv{position:relative;background:var(--nero);border-radius:6px;padding:10px 8px;
+    width:100%;max-width:44em;font-size:min(4.1vw,20px);line-height:1.25;
+    box-shadow:0 0 0 2px #222, 0 0 30px rgba(0,255,255,.07)}
+  /* righe di scansione: appena accennate, non deve dare fastidio a leggere */
+  #tv::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:6px;
+    background:repeating-linear-gradient(to bottom,rgba(0,0,0,0) 0 2px,rgba(0,0,0,.22) 2px 4px)}
+  pre#schermo{margin:0;white-space:pre;overflow-x:auto;text-shadow:0 0 6px currentColor}
+
+  .b{color:var(--bianco)} .g{color:var(--giallo)} .c{color:var(--ciano)}
+  .v{color:var(--verde)} .m{color:var(--magenta)} .r{color:var(--rosso)}
+  .d{color:var(--spento);text-shadow:none}
+  .inv{background:var(--ciano);color:#000;text-shadow:none}
+  .invg{background:var(--giallo);color:#000;text-shadow:none}
+  .invr{background:var(--rosso);color:#000;text-shadow:none}
+  a.n{color:inherit;text-decoration:none;cursor:pointer}
+  a.n:hover,a.n:focus{background:var(--giallo);color:#000;text-shadow:none;outline:none}
+  /* le voci di menu vanno sottolineate: senza il passaggio del mouse, sul
+     telefono niente diceva che fossero da toccare */
+  a.n[data-p]{text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px}
+
+  #extra{max-width:44em;width:100%;margin-top:10px;display:flex;gap:14px;align-items:flex-start}
+  #extra img{width:130px;border:2px solid var(--ciano);filter:grayscale(1) contrast(1.35) brightness(.95);
+    image-rendering:pixelated}
+  #extra .via{font-size:13px;line-height:1.5}
+  #extra a{color:var(--ciano)}
+
+  #comandi{max-width:44em;width:100%;margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+  #comandi input{background:#111;border:1px solid #333;color:var(--bianco);padding:7px 9px;
+    font:inherit;font-size:15px;border-radius:3px}
+  #pag{width:6.5em} #cerca{flex:1;min-width:9em}
+  #comandi button{background:#111;border:1px solid var(--ciano);color:var(--ciano);
+    font:inherit;font-size:14px;font-weight:700;padding:7px 14px;border-radius:3px;cursor:pointer}
+  #comandi button:hover{background:var(--ciano);color:#000}
+  .fast{display:flex;gap:0;width:100%;max-width:44em;margin-top:8px}
+  .fast button{flex:1;border:0;padding:8px 4px;font:inherit;font-size:13px;font-weight:700;
+    color:#000;cursor:pointer;letter-spacing:.03em}
+  .fast .f1{background:var(--rosso)} .fast .f2{background:var(--verde)}
+  .fast .f3{background:var(--giallo)} .fast .f4{background:var(--ciano)}
+  .fast button:hover{filter:brightness(1.25)}
+  #sub{max-width:44em;width:100%;margin-top:8px;display:flex;gap:8px;align-items:center;font-size:14px;color:var(--spento)}
+  #sub button{background:#111;border:1px solid #333;color:var(--ciano);font:inherit;font-size:14px;
+    padding:5px 12px;border-radius:3px;cursor:pointer}
+  #sub button:disabled{opacity:.3;cursor:default}
+  footer{max-width:44em;width:100%;margin-top:18px;font-size:12px;color:var(--spento);line-height:1.6}
+  footer a{color:var(--spento)}
+</style>
+</head>
+<body>
+
+<div id="tv"><pre id="schermo"></pre></div>
+<div id="extra"></div>
+<div id="sub">
+  <button id="prev">&larr;</button><span id="subetichetta"></span><button id="next">&rarr;</button>
+</div>
+<div id="comandi">
+  <input id="pag" inputmode="numeric" placeholder="pagina" maxlength="3" aria-label="numero di pagina">
+  <input id="cerca" placeholder="cerca un nome…" aria-label="cerca un nome">
+  <button id="aggiorna" title="ricontrolla su Wikidata chi e' ancora vivo">AGGIORNA</button>
+</div>
+<div class="fast">
+  <button class="f1" data-p="100">100 INDICE</button>
+  <button class="f2" data-p="101">101 VIVENTI</button>
+  <button class="f3" data-p="200">200 STATISTICHE</button>
+  <button class="f4" data-p="130">130 HALL OF FAME</button>
+</div>
+<footer>
+  Dati da Wikidata, la versione interrogabile di Wikipedia. Foto da Wikimedia Commons.
+  <span id="pieno"></span>
+</footer>
+
+<script>
+const DATI = /*__DATI__*/;
+const W = 40, RIGHE_LISTA = 18;
+const P = DATI.persone;
+const perQid = {}; P.forEach(p => perQid[p.q] = p);
+const OGGI = new Date();
+
+/* ---------- costruzione delle righe, rigorosamente a 40 colonne ---------- */
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const tronca = (s, n) => s.length > n ? s.slice(0, n - 1) + '…' : s;
+const sp = n => ' '.repeat(Math.max(0, n));
+
+function seg(t, c){ return {t: String(t), c: c || 'b'}; }
+function rigaHtml(segs){
+  let len = segs.reduce((a, s) => a + s.t.length, 0);
+  let out = segs.map(s => '<span class="' + s.c + '">' + esc(s.t) + '</span>').join('');
+  return out + sp(W - len);
+}
+function sxdx(sx, dx, cs, cd){
+  const spazio = W - sx.length - dx.length;
+  return [seg(sx, cs), seg(sp(spazio)), seg(dx, cd)];
+}
+function centro(t, c){
+  const l = Math.floor((W - t.length) / 2);
+  return [seg(sp(l)), seg(t, c)];
+}
+function titolo(t){ return [seg(' ' + tronca(t, W - 2).padEnd(W - 1), 'invg')]; }
+function vuota(){ return [seg('')]; }
+
+/* ---------- date, età, precisione ---------- */
+const MESI = ['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'];
+function dataIt(s, prec){
+  if(!s) return '?';
+  if(prec === 'anno' || s.length === 4) return s;
+  if(prec === 'mese' || s.length === 7) return MESI[+s.slice(5,7)-1] + ' ' + s.slice(0,4);
+  return (+s.slice(8,10)) + ' ' + MESI[+s.slice(5,7)-1] + ' ' + s.slice(0,4);
+}
+function anno(s){ return s ? +s.slice(0,4) : null; }
+function eta(p){
+  if(!p.b) return null;
+  const fine = p.d ? new Date(p.d.length>=10 ? p.d : p.d.slice(0,4)+'-07-01') : OGGI;
+  const nas = new Date(p.b.length>=10 ? p.b : p.b.slice(0,4)+'-07-01');
+  let a = fine.getFullYear() - nas.getFullYear();
+  const m = fine.getMonth() - nas.getMonth();
+  if(m < 0 || (m === 0 && fine.getDate() < nas.getDate())) a--;
+  return a;
+}
+const STATO = {1:['VIVO','v'], 2:['','d'], 3:['IGNOTO','m']};
+
+/* ---------- riga di una persona ---------- */
+function rigaPersona(p){
+  const cls = p.s === 1 ? 'b' : (p.s === 3 ? 'm' : 'd');
+  const nome = tronca(p.n, 25).padEnd(25);
+  const an = String(anno(p.b) || '????');
+  const part = tronca(p.p || '', 6).padStart(6);
+  const marchio = p.h ? '■' : ' ';
+  return [
+    seg(' '), seg(marchio, p.h ? 'g' : 'b'),
+    {t: nome, c: cls, link: p.q},
+    seg(' '), seg(an, cls), seg(part, p.s === 1 ? 'c' : 'd')
+  ];
+}
+function rigaHtmlConLink(segs){
+  let len = segs.reduce((a, s) => a + s.t.length, 0);
+  let out = segs.map(s => {
+    const dentro = '<span class="' + (s.c||'b') + '">' + esc(s.t) + '</span>';
+    if(s.link) return '<a class="n" data-q="' + s.link + '" href="#' + s.link + '">' + dentro + '</a>';
+    if(s.pag)  return '<a class="n" data-p="' + s.pag + '" href="#p' + s.pag + '">' + dentro + '</a>';
+    return dentro;
+  }).join('');
+  return out + sp(W - len);
+}
+
+/* Una voce di menu: il numero e la dicitura sono un unico bersaglio da toccare.
+   Sul Televideo vero si digitava il numero; qui deve bastare il dito. */
+function vocemenu(num, testo, valore, clsValore){
+  const sx = ' ' + num + ' ' + testo;
+  const dx = valore || '';
+  return [{t: sx, c: 'g', pag: num}, seg(sp(W - sx.length - dx.length)),
+          seg(dx, clsValore || 'b')];
+}
+
+/* ---------- selezioni di comodo ----------
+   Sono ricalcolabili, non fisse: il tasto "aggiorna" puo' spostare qualcuno
+   dai vivi ai morti mentre la pagina e' aperta. */
+const perMandato = m => P.filter(p => p.m.indexOf(m) >= 0);
+const perNascita = a => a.slice().sort((x, y) => (x.b||'9') < (y.b||'9') ? -1 : 1);
+let viventi, defunti, ignoti, hof, hofVivi, hofMorti;
+function ricalcola(){
+  viventi = P.filter(p => p.s === 1);
+  defunti = P.filter(p => p.s === 2);
+  ignoti  = P.filter(p => p.s === 3);
+  hof     = P.filter(p => p.h);
+  hofVivi  = perNascita(hof.filter(p => p.s === 1));
+  hofMorti = hof.filter(p => p.s === 2 && p.d).sort((a, b) => a.d < b.d ? 1 : -1);
+}
+ricalcola();
+
+/* ---------- impaginazione di una lista lunga ----------
+   L'elenco e la nota arrivano come funzioni, cosi' ogni pagina rilegge i dati
+   al momento del disegno invece di fotografarli all'avvio. */
+function paginaLista(fnElenco, intestazione, fnNota){
+  return function(sub){
+    const elenco = typeof fnElenco === 'function' ? fnElenco() : fnElenco;
+    const nota = typeof fnNota === 'function' ? fnNota() : fnNota;
+    const n = Math.max(1, Math.ceil(elenco.length / RIGHE_LISTA));
+    const fetta = elenco.slice(sub * RIGHE_LISTA, (sub + 1) * RIGHE_LISTA);
+    const r = [titolo(intestazione)];
+    if(nota){ r.push([seg(' ' + tronca(nota, W-2), 'c')]); }
+    r.push(vuota());
+    fetta.forEach(p => r.push(rigaPersona(p)));
+    return {righe: r, sottopagine: n};
+  };
+}
+
+/* ---------- le pagine ---------- */
+const PAGINE = {};
+
+PAGINE[100] = () => {
+  const compleanni = compleanniDi(OGGI);
+  const r = [
+    titolo('INDICE'),
+    [seg(' chi è ancora vivo, e chi no', 'c')],
+    vuota(),
+    vocemenu(101, 'VIVENTI', String(viventi.length), 'b'),
+    vocemenu(300, 'IN MEMORIAM', String(defunti.length), 'd'),
+    vocemenu(400, 'SORTE IGNOTA', String(ignoti.length), 'm'),
+    vuota(),
+    vocemenu(130, 'HALL OF FAME',
+             hof.filter(p => p.s === 1).length + '/' + hof.length, 'g'),
+    vocemenu(110, 'PER LEGISLATURA'),
+    vocemenu(200, 'STATISTICHE'),
+    vocemenu(500, 'COMPLEANNI'),
+    vocemenu(150, 'RICERCA'),
+    vocemenu(600, 'RICONTROLLA ORA'),
+    vuota(),
+  ];
+  if(compleanni.length){
+    r.push([seg(' OGGI COMPIE GLI ANNI', 'invr')]);
+    compleanni.slice(0, 3).forEach(p => r.push([
+      seg('  '), {t: tronca(p.n, 27).padEnd(27), c: 'b', link: p.q},
+      seg(String(eta(p)).padStart(3), 'g'), seg(' anni', 'g')]));
+  } else {
+    r.push([seg(' Oggi non compie gli anni nessuno.', 'd')]);
+  }
+  r.push(vuota());
+  r.push([seg(' aggiornato il ' + dataIt(DATI.generato), 'd')]);
+  return {righe: r, sottopagine: 1};
+};
+
+PAGINE[101] = paginaLista(() => perNascita(viventi), 'VIVENTI — dal più anziano',
+  '■ = hall of fame. Tocca un nome.');
+
+PAGINE[110] = () => {
+  const r = [titolo('PER LEGISLATURA'), vuota()];
+  DATI.legislature.forEach((L, i) => {
+    const gente = perMandato(L[0]);
+    const vivi = gente.filter(p => p.s === 1).length;
+    const num = 111 + i;
+    r.push([
+      {t: ' ' + num + ' ' + tronca(L[0], 14).padEnd(15), c: 'g', pag: num},
+      seg(L[1].padEnd(8), 'd'),
+      seg(String(vivi).padStart(4), vivi ? 'c' : 'r'),
+      seg(vivi ? ' vivi' : ' —', vivi ? 'c' : 'r')
+    ]);
+  });
+  return {righe: r, sottopagine: 1};
+};
+DATI.legislature.forEach((L, i) => {
+  PAGINE[111 + i] = paginaLista(() => perNascita(perMandato(L[0])),
+    'LEG. ' + L[0] + '  ' + L[1],
+    () => perMandato(L[0]).filter(p => p.s === 1).length +
+          ' viventi su ' + perMandato(L[0]).length);
+});
+
+/* ---------- sezione hall of fame: i 66 curati a mano ---------- */
+PAGINE[130] = () => {
+  const ultimo = hofMorti[0];
+  const r = [
+    titolo('HALL OF FAME'),
+    [seg(' la lista curata a mano', 'c')],
+    vuota(),
+    vocemenu(131, 'ANCORA IN PIEDI', String(hofVivi.length), 'v'),
+    vocemenu(132, 'IN MEMORIAM', String(hofMorti.length), 'd'),
+    vocemenu(133, 'PER PARTITO'),
+    vocemenu(134, 'COMPLEANNI'),
+    vocemenu(135, 'I CURSUS PIÙ LUNGHI'),
+    vuota(),
+  ];
+  if(ultimo){
+    r.push([seg(' L’ULTIMO PERDUTO', 'invr')]);
+    r.push([seg('  '), {t: tronca(ultimo.n, 27).padEnd(27), c: 'b', link: ultimo.q},
+            seg(String(anno(ultimo.d)).padStart(5), 'r')]);
+    r.push([seg('  ' + dataIt(ultimo.d, ultimo.dp), 'd')]);
+  }
+  r.push(vuota());
+  r.push([seg(' Lista chiusa: non entra e non esce', 'd')]);
+  r.push([seg(' nessuno. Solo lo stato si aggiorna.', 'd')]);
+  return {righe: r, sottopagine: 1};
+};
+
+PAGINE[131] = paginaLista(() => hofVivi, 'H.F. — ANCORA IN PIEDI',
+  () => hofVivi.length + ' su 66, dal più anziano');
+PAGINE[132] = paginaLista(() => hofMorti, 'H.F. — IN MEMORIAM',
+  () => hofMorti.length + ' su 66, dal più recente');
+
+PAGINE[133] = () => {
+  const conta = {};
+  hof.forEach(p => {
+    if(!p.p) return;
+    conta[p.p] = conta[p.p] || [0, 0];
+    conta[p.p][0]++;
+    if(p.s === 1) conta[p.p][1]++;
+  });
+  const ordinate = Object.keys(conta).map(k => [k, conta[k][0], conta[k][1]])
+    .sort((a, b) => b[1] - a[1]);
+  const r = [titolo('H.F. — PER PARTITO'),
+    [seg(' in totale, e quanti ne restano', 'c')], vuota()];
+  const max = Math.max.apply(null, ordinate.map(o => o[1])) || 1;
+  ordinate.forEach(o => {
+    const largo = 16, vivi = Math.round(o[2] / max * largo);
+    const tot = Math.max(1, Math.round(o[1] / max * largo));
+    r.push([seg(' ' + tronca(o[0], 6).padEnd(7), 'b'),
+            seg('█'.repeat(vivi), 'v'),
+            seg('█'.repeat(Math.max(0, tot - vivi)), 'd'),
+            seg(sp(largo - tot)),
+            seg(String(o[2]).padStart(4), 'v'),
+            seg('/' + o[1], 'd')]);
+  });
+  r.push(vuota());
+  r.push([seg(' verde = vivi   grigio = perduti', 'd')]);
+  return {righe: r, sottopagine: 1};
+};
+
+function chiaveCompleanno(p){
+  const m = +p.b.slice(5, 7) - 1, g = +p.b.slice(8, 10);
+  let d = new Date(OGGI.getFullYear(), m, g);
+  if(d < new Date(OGGI.getFullYear(), OGGI.getMonth(), OGGI.getDate()))
+    d = new Date(OGGI.getFullYear() + 1, m, g);
+  return d;
+}
+function righeCompleanni(elenco, quanti){
+  return elenco.filter(p => p.bp === 'giorno')
+    .sort((a, b) => chiaveCompleanno(a) - chiaveCompleanno(b))
+    .slice(0, quanti).map(p => {
+      const d = chiaveCompleanno(p);
+      return [seg('  '), {t: tronca(p.n, 22).padEnd(22), c: 'b', link: p.q},
+        seg((d.getDate() + ' ' + MESI[d.getMonth()]).padStart(8), 'c'),
+        seg(String(d.getFullYear() - anno(p.b)).padStart(5), 'g')];
+    });
+}
+
+PAGINE[134] = () => {
+  const oggi = compleanniDi(OGGI).filter(p => p.h);
+  const r = [titolo('H.F. — COMPLEANNI'), vuota()];
+  if(oggi.length){
+    r.push([seg(' OGGI', 'invr')]);
+    oggi.forEach(p => r.push([seg('  '), {t: tronca(p.n, 27).padEnd(27), c: 'g', link: p.q},
+      seg(String(eta(p)).padStart(3), 'g'), seg(' anni', 'g')]));
+    r.push(vuota());
+  }
+  r.push([seg(' PROSSIMI', 'invg')]);
+  return {righe: r.concat(righeCompleanni(hofVivi, 14)), sottopagine: 1};
+};
+
+PAGINE[135] = () => {
+  const conCursus = hof.filter(p => p.c)
+    .map(p => [p, p.c.split(/,\s*/).filter(x => x.trim()).length])
+    .sort((a, b) => b[1] - a[1]).slice(0, 16);
+  const r = [titolo('H.F. — I CURSUS PIÙ LUNGHI'),
+    [seg(' quante caselle hanno occupato', 'c')], vuota()];
+  conCursus.forEach(c => r.push([
+    seg(' '), seg(c[0].s === 1 ? '■' : ' ', 'v'),
+    {t: tronca(c[0].n, 26).padEnd(26), c: c[0].s === 1 ? 'b' : 'd', link: c[0].q},
+    seg(String(c[1]).padStart(4), 'g'), seg(' inc.', 'd')]));
+  r.push(vuota());
+  r.push([seg(' ■ = ancora vivo', 'd')]);
+  return {righe: r, sottopagine: 1};
+};
+
+PAGINE[200] = () => {
+  const et = viventi.map(eta).filter(x => x !== null);
+  const media = et.reduce((a, b) => a + b, 0) / (et.length || 1);
+  const dec = perNascita(viventi)[0];
+  const unAnnoFa = new Date(OGGI.getFullYear() - 1, OGGI.getMonth(), OGGI.getDate())
+    .toISOString().slice(0, 10);
+  const recenti = defunti.filter(p => p.d && p.d.length === 10 && p.d >= unAnnoFa);
+  return {righe: [
+    titolo('STATISTICHE'), vuota(),
+    sxdx(' Censiti in tutto', String(P.length), 'b', 'g'),
+    sxdx(' Viventi', String(viventi.length), 'b', 'v'),
+    sxdx(' Deceduti', String(defunti.length), 'b', 'd'),
+    sxdx(' Sorte ignota', String(ignoti.length), 'b', 'm'),
+    vuota(),
+    sxdx(' Età media dei viventi', media.toFixed(1) + ' anni', 'b', 'c'),
+    sxdx(' Persi negli ultimi 12 mesi', String(recenti.length), 'b', 'r'),
+    sxdx(' Viventi con partito noto',
+         viventi.filter(p => p.p).length + '/' + viventi.length, 'd', 'd'),
+    vuota(),
+    [seg(' IL DECANO', 'invg')],
+    [seg('  '), {t: tronca(dec.n, 26).padEnd(26), c: 'g', link: dec.q},
+     seg(String(eta(dec)).padStart(4), 'g'), seg(' anni', 'g')],
+    [seg('  nato il ' + dataIt(dec.b, dec.bp), 'd')],
+    vuota(),
+    vocemenu(210, 'SOPRAVVISSUTI PER PARTITO'),
+    vocemenu(220, 'CURVA DI ESTINZIONE'),
+    vocemenu(230, 'L’ULTIMO DEI…'),
+  ], sottopagine: 1};
+};
+
+function istogramma(coppie, larghezza){
+  const max = Math.max.apply(null, coppie.map(c => c[1])) || 1;
+  return coppie.map(c => {
+    const n = Math.max(1, Math.round(c[1] / max * larghezza));
+    return [seg(' ' + tronca(c[0], 7).padEnd(8), 'b'),
+            seg('█'.repeat(n), 'c'), seg(sp(larghezza - n)),
+            seg(String(c[1]).padStart(5), 'g')];
+  });
+}
+
+PAGINE[210] = () => {
+  const conta = {};
+  viventi.forEach(p => { if(p.p) conta[p.p] = (conta[p.p] || 0) + 1; });
+  const ordinate = Object.keys(conta).map(k => [k, conta[k]])
+    .sort((a, b) => b[1] - a[1]).slice(0, 14);
+  return {righe: [titolo('SOPRAVVISSUTI PER PARTITO'),
+    [seg(' chi è ancora vivo, per casacca', 'c')], vuota()]
+    .concat(istogramma(ordinate, 18)), sottopagine: 1};
+};
+
+PAGINE[220] = () => {
+  const perAnno = {};
+  defunti.forEach(p => { const a = anno(p.d); if(a) perAnno[a] = (perAnno[a] || 0) + 1; });
+  const fino = OGGI.getFullYear();
+  const anni = [];
+  for(let a = fino - 15; a <= fino; a++) anni.push([String(a), perAnno[a] || 0]);
+  return {righe: [titolo('CURVA DI ESTINZIONE'),
+    [seg(' morti per anno, ultimi 16 anni', 'c')], vuota()]
+    .concat(istogramma(anni, 18)), sottopagine: 1};
+};
+
+PAGINE[230] = () => {
+  const r = [titolo('L’ULTIMO DEI…'),
+    [seg(' quando si è spenta ogni legislatura', 'c')], vuota()];
+  DATI.legislature.forEach(L => {
+    const gente = perMandato(L[0]);
+    const vivi = gente.filter(p => p.s === 1);
+    r.push([seg(' ' + tronca(L[0], 14).padEnd(15), 'g'),
+            seg(vivi.length ? String(vivi.length) + ' ancora vivi' : 'ESTINTA',
+                vivi.length ? 'c' : 'r')]);
+    if(!vivi.length){
+      const morti = gente.filter(p => p.s === 2 && p.d).sort((a, b) => a.d < b.d ? 1 : -1);
+      if(morti.length){
+        r.push([seg('   ultimo: '), {t: tronca(morti[0].n, 22), c: 'b', link: morti[0].q}]);
+        r.push([seg('   ' + dataIt(morti[0].d, morti[0].dp), 'd')]);
+      }
+    }
+  });
+  return {righe: r, sottopagine: 1};
+};
+
+PAGINE[300] = paginaLista(
+  () => defunti.filter(p => p.d).sort((a, b) => a.d < b.d ? 1 : -1),
+  'IN MEMORIAM — dal più recente', 'a tendere saranno tutti qui');
+
+PAGINE[400] = paginaLista(() => perNascita(ignoti), 'SORTE IGNOTA',
+  'nessuna data di morte, ' + DATI.soglia + '+ anni');
+
+function compleanniDi(d){
+  const mm = String(d.getMonth() + 1).padStart(2, '0'), gg = String(d.getDate()).padStart(2, '0');
+  return viventi.filter(p => p.bp === 'giorno' && p.b.slice(5) === mm + '-' + gg);
+}
+PAGINE[500] = () => {
+  const oggi = compleanniDi(OGGI);
+  const r = [titolo('COMPLEANNI'), vuota()];
+  if(oggi.length){
+    r.push([seg(' OGGI', 'invr')]);
+    oggi.forEach(p => r.push([seg('  '), {t: tronca(p.n, 27).padEnd(27), c: 'g', link: p.q},
+      seg(String(eta(p)).padStart(3), 'g'), seg(' anni', 'g')]));
+  } else {
+    r.push([seg(' Oggi nessuno. Capita.', 'd')]);
+  }
+  r.push(vuota());
+  r.push([seg(' PROSSIMI', 'invg')]);
+  return {righe: r.concat(righeCompleanni(viventi, 12)), sottopagine: 1};
+};
+
+PAGINE[150] = () => ({righe: [titolo('RICERCA'), vuota(),
+  [seg(' Scrivi un nome nel campo qui sotto.', 'c')]], sottopagine: 1});
+
+/* ---------- scheda personale ---------- */
+function scheda(q){
+  const p = perQid[q];
+  if(!p) return {righe: [titolo('NON TROVATO')], sottopagine: 1};
+  const r = [titolo(tronca(p.n, W - 2))];
+  const st = p.s === 1 ? ['VIVENTE', 'invg'] : (p.s === 3 ? ['SORTE IGNOTA', 'inv'] : ['DECEDUTO', 'invr']);
+  r.push([seg(' ' + st[0] + ' ', st[1])]);
+  r.push(vuota());
+  r.push(sxdx(' Nato', dataIt(p.b, p.bp), 'b', 'c'));
+  if(p.d) r.push(sxdx(' Morto', dataIt(p.d, p.dp), 'b', 'r'));
+  const e = eta(p);
+  if(e !== null) r.push(sxdx(p.d ? ' Aveva' : ' Ha', e + ' anni', 'b', 'g'));
+  if(p.p) r.push(sxdx(' Partito', p.p, 'b', 'c'));
+  r.push(vuota());
+  if(p.m.length){
+    r.push([seg(' MANDATI', 'invg')]);
+    let linea = '  ';
+    p.m.forEach(m => {
+      if((linea + m + '  ').length > W - 1){ r.push([seg(linea, 'c')]); linea = '  '; }
+      linea += m + '  ';
+    });
+    if(linea.trim()) r.push([seg(linea, 'c')]);
+  }
+  if(p.x) r.push([seg(' (mai eletto: dentro ma sulla porta)', 'm')]);
+  if(p.c){
+    r.push(vuota());
+    r.push([seg(' CURSUS HONORUM', 'invg')]);
+    let linea = '  ';
+    p.c.split(/,\s*/).forEach(pezzo => {
+      if((linea + pezzo + ', ').length > W - 1){ r.push([seg(linea, 'b')]); linea = '  '; }
+      linea += pezzo + ', ';
+    });
+    if(linea.trim()) r.push([seg(linea.replace(/,\s*$/, ''), 'b')]);
+  }
+  return {righe: r, sottopagine: 1, persona: p};
+}
+
+/* ---------- ricontrollo dal vivo su Wikidata ----------
+   Il sito e' un file fermo, ma Wikidata risponde alle chiamate del browser:
+   il tasto rilegge lo stato dei viventi e di quelli di sorte ignota, e segna
+   chi nel frattempo se n'e' andato. Il risultato resta nel browser, il file
+   sul disco non viene toccato. */
+const ENDPOINT = 'https://query.wikidata.org/sparql';
+const CHIAVE_SALVATAGGIO = 'duri-a-morire/aggiornamenti';
+let ultimoControllo = null;
+let avanzamento = {fase: 'fermo', cambi: [], messaggio: ''};
+
+function leggiSalvati(){
+  try { return JSON.parse(localStorage.getItem(CHIAVE_SALVATAGGIO) || 'null'); }
+  catch(e){ return null; }
+}
+function applicaCambi(cambi){
+  let n = 0;
+  cambi.forEach(c => {
+    const p = perQid[c.q];
+    if(p && !p.d){ p.d = c.d; p.dp = c.dp; p.s = 2; p.nuovo = 1; n++; }
+  });
+  return n;
+}
+function dataDaWikidata(t, prec){
+  const a = t.slice(0, 4), m = t.slice(5, 7), g = t.slice(8, 10);
+  if(prec >= 11) return [a + '-' + m + '-' + g, 'giorno'];
+  if(prec === 10) return [a + '-' + m, 'mese'];
+  return [a, 'anno'];
+}
+
+async function interroga(qids){
+  const query = 'SELECT ?p ?morte ?prec WHERE { VALUES ?p { ' +
+    qids.map(q => 'wd:' + q).join(' ') +
+    ' } ?p p:P570/psv:P570 [ wikibase:timeValue ?morte ; wikibase:timePrecision ?prec ] . }';
+  const r = await fetch(ENDPOINT, {method: 'POST', headers: {
+      'Accept': 'application/sparql-results+json',
+      'Content-Type': 'application/x-www-form-urlencoded'},
+    body: 'query=' + encodeURIComponent(query)});
+  if(!r.ok) throw new Error('Wikidata ha risposto ' + r.status);
+  const j = await r.json();
+  return j.results.bindings.map(b => ({
+    q: b.p.value.split('/').pop(), t: b.morte.value, prec: +b.prec.value}));
+}
+
+async function controllaOra(){
+  if(avanzamento.fase === 'corso') return;
+  avanzamento = {fase: 'corso', cambi: [], messaggio: 'preparo…'};
+  stato = {pagina: 600, sub: 0, qid: null, filtro: stato.filtro};
+  disegna();
+  try {
+    const daVedere = viventi.concat(ignoti).map(p => p.q);
+    const lotti = [];
+    for(let i = 0; i < daVedere.length; i += 250) lotti.push(daVedere.slice(i, i + 250));
+    const trovati = [];
+    for(let i = 0; i < lotti.length; i++){
+      avanzamento.messaggio = 'lotto ' + (i + 1) + ' di ' + lotti.length;
+      disegna();
+      (await interroga(lotti[i])).forEach(r => {
+        const d = dataDaWikidata(r.t, r.prec);
+        trovati.push({q: r.q, d: d[0], dp: d[1]});
+      });
+    }
+    const cambi = trovati.filter(c => perQid[c.q] && !perQid[c.q].d);
+    applicaCambi(cambi);
+    ricalcola();
+    ultimoControllo = new Date().toISOString();
+    const prima = leggiSalvati();
+    try {
+      localStorage.setItem(CHIAVE_SALVATAGGIO, JSON.stringify({
+        quando: ultimoControllo,
+        cambi: (prima && prima.cambi ? prima.cambi : []).concat(cambi)}));
+    } catch(e){ /* niente localStorage: pazienza, vale per questa sessione */ }
+    avanzamento = {fase: 'fatto', cambi: cambi, messaggio: ''};
+  } catch(e){
+    avanzamento = {fase: 'errore', cambi: [], messaggio: e.message};
+  }
+  disegna();
+}
+
+PAGINE[600] = () => {
+  const r = [titolo('RICONTROLLO SU WIKIDATA'), vuota()];
+  if(avanzamento.fase === 'fermo'){
+    r.push([seg(' Rilegge lo stato di ' + (viventi.length + ignoti.length) +
+                ' persone', 'c')]);
+    r.push([seg(' e segna chi se n’è andato dopo', 'c')]);
+    r.push([seg(' il ' + dataIt(DATI.generato) + '.', 'c')]);
+    r.push(vuota());
+    r.push([seg(' Premi AGGIORNA, qui sotto.', 'g')]);
+    if(location.protocol === 'file:'){
+      r.push(vuota());
+      r.push([seg(' ATTENZIONE ', 'invr')]);
+      r.push([seg(' Aperto col doppio clic dal disco,', 'r')]);
+      r.push([seg(' il browser vieta le chiamate a', 'r')]);
+      r.push([seg(' Wikidata. Funziona solo quando il', 'r')]);
+      r.push([seg(' sito è servito da un indirizzo.', 'r')]);
+    }
+  } else if(avanzamento.fase === 'corso'){
+    r.push([seg(' Interrogo Wikidata…', 'g')]);
+    r.push([seg(' ' + avanzamento.messaggio, 'c')]);
+  } else if(avanzamento.fase === 'errore'){
+    r.push([seg(' NON RIUSCITO ', 'invr')]);
+    r.push(vuota());
+    r.push([seg(' ' + tronca(avanzamento.messaggio, W - 2), 'r')]);
+  } else {
+    if(!avanzamento.cambi.length){
+      r.push([seg(' Nessuna novità: sono ancora tutti', 'v')]);
+      r.push([seg(' al loro posto.', 'v')]);
+    } else {
+      r.push([seg(' ' + avanzamento.cambi.length + ' NOVITÀ ', 'invr')]);
+      r.push(vuota());
+      avanzamento.cambi.slice(0, 12).forEach(c => {
+        const p = perQid[c.q];
+        r.push([seg('  '), {t: tronca(p.n, 24).padEnd(24), c: 'b', link: p.q},
+                seg(dataIt(p.d, p.dp).padStart(12), 'r')]);
+      });
+    }
+  }
+  if(ultimoControllo){
+    r.push(vuota());
+    r.push([seg(' ultimo controllo: ' +
+      new Date(ultimoControllo).toLocaleString('it-IT'), 'd')]);
+  }
+  return {righe: r, sottopagine: 1};
+};
+
+/* ---------- motore ---------- */
+let stato = {pagina: 100, sub: 0, qid: null, filtro: ''};
+
+function risultatiRicerca(testo){
+  const t = testo.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  const trovati = P.filter(p => p.n.toLowerCase().normalize('NFD')
+    .replace(/[̀-ͯ]/g, '').indexOf(t) >= 0);
+  return paginaLista(trovati, 'RICERCA: ' + tronca(testo.toUpperCase(), 24),
+    trovati.length + ' risultati');
+}
+
+function disegna(){
+  let costruttore, extra = '';
+  if(stato.qid) costruttore = () => scheda(stato.qid);
+  else if(stato.pagina === 150 && stato.filtro) costruttore = risultatiRicerca(stato.filtro);
+  else costruttore = PAGINE[stato.pagina] || (() => ({
+    righe: [titolo('PAGINA ' + stato.pagina), vuota(),
+      [seg(' Non esiste. Prova con la 100.', 'r')]], sottopagine: 1}));
+
+  const res = costruttore(stato.sub);
+  if(stato.sub >= res.sottopagine) stato.sub = 0;
+
+  const etichettaPag = stato.qid ? 'SCHEDA' : 'P.' + stato.pagina;
+  const dataOggi = OGGI.getDate() + ' ' + MESI[OGGI.getMonth()].toUpperCase() + ' ' +
+    String(OGGI.getFullYear()).slice(2);
+  const testata = rigaHtml(sxdx(' DURI A MORIRE', etichettaPag + '  ' + dataOggi + ' ', 'inv', 'inv'));
+
+  const corpo = res.righe.map(rigaHtmlConLink).join('\n');
+  document.getElementById('schermo').innerHTML = testata + '\n' + corpo;
+
+  // foto e rimando alla fonte vivono fuori dalla griglia a 40 colonne
+  const box = document.getElementById('extra');
+  if(res.persona){
+    const p = res.persona;
+    // niente loading="lazy": la foto sta sotto la piega e non partirebbe mai
+    box.innerHTML = (p.f ? '<img src="' + p.f + '" alt="' + esc(p.n) + '">' : '') +
+      '<div class="via">' + (p.w ? '<a href="' + p.w + '" target="_blank" rel="noopener">voce su Wikipedia</a><br>' : '') +
+      '<a href="https://www.wikidata.org/wiki/' + p.q + '" target="_blank" rel="noopener">record Wikidata ' + p.q + '</a></div>';
+  } else box.innerHTML = '';
+
+  // le frecce compaiono solo dove servono: spente sembravano rotte
+  const nsub = res.sottopagine;
+  document.getElementById('sub').style.display = nsub > 1 ? 'flex' : 'none';
+  document.getElementById('subetichetta').textContent = (stato.sub + 1) + ' / ' + nsub;
+  document.getElementById('pieno').textContent =
+    ' — ' + P.length + ' schede, aggiornate il ' + dataIt(DATI.generato) + '.';
+}
+
+function vaiA(n){ stato = {pagina: n, sub: 0, qid: null, filtro: stato.filtro}; disegna(); }
+function apriScheda(q){ stato.qid = q; stato.sub = 0; disegna(); }
+
+document.getElementById('schermo').addEventListener('click', e => {
+  const a = e.target.closest('a.n');
+  if(!a) return;
+  e.preventDefault();
+  if(a.dataset.p) vaiA(+a.dataset.p);
+  else apriScheda(a.dataset.q);
+});
+document.querySelectorAll('.fast button').forEach(b =>
+  b.addEventListener('click', () => vaiA(+b.dataset.p)));
+document.getElementById('pag').addEventListener('input', e => {
+  const v = e.target.value.replace(/\D/g, '');
+  e.target.value = v;
+  // svuotare il campo dopo il salto: altrimenti resta pieno a tre cifre
+  // e la digitazione successiva non fa piu' scattare niente.
+  if(v.length === 3){ vaiA(+v); e.target.value = ''; }
+});
+document.getElementById('cerca').addEventListener('input', e => {
+  stato.filtro = e.target.value.trim();
+  if(stato.filtro.length >= 2){ stato.qid = null; stato.pagina = 150; stato.sub = 0; disegna(); }
+});
+document.getElementById('prev').addEventListener('click', () => { stato.sub--; if(stato.sub < 0) stato.sub = 0; disegna(); });
+document.getElementById('next').addEventListener('click', () => { stato.sub++; disegna(); });
+document.addEventListener('keydown', e => {
+  if(document.activeElement.tagName === 'INPUT') return;
+  if(e.key === 'ArrowRight'){ stato.sub++; disegna(); }
+  if(e.key === 'ArrowLeft'){ stato.sub = Math.max(0, stato.sub - 1); disegna(); }
+});
+document.getElementById('aggiorna').addEventListener('click', controllaOra);
+
+// i ricontrolli gia' fatti in questo browser valgono anche dopo un ricarico
+const salvato = leggiSalvati();
+if(salvato && salvato.cambi && salvato.cambi.length){
+  applicaCambi(salvato.cambi);
+  ultimoControllo = salvato.quando;
+  ricalcola();
+}
+
+disegna();
+</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+# Le risposte grezze di Wikidata: si riscaricano da sole, e in mano al lavoro
+# notturno una cache vecchia farebbe piu' danno che bene.
+data/cache/
+
+__pycache__/
+*.pyc
