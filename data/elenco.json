@@ -471,6 +471,7 @@
     "Partito Socialista Democratico Italiano",
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -954,6 +955,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -981,6 +983,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -1094,6 +1097,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -1289,6 +1293,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -1613,6 +1618,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -1726,6 +1732,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -1749,6 +1756,7 @@
    "partiti": [
     "Movimento Sociale Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -1817,6 +1825,7 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -1983,6 +1992,7 @@
    "partiti": [
     "Partito Repubblicano Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -2118,6 +2128,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -2976,6 +2987,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -3810,6 +3822,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -4218,6 +4231,7 @@
    "partiti": [
     "Federazione delle Liste Verdi"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -4590,6 +4604,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -4877,6 +4892,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -5177,6 +5193,7 @@
    "partiti": [
     "Partito Repubblicano Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -7181,8 +7198,8 @@
    "nome": "Andrea Margheri",
    "nascita": "1938-02-04",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2024-07-14",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Andrea%20Margheri%20datisenato.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Andrea_Margheri",
    "mandati": [
@@ -7202,7 +7219,9 @@
     "Partito Socialista Italiano",
     "Partito Socialista Italiano di Unità Proletaria"
    ],
-   "stato": "vivente",
+   "aggancio": "data di nascita",
+   "fonte_morte": "Senato",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -7394,6 +7413,7 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -7469,6 +7489,7 @@
     "Democrazia Cristiana",
     "Partito Popolare Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -7882,6 +7903,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -8566,6 +8588,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -8666,6 +8689,7 @@
     "Partito Popolare Italiano",
     "Unione di Centro (2002)"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -8831,6 +8855,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -8851,6 +8876,7 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -8879,6 +8905,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -8968,6 +8995,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -9147,6 +9175,7 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -9156,8 +9185,8 @@
    "nome": "Anna Maria Ciai Trivelli",
    "nascita": "1926-11-18",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2011-06-18",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -9169,7 +9198,9 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "aggancio": "data di nascita",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -9310,6 +9341,7 @@
     "Democrazia Cristiana",
     "Partito Democratico"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -9615,6 +9647,7 @@
     "Fronte dell'Uomo Qualunque",
     "Movimento Sociale Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -10070,6 +10103,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -10914,6 +10948,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -11428,6 +11463,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -11584,6 +11620,7 @@
    "partiti": [
     "Partito Repubblicano Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -12358,6 +12395,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -12430,6 +12468,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -12573,6 +12612,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -13407,6 +13447,7 @@
    "partiti": [
     "Movimento per le Autonomie"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -13692,8 +13733,8 @@
    "nome": "Antonio Zanforlin",
    "nascita": "1929-07-31",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2012-07-31",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": null,
    "mandati": [
@@ -13703,7 +13744,9 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
-   "stato": "vivente",
+   "aggancio": "data di nascita",
+   "fonte_morte": "Senato",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -13777,6 +13820,7 @@
    "partiti": [
     "Partito Nazionale Fascista"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -14976,6 +15020,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -15175,6 +15220,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -15986,6 +16032,7 @@
    "partiti": [
     "Partito Democratico"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": true,
@@ -16017,7 +16064,7 @@
   {
    "qid": "Q1058251",
    "nome": "Augusto De Marsanich",
-   "nascita": "1893-04-13",
+   "nascita": "1891-04-13",
    "prec_nascita": "giorno",
    "morte": "1973-02-09",
    "prec_morte": "giorno",
@@ -16213,6 +16260,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -16263,6 +16311,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -16400,6 +16449,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -16469,6 +16519,7 @@
    "partiti": [
     "Partito Democratico"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -16519,6 +16570,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -16550,7 +16602,7 @@
   {
    "qid": "Q3635346",
    "nome": "Bartolomeo Cannizzo",
-   "nascita": "1922-06-22",
+   "nascita": "1905-06-22",
    "prec_nascita": "giorno",
    "morte": "1967-04-05",
    "prec_morte": "giorno",
@@ -16756,6 +16808,7 @@
     "Partito Nazionale Monarchico",
     "Unione Siciliana Cristiano Sociale"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -16949,6 +17002,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -17027,6 +17081,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -17140,6 +17195,7 @@
    "partiti": [
     "Movimento Sociale Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -17162,6 +17218,7 @@
    "partiti": [
     "Partito Democratico"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -17270,6 +17327,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -18507,6 +18565,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -18940,6 +18999,7 @@
    "partiti": [
     "Südtiroler Volkspartei"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -18963,6 +19023,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -18986,6 +19047,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -19547,6 +19609,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -20066,6 +20129,7 @@
    "partiti": [
     "Identità e Azione"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -20207,6 +20271,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -20876,6 +20941,7 @@
    "partiti": [
     "Partito Liberale Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -20929,7 +20995,7 @@
   {
    "qid": "Q463243",
    "nome": "Carlo Sforza",
-   "nascita": "1872-01-23",
+   "nascita": "1872-09-24",
    "prec_nascita": "giorno",
    "morte": "1952-09-04",
    "prec_morte": "giorno",
@@ -21034,6 +21100,7 @@
    "partiti": [
     "Partito Liberale Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -21178,6 +21245,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -21451,6 +21519,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -21616,6 +21685,7 @@
    "partiti": [
     "Partito Democratico"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -21776,6 +21846,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -22279,6 +22350,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -22301,6 +22373,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -22533,6 +22606,7 @@
    "partiti": [
     "Movimento Sociale Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -22597,6 +22671,7 @@
    "partiti": [
     "Federazione dei Verdi"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -22620,6 +22695,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -22642,6 +22718,7 @@
    "partiti": [
     "Movimento Sociale Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -22670,6 +22747,7 @@
    "partiti": [
     "Partito Repubblicano Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -22697,6 +22775,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -22751,6 +22830,7 @@
     "Democrazia Cristiana",
     "Partito Democratico"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -22981,6 +23061,7 @@
     "Partito Democratico",
     "Sinistra Democratica"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -23486,6 +23567,7 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -24072,6 +24154,7 @@
     "deputato dell'Assemblea Costituente della Repubblica Italiana"
    ],
    "partiti": [],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -24301,6 +24384,7 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -25063,6 +25147,7 @@
     "senatore della Repubblica Italiana"
    ],
    "partiti": [],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -25131,6 +25216,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -25449,6 +25535,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -25496,6 +25583,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -25689,6 +25777,7 @@
     "Partito Comunista Italiano",
     "Partito Democratico della Sinistra"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -25784,6 +25873,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -25887,7 +25977,7 @@
   {
    "qid": "Q97667208",
    "nome": "Domenico Borraccino",
-   "nascita": "1923-05-25",
+   "nascita": "1928-01-26",
    "prec_nascita": "giorno",
    "morte": "2001-11-08",
    "prec_morte": "giorno",
@@ -27101,6 +27191,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -27248,7 +27339,7 @@
   {
    "qid": "Q3719084",
    "nome": "Edgardo Castelli",
-   "nascita": "1907-10-14",
+   "nascita": "1904-10-14",
    "prec_nascita": "giorno",
    "morte": "1981-02-08",
    "prec_morte": "giorno",
@@ -27556,6 +27647,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -27606,6 +27698,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -27630,6 +27723,7 @@
    "partiti": [
     "Partito Democratico"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -28720,6 +28814,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -29107,6 +29202,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -29298,6 +29394,7 @@
    "partiti": [
     "Partito Socialista Democratico Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -30754,7 +30851,7 @@
   {
    "qid": "Q26155693",
    "nome": "Enrico Nicola Spadola",
-   "nascita": "1920-09-22",
+   "nascita": "1877-11-09",
    "prec_nascita": "giorno",
    "morte": "1991-04-15",
    "prec_morte": "giorno",
@@ -31144,6 +31241,7 @@
    "partiti": [
     "Partito Liberale Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -31167,6 +31265,7 @@
     "Democrazia è Libertà – La Margherita",
     "Partito Democratico"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -31212,6 +31311,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -31327,6 +31427,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -31395,6 +31496,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -31759,6 +31861,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -31967,6 +32070,7 @@
    "partiti": [
     "Lega Nord"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -32581,6 +32685,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -33075,6 +33180,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -33196,7 +33302,7 @@
   {
    "qid": "Q3736397",
    "nome": "Ezio Maria Gray",
-   "nascita": "1885-10-09",
+   "nascita": "1884-10-09",
    "prec_nascita": "giorno",
    "morte": "1969-02-08",
    "prec_morte": "giorno",
@@ -33799,6 +33905,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -34443,26 +34550,6 @@
    "hall_of_fame": false
   },
   {
-   "qid": "Q19838950",
-   "nome": "Felice Platone",
-   "nascita": "1896-01-11",
-   "prec_nascita": "giorno",
-   "morte": "1962-10-08",
-   "prec_morte": "giorno",
-   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Felice%20Platone%201962.jpg",
-   "wikipedia": "https://it.wikipedia.org/wiki/Felice_Platone_(1896)",
-   "mandati": [
-    "Costituente"
-   ],
-   "cariche": [
-    "deputato dell'Assemblea Costituente della Repubblica Italiana"
-   ],
-   "partiti": [],
-   "stato": "deceduto",
-   "non_eletto": false,
-   "hall_of_fame": false
-  },
-  {
    "qid": "Q65953043",
    "nome": "Felice Platone",
    "nascita": "1899-02-12",
@@ -34833,7 +34920,7 @@
   {
    "qid": "Q17318524",
    "nome": "Ferdinando Russo",
-   "nascita": "1930-02-01",
+   "nascita": "1935-05-27",
    "prec_nascita": "giorno",
    "morte": "2024-07",
    "prec_morte": "mese",
@@ -34848,31 +34935,11 @@
     "X"
    ],
    "cariche": [
-    "deputato della Repubblica Italiana"
-   ],
-   "partiti": [
-    "Democrazia Cristiana"
-   ],
-   "stato": "deceduto",
-   "non_eletto": false,
-   "hall_of_fame": false
-  },
-  {
-   "qid": "Q17318521",
-   "nome": "Ferdinando Russo",
-   "nascita": "1935-05-27",
-   "prec_nascita": "giorno",
-   "morte": "2025-12-31",
-   "prec_morte": "giorno",
-   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Ferdinando%20Russo%20IX.jpg",
-   "wikipedia": "https://it.wikipedia.org/wiki/Ferdinando_Russo_(politico_1935)",
-   "mandati": [
-    "IX"
-   ],
-   "cariche": [
+    "deputato della Repubblica Italiana",
     "senatore della Repubblica Italiana"
    ],
    "partiti": [
+    "Democrazia Cristiana",
     "Partito Comunista Italiano"
    ],
    "stato": "deceduto",
@@ -34935,8 +35002,8 @@
   {
    "qid": "Q3742688",
    "nome": "Ferdinando Targetti",
-   "nascita": "1881",
-   "prec_nascita": "anno",
+   "nascita": "1882-12-15",
+   "prec_nascita": "giorno",
    "morte": "1968-07-07",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Ferdinando%20Targetti%20Costituente.jpg",
@@ -35224,6 +35291,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -36633,6 +36701,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -37173,6 +37242,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -37629,28 +37699,6 @@
    "hall_of_fame": false
   },
   {
-   "qid": "Q3749970",
-   "nome": "Francesco Ferrari",
-   "nascita": "1893-09-06",
-   "prec_nascita": "giorno",
-   "morte": "1980-07-17",
-   "prec_morte": "giorno",
-   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Foto%20Francesco%20Ferrari%201893-1980.jpg",
-   "wikipedia": "https://it.wikipedia.org/wiki/Francesco_Ferrari_(politico_1893)",
-   "mandati": [
-    "II"
-   ],
-   "cariche": [
-    "deputato della Repubblica Italiana"
-   ],
-   "partiti": [
-    "Partito Socialista Italiano"
-   ],
-   "stato": "deceduto",
-   "non_eletto": false,
-   "hall_of_fame": false
-  },
-  {
    "qid": "Q18223370",
    "nome": "Francesco Ferrari",
    "nascita": "1905-10-15",
@@ -37667,33 +37715,13 @@
     "VI"
    ],
    "cariche": [
+    "deputato della Repubblica Italiana",
     "senatore della Repubblica Italiana"
    ],
    "partiti": [
-    "Democrazia Cristiana"
-   ],
-   "stato": "deceduto",
-   "non_eletto": false,
-   "hall_of_fame": false
-  },
-  {
-   "qid": "Q3749971",
-   "nome": "Francesco Ferrari",
-   "nascita": "1922-07-18",
-   "prec_nascita": "giorno",
-   "morte": "1964-04-17",
-   "prec_morte": "giorno",
-   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Francesco%20Ferrari%20daticamera.jpg",
-   "wikipedia": "https://it.wikipedia.org/wiki/Francesco_Ferrari_(politico_1922)",
-   "mandati": [
-    "III",
-    "IV"
-   ],
-   "cariche": [
-    "deputato della Repubblica Italiana"
-   ],
-   "partiti": [
-    "Partito Comunista Italiano"
+    "Democrazia Cristiana",
+    "Partito Comunista Italiano",
+    "Partito Socialista Italiano"
    ],
    "stato": "deceduto",
    "non_eletto": false,
@@ -38052,7 +38080,7 @@
   {
    "qid": "Q3750154",
    "nome": "Francesco Leone",
-   "nascita": "1900-03-13",
+   "nascita": "1899-03-13",
    "prec_nascita": "giorno",
    "morte": "1984-05-23",
    "prec_morte": "giorno",
@@ -38677,6 +38705,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -38884,6 +38913,7 @@
    "partiti": [
     "Partito Liberale Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -39370,6 +39400,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -39627,6 +39658,7 @@
    "partiti": [
     "Lega Nord"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -40020,6 +40052,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -40233,6 +40266,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -40472,6 +40506,7 @@
    "partiti": [
     "Partito Radicale"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -40517,6 +40552,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -40592,6 +40628,7 @@
    "partiti": [
     "Movimento Comunità"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -40807,6 +40844,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -41045,6 +41083,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -41067,6 +41106,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": true,
@@ -41137,6 +41177,7 @@
    "partiti": [
     "Democrazia Proletaria"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -41196,6 +41237,7 @@
    "partiti": [
     "Alleanza Nazionale"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -41319,6 +41361,7 @@
     "Movimento Sociale Italiano",
     "Partito Nazionale Monarchico"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -41343,6 +41386,7 @@
    "partiti": [
     "Südtiroler Volkspartei"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -41705,6 +41749,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -41751,6 +41796,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -42025,6 +42071,7 @@
    "partiti": [
     "Movimento Sociale Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -43493,6 +43540,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -43752,6 +43800,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -43917,6 +43966,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -44232,6 +44282,7 @@
    "partiti": [
     "Partito Democratico della Sinistra"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -44310,6 +44361,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -44353,6 +44405,7 @@
     "Partito Democratico",
     "Partito Popolare Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -44669,6 +44722,7 @@
    "partiti": [
     "Partito Sardo d'Azione"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -44934,6 +44988,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -45133,6 +45188,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -45365,6 +45421,7 @@
    "partiti": [
     "Partito Socialista Democratico Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -45831,6 +45888,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -45879,6 +45937,7 @@
    "partiti": [
     "Partito Radicale"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -45947,6 +46006,7 @@
    "partiti": [
     "Articolo Uno"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -45995,6 +46055,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -46115,6 +46176,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -46164,6 +46226,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -46186,6 +46249,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -46276,6 +46340,7 @@
     "deputato dell'Assemblea Costituente della Repubblica Italiana"
    ],
    "partiti": [],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -46303,6 +46368,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -47004,6 +47070,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -47647,6 +47714,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -48500,6 +48568,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -48612,6 +48681,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -48656,6 +48726,7 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -48768,6 +48839,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -48812,6 +48884,7 @@
    "partiti": [
     "Partito Nazionale Monarchico"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -49097,6 +49170,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -49332,26 +49406,6 @@
     "Partito Sardo d'Azione"
    ],
    "stato": "deceduto",
-   "non_eletto": false,
-   "hall_of_fame": false
-  },
-  {
-   "qid": "Q110819657",
-   "nome": "Giovanni Battista Melis",
-   "nascita": "1922-03-27",
-   "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
-   "foto": null,
-   "wikipedia": null,
-   "mandati": [
-    "IV"
-   ],
-   "cariche": [
-    "deputato della Repubblica Italiana"
-   ],
-   "partiti": [],
-   "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -49600,6 +49654,7 @@
     "PSI-PSDI Unificati",
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -49744,6 +49799,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -50197,6 +50253,7 @@
    "partiti": [
     "Partito Democratico della Sinistra"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -50576,6 +50633,7 @@
     "Partito Socialista Italiano",
     "Partito Socialista Italiano di Unità Proletaria"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -50599,6 +50657,7 @@
     "Democrazia Cristiana",
     "Partito Popolare Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -50868,6 +50927,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -51453,6 +51513,7 @@
     "deputato dell'Assemblea Costituente della Repubblica Italiana"
    ],
    "partiti": [],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -51484,6 +51545,7 @@
    "partiti": [
     "Partito Liberale Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -51670,6 +51732,7 @@
     "Movimento Repubblicani Europei",
     "Partito Repubblicano Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -53000,6 +53063,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -53141,6 +53205,7 @@
    "partiti": [
     "Lega Nord"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -54157,6 +54222,7 @@
    "partiti": [
     "Partito Liberale Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -54297,6 +54363,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -54367,6 +54434,7 @@
    "partiti": [
     "PSI-PSDI Unificati"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -54461,6 +54529,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -54644,6 +54713,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -55144,6 +55214,7 @@
    "partiti": [
     "Partito Repubblicano Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -55164,6 +55235,7 @@
     "deputato dell'Assemblea Costituente della Repubblica Italiana"
    ],
    "partiti": [],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -55431,29 +55503,8 @@
     "senatore della Repubblica Italiana"
    ],
    "partiti": [
+    "Democrazia Cristiana",
     "Partito Comunista Italiano"
-   ],
-   "stato": "deceduto",
-   "non_eletto": false,
-   "hall_of_fame": false
-  },
-  {
-   "qid": "Q18222758",
-   "nome": "Giuseppe Berti",
-   "nascita": "1899-12-08",
-   "prec_nascita": "giorno",
-   "morte": "1979-06-07",
-   "prec_morte": "giorno",
-   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giuseppe%20Berti%20%281899-1979%29.jpg",
-   "wikipedia": "https://it.wikipedia.org/wiki/Giuseppe_Berti_(1899-1979)",
-   "mandati": [
-    "I"
-   ],
-   "cariche": [
-    "deputato della Repubblica Italiana"
-   ],
-   "partiti": [
-    "Democrazia Cristiana"
    ],
    "stato": "deceduto",
    "non_eletto": false,
@@ -55485,6 +55536,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -55863,6 +55915,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -56294,6 +56347,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -56457,6 +56511,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -57022,6 +57077,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -57115,6 +57171,7 @@
    "partiti": [
     "sinistra indipendente"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -57208,6 +57265,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -58678,6 +58736,7 @@
     "deputato dell'Assemblea Costituente della Repubblica Italiana"
    ],
    "partiti": [],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -59101,6 +59160,7 @@
    "partiti": [
     "Partito Socialista Democratico Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -59150,6 +59210,7 @@
    "partiti": [
     "Scelta Civica"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -59220,6 +59281,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -59561,7 +59623,7 @@
   {
    "qid": "Q3771373",
    "nome": "Giuseppe Russo",
-   "nascita": "1920-07-16",
+   "nascita": "1936-01-02",
    "prec_nascita": "giorno",
    "morte": "2007-10-01",
    "prec_morte": "giorno",
@@ -59570,35 +59632,15 @@
    "mandati": [
     "VIII",
     "IX",
-    "X"
-   ],
-   "cariche": [
-    "deputato della Repubblica Italiana"
-   ],
-   "partiti": [
-    "Democrazia Cristiana"
-   ],
-   "stato": "deceduto",
-   "non_eletto": false,
-   "hall_of_fame": false
-  },
-  {
-   "qid": "Q17285450",
-   "nome": "Giuseppe Russo",
-   "nascita": "1936-01-02",
-   "prec_nascita": "giorno",
-   "morte": "2012",
-   "prec_morte": "anno",
-   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giuseppe%20Russo%20Senato.jpg",
-   "wikipedia": "https://it.wikipedia.org/wiki/Giuseppe_Russo_(politico_1936)",
-   "mandati": [
     "X",
     "XI"
    ],
    "cariche": [
+    "deputato della Repubblica Italiana",
     "senatore della Repubblica Italiana"
    ],
    "partiti": [
+    "Democrazia Cristiana",
     "Partito Socialista Italiano"
    ],
    "stato": "deceduto",
@@ -59878,6 +59920,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -60580,7 +60623,7 @@
   {
    "qid": "Q16561104",
    "nome": "Giuseppe Vilardi",
-   "nascita": "1889-03-06",
+   "nascita": "1899-03-06",
    "prec_nascita": "giorno",
    "morte": "1972-05-08",
    "prec_morte": "giorno",
@@ -60646,8 +60689,8 @@
    "nome": "Giuseppe Vitale",
    "nascita": "1935-07-29",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2025-04-19",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giuseppe%20Vitale%201935.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Giuseppe_Vitale_(politico_1935)",
    "mandati": [
@@ -60659,7 +60702,8 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
-   "stato": "vivente",
+   "fonte_morte": "Senato",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -60879,6 +60923,7 @@
    "partiti": [
     "Partito Democratico"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -61013,8 +61058,8 @@
    "nome": "Gloria Grosso",
    "nascita": "1936-04-09",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2021-07-06",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Gloria%20Grosso%20daticamera.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Gloria_Grosso",
    "mandati": [
@@ -61026,7 +61071,9 @@
    "partiti": [
     "Federazione dei Verdi"
    ],
-   "stato": "vivente",
+   "aggancio": "data di nascita",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -61048,6 +61095,7 @@
    "partiti": [
     "Partito Democratico"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -61273,6 +61321,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -61694,6 +61743,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -62380,7 +62430,7 @@
   {
    "qid": "Q23047421",
    "nome": "Guido Martino",
-   "nascita": "1929-09-01",
+   "nascita": "1943-08-22",
    "prec_nascita": "giorno",
    "morte": "2001-01-02",
    "prec_morte": "giorno",
@@ -62580,6 +62630,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -62855,6 +62906,7 @@
    "partiti": [
     "Südtiroler Volkspartei"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -62900,6 +62952,7 @@
    "partiti": [
     "Südtiroler Volkspartei"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -63059,6 +63112,7 @@
     "senatore della Repubblica Italiana"
    ],
    "partiti": [],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -63127,6 +63181,7 @@
    "partiti": [
     "Fratelli d'Italia"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -63424,6 +63479,7 @@
     "Partito Radicale",
     "Partito dell'Amore"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -64360,6 +64416,7 @@
     "Südtiroler Volkspartei",
     "Tyrolean Homeland Party"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -65741,6 +65798,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -65835,6 +65893,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -65974,6 +66033,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -66130,6 +66190,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -66577,6 +66638,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -66948,6 +67010,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -67191,6 +67254,7 @@
    "partiti": [
     "Union Valdôtaine"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -68077,6 +68141,7 @@
    "partiti": [
     "Movimento Sociale Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -68158,6 +68223,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -68276,6 +68342,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -69175,6 +69242,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -69563,7 +69631,7 @@
   {
    "qid": "Q17399541",
    "nome": "Luigi Faccio",
-   "nascita": "1887-02-08",
+   "nascita": "1877-02-08",
    "prec_nascita": "giorno",
    "morte": "1951",
    "prec_morte": "anno",
@@ -69978,6 +70046,7 @@
    "partiti": [
     "Partito Liberale Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -70372,7 +70441,7 @@
   {
    "qid": "Q44607446",
    "nome": "Luigi Michele Galli",
-   "nascita": "1924-10-27",
+   "nascita": "1900-10-07",
    "prec_nascita": "giorno",
    "morte": "2001-11-20",
    "prec_morte": "giorno",
@@ -70440,6 +70509,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -70650,7 +70720,7 @@
   {
    "qid": "Q20888870",
    "nome": "Luigi Passoni",
-   "nascita": "1926-12-29",
+   "nascita": "1894-04-27",
    "prec_nascita": "giorno",
    "morte": "2005-09-17",
    "prec_morte": "giorno",
@@ -70951,31 +71021,12 @@
     "I"
    ],
    "cariche": [
+    "deputato della Repubblica Italiana",
     "senatore della Repubblica Italiana"
    ],
    "partiti": [
     "Partito Socialista Democratico Italiano"
    ],
-   "stato": "deceduto",
-   "non_eletto": false,
-   "hall_of_fame": false
-  },
-  {
-   "qid": "Q105633817",
-   "nome": "Luigi Rocco",
-   "nascita": "1894-06-01",
-   "prec_nascita": "giorno",
-   "morte": "1951-02-03",
-   "prec_morte": "giorno",
-   "foto": null,
-   "wikipedia": "https://it.wikipedia.org/wiki/Luigi_Rocco_(politico_1894)",
-   "mandati": [
-    "I"
-   ],
-   "cariche": [
-    "deputato della Repubblica Italiana"
-   ],
-   "partiti": [],
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -71456,6 +71507,7 @@
     "Partito Comunista Italiano",
     "Partito Democratico della Sinistra"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -71485,7 +71537,7 @@
   {
    "qid": "Q16268395",
    "nome": "Luisa Gallotti Balboni",
-   "nascita": "1916-04-28",
+   "nascita": "1913-04-28",
    "prec_nascita": "giorno",
    "morte": "1979-11-26",
    "prec_morte": "giorno",
@@ -71542,6 +71594,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -71819,6 +71872,7 @@
    "partiti": [
     "Lega Nord"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -72125,6 +72179,7 @@
     "Partito Radicale",
     "Radicali Italiani"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -72213,6 +72268,7 @@
    "partiti": [
     "Lega Nord"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -72361,6 +72417,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -72568,6 +72625,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -72783,6 +72841,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -72830,6 +72889,7 @@
     "Democrazia Cristiana",
     "Partito Popolare Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -72992,6 +73052,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -73095,6 +73156,7 @@
    "partiti": [
     "Partito Democratico"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": true,
@@ -73235,6 +73297,7 @@
     "Partito Comunista Italiano",
     "Partito Democratico della Sinistra"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -73278,6 +73341,7 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -73347,6 +73411,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -73494,6 +73559,7 @@
    "partiti": [
     "Partito Radicale"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -73580,6 +73646,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -73811,7 +73878,7 @@
   {
    "qid": "Q1898621",
    "nome": "Mario Alicata",
-   "nascita": "1918-05-08",
+   "nascita": "1908-05-08",
    "prec_nascita": "giorno",
    "morte": "1966-12-06",
    "prec_morte": "giorno",
@@ -74597,6 +74664,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -75259,7 +75327,7 @@
   {
    "qid": "Q3848660",
    "nome": "Mario Grampa",
-   "nascita": "1899-01-04",
+   "nascita": "1889-08-09",
    "prec_nascita": "giorno",
    "morte": "1961-12-28",
    "prec_morte": "giorno",
@@ -75320,6 +75388,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -75750,6 +75819,7 @@
     "Partito Comunista Italiano",
     "Partito Democratico"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -76546,8 +76616,8 @@
   {
    "qid": "Q3849216",
    "nome": "Mario Venditti",
-   "nascita": "1889",
-   "prec_nascita": "anno",
+   "nascita": "1887-05-03",
+   "prec_nascita": "giorno",
    "morte": "1964",
    "prec_morte": "anno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Mario%20Venditti%20III%20legislatura.jpg",
@@ -76739,6 +76809,7 @@
     "Democrazia Cristiana",
     "Patto Segni"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -77298,6 +77369,7 @@
    "partiti": [
     "Partito Democratico della Sinistra"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -77499,6 +77571,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -77599,6 +77672,7 @@
    "partiti": [
     "Partito Socialista Democratico Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -78669,6 +78743,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -78715,6 +78790,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -79801,6 +79877,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -79871,6 +79948,7 @@
    "partiti": [
     "Movimento Sociale Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -80273,6 +80351,7 @@
    "partiti": [
     "Partito Democratico della Sinistra"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -80297,6 +80376,7 @@
    "partiti": [
     "Partito della Rifondazione Comunista"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -80344,6 +80424,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -80372,6 +80453,7 @@
     "Alleanza Nazionale",
     "Movimento Sociale Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -80577,6 +80659,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -80670,6 +80753,7 @@
     "Movimento per la Democrazia - La Rete",
     "Partito Democratico"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -80983,6 +81067,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -81167,6 +81252,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -81189,6 +81275,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -81498,6 +81585,7 @@
     "Partito della Rifondazione Comunista",
     "Sinistra Ecologia Libertà"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -82408,6 +82496,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -82691,7 +82780,7 @@
   {
    "qid": "Q1987236",
    "nome": "Nicolò Carandini",
-   "nascita": "1896-12-06",
+   "nascita": "1895-11-06",
    "prec_nascita": "giorno",
    "morte": "1972-03-18",
    "prec_morte": "giorno",
@@ -82726,6 +82815,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -82785,6 +82875,7 @@
     "Partito Comunista Italiano",
     "Partito Democratico della Sinistra"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -82810,6 +82901,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -82838,6 +82930,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -82887,6 +82980,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -83095,6 +83189,7 @@
     "Democrazia Cristiana",
     "Partito Democratico"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -83479,6 +83574,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -83723,6 +83819,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -84314,6 +84411,7 @@
     "deputato dell'Assemblea Costituente della Repubblica Italiana"
    ],
    "partiti": [],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -84466,6 +84564,7 @@
    "partiti": [
     "Südtiroler Volkspartei"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -84612,6 +84711,7 @@
     "Partito Democratico della Sinistra",
     "Partito della Rifondazione Comunista"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -84680,6 +84780,7 @@
    "partiti": [
     "Alleanza Nazionale"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -85276,6 +85377,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -85874,6 +85976,7 @@
     "Partito Socialista Democratico Italiano",
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -87512,6 +87615,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -87561,6 +87665,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -87673,6 +87778,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -87809,6 +87915,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -87836,6 +87943,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -88701,6 +88809,7 @@
    "partiti": [
     "Partito Democratico"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -89586,6 +89695,7 @@
     "senatore della Repubblica Italiana"
    ],
    "partiti": [],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -89700,6 +89810,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -89749,6 +89860,7 @@
    "partiti": [
     "Federazione dei Verdi"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -89802,6 +89914,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -89827,6 +89940,7 @@
     "Centro Democratico",
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -89855,6 +89969,7 @@
     "Movimento Sociale Fiamma Tricolore",
     "Movimento Sociale Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -89886,6 +90001,7 @@
     "Movimento Sociale Italiano",
     "Partito Fascista Repubblicano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -90845,6 +90961,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -91050,6 +91167,7 @@
    "partiti": [
     "Partito Nazionale Fascista"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -91264,7 +91382,7 @@
   {
    "qid": "Q17285451",
    "nome": "Raffaele Russo",
-   "nascita": "1932-12-08",
+   "nascita": "1939-08-04",
    "prec_nascita": "giorno",
    "morte": "2024-12-18",
    "prec_morte": "giorno",
@@ -91602,6 +91720,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -91650,6 +91769,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -91795,6 +91915,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -92064,6 +92185,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -94019,6 +94141,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": true,
@@ -94065,6 +94188,7 @@
    "partiti": [
     "Partito Democratico"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -94663,6 +94787,7 @@
    "partiti": [
     "Blocco Nazionale della Libertà"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -94760,6 +94885,7 @@
    "partiti": [
     "Lega Nord"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -95150,6 +95276,7 @@
    "partiti": [
     "Partito Democratico della Sinistra"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -95576,6 +95703,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -95672,6 +95800,7 @@
     "Partito Comunista Italiano",
     "Partito Democratico della Sinistra"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -95956,6 +96085,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -95978,6 +96108,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -96029,6 +96160,7 @@
     "Democrazia Cristiana",
     "Partito Democratico"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": true,
@@ -96170,6 +96302,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -96350,6 +96483,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -97545,8 +97679,8 @@
    "nome": "Salvatore Sanfilippo",
    "nascita": "1945-12-14",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2026-01-31",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": "https://it.wikipedia.org/wiki/Salvatore_Sanfilippo_(politico_1945)",
    "mandati": [
@@ -97559,7 +97693,8 @@
    "partiti": [
     "Partito Democratico della Sinistra"
    ],
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -97824,6 +97959,7 @@
     "Socialisti Democratici Italiani",
     "Socialisti Italiani"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": true,
@@ -97850,6 +97986,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -97916,6 +98053,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -97948,6 +98086,7 @@
     "Partito Socialista Italiano",
     "Partito Socialista Unitario"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -98105,6 +98244,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -98476,6 +98616,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -98759,6 +98900,7 @@
     "Partito Comunista Italiano",
     "Partito della Rifondazione Comunista"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -99049,6 +99191,7 @@
    "partiti": [
     "Partito Radicale"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -99189,6 +99332,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -99327,6 +99471,7 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -99568,6 +99713,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -99760,7 +99906,7 @@
   {
    "qid": "Q3960861",
    "nome": "Silvio Fantuzzi",
-   "nascita": "1884-05-10",
+   "nascita": "1894-05-10",
    "prec_nascita": "giorno",
    "morte": "1960-10-06",
    "prec_morte": "giorno",
@@ -100059,6 +100205,7 @@
    "partiti": [
     "Partito Democratico della Sinistra"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -100657,6 +100804,7 @@
    "partiti": [
     "Partito Democratico"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -101406,6 +101554,7 @@
    "partiti": [
     "Partito Nazionale Fascista"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -101985,6 +102134,7 @@
    "partiti": [
     "Südtiroler Volkspartei"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -102011,6 +102161,7 @@
     "Partito Socialista Italiano",
     "Potere Operaio"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -102424,6 +102575,7 @@
    "partiti": [
     "Unione Democratica Nazionale"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -102529,7 +102681,7 @@
   {
    "qid": "Q17279890",
    "nome": "Ugo Boghetta",
-   "nascita": "1957-07-27",
+   "nascita": "1951-07-27",
    "prec_nascita": "giorno",
    "morte": null,
    "prec_morte": null,
@@ -103434,6 +103586,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -104069,6 +104222,7 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -104353,6 +104507,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -105605,28 +105760,7 @@
     "senatore della Repubblica Italiana"
    ],
    "partiti": [
-    "Democrazia Cristiana"
-   ],
-   "stato": "deceduto",
-   "non_eletto": false,
-   "hall_of_fame": false
-  },
-  {
-   "qid": "Q17328991",
-   "nome": "Vincenzo Russo",
-   "nascita": "1901-01-18",
-   "prec_nascita": "giorno",
-   "morte": "1976-05-16",
-   "prec_morte": "giorno",
-   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Vincenzo%20Mario%20Russo%20IV.jpg",
-   "wikipedia": "https://it.wikipedia.org/wiki/Vincenzo_Russo_(politico_1901-1976)",
-   "mandati": [
-    "IV"
-   ],
-   "cariche": [
-    "deputato della Repubblica Italiana"
-   ],
-   "partiti": [
+    "Democrazia Cristiana",
     "Partito Socialista Democratico Italiano"
    ],
    "stato": "deceduto",
@@ -105847,6 +105981,7 @@
    "partiti": [
     "Partito Liberale Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -105916,6 +106051,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -105943,6 +106079,7 @@
    "partiti": [
     "Partito Democratico"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": true,
@@ -106176,6 +106313,7 @@
    "partiti": [
     "Partito Socialista Italiano di Unità Proletaria"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -106559,6 +106697,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -107059,7 +107198,8 @@
     "VII",
     "IX",
     "X",
-    "XI"
+    "XI",
+    "VIII"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -107068,30 +107208,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
-   "stato": "deceduto",
-   "non_eletto": false,
-   "hall_of_fame": false
-  },
-  {
-   "qid": "Q17351887",
-   "nome": "Vittorino Colombo",
-   "nascita": "1924-11-21",
-   "prec_nascita": "giorno",
-   "morte": "2014-04-21",
-   "prec_morte": "giorno",
-   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Vittorino%20Colombo%20senatore.jpg",
-   "wikipedia": "https://it.wikipedia.org/wiki/Vittorino_Colombo_(politico_1924-2014)",
-   "mandati": [
-    "VII",
-    "VIII",
-    "IX"
-   ],
-   "cariche": [
-    "senatore della Repubblica Italiana"
-   ],
-   "partiti": [
-    "Democrazia Cristiana"
-   ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -107663,6 +107780,7 @@
    "partiti": [
     "Partito Liberale Italiano"
    ],
+   "aggancio": "data di nascita",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -107692,7 +107810,7 @@
   {
    "qid": "Q109596378",
    "nome": "Vittorio Naldini",
-   "nascita": "1923-02-01",
+   "nascita": "1926-02-01",
    "prec_nascita": "giorno",
    "morte": "2015-04-07",
    "prec_morte": "giorno",

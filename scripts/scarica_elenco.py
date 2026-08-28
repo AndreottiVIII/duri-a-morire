@@ -139,6 +139,57 @@ def stato_di(p, oggi):
     return 'vivente'
 
 
+def fondi_doppioni(persone):
+    """Stesso nome e stessa legislatura vuol dire stessa persona.
+
+    Su Wikidata capita che una persona compaia due volte, una col suo record
+    completo e una con una scheda spoglia e una data di nascita sbagliata: di
+    Giovanni Battista Melis, deputato sardo morto nel 1976, esisteva un secondo
+    esemplare nato nel 1922 che nessuno aveva mai fatto morire. Restava fra i
+    viventi in eterno.
+
+    Persone diverse con lo stesso nome esistono davvero (due Giuseppe Leoni,
+    due Arturo Marzano), ma stanno in legislature diverse: e' la legislatura
+    condivisa a fare la differenza fra un'omonimia e un doppione.
+    """
+    per_nome = {}
+    for q, p in persone.items():
+        per_nome.setdefault(camera.chiave(p['nome']), []).append(q)
+
+    def valore(q):
+        p = persone[q]
+        return (1 if p.get('wikipedia') else 0, 1 if p.get('morte') else 0,
+                len(p['mandati']))
+
+    fusi = []
+    for gruppo in per_nome.values():
+        if len(gruppo) < 2:
+            continue
+        for a in list(gruppo):
+            for b in list(gruppo):
+                if a >= b or a not in persone or b not in persone:
+                    continue
+                if not set(persone[a]['mandati']) & set(persone[b]['mandati']):
+                    continue
+                tieni, scarta = sorted([a, b], key=valore, reverse=True)
+                buono, altro = persone[tieni], persone[scarta]
+                for campo in ('morte', 'prec_morte', 'nascita', 'prec_nascita',
+                              'foto', 'wikipedia', 'fonte_morte'):
+                    if not buono.get(campo) and altro.get(campo):
+                        buono[campo] = altro[campo]
+                for m in altro['mandati']:
+                    if m not in buono['mandati']:
+                        buono['mandati'].append(m)
+                buono['cariche'] = sorted(set(buono['cariche']) | set(altro['cariche']))
+                buono['partiti'] = sorted(set(buono['partiti']) | set(altro['partiti']))
+                fusi.append((altro['nome'], scarta, tieni))
+                del persone[scarta]
+
+    print('Doppioni fusi: %d' % len(fusi))
+    for nome, scarta, tieni in fusi:
+        print('  %-26s %s assorbito in %s' % (nome, scarta, tieni))
+
+
 def main():
     persone = {}
 
@@ -182,29 +233,49 @@ def main():
     # Seconda fonte. Wikidata dimentica i deputati di seconda fila: Giuseppe
     # Sasso risultava vivo a 106 anni ed era morto nel 2015. La Camera tiene il
     # registro dei propri ex deputati e sa quello che Wikidata ignora.
+    # Seconda e terza fonte. Wikidata e' cieca sui deputati di seconda fila e
+    # non ne registra il decesso: Giuseppe Sasso risultava vivo a 106 anni ed
+    # era morto nel 2015. Camera e Senato tengono il registro dei propri ex.
+    #
+    # L'aggancio e' per nome PIU' legislatura in comune. Mai per data di
+    # nascita: e' proprio quella che a volte sbaglia Wikidata, e usarla come
+    # prova d'identita' lascerebbe in vita chi ha la data storta. Giovanni
+    # Battista Melis su Wikidata e' del 1922, alla Camera del 1904.
+    discordanze = []
     for etichetta, modulo in [('Camera dei deputati', camera), ('Senato', senato)]:
         print('Incrocio con gli open data: %s...' % etichetta)
         try:
-            registro = modulo.decessi()
+            reg = modulo.registro()
         except Exception as e:
             print('  non raggiungibile (%s): si prosegue senza.' % e)
             continue
+        indice = modulo.indice_per_data(reg)
+        per_mandato = modulo.indice_per_mandato(reg)
         recuperati = 0
         for p in persone.values():
-            if p['morte']:
+            v, come = modulo.cerca_ampia(reg, indice, p['nome'], p['nascita'],
+                                         p['mandati'], per_mandato)
+            if not v:
                 continue
-            v = registro.get(camera.chiave(p['nome'], ''))
-            # L'anno di nascita deve coincidere, altrimenti si finisce per
-            # seppellire un vivo al posto del suo omonimo deputato del Regno.
-            if not v or not v['nascita'] or not p['nascita']:
-                continue
-            if v['nascita'][:4] != p['nascita'][:4]:
+            if come == 'data':
+                p['aggancio'] = 'data di nascita'
+            if v.get('nascita') and p['nascita'] and v['nascita'][:4] != p['nascita'][:4]:
+                discordanze.append((p['nome'], p['nascita'], v['nascita'], etichetta))
+                # Sulla nascita crediamo al registro ufficiale, non a Wikidata.
+                p['nascita'] = v['nascita']
+                p['prec_nascita'] = 'giorno' if len(v['nascita']) == 10 else 'anno'
+            if p['morte'] or not v.get('morte'):
                 continue
             p['morte'] = v['morte']
             p['prec_morte'] = 'giorno' if len(v['morte']) == 10 else 'anno'
             p['fonte_morte'] = etichetta
             recuperati += 1
         print('  %d decessi che Wikidata non registrava' % recuperati)
+    print('  %d date di nascita corrette sui registri ufficiali' % len(discordanze))
+    for d in discordanze[:8]:
+        print('    %-26s wikidata %s -> %s (%s)' % (d[0], d[1], d[2], d[3]))
+
+    fondi_doppioni(persone)
 
     for q, p in persone.items():
         p['stato'] = stato_di(p, oggi)

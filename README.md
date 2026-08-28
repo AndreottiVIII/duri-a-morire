@@ -42,9 +42,32 @@ che la Camera per forza di cose ignora. Ne aggiunge altri 9 — pochi perché mo
 senatori di quegli anni erano stati prima deputati, e la Camera li aveva già
 coperti.
 
-In tutto: 157 persone che risultavano vive e non lo erano. I viventi scendono da
-913 a 805, e i dispersi da 53 a 4. Sulla scheda di ognuno c'è scritto da quale
+**Come si agganciano i nomi.** Per nome piu' legislatura in comune, mai per data
+di nascita: e' proprio quella che a volte sbaglia Wikidata, e usarla come prova
+d'identita' lascerebbe in vita chi ce l'ha storta — Giovanni Battista Melis su
+Wikidata risulta del 1922, alla Camera del 1904, e ha ragione la Camera. Dentro
+la Camera invece l'aggancio e' esatto: l'URI del deputato per una legislatura
+(`d19930_4`) contiene l'identificativo della persona (`p19930`), che porta le
+date. Chi non torna per nome viene ricercato per legislatura piu' data di nascita
+esatta, e in ultimo per nome contenuto nell'altro — i registri accorciano i
+cognomi da sposata, e `LODI ADRIANA` sta dentro `Adriana Lodi Faustini Fustini`.
+
+**Doppioni.** Stesso nome e stessa legislatura vuol dire stessa persona: su
+Wikidata capita che qualcuno compaia due volte, una col record buono e una con
+una scheda spoglia e la nascita sbagliata, e quel secondo esemplare non muore
+mai. Omonimi veri ne esistono (due Giuseppe Leoni, due Arturo Marzano), ma
+stanno in legislature diverse. Dieci doppioni fusi.
+
+In tutto: 160 persone che risultavano vive e non lo erano. I viventi scendono da
+913 a 798, e i dispersi da 53 a 4. Sulla scheda di ognuno c'è scritto da quale
 registro arriva la data.
+
+**La verifica.** `scripts/verifica_viventi.py` passa in rassegna chi risulta
+vivo e chiede conto ai registri, perche' il silenzio di una fonte non e' una
+prova di vita. Degli 798 viventi, 781 sono confermati da Camera o Senato, 14 non
+sono mai stati eletti (i tecnici di Ciampi e Dini, che nessun registro
+parlamentare puo' contenere) e **3 restano non agganciati**: la loro vita non e'
+verificata da nessuna seconda fonte.
 
 **Estetica.** Televideo RAI. Le pagine numerate non sono decorazione: sono il
 sistema di navigazione, e sono la risposta al problema di far scorrere 897 nomi.
@@ -56,9 +79,9 @@ né account. Poi, se piace, lo stesso repo su hosting gratuito con un job nottur
 
 | | |
 |---|---|
-| Censiti in tutto | 4.616 |
-| Viventi | 805 |
-| Deceduti | 3.807 |
+| Censiti in tutto | 4.606 |
+| Viventi | 798 |
+| Deceduti | 3.804 |
 | Sorte ignota | 4 |
 
 La Costituente e la I legislatura sono estinte al completo: l'ultimo costituente
@@ -70,7 +93,8 @@ e la colonna resta vuota invece di inventarselo.
 ## Script
 
 - `scripts/wd.py` — utility per Wikidata (API di ricerca + SPARQL)
-- `scripts/camera.py`, `scripts/senato.py` — i registri dei decessi ufficiali
+- `scripts/camera.py`, `scripts/senato.py` — i registri ufficiali di Camera e Senato
+- `scripts/verifica_viventi.py` — chiede conto ai registri di chi risulta vivo
 - `scripts/aggancia_hall_of_fame.py` — collega i 66 nomi curati ai record Wikidata
 - `scripts/scarica_elenco.py` — scarica l'elenco grande in `data/elenco.json`
 - `scripts/genera_sito.py` + `scripts/modello.html` — costruiscono `sito/index.html`
