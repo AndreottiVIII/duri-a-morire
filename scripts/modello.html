@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
 <title>Duri a morire — Prima Repubblica edition</title>
 <style>
   :root{
@@ -1061,6 +1062,30 @@ if(salvato && salvato.cambi && salvato.cambi.length){
 }
 
 disegna();
+
+/* Il file e' uno solo e il suo indirizzo non cambia mai, quindi un browser
+   puo' restare attaccato a una copia vecchia anche dopo l'aggiornamento
+   notturno. La pagina se ne accorge da sola: chiede la propria versione
+   scavalcando la cache e, se ne esiste una piu' fresca, si ricarica una volta
+   sola. Il segnaposto in sessione evita che si ricarichi all'infinito. */
+async function controllaVersione(){
+  try {
+    const r = await chiedi(location.pathname + '?v=' + Date.now(),
+                           {cache: 'no-store'}, 20);
+    if(!r.ok) return;
+    const testo = await r.text();
+    const m = testo.match(/"generato":"(\d{4}-\d{2}-\d{2})"/);
+    if(!m) return;
+    if(m[1] > DATI.generato){
+      if(sessionStorage.getItem('duri-ricaricato')) return;
+      sessionStorage.setItem('duri-ricaricato', '1');
+      location.reload();
+    } else {
+      sessionStorage.removeItem('duri-ricaricato');
+    }
+  } catch(e){ /* se non si riesce, pazienza: si guarda quello che c'e' */ }
+}
+setTimeout(controllaVersione, 1500);
 </script>
 </body>
 </html>
