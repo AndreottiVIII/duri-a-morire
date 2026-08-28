@@ -520,11 +520,12 @@ PAGINE[240] = paginaRighe(() => {
 }, 'L’ULTIMO DEI… (PARTITI)', 'minori compresi. tocca un numero.');
 
 PAGINE[300] = paginaLista(
-  () => defunti.filter(p => p.d).sort((a, b) => a.d < b.d ? 1 : -1),
+  () => defunti.filter(p => p.d).sort((a, b) => a.d < b.d ? 1 : -1)
+          .concat(perNascita(defunti.filter(p => !p.d))),
   'IN MEMORIAM — dal più recente', 'a tendere saranno tutti qui');
 
 PAGINE[400] = paginaLista(() => perNascita(ignoti), 'SORTE IGNOTA',
-  'nessuna data di morte, ' + DATI.soglia + '+ anni');
+  'nè vivi nè morti: non risulta');
 
 function compleanniDi(d){
   const mm = String(d.getMonth() + 1).padStart(2, '0'), gg = String(d.getDate()).padStart(2, '0');
@@ -554,10 +555,20 @@ function scheda(q){
   if(!p) return {righe: [titolo('NON TROVATO')], sottopagine: 1};
   const r = [titolo(tronca(p.n, W - 2))];
   const st = p.s === 1 ? ['VIVENTE', 'invg'] : (p.s === 3 ? ['SORTE IGNOTA', 'inv'] : ['DECEDUTO', 'invr']);
+  if(p.di){
+    r.push([seg(' ' + st[0] + ' ', st[1])]);
+    r.push(vuota());
+    r.push([seg(' Nessuna delle tre fonti ne registra', 'd')]);
+    r.push([seg(' la morte, ma avrebbe ' + (OGGI.getFullYear() - anno(p.b)) + ' anni.', 'd')]);
+    r.push(vuota());
+    r.push(sxdx(' Nato', dataIt(p.b, p.bp), 'b', 'c'));
+    return {righe: r, sottopagine: 1, persona: p};
+  }
   r.push([seg(' ' + st[0] + ' ', st[1])]);
   r.push(vuota());
   r.push(sxdx(' Nato', dataIt(p.b, p.bp), 'b', 'c'));
   if(p.d) r.push(sxdx(' Morto', dataIt(p.d, p.dp), 'b', 'r'));
+  else if(p.di) r.push(sxdx(' Morto', 'data ignota', 'b', 'r'));
   // quando la morte non viene da Wikidata vale la pena dire chi l'ha registrata
   if(p.fd) r.push([seg(' via ' + tronca(p.fd, W - 6), 'd')]);
   const e = eta(p);

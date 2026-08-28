@@ -130,6 +130,20 @@ def nome_leggibile(p, curato):
 
 
 def stato_di(p, oggi):
+    """Vivente, deceduto, o sorte ignota.
+
+    Chi supera l'eta' massima credibile senza che ne' Wikidata ne' i registri
+    di Camera e Senato ne segnino la morte non e' un vivente: e' un morto di
+    cui nessuno ha scritto la data. Tre fonti che tacciono su un uomo di
+    centoventiquattro anni non lasciano molto spazio al dubbio, e tenerlo fra
+    i vivi falserebbe ogni conto. La data resta ignota, e la scheda lo dice.
+
+    Nessuna delle tre fonti li da' per morti, e nessuna delle tre puo' dirlo:
+    la data non esiste da nessuna parte, nemmeno la voce di Wikipedia di Enrico
+    Parri sa cosa scrivere dopo il trattino. Si potrebbe presumere la morte a
+    centoventiquattro anni, ma sarebbe una nostra deduzione spacciata per un
+    fatto: meglio il limbo dichiarato, che e' la verita' sui dati.
+    """
     if p['morte']:
         return 'deceduto'
     if not p['nascita']:

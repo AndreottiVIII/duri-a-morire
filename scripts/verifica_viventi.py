@@ -72,10 +72,42 @@ def main():
         for p, e in per_data[:12]:
             print('  %-30s n.%-11s %s, per %s' % (p['nome'], p['nascita'], e[0], e[1]))
         print()
+    # Contraddizioni: noi lo diamo vivo, il registro lo da' morto. Non
+    # dovrebbero esistercene, perche' la pipeline applica i decessi trovati:
+    # se ne spunta una e' un difetto, non una curiosita'.
+    contraddizioni = []
+    for p, e in per_nome + per_data:
+        if e[2].get('morte'):
+            contraddizioni.append((p, e))
+
+    print('CONTRADDIZIONI (noi vivo, registro morto): %d' % len(contraddizioni))
+    for p, e in contraddizioni[:20]:
+        print('  %-28s %s dice morto il %s' % (p['nome'], e[0], e[2]['morte']))
+    print()
+
     print('NON AGGANCIATI, dal piu anziano:')
-    for p in sorted(muti, key=lambda x: x['nascita'] or '9')[:30]:
+    for p in sorted(muti, key=lambda x: x['nascita'] or '9'):
         print('  %-28s n.%-11s %s' % (p['nome'], p['nascita'],
                                       ', '.join(p['mandati'])))
+    print()
+
+    print('MAI ELETTI (nessun registro parlamentare puo confermarli):')
+    for p in sorted(fuori, key=lambda x: x['nascita'] or '9'):
+        print('  %-28s n.%-11s %s' % (p['nome'], p['nascita'],
+                                      ', '.join(p['mandati'])))
+    print()
+
+    # I piu' anziani sono quelli su cui un errore pesa di piu'.
+    print('I VIVENTI PIU ANZIANI, con la loro conferma:')
+    stato = {}
+    for p, e in per_nome:
+        stato[p['qid']] = e[0] + ', per nome'
+    for p, e in per_data:
+        stato[p['qid']] = e[0] + ', per ' + e[1]
+    for p in sorted(vivi, key=lambda x: x['nascita'] or '9')[:20]:
+        eta = 2026 - int(p['nascita'][:4]) if p['nascita'] else 0
+        print('  %-28s %3d anni  %s' % (p['nome'], eta,
+              stato.get(p['qid'], 'NESSUNA CONFERMA')))
 
 
 if __name__ == '__main__':

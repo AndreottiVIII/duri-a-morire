@@ -76,8 +76,17 @@ da Wikidata, accanto al cursus curato che resta come lo aveva scritto l'autore.
 vivo e chiede conto ai registri, perche' il silenzio di una fonte non e' una
 prova di vita. Degli 798 viventi, 781 sono confermati da Camera o Senato, 14 non
 sono mai stati eletti (i tecnici di Ciampi e Dini, che nessun registro
-parlamentare puo' contenere) e **3 restano non agganciati**: la loro vita non e'
-verificata da nessuna seconda fonte.
+parlamentare puo' contenere) e 3 restano non agganciati. **Nessuna
+contraddizione**: non esiste un solo caso in cui noi diamo per vivo qualcuno che
+un registro da' per morto. I venti viventi piu' anziani sono confermati tutti,
+decano compreso.
+
+**Il limbo.** I quattro di sorte ignota restano dove sono. Di tre nessuna delle
+tre fonti registra la morte e nessuna puo' registrarla: la voce di Wikipedia di
+Enrico Parri scrive *"10 gennaio 1902 -- ..."* e si ferma li'. Presumerli morti a
+centoventiquattro anni sarebbe una deduzione nostra spacciata per un fatto. Il
+quarto, Mario De Cristofaro, non ha data di nascita da nessuna parte: il suo
+mandato comincia e finisce il 17 ottobre 1991, causale "Dimissioni".
 
 **Estetica.** Televideo RAI. Le pagine numerate non sono decorazione: sono il
 sistema di navigazione, e sono la risposta al problema di far scorrere 897 nomi.

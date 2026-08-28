@@ -141,6 +141,8 @@ def compatta(p):
     # il registro ufficiale senza dover riaccoppiare i nomi nel browser.
     if p.get('id_camera'):
         d['ci'] = p['id_camera']
+    if p.get('morte_ignota'):
+        d['di'] = 1
     if p.get('cariche_datate'):
         d['cd'] = [[c['carica'], c['da'] or '', c['a'] or ''] for c in p['cariche_datate']]
     return d
