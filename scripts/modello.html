@@ -301,7 +301,7 @@ PAGINE[100] = () => {
   }
   r.push(vuota());
   r.push([seg(' aggiornato il ' + dataIt(DATI.generato), 'd')]);
-  if(COLOFONE) r.push([{t: ' 700 chi fa questo sito', c: 'd', pag: 700}]);
+  if(COLOFONE) r.push([{t: ' 700 info su questo sito', c: 'd', pag: 700}]);
   return {righe: r, sottopagine: 1};
 };
 
@@ -692,7 +692,7 @@ if(COLOFONE){
     });
     if(blocco.length) blocchi.push(blocco);
     return blocchi;
-  }, 'QUESTO SITO', '');
+  }, 'INFO SU QUESTO SITO', '');
 }
 
 PAGINE[150] = () => ({righe: [titolo('RICERCA'), vuota(),
@@ -1081,7 +1081,7 @@ function disegna(){
   const rimando = document.getElementById('colofone');
   if(COLOFONE && !rimando.dataset.pronto){
     rimando.dataset.pronto = '1';
-    rimando.innerHTML = ' <a class="n" data-p="700" href="#p700">Chi fa questo sito</a>';
+    rimando.innerHTML = ' <a class="n" data-p="700" href="#p700">Info su questo sito</a>';
     rimando.addEventListener('click', e => {
       const a = e.target.closest('a.n');
       if(a){ e.preventDefault(); vaiA(700); }

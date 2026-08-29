@@ -24,44 +24,40 @@ COLOFONE = [
     'i ministri della Prima Repubblica: dalla Costituente del 1946 all’XI '
     'legislatura, più i ministri dei governi Ciampi e Dini.',
     '',
-    'Si aggiorna da solo ogni notte, incrociando tre fonti pubbliche: Wikidata, '
-    'gli open data della Camera dei deputati e quelli del Senato. Nessuno '
-    'aggiorna niente a mano.',
+    'Si aggiorna ogni notte da solo, incrociando tre fonti pubbliche: Wikidata, '
+    'gli open data della Camera dei deputati e quelli del Senato.',
     '',
     '#CHI LO FA',
     'Davide Caniatti',
     'davide.caniatti@gmail.com',
     '',
-    'Scrivetemi per segnalazioni, correzioni o domande: un errore trovato da '
-    'chi legge vale più di dieci controlli automatici.',
+    'Scrivetemi per segnalazioni, correzioni o domande.',
     '',
     '#DA DOVE NASCE',
-    'La hall of fame non è una classifica: è l’origine di tutto. '
-    'È la lista che Fabio, un amico, tiene a mano da anni per non perdere '
-    'di vista gli ultimi dinosauri della Prima Repubblica.',
+    'Tutto parte dalla hall of fame. È la lista che Fabio, un amico, tiene '
+    'a mano da anni per seguire gli ultimi dinosauri della Prima Repubblica: '
+    'sessantasei nomi scelti da lui, fra ministri, segretari di partito, '
+    'sindacalisti e banchieri.',
     '',
-    'Sessantasei nomi scelti da lui uno per uno, non da una regola: ministri, '
-    'segretari di partito, sindacalisti, banchieri. Il resto del sito è '
-    'nato per non lasciare che quella lista invecchiasse.',
+    'Il sito è nato per tenere aggiornata quella lista, e poi si è '
+    'allargato a tutti i parlamentari.',
     '',
     '#DATI E PRIVACY',
-    'Tutto viene da archivi pubblici e riguarda persone pubbliche per il ruolo '
-    'che hanno ricoperto. Non c’è un solo dato privato: nessun '
-    'indirizzo, nessun recapito, niente che non stia già negli archivi del '
-    'Parlamento o su Wikipedia.',
+    'I dati vengono da archivi pubblici e riguardano persone pubbliche per il '
+    'ruolo che hanno ricoperto: date di nascita e di morte, legislature, gruppo '
+    'parlamentare. Le stesse cose che stanno negli archivi del Parlamento e su '
+    'Wikipedia.',
     '',
-    'Dove le fonti si contraddicono il sito lo dice invece di scegliere in '
-    'silenzio, e quando nessuna sa rispondere lo scrive: né vivo né '
-    'morto, non risulta.',
+    'Quando le fonti sono in disaccordo, il sito lo scrive. Quando nessuna sa '
+    'rispondere lo scrive lo stesso: né vivo né morto, non risulta.',
     '',
     '#RIPRODUZIONE',
-    'I dati non sono miei. Vengono da Wikidata e dagli open data di Camera e '
-    'Senato, e alla fonte sono liberi: se vi servono, prendeteli da là. Le '
-    'fotografie sono di Wikimedia Commons e restano dei loro autori.',
+    'I dati sono pubblici e liberi alla fonte: Wikidata e gli open data di '
+    'Camera e Senato. Le fotografie vengono da Wikimedia Commons e restano dei '
+    'loro autori.',
     '',
-    'Mio è il lavoro di raccolta, verifica e costruzione, e di Fabio è '
-    'la lista da cui tutto è partito. Quelli non si riproducono altrove '
-    'senza autorizzazione e senza citare chi li ha fatti.',
+    'Il lavoro di raccolta e verifica, questo sito e la lista di Fabio sono '
+    'nostri: per riprodurli altrove serve l’autorizzazione, e vanno citati.',
 ]
 
 EDIZIONI = [
