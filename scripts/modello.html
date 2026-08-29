@@ -674,6 +674,12 @@ function scheda(q){
   if(p.fd) r.push([seg(' via ' + tronca(p.fd, W - 6), 'd')]);
   const e = eta(p);
   if(e !== null) r.push(sxdx(p.d ? ' Aveva' : ' Ha', e + ' anni', 'b', 'g'));
+  // Quando una fonte lo dava per morto e il registro la smentisce, si dice.
+  if(p.md){
+    r.push([seg(' Wikidata lo dava per morto nel ' + p.md[0] + ',', 'd')]);
+    r.push([seg(' il registro ' + tronca(p.md[1], 18) + ' no.', 'd')]);
+    r.push(vuota());
+  }
   if(p.p){
     r.push(sxdx(' Partito', p.p, 'b', 'c'));
     if(perEsteso(p.p)) r.push([seg('  ' + tronca(perEsteso(p.p), W - 3), 'd')]);

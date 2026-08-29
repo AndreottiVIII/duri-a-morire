@@ -17,6 +17,16 @@ import sys, os, json, unicodedata
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import camera, senato
 
+# La console di Windows parla ancora cp1252 e va in errore su una lettera
+# straniera: un nome come Stojan Spetic ha fatto morire lo script prima che
+# scrivesse i dati. Meglio un carattere storto a schermo che un giro perso.
+try:
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+except Exception:
+    pass
+
+
 QUI = os.path.dirname(os.path.abspath(__file__))
 ELENCO = os.path.join(QUI, '..', 'data', 'elenco.json')
 

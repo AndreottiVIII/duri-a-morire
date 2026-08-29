@@ -290,6 +290,8 @@ def compatta(p):
             d['cr'] = avanzo
     if p.get('fonte_morte'):
         d['fd'] = p['fonte_morte']
+    if p.get('morte_dubbia'):
+        d['md'] = p['morte_dubbia']
     # L'identificativo della Camera permette al tasto AGGIORNA di ricontrollare
     # il registro ufficiale senza dover riaccoppiare i nomi nel browser.
     if p.get('id_camera'):

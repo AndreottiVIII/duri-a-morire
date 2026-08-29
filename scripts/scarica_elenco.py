@@ -9,6 +9,16 @@ import sys, os, json, time, datetime, re, urllib.parse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import wd, camera, senato
 
+# La console di Windows parla ancora cp1252 e va in errore su una lettera
+# straniera: un nome come Stojan Spetic ha fatto morire lo script prima che
+# scrivesse i dati. Meglio un carattere storto a schermo che un giro perso.
+try:
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+except Exception:
+    pass
+
+
 QUI = os.path.dirname(os.path.abspath(__file__))
 CACHE = os.path.join(QUI, '..', 'data', 'cache')
 USCITA = os.path.join(QUI, '..', 'data', 'elenco.json')
@@ -373,6 +383,8 @@ def main():
             # dire Forza Italia di un deputato che sedeva col PLI.
             if v.get('gruppo') and not p.get('gruppo_eletto'):
                 p['gruppo_eletto'] = v['gruppo']
+            if not v.get('morte') and not p.get('registro_muto'):
+                p['registro_muto'] = etichetta
             if v.get('uri'):
                 p['id_senato'] = v['uri']
             if not v.get('morte'):
@@ -391,6 +403,30 @@ def main():
             p['prec_morte'] = 'giorno' if len(v['morte']) == 10 else 'anno'
             p['fonte_morte'] = etichetta
         print('  %d decessi che Wikidata non registrava' % recuperati)
+    # Una morte che ha il solo anno, che viene dalla sola Wikidata, e che il
+    # registro ufficiale smentisce tacendo, e' quasi sempre un fine mandato
+    # finito nella casella sbagliata: Stojan Spetic risultava morto nel 1992,
+    # cioe' l'anno in cui si chiuse la X legislatura, la sua. Il Senato lo ha
+    # con la stessa data di nascita e nessuna data di morte.
+    #
+    # La regola resta stretta apposta: il silenzio di un registro non basta a
+    # cancellare una morte, perche' i registri arrivano in ritardo. Serve che
+    # la data sia imprecisa, che nessun registro l'abbia, e che uno dei due
+    # conosca la persona.
+    revocate = []
+    for p in persone.values():
+        if not p['morte'] or p.get('fonte_morte'):
+            continue
+        if p.get('prec_morte') != 'anno' or not p.get('registro_muto'):
+            continue
+        revocate.append((p['nome'], p['morte'], p['registro_muto']))
+        p['morte_dubbia'] = [p['morte'], p['registro_muto']]
+        p['morte'] = None
+        p['prec_morte'] = None
+    print('  %d morti revocate: solo anno, solo Wikidata, registro che tace' % len(revocate))
+    for r in revocate:
+        print('    %-26s Wikidata dice %s, %s no' % (r[0], r[1], r[2]))
+
     print('  %d date di nascita corrette sui registri ufficiali' % len(discordanze))
     print('  %d date di morte corrette sui registri ufficiali' % len(contese))
     for c in contese[:10]:
