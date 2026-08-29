@@ -16,9 +16,59 @@ USCITA = os.path.join(USCITA_DIR, 'index.html')
 # Lo stesso sito esce due volte, identico salvo il nome: uno per chi capisce
 # la battuta e uno da mandare in giro senza spiegazioni. Il lavoro notturno li
 # ricostruisce entrambi, quindi non divergono mai.
+# Il colofone: chi fa il sito, da dove nasce, e cosa si puo' farne. Una riga
+# che comincia con # e' un'intestazione, una vuota e' uno stacco. Sta solo
+# nell'edizione che gira fuori, dove chi arriva non sa niente di noi.
+COLOFONE = [
+    'Questo sito tiene il conto di chi è ancora vivo fra i parlamentari e '
+    'i ministri della Prima Repubblica: dalla Costituente del 1946 all’XI '
+    'legislatura, più i ministri dei governi Ciampi e Dini.',
+    '',
+    'Si aggiorna da solo ogni notte, incrociando tre fonti pubbliche: Wikidata, '
+    'gli open data della Camera dei deputati e quelli del Senato. Nessuno '
+    'aggiorna niente a mano.',
+    '',
+    '#CHI LO FA',
+    'Davide Caniatti',
+    'davide.caniatti@gmail.com',
+    '',
+    'Scrivetemi per segnalazioni, correzioni o domande: un errore trovato da '
+    'chi legge vale più di dieci controlli automatici.',
+    '',
+    '#DA DOVE NASCE',
+    'La hall of fame non è una classifica: è l’origine di tutto. '
+    'È la lista che Fabio, un amico, tiene a mano da anni per non perdere '
+    'di vista gli ultimi dinosauri della Prima Repubblica.',
+    '',
+    'Sessantasei nomi scelti da lui uno per uno, non da una regola: ministri, '
+    'segretari di partito, sindacalisti, banchieri. Il resto del sito è '
+    'nato per non lasciare che quella lista invecchiasse.',
+    '',
+    '#DATI E PRIVACY',
+    'Tutto viene da archivi pubblici e riguarda persone pubbliche per il ruolo '
+    'che hanno ricoperto. Non c’è un solo dato privato: nessun '
+    'indirizzo, nessun recapito, niente che non stia già negli archivi del '
+    'Parlamento o su Wikipedia.',
+    '',
+    'Dove le fonti si contraddicono il sito lo dice invece di scegliere in '
+    'silenzio, e quando nessuna sa rispondere lo scrive: né vivo né '
+    'morto, non risulta.',
+    '',
+    '#RIPRODUZIONE',
+    'I dati non sono miei. Vengono da Wikidata e dagli open data di Camera e '
+    'Senato, e alla fonte sono liberi: se vi servono, prendeteli da là. Le '
+    'fotografie sono di Wikimedia Commons e restano dei loro autori.',
+    '',
+    'Mio è il lavoro di raccolta, verifica e costruzione, e di Fabio è '
+    'la lista da cui tutto è partito. Quelli non si riproducono altrove '
+    'senza autorizzazione e senza citare chi li ha fatti.',
+]
+
 EDIZIONI = [
-    ('index.html', 'Duri a morire — Prima Repubblica edition', 'DURI A MORIRE'),
-    ('tracker.html', 'Prima Repubblica Tracker', 'PRIMA REPUBBLICA'),
+    # nome file, titolo, testata, colofone
+    ('index.html', 'Duri a morire — Prima Repubblica edition',
+     'DURI A MORIRE', None),
+    ('tracker.html', 'Prima Repubblica Tracker', 'PRIMA REPUBBLICA', COLOFONE),
 ]
 MODELLO = os.path.join(QUI, 'modello.html')
 
@@ -395,9 +445,12 @@ def main():
                            json.dumps(dati, ensure_ascii=False, separators=(',', ':')))
 
     os.makedirs(USCITA_DIR, exist_ok=True)
-    for nome_file, titolo, testata in EDIZIONI:
+    for nome_file, titolo, testata, colofone in EDIZIONI:
         percorso = os.path.join(USCITA_DIR, nome_file)
-        html = base.replace('%%TITOLO%%', titolo).replace('%%TESTATA%%', testata)
+        html = (base.replace('%%TITOLO%%', titolo)
+                    .replace('%%TESTATA%%', testata)
+                    .replace('/*__COLOFONE__*/',
+                             json.dumps(colofone, ensure_ascii=False)))
         open(percorso, 'w', encoding='utf-8').write(html)
         print('Scritto %s (%.0f KB) — %s'
               % (os.path.normpath(percorso), os.path.getsize(percorso) / 1024.0, titolo))

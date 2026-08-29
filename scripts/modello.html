@@ -64,6 +64,8 @@
   #sub button:disabled{opacity:.3;cursor:default}
   footer{max-width:44em;width:100%;margin-top:18px;font-size:12px;color:var(--spento);line-height:1.6}
   footer a{color:var(--spento)}
+  #colofone a{color:var(--ciano);text-decoration:none;border-bottom:1px dotted var(--spento);cursor:pointer}
+  #colofone a:hover{border-bottom-color:var(--ciano)}
 </style>
 </head>
 <body>
@@ -87,11 +89,13 @@
 <footer>
   Dati da Wikidata, la versione interrogabile di Wikipedia. Foto da Wikimedia Commons.
   <span id="pieno"></span>
+  <span id="colofone"></span>
 </footer>
 
 <script>
 const DATI = /*__DATI__*/;
 const TESTATA = '%%TESTATA%%';
+const COLOFONE = /*__COLOFONE__*/;
 const W = 40, RIGHE_LISTA = 18;
 const P = DATI.persone;
 const perQid = {}; P.forEach(p => perQid[p.q] = p);
@@ -297,6 +301,7 @@ PAGINE[100] = () => {
   }
   r.push(vuota());
   r.push([seg(' aggiornato il ' + dataIt(DATI.generato), 'd')]);
+  if(COLOFONE) r.push([{t: ' 700 chi fa questo sito', c: 'd', pag: 700}]);
   return {righe: r, sottopagine: 1};
 };
 
@@ -669,6 +674,26 @@ PAGINE[500] = () => {
   r.push([seg(' PROSSIMI', 'invg')]);
   return {righe: r.concat(righeCompleanni(viventi, 12)), sottopagine: 1};
 };
+
+/* Chi fa il sito, da dove nasce, e cosa se ne puo' fare. Esiste solo
+   nell'edizione che gira fuori: dentro casa non serve presentarsi. */
+if(COLOFONE){
+  PAGINE[700] = paginaBlocchi(() => {
+    // un paragrafo, con la sua intestazione, non si spezza fra due sottopagine
+    const blocchi = [];
+    let blocco = [];
+    COLOFONE.forEach(b => {
+      if(!b){
+        if(blocco.length){ blocco.push(vuota()); blocchi.push(blocco); blocco = []; }
+        return;
+      }
+      if(b.charAt(0) === '#') blocco.push([seg(' ' + b.slice(1) + ' ', 'invg')]);
+      else avvolgi(b, ' ', ' ').forEach(l => blocco.push([seg(l, 'b')]));
+    });
+    if(blocco.length) blocchi.push(blocco);
+    return blocchi;
+  }, 'QUESTO SITO', '');
+}
 
 PAGINE[150] = () => ({righe: [titolo('RICERCA'), vuota(),
   [seg(' Scrivi un nome nel campo qui sotto.', 'c')]], sottopagine: 1});
@@ -1053,6 +1078,15 @@ function disegna(){
   document.getElementById('subetichetta').textContent = (stato.sub + 1) + ' / ' + nsub;
   document.getElementById('pieno').textContent =
     ' — ' + P.length + ' schede, aggiornate il ' + dataIt(DATI.generato) + '.';
+  const rimando = document.getElementById('colofone');
+  if(COLOFONE && !rimando.dataset.pronto){
+    rimando.dataset.pronto = '1';
+    rimando.innerHTML = ' <a class="n" data-p="700" href="#p700">Chi fa questo sito</a>';
+    rimando.addEventListener('click', e => {
+      const a = e.target.closest('a.n');
+      if(a){ e.preventDefault(); vaiA(700); }
+    });
+  }
 }
 
 /* ---------- cronologia del browser ----------
