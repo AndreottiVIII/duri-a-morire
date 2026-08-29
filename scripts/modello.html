@@ -7,7 +7,7 @@
 <!-- I quattro tasti colorati del Televideo, gli stessi della barra in fondo.
      Incorporato nella pagina: il sito resta un file solo. -->
 <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAVUlEQVR42u3VMQoAIAxD0UQ8ifc/k1fRxUHH4lDB380h+LBCLGkocYqSJx1Q98NoLRR27ysYvNWsAAAAAAAeAvj7Oj7bMPgW9m2QTwgAAAAAtCErkCaOmQs/KFHCIgAAAABJRU5ErkJggg==">
-<title>Duri a morire — Prima Repubblica edition</title>
+<title>%%TITOLO%%</title>
 <style>
   :root{
     --nero:#000; --bianco:#fff; --giallo:#ff0; --ciano:#0ff;
@@ -91,6 +91,7 @@
 
 <script>
 const DATI = /*__DATI__*/;
+const TESTATA = '%%TESTATA%%';
 const W = 40, RIGHE_LISTA = 18;
 const P = DATI.persone;
 const perQid = {}; P.forEach(p => perQid[p.q] = p);
@@ -1031,7 +1032,7 @@ function disegna(){
     : (stato.el ? 'ELENCO' : 'P.' + stato.pagina);
   const dataOggi = OGGI.getDate() + ' ' + MESI[OGGI.getMonth()].toUpperCase() + ' ' +
     String(OGGI.getFullYear()).slice(2);
-  const testata = rigaHtml(sxdx(' DURI A MORIRE', etichettaPag + '  ' + dataOggi + ' ', 'inv', 'inv'));
+  const testata = rigaHtml(sxdx(' ' + TESTATA, etichettaPag + '  ' + dataOggi + ' ', 'inv', 'inv'));
 
   const corpo = res.righe.map(rigaHtmlConLink).join('\n');
   document.getElementById('schermo').innerHTML = testata + '\n' + corpo;

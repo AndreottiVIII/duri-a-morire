@@ -12,6 +12,14 @@ QUI = os.path.dirname(os.path.abspath(__file__))
 INGRESSO = os.path.join(QUI, '..', 'data', 'elenco.json')
 USCITA_DIR = os.path.join(QUI, '..', 'sito')
 USCITA = os.path.join(USCITA_DIR, 'index.html')
+
+# Lo stesso sito esce due volte, identico salvo il nome: uno per chi capisce
+# la battuta e uno da mandare in giro senza spiegazioni. Il lavoro notturno li
+# ricostruisce entrambi, quindi non divergono mai.
+EDIZIONI = [
+    ('index.html', 'Duri a morire — Prima Repubblica edition', 'DURI A MORIRE'),
+    ('tracker.html', 'Prima Repubblica Tracker', 'PRIMA REPUBBLICA'),
+]
 MODELLO = os.path.join(QUI, 'modello.html')
 
 # Sigle di partito: quarant'anni di prima Repubblica in sei caratteri.
@@ -383,13 +391,16 @@ def main():
     }
 
     modello = open(MODELLO, encoding='utf-8').read()
-    html = modello.replace('/*__DATI__*/',
+    base = modello.replace('/*__DATI__*/',
                            json.dumps(dati, ensure_ascii=False, separators=(',', ':')))
 
     os.makedirs(USCITA_DIR, exist_ok=True)
-    open(USCITA, 'w', encoding='utf-8').write(html)
-    kb = os.path.getsize(USCITA) / 1024.0
-    print('Scritto %s (%.0f KB)' % (os.path.normpath(USCITA), kb))
+    for nome_file, titolo, testata in EDIZIONI:
+        percorso = os.path.join(USCITA_DIR, nome_file)
+        html = base.replace('%%TITOLO%%', titolo).replace('%%TESTATA%%', testata)
+        open(percorso, 'w', encoding='utf-8').write(html)
+        print('Scritto %s (%.0f KB) — %s'
+              % (os.path.normpath(percorso), os.path.getsize(percorso) / 1024.0, titolo))
     print('%d persone, di cui %d viventi' % (
         len(persone), sum(1 for p in persone if p['s'] == 1)))
 

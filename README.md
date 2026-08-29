@@ -173,6 +173,16 @@ python scripts/scarica_elenco.py
 python scripts/genera_sito.py
 ```
 
+Escono due file identici salvo il nome:
+
+- `sito/index.html` — **Duri a morire**, per chi capisce la battuta
+- `sito/tracker.html` — **Prima Repubblica Tracker**, da mandare in giro senza
+  bisogno di spiegazioni
+
+Sono generati dallo stesso modello nello stesso momento, quindi non divergono
+mai: si aggiornano insieme e hanno sempre gli stessi dati. Per cambiare o
+aggiungere un'edizione si tocca la lista `EDIZIONI` in `genera_sito.py`.
+
 Poi si apre `sito/index.html` con un doppio clic. È un file unico e autoportante:
 niente server, niente installazioni. Le foto arrivano da Wikimedia Commons.
 
