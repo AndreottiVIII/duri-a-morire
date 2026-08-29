@@ -220,8 +220,24 @@ DISTINTIVI = [
     ('Union Vald', 'UV', None),
     ('Movimento Indipendentista Siciliano', 'MIS', None),
     ('Unione Siciliana Cristiano Sociale', 'USCS', None),
-    ('Partito Nazionale Fascista', 'PNF', {'Costituente', 'I'}),
 ]
+
+
+# Partiti che nel Parlamento repubblicano non sono mai esistiti: sciolti prima
+# del 1946, non possono essere il partito d'elezione di nessuno qui. Su
+# Wikidata compaiono fra le militanze di chi c'era stato da giovane, e senza
+# questo filtro Giorgio Almirante risultava eletto per il Partito Nazionale
+# Fascista invece che per il MSI.
+FUORI_EPOCA = (
+    'partito nazionale fascista',
+    'partito fascista repubblicano',
+    'associazione nazionalista italiana',
+)
+
+
+def nel_perimetro(partito):
+    basso = (partito or '').lower()
+    return not any(x in basso for x in FUORI_EPOCA)
 
 
 def sigla_gruppo(gruppo):
@@ -370,6 +386,23 @@ def foto_url(u):
     return u.replace('http://', 'https://') + '?width=260'
 
 
+def partito_di(p):
+    """La sigla del partito d'elezione.
+
+    In ordine: la scelta editoriale sui 66 curati, poi il gruppo parlamentare
+    di allora, e solo per i gruppi che partiti non sono il partito di Wikidata,
+    ripulito da quelli che in Parlamento non ci sono mai stati.
+    """
+    if p.get('partito_hof'):
+        return sigla_curata(p['partito_hof'])
+    ammessi = [x for x in p['partiti'] if nel_perimetro(x)]
+    if e_contenitore(p.get('gruppo_eletto')) and ammessi:
+        return sigla(ammessi, mandati=p['mandati'])
+    if p.get('gruppo_eletto'):
+        return sigla_gruppo(p['gruppo_eletto'])
+    return sigla(ammessi, mandati=p['mandati'])
+
+
 def compatta(p):
     """Una persona ridotta all'osso: il file finito deve restare leggero."""
     d = {
@@ -386,11 +419,7 @@ def compatta(p):
         # (che elenca anche le militanze successive) non la puo' rimpiazzare.
         # Ordine di precedenza: la scelta editoriale sui 66, poi il gruppo
         # parlamentare di allora, e solo in mancanza di entrambi Wikidata.
-        'p': (sigla_curata(p['partito_hof']) if p.get('partito_hof')
-              else sigla(p['partiti'], mandati=p['mandati'])
-                   if e_contenitore(p.get('gruppo_eletto')) and p['partiti']
-              else sigla_gruppo(p['gruppo_eletto']) if p.get('gruppo_eletto')
-              else sigla(p['partiti'], mandati=p['mandati'])),
+        'p': partito_di(p),
     }
     if p.get('foto'):
         d['f'] = foto_url(p['foto'])
