@@ -159,6 +159,19 @@ python scripts/genera_sito.py
 Poi si apre `sito/index.html` con un doppio clic. È un file unico e autoportante:
 niente server, niente installazioni. Le foto arrivano da Wikimedia Commons.
 
+## Gli indirizzi
+
+Ogni schermata ha il suo indirizzo, quindi la freccia indietro del browser
+funziona e le pagine si possono mandare a qualcuno:
+
+    #p240              una pagina
+    #Q3432264          la scheda di una persona
+    #l/partito:DC      un elenco filtrato
+    #cerca/rossi       una ricerca
+
+Le sottopagine sostituiscono l'ultima voce invece di aggiungerne una: sfogliare
+duecento sottopagine non deve seppellire il punto da cui si e' arrivati.
+
 ## Le pagine
 
     100  indice                200  statistiche

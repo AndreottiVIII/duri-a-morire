@@ -175,7 +175,8 @@ function rigaHtmlConLink(segs){
     const dentro = '<span class="' + (s.c||'b') + '">' + esc(s.t) + '</span>';
     if(s.link) return '<a class="n" data-q="' + s.link + '" href="#' + s.link + '">' + dentro + '</a>';
     if(s.pag)  return '<a class="n" data-p="' + s.pag + '" href="#p' + s.pag + '">' + dentro + '</a>';
-    if(s.el)   return '<a class="n" data-l="' + esc(s.el) + '" href="#l">' + dentro + '</a>';
+    if(s.el)   return '<a class="n" data-l="' + esc(s.el) + '" href="#l/' +
+                      esc(encodeURIComponent(s.el)) + '">' + dentro + '</a>';
     return dentro;
   }).join('');
   return out + sp(W - len);
@@ -1032,9 +1033,78 @@ function disegna(){
     ' — ' + P.length + ' schede, aggiornate il ' + dataIt(DATI.generato) + '.';
 }
 
-function vaiA(n){ stato = {pagina: n, sub: 0, qid: null, el: null, filtro: stato.filtro}; disegna(); }
-function apriScheda(q){ stato.qid = q; stato.sub = 0; disegna(); }
-function apriLista(chiave){ stato.qid = null; stato.el = chiave; stato.sub = 0; disegna(); }
+/* ---------- cronologia del browser ----------
+   Il sito e' una pagina sola che cambia contenuto, quindi senza far niente la
+   freccia indietro del browser porta fuori dal sito invece che alla schermata
+   precedente. Ogni spostamento viene registrato nella cronologia, e ognuno ha
+   il suo indirizzo: cosi' la freccia funziona e le pagine si possono anche
+   mandare a qualcuno.
+
+     #p240              una pagina
+     #Q3432264          la scheda di una persona
+     #l/partito:DC      un elenco filtrato
+     #cerca/rossi       una ricerca
+
+   Le sottopagine non aggiungono una voce ma sostituiscono l'ultima: sfogliare
+   duecento sottopagine non deve seppellire il punto da cui si e' arrivati. */
+
+const STATO_INIZIALE = {pagina: 100, sub: 0, qid: null, el: null, filtro: ''};
+
+function statoDaIndirizzo(h){
+  h = (h || '').replace(/^#/, '');
+  if(!h) return null;
+  if(/^p\d{3}$/i.test(h))
+    return Object.assign({}, STATO_INIZIALE, {pagina: +h.slice(1)});
+  if(/^Q\d+$/i.test(h))
+    return Object.assign({}, STATO_INIZIALE, {qid: h.toUpperCase()});
+  if(h.indexOf('l/') === 0)
+    return Object.assign({}, STATO_INIZIALE, {el: decodeURIComponent(h.slice(2))});
+  if(h.indexOf('cerca/') === 0)
+    return Object.assign({}, STATO_INIZIALE,
+      {pagina: 150, filtro: decodeURIComponent(h.slice(6))});
+  return null;
+}
+
+function indirizzoDiStato(s){
+  if(s.qid) return '#' + s.qid;
+  if(s.el) return '#l/' + encodeURIComponent(s.el);
+  if(s.pagina === 150 && s.filtro) return '#cerca/' + encodeURIComponent(s.filtro);
+  return '#p' + s.pagina;
+}
+
+function mostra(nuovo, spingi){
+  stato = nuovo;
+  const dove = indirizzoDiStato(stato);
+  try {
+    if(spingi) history.pushState(stato, '', dove);
+    else history.replaceState(stato, '', dove);
+  } catch(e){
+    // aperto da disco certi browser non lasciano riscrivere l'indirizzo:
+    // la cronologia si tiene lo stato lo stesso, ed e' quello che conta
+    try { spingi ? history.pushState(stato, '') : history.replaceState(stato, ''); }
+    catch(e2){ /* niente cronologia: il sito funziona comunque */ }
+  }
+  disegna();
+}
+
+function vaiA(n){
+  mostra(Object.assign({}, STATO_INIZIALE, {pagina: n, filtro: stato.filtro}), true);
+}
+function apriScheda(q){
+  mostra(Object.assign({}, stato, {qid: q, sub: 0}), true);
+}
+function apriLista(chiave){
+  mostra(Object.assign({}, stato, {qid: null, el: chiave, sub: 0}), true);
+}
+function vaiASottopagina(n){
+  mostra(Object.assign({}, stato, {sub: Math.max(0, n)}), false);
+}
+
+window.addEventListener('popstate', e => {
+  stato = e.state || statoDaIndirizzo(location.hash) ||
+          Object.assign({}, STATO_INIZIALE);
+  disegna();
+});
 
 document.getElementById('schermo').addEventListener('click', e => {
   const a = e.target.closest('a.n');
@@ -1054,15 +1124,19 @@ document.getElementById('pag').addEventListener('input', e => {
   if(v.length === 3){ vaiA(+v); e.target.value = ''; }
 });
 document.getElementById('cerca').addEventListener('input', e => {
-  stato.filtro = e.target.value.trim();
-  if(stato.filtro.length >= 2){ stato.qid = null; stato.pagina = 150; stato.sub = 0; disegna(); }
+  const testo = e.target.value.trim();
+  stato.filtro = testo;
+  // una voce di cronologia per ogni lettera digitata sarebbe un'inondazione:
+  // la ricerca sostituisce sempre l'ultima
+  if(testo.length >= 2)
+    mostra(Object.assign({}, stato, {qid: null, el: null, pagina: 150, sub: 0}), false);
 });
-document.getElementById('prev').addEventListener('click', () => { stato.sub--; if(stato.sub < 0) stato.sub = 0; disegna(); });
-document.getElementById('next').addEventListener('click', () => { stato.sub++; disegna(); });
+document.getElementById('prev').addEventListener('click', () => vaiASottopagina(stato.sub - 1));
+document.getElementById('next').addEventListener('click', () => vaiASottopagina(stato.sub + 1));
 document.addEventListener('keydown', e => {
   if(document.activeElement.tagName === 'INPUT') return;
-  if(e.key === 'ArrowRight'){ stato.sub++; disegna(); }
-  if(e.key === 'ArrowLeft'){ stato.sub = Math.max(0, stato.sub - 1); disegna(); }
+  if(e.key === 'ArrowRight') vaiASottopagina(stato.sub + 1);
+  if(e.key === 'ArrowLeft') vaiASottopagina(stato.sub - 1);
 });
 document.getElementById('aggiorna').addEventListener('click', controllaOra);
 
@@ -1074,7 +1148,10 @@ if(salvato && salvato.cambi && salvato.cambi.length){
   ricalcola();
 }
 
-disegna();
+// Un indirizzo con l'ancora apre direttamente quella schermata: le pagine
+// sono condivisibili, e il ricaricamento non riporta all'indice.
+stato = statoDaIndirizzo(location.hash) || stato;
+mostra(stato, false);
 
 /* Il file e' uno solo e il suo indirizzo non cambia mai, quindi un browser
    puo' restare attaccato a una copia vecchia anche dopo l'aggiornamento
