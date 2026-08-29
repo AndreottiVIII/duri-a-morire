@@ -1,5 +1,5 @@
 {
- "generato": "2026-08-28",
+ "generato": "2026-08-29",
  "eta_massima_credibile": 106,
  "persone": [
   {
@@ -36072,8 +36072,8 @@
   {
    "qid": "Q95887841",
    "nome": "Ezio Villani",
-   "nascita": "1892",
-   "prec_nascita": "anno",
+   "nascita": "1892-01-10",
+   "prec_nascita": "giorno",
    "morte": "1955-05-10",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Ezio%20Villani%20daticamera.jpg",
@@ -45841,8 +45841,8 @@
   {
    "qid": "Q94650325",
    "nome": "Gaetano Sardiello",
-   "nascita": "1890-10-06",
-   "prec_nascita": "giorno",
+   "nascita": "1890",
+   "prec_nascita": "anno",
    "morte": "1985-08-23",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Gaetano%20Sardiello.jpg",
@@ -53317,8 +53317,8 @@
   {
    "qid": "Q55979320",
    "nome": "Giovanni Battista Carron",
-   "nascita": "1910",
-   "prec_nascita": "anno",
+   "nascita": "1910-04",
+   "prec_nascita": "mese",
    "morte": "1991-04-07",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giovanni%20Battista%20Carron%20I.jpg",
@@ -55474,8 +55474,8 @@
   {
    "qid": "Q1241",
    "nome": "Giovanni Gronchi",
-   "nascita": "1887",
-   "prec_nascita": "anno",
+   "nascita": "1887-09-10",
+   "prec_nascita": "giorno",
    "morte": "1978-10-17",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giovanni%20Gronchi%20hq%20%28cropped%29.jpg",
@@ -69895,14 +69895,14 @@
      "a": "1996"
     },
     {
-     "carica": "Ministro senza portafoglio per gli italiani nel mondo",
-     "da": "1996",
-     "a": "1999"
-    },
-    {
      "carica": "Ministro degli esteri",
      "da": "1996",
      "a": "2001"
+    },
+    {
+     "carica": "Ministro senza portafoglio per gli italiani nel mondo",
+     "da": "1996",
+     "a": "1999"
     },
     {
      "carica": "Direttore generale della Banca d'Italia",
@@ -109392,8 +109392,8 @@
    "nome": "Stojan Spetič",
    "nascita": "1945-11-29",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "1992",
+   "prec_morte": "anno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Stojan%20Spetic.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Stojan_Speti%C4%8D",
    "mandati": [
@@ -109406,7 +109406,7 @@
     "Partito Comunista Italiano"
    ],
    "gruppo_eletto": "PCI",
-   "stato": "vivente",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -116434,8 +116434,8 @@
   {
    "qid": "Q613313",
    "nome": "Vittorio Foa",
-   "nascita": "1910-09-18",
-   "prec_nascita": "giorno",
+   "nascita": "1910",
+   "prec_nascita": "anno",
    "morte": "2008-10-20",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Vittorio%20Foa%20deputato.jpg",
@@ -117005,8 +117005,8 @@
   {
    "qid": "Q2094539",
    "nome": "Vittorio Vidali",
-   "nascita": "1900",
-   "prec_nascita": "anno",
+   "nascita": "1900-09-27",
+   "prec_nascita": "giorno",
    "morte": "1983-11-09",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Vittorio%20Vidali.jpg",
