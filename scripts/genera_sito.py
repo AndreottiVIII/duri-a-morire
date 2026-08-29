@@ -42,6 +42,9 @@ SIGLE = [
     ('PSI-PSDI', 'PSU'),
     ('Partito Popolare Italiano', 'PPI'),
     ('Partito Nazionale Fascista', 'PNF'),
+    ('Radicali Italiani', 'PR'),
+    # 'indipendente' va dopo 'sinistra indipendente', che e' un'altra cosa
+    ('indipendente', 'IND.'),
     # I minori della Costituente e della prima Repubblica: pochi seggi, ma
     # hanno fatto la storia di quegli anni e meritano la loro sigla.
     ('Fronte dell’Uomo Qualunque', 'FUQ'),
@@ -240,6 +243,17 @@ NOMI_PARTITI = {
     'PCdI': "Partito Comunista d'Italia",
     'PFR': 'Partito Fascista Repubblicano',
     'PDL': "Il Popolo della Liberta'",
+    'AP': 'Alleanza dei Progressisti',
+    'DIS': 'Democratici Indipendenti di Sinistra',
+    'ESS': 'Estrema sinistra storica',
+    'FDP': 'Fronte Democratico Popolare',
+    'LAL': 'Lega Alpina Lumbarda',
+    'LAV': 'Lega Autonomia Veneta',
+    'LV': 'Liga Veneta',
+    'MC': "Movimento Comunita'",
+    'PLD': 'Partito Liberale Democratico',
+    'PSU': 'PSI-PSDI Unificati',
+    'LSR': 'Liberale Socialista Repubblicano',
 }
 
 ORDINE_MANDATI = ['Costituente', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII',
@@ -248,7 +262,10 @@ ORDINE_MANDATI = ['Costituente', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII',
 
 # Le sigle gia' scritte a mano nel file: vanno solo messe in maiuscolo, tranne
 # quelle che accorciate male diventerebbero illeggibili.
-CURATE = {'La Rete': 'RETE'}
+# Le sigle del foglio curato vanno ricondotte a quelle che usa tutto il resto
+# del sito, o lo stesso partito finisce contato due volte: Emma Bonino era
+# l'unica "Rad." e restava fuori dai radicali.
+CURATE = {'La Rete': 'RETE', 'Rad.': 'PR', 'Radicali': 'PR'}
 
 
 def sigla_curata(partito):

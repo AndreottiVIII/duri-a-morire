@@ -684,14 +684,14 @@ function scheda(q){
     r.push([seg(' Nessuna delle tre fonti ne registra', 'd')]);
     r.push([seg(' la morte, ma avrebbe ' + (OGGI.getFullYear() - anno(p.b)) + ' anni.', 'd')]);
     r.push(vuota());
-    r.push(sxdx(' Nato', dataIt(p.b, p.bp), 'b', 'c'));
+    r.push(sxdx(' Nascita', dataIt(p.b, p.bp), 'b', 'c'));
     return {righe: r, sottopagine: 1, persona: p};
   }
   r.push([seg(' ' + st[0] + ' ', st[1])]);
   r.push(vuota());
-  r.push(sxdx(' Nato', dataIt(p.b, p.bp), 'b', 'c'));
-  if(p.d) r.push(sxdx(' Morto', dataIt(p.d, p.dp), 'b', 'r'));
-  else if(p.di) r.push(sxdx(' Morto', 'data ignota', 'b', 'r'));
+  r.push(sxdx(' Nascita', dataIt(p.b, p.bp), 'b', 'c'));
+  if(p.d) r.push(sxdx(' Morte', dataIt(p.d, p.dp), 'b', 'r'));
+  else if(p.di) r.push(sxdx(' Morte', 'data ignota', 'b', 'r'));
   // quando la morte non viene da Wikidata vale la pena dire chi l'ha registrata
   if(p.fd) r.push([seg(' via ' + tronca(p.fd, W - 6), 'd')]);
   const e = eta(p);
