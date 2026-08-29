@@ -128,6 +128,41 @@ GRUPPI = [
 ]
 
 
+# Gruppi che non sono partiti: il misto raccoglie chi un gruppo non ce l'ha,
+# l'autonomista metteva insieme sardisti, azionisti e socialisti, e i gruppi
+# congiunti sono due partiti sotto un tetto. Per chi sedeva li' il gruppo non
+# dice niente, e comanda il partito di Wikidata.
+CONTENITORI = {
+    'MISTO', 'AUTONOMISTA', 'DEM. SIN.', 'DEM. IND. SIN.',
+    'LIB. SOC. REP.', 'PSDI - LIB.', 'MSI - PNM',
+    'FEDERALISTA EUROPEO', 'FED. EUR. EC.',
+}
+
+
+def e_contenitore(gruppo):
+    return (gruppo or '').strip().upper().rstrip('.') in {
+        c.rstrip('.') for c in CONTENITORI}
+
+
+# Partiti che nessuno ha mai preso come seconda casacca: quando compaiono sono
+# quella che definisce la persona, e vanno riconosciuti prima dei grandi.
+# Il terzo campo, quando c'e', dice in quali legislature quel partito poteva
+# esistere: il Partito d'Azione si sciolse nel 1947, e attribuirlo a un
+# deputato eletto nel 1987 sarebbe lo stesso errore di Sgarbi al contrario.
+DISTINTIVI = [
+    ("Partito Sardo d'Azione", 'PSdAz', None),
+    ('Partito Sardo d', 'PSdAz', None),
+    ("Partito d'Azione", 'PdA', {'Costituente', 'I', 'II'}),
+    ('Partito d’Azione', 'PdA', {'Costituente', 'I', 'II'}),
+    ('Sudtiroler Volkspartei', 'SVP', None),
+    ('Volkspartei', 'SVP', None),
+    ('Union Vald', 'UV', None),
+    ('Movimento Indipendentista Siciliano', 'MIS', None),
+    ('Unione Siciliana Cristiano Sociale', 'USCS', None),
+    ('Partito Nazionale Fascista', 'PNF', {'Costituente', 'I'}),
+]
+
+
 def sigla_gruppo(gruppo):
     """Dal nome del gruppo parlamentare alla sigla.
 
@@ -220,7 +255,13 @@ def sigla_curata(partito):
     return CURATE.get(partito.strip(), partito.strip().upper())[:6]
 
 
-def sigla(partiti, ripiego=None):
+def sigla(partiti, ripiego=None, mandati=None):
+    for lungo, corto, ammessi in DISTINTIVI:
+        if ammessi and not (ammessi & set(mandati or [])):
+            continue
+        for x in partiti:
+            if lungo.lower() in x.lower():
+                return corto
     # L'ordine delle SIGLE decide la precedenza: chi ha militato prima nella DC
     # e poi nel PPI va mostrato come DC, non come il partito che venne dopo.
     for lungo, corto in SIGLE:
@@ -271,8 +312,10 @@ def compatta(p):
         # Ordine di precedenza: la scelta editoriale sui 66, poi il gruppo
         # parlamentare di allora, e solo in mancanza di entrambi Wikidata.
         'p': (sigla_curata(p['partito_hof']) if p.get('partito_hof')
+              else sigla(p['partiti'], mandati=p['mandati'])
+                   if e_contenitore(p.get('gruppo_eletto')) and p['partiti']
               else sigla_gruppo(p['gruppo_eletto']) if p.get('gruppo_eletto')
-              else sigla(p['partiti'])),
+              else sigla(p['partiti'], mandati=p['mandati'])),
     }
     if p.get('foto'):
         d['f'] = foto_url(p['foto'])

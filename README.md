@@ -52,6 +52,23 @@ date. Chi non torna per nome viene ricercato per legislatura piu' data di nascit
 esatta, e in ultimo per nome contenuto nell'altro — i registri accorciano i
 cognomi da sposata, e `LODI ADRIANA` sta dentro `Adriana Lodi Faustini Fustini`.
 
+**I gruppi che non sono partiti.** Il gruppo misto raccoglie chi un gruppo non
+ce l'ha, l'autonomista metteva insieme sardisti, azionisti e socialisti, e i
+gruppi congiunti come `PSDI - Lib.` sono due partiti sotto un tetto. Per chi
+sedeva li' il gruppo non dice niente, e comanda il partito di Wikidata: senza
+questa eccezione il misto si mangiava 148 persone con un partito noto, fra cui
+23 sudtirolesi, 16 liberali e tutti i sardisti.
+
+E vale il contrario del caso Sgarbi: certi partiti non possono essere attribuiti
+fuori dalla loro epoca. Il Partito d'Azione si sciolse nel 1947, quindi darlo a
+un deputato eletto nel 1987 sarebbe lo stesso errore rovesciato. Le sigle
+distintive portano percio' l'elenco delle legislature in cui potevano esistere.
+
+Nota storica emersa dai dati: la Costituente non aveva un gruppo azionista. Il
+Partito d'Azione aveva sette deputati, troppo pochi per farsene uno, e si
+divisero fra Repubblicano, Autonomista e Misto — ed e' per questo che Parri e
+La Malfa risultano PRI, il partito che poi guidarono davvero.
+
 **Doppioni.** Stesso nome e stessa legislatura vuol dire stessa persona: su
 Wikidata capita che qualcuno compaia due volte, una col record buono e una con
 una scheda spoglia e la nascita sbagliata, e quel secondo esemplare non muore

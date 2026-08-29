@@ -226,6 +226,27 @@ function paginaRighe(fnRighe, intestazione, fnNota){
   };
 }
 
+/* Come paginaRighe, ma le righe arrivano gia' raggruppate e un gruppo non
+   viene mai spezzato fra due sottopagine: un partito con la sua data di
+   estinzione e il nome dell'ultimo deve stare tutto insieme. */
+function paginaBlocchi(fnBlocchi, intestazione, fnNota){
+  return function(sub){
+    const blocchi = fnBlocchi();
+    const pagine = [[]];
+    blocchi.forEach(b => {
+      const ultima = pagine[pagine.length - 1];
+      if(ultima.length && ultima.length + b.length > RIGHE_LISTA) pagine.push([]);
+      pagine[pagine.length - 1].push.apply(pagine[pagine.length - 1], b);
+    });
+    const nota = typeof fnNota === 'function' ? fnNota() : fnNota;
+    const r = [titolo(intestazione)];
+    if(nota) r.push([seg(' ' + tronca(nota, W - 2), 'c')]);
+    r.push(vuota());
+    (pagine[Math.min(sub, pagine.length - 1)] || []).forEach(x => r.push(x));
+    return {righe: r, sottopagine: pagine.length};
+  };
+}
+
 /* ---------- impaginazione di una lista lunga ----------
    L'elenco e la nota arrivano come funzioni, cosi' ogni pagina rilegge i dati
    al momento del disegno invece di fotografarli all'avvio. */
@@ -543,7 +564,7 @@ PAGINE[230] = () => {
 // Come la 230, ma per casacca invece che per legislatura: i partiti della
 // Prima Repubblica sono quasi tutti sciolti, ma un partito e' davvero finito
 // il giorno in cui muore l'ultimo che c'era stato eletto.
-PAGINE[240] = paginaRighe(() => {
+PAGINE[240] = paginaBlocchi(() => {
   const gruppi = {};
   P.forEach(p => { if(p.p){ (gruppi[p.p] = gruppi[p.p] || []).push(p); } });
   const righe = [];
@@ -553,21 +574,21 @@ PAGINE[240] = paginaRighe(() => {
     .forEach(k => {
       const gente = gruppi[k], vivi = gente.filter(p => p.s === 1);
       const esteso = perEsteso(k);
-      righe.push([seg(' ' + tronca(k, 7).padEnd(8), 'g'),
-                  seg(tronca(esteso, W - 10), 'b')]);
-      righe.push([seg('   '),
-        vivi.length
+      const blocco = [
+        [seg(' ' + tronca(k, 7).padEnd(8), 'g'), seg(tronca(esteso, W - 10), 'b')],
+        [seg('   '), vivi.length
           ? {t: ancoraVivi(vivi.length), c: 'c', el: 'partito:' + k}
-          : seg('ESTINTO', 'r')]);
+          : seg('ESTINTO', 'r')]];
       if(!vivi.length){
         const morti = gente.filter(p => p.s === 2 && p.d)
           .sort((a, b) => a.d < b.d ? 1 : -1);
         if(morti.length){
-          righe.push([seg('   ultimo: '),
-                      {t: tronca(morti[0].n, 22), c: 'b', link: morti[0].q}]);
-          righe.push([seg('   ' + dataIt(morti[0].d, morti[0].dp), 'd')]);
+          blocco.push([seg('   ultimo: '),
+                       {t: tronca(morti[0].n, 22), c: 'b', link: morti[0].q}]);
+          blocco.push([seg('   ' + dataIt(morti[0].d, morti[0].dp), 'd')]);
         }
       }
+      righe.push(blocco);
     });
   return righe;
 }, 'L’ULTIMO DEI… (PARTITI)', 'minori compresi. tocca un numero.');
