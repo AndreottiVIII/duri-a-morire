@@ -56,8 +56,17 @@ COLOFONE = [
     'Camera e Senato. Le fotografie vengono da Wikimedia Commons e restano dei '
     'loro autori.',
     '',
-    'Il lavoro di raccolta e verifica, questo sito e la lista di Fabio sono '
-    'nostri: per riprodurli altrove serve l’autorizzazione, e vanno citati.',
+    'Il resto è mio: la raccolta, la verifica, il codice e queste pagine. '
+    'La lista da cui tutto parte è di Fabio.',
+    '',
+    'Per copiare questo sito, ripubblicarlo altrove, riusarne delle parti o '
+    'adattarlo serve la mia autorizzazione scritta, e va citata la fonte: '
+    'Prima Repubblica Tracker, Davide Caniatti.',
+    '',
+    'Vale anche per gli estratti, per le tabelle e per i dati così come li '
+    'trovate qui, già incrociati e verificati.',
+    '',
+    'Per chiedere l’autorizzazione: davide.caniatti@gmail.com',
 ]
 
 EDIZIONI = [
