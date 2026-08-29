@@ -5,6 +5,8 @@ Produce un unico file HTML autoportante: si apre con doppio clic dal disco,
 senza server e senza installare niente. Le foto arrivano da Wikimedia Commons.
 """
 import sys, os, json, datetime, re
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import cursus
 
 QUI = os.path.dirname(os.path.abspath(__file__))
 INGRESSO = os.path.join(QUI, '..', 'data', 'elenco.json')
@@ -280,8 +282,12 @@ def compatta(p):
         d['h'] = 1
     if p.get('non_eletto'):
         d['x'] = 1
+    # Del cursus scritto a mano resta solo quello che le cariche non dicono
+    # gia': altrimenti la scheda ripete due volte le stesse poltrone.
     if p.get('cursus'):
-        d['c'] = p['cursus']
+        avanzo = cursus.residuo(p['cursus'], p.get('cariche_datate'))
+        if avanzo:
+            d['cr'] = avanzo
     if p.get('fonte_morte'):
         d['fd'] = p['fonte_morte']
     # L'identificativo della Camera permette al tasto AGGIORNA di ricontrollare

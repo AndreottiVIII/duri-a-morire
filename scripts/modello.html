@@ -313,7 +313,7 @@ PAGINE[130] = () => {
     vocemenu(132, 'IN MEMORIAM', String(hofMorti.length), 'd'),
     vocemenu(133, 'PER PARTITO'),
     vocemenu(134, 'COMPLEANNI'),
-    vocemenu(135, 'I CURSUS PIÙ LUNGHI'),
+    vocemenu(135, 'PIÙ INCARICHI'),
     vocemenu(250, 'PIÙ LEGISLATURE (TUTTI)'),
     vuota(),
   ];
@@ -415,11 +415,13 @@ PAGINE[250] = classificaLegislature(() => P, 'PIÙ LEGISLATURE DI TUTTI',
   () => 'vivi in bianco, defunti in grigio');
 
 PAGINE[135] = () => {
-  const conCursus = hof.filter(p => p.c)
-    .map(p => [p, p.c.split(/,\s*/).filter(x => x.trim()).length])
+  // Gli incarichi contati sono quelli della scheda: cariche datate piu' le
+  // voci che solo il cursus curato conosce.
+  const conCursus = hof.filter(p => p.cd || p.cr)
+    .map(p => [p, (p.cd ? p.cd.length : 0) + (p.cr ? p.cr.length : 0)])
     .sort((a, b) => b[1] - a[1]).slice(0, 16);
-  const r = [titolo('H.F. — I CURSUS PIÙ LUNGHI'),
-    [seg(' quante caselle hanno occupato', 'c')], vuota()];
+  const r = [titolo('H.F. — PIÙ INCARICHI'),
+    [seg(' quante poltrone hanno occupato', 'c')], vuota()];
   conCursus.forEach(c => r.push([
     seg(' '), seg(c[0].s === 1 ? '■' : ' ', 'v'),
     {t: tronca(c[0].n, 26).padEnd(26), c: c[0].s === 1 ? 'b' : 'd', link: c[0].q},
@@ -688,12 +690,16 @@ function scheda(q){
       .forEach(l => r.push([seg(l, 'c')]));
   }
   if(p.x) r.push([seg(' (mai eletto: dentro ma sulla porta)', 'm')]);
-  if(p.cd){
+  // Un'unica sezione di incarichi: prima quelli datati presi dalla fonte,
+  // poi cio' che solo il cursus curato sa (segretari di partito, sindacati,
+  // Banca d'Italia). Se non avanza niente, la seconda parte non compare.
+  if(p.cd || p.cr){
     r.push(vuota());
     r.push([seg(' CARICHE', 'invg')]);
+  }
+  if(p.cd){
     p.cd.forEach(c => {
       const anni = c[1] ? (c[2] && c[2] !== c[1] ? c[1] + '-' + c[2] : c[1] + '-') : '';
-      // la carica va a capo da sola, gli anni restano appesi a destra
       const largo = W - 2 - (anni.length + 1);
       let riga = '  ', prima = true;
       c[0].split(' ').forEach(parola => {
@@ -709,12 +715,10 @@ function scheda(q){
                      : [seg(riga, 'b')]);
     });
   }
-  if(p.c){
-    r.push(vuota());
-    r.push([seg(' CURSUS HONORUM (curato)', 'invg')]);
-    // Un pezzo di cursus puo' da solo essere piu' lungo di una riga, quindi
-    // si va a capo per parole e non per virgole.
-    avvolgi(p.c, '  ', '   ').forEach(l => r.push([seg(l, 'b')]));
+  if(p.cr){
+    if(p.cd) r.push([seg('  — e inoltre —', 'd')]);
+    p.cr.forEach(voce => avvolgi(voce, '  ', '   ')
+      .forEach(l => r.push([seg(l, 'b')])));
   }
   return {righe: r, sottopagine: 1, persona: p};
 }

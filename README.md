@@ -69,8 +69,23 @@ registro. Cosi' sono state affinate 134 date di morte e corrette 42 di nascita.
 
 **Le cariche.** Il cursus scritto a mano e' una sintesi, e le sintesi perdono
 pezzi: a Sergio Mattarella mancavano la vicepresidenza del Consiglio, la Difesa
-e la Consulta. Sulla scheda dei 66 c'e' ora l'elenco completo e datato ricavato
-da Wikidata, accanto al cursus curato che resta come lo aveva scritto l'autore.
+e la Consulta. Sulla scheda dei 66 c'e' l'elenco completo e datato ricavato da
+Wikidata.
+
+Le due liste pero' dicevano in gran parte le stesse cose con parole diverse, e
+la scheda le stampava entrambe. Ora si fondono: del cursus curato resta solo
+quello che le cariche non dicono gia', ed e' parecchio, perche' Wikidata
+registra le cariche di governo e ignora quasi tutto il resto — segretari di
+partito, sindacati, Banca d'Italia, CONI, IRI. Quella e' la ragione per cui il
+foglio scritto a mano esiste.
+
+Una voce e' considerata gia' detta in tre modi (`scripts/cursus.py`): per le
+parole, quando 'Rapporti con il Parlamento' sta dentro 'Ministro per i rapporti
+con il Parlamento'; per gli anni esatti, che riconoscono 'Vice PdC (1983-1987)'
+come la vicepresidenza del Consiglio; e per il ministero in forma breve, perche'
+'Agricoltura' e 'Ministro delle politiche agricole alimentari e forestali' non
+hanno una parola in comune e sono la stessa poltrona. Sui 66: 42 non hanno piu'
+niente da aggiungere, 15 hanno una coda vera, 9 hanno solo il curato.
 
 **La verifica.** `scripts/verifica_viventi.py` passa in rassegna chi risulta
 vivo e chiede conto ai registri, perche' il silenzio di una fonte non e' una
