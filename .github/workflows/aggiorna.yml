@@ -1,18 +1,25 @@
 name: Aggiorna e pubblica
 
-# Ogni notte alle 4 UTC (le 6 italiane d'estate, le 5 d'inverno). GitHub fa
-# partire i lavori programmati quando le sue macchine sono libere, quindi
-# l'orario e' un'indicazione, non un appuntamento.
+# GitHub mette in coda i lavori pianificati e, quando le macchine sono cariche,
+# li fa partire tardi o li salta. Il momento peggiore e' l'ora esatta, che e'
+# quella che tutti scelgono: il giro delle 4:00 e' partito una volta alle 10:49
+# e il giorno dopo non e' partito affatto.
+#
+# Quindi due accorgimenti: un minuto dispari invece dell'ora tonda, e un secondo
+# tentativo nel pomeriggio per i giorni in cui il primo viene saltato. Il
+# secondo giro controlla se il lavoro e' gia' stato fatto e in tal caso non
+# disturba nessuna delle tre fonti.
 on:
   schedule:
-    - cron: '0 4 * * *'
-  workflow_dispatch:        # per lanciarlo a mano dalla scheda Actions
+    - cron: '23 4 * * *'
+    - cron: '23 13 * * *'
+  workflow_dispatch:
   push:
     branches: [main]
 
 permissions:
-  contents: write           # per il commit delle novita'
-  pages: write              # per pubblicare
+  contents: write
+  pages: write
   id-token: write
 
 concurrency:
@@ -20,7 +27,36 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  serve:
+    runs-on: ubuntu-latest
+    outputs:
+      procedi: ${{ steps.controlla.outputs.procedi }}
+    steps:
+      - name: Il lavoro di oggi e' gia' stato fatto?
+        id: controlla
+        run: |
+          set -e
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "Non e' un giro programmato: si procede."
+            echo "procedi=si" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          OGGI=$(date -u +%F)
+          PUBBLICATO=$(curl -fsSL --max-time 90 --retry 2 \
+            https://andreottiviii.github.io/duri-a-morire/ \
+            | grep -o '"generato":"[0-9-]\{10\}"' | head -1 \
+            | grep -o '[0-9-]\{10\}' || echo "")
+          if [ "$PUBBLICATO" = "$OGGI" ]; then
+            echo "Il sito porta gia' la data di oggi ($OGGI): non c'e' niente da fare."
+            echo "procedi=no" >> "$GITHUB_OUTPUT"
+          else
+            echo "Online c'e' ancora '$PUBBLICATO', oggi e' $OGGI: si procede."
+            echo "procedi=si" >> "$GITHUB_OUTPUT"
+          fi
+
   aggiorna:
+    needs: serve
+    if: needs.serve.outputs.procedi == 'si'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -51,7 +87,7 @@ jobs:
           echo "Novita': $MESSAGGIO"
           git config user.name  "Duri a morire"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/elenco.json sito/index.html
+          git add data/elenco.json sito/index.html sito/tracker.html
           git commit -m "$(date -u +%Y-%m-%d): $MESSAGGIO"
           git push
 
