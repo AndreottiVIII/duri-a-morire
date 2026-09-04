@@ -1,5 +1,5 @@
 {
- "generato": "2026-08-29",
+ "generato": "2026-09-04",
  "eta_massima_credibile": 106,
  "persone": [
   {
@@ -1349,8 +1349,8 @@
   {
    "qid": "Q3605755",
    "nome": "Adriano Ossicini",
-   "nascita": "1920-06-20",
-   "prec_nascita": "giorno",
+   "nascita": "1920",
+   "prec_nascita": "anno",
    "morte": "2019-02-15",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Adriano%20Ossicini%20Senato.jpg",
@@ -17519,6 +17519,7 @@
    "partiti": [
     "Partito Democratico della Sinistra"
    ],
+   "aggancio": "data di nascita",
    "gruppo_eletto": "PDS",
    "stato": "deceduto",
    "non_eletto": false,
@@ -17893,7 +17894,9 @@
    "cariche": [
     "deputato della Repubblica Italiana"
    ],
-   "partiti": [],
+   "partiti": [
+    "Partito Socialista Democratico Italiano"
+   ],
    "id_camera": "21260",
    "gruppo_eletto": "PARTITO SOCIALISTA DEMOCRATICO ITALIANO",
    "stato": "deceduto",
@@ -36305,8 +36308,8 @@
   {
    "qid": "Q95887841",
    "nome": "Ezio Villani",
-   "nascita": "1892",
-   "prec_nascita": "anno",
+   "nascita": "1892-01-10",
+   "prec_nascita": "giorno",
    "morte": "1955-05-10",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Ezio%20Villani%20daticamera.jpg",
@@ -36552,8 +36555,8 @@
    "nome": "Fabio Mussi",
    "nascita": "1948-01-22",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2026-09-03",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Fabio%20Mussi%20Trento%202007.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Fabio_Mussi",
    "mandati": [
@@ -36572,7 +36575,7 @@
    "id_camera": "33820",
    "gruppo_eletto": "COMUNISTA - PDS",
    "registro_muto": "Camera dei deputati",
-   "stato": "vivente",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -46136,8 +46139,8 @@
   {
    "qid": "Q94650325",
    "nome": "Gaetano Sardiello",
-   "nascita": "1890-10-06",
-   "prec_nascita": "giorno",
+   "nascita": "1890",
+   "prec_nascita": "anno",
    "morte": "1985-08-23",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Gaetano%20Sardiello.jpg",
@@ -55855,8 +55858,8 @@
   {
    "qid": "Q1241",
    "nome": "Giovanni Gronchi",
-   "nascita": "1887-09-10",
-   "prec_nascita": "giorno",
+   "nascita": "1887",
+   "prec_nascita": "anno",
    "morte": "1978-10-17",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giovanni%20Gronchi%20hq%20%28cropped%29.jpg",
@@ -115312,7 +115315,7 @@
    "morte": "2005-02-25",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Vincenzo%20Russo.jpg",
-   "wikipedia": "https://it.wikipedia.org/wiki/Vincenzo_Russo_(politico_1924-2005)",
+   "wikipedia": "https://it.wikipedia.org/wiki/Vincenzo_Russo_(politico_1924)",
    "mandati": [
     "III",
     "IV",
@@ -116174,8 +116177,8 @@
   {
    "qid": "Q105126086",
    "nome": "Vitilio Masiello",
-   "nascita": "1934",
-   "prec_nascita": "anno",
+   "nascita": "1934-11-16",
+   "prec_nascita": "giorno",
    "morte": "2018-04-03",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Vitilio%20Masiello%20VIII.jpg",
