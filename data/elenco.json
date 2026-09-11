@@ -1,5 +1,5 @@
 {
- "generato": "2026-09-04",
+ "generato": "2026-09-11",
  "eta_massima_credibile": 106,
  "persone": [
   {
@@ -18779,7 +18779,7 @@
    "prec_nascita": "giorno",
    "morte": "2000-01-19",
    "prec_morte": "giorno",
-   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Bettino%20Craxi%202.jpg",
+   "foto": null,
    "wikipedia": "https://it.wikipedia.org/wiki/Bettino_Craxi",
    "mandati": [
     "V",
@@ -22900,7 +22900,7 @@
    "prec_nascita": "giorno",
    "morte": "1955-03-18",
    "prec_morte": "giorno",
-   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Carlo%20Stagno.jpg",
+   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Carlo%20Stagno%20Villadicani%20d%27Alcontres.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Carlo_Stagno_Villadicani_d%27Alcontres",
    "mandati": [
     "II"
@@ -32345,8 +32345,8 @@
    "nome": "Emma Bonino",
    "nascita": "1948-03-09",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2026-09-11",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Emma%20Bonino%20-%20World%20Economic%20Forum%20on%20Europe%202010.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Emma_Bonino",
    "mandati": [
@@ -32392,7 +32392,7 @@
      "a": "2014"
     }
    ],
-   "stato": "vivente",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": true,
    "cursus": "Segretario Partito Radicale (1993-1995)",
@@ -36308,8 +36308,8 @@
   {
    "qid": "Q95887841",
    "nome": "Ezio Villani",
-   "nascita": "1892-01-10",
-   "prec_nascita": "giorno",
+   "nascita": "1892",
+   "prec_nascita": "anno",
    "morte": "1955-05-10",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Ezio%20Villani%20daticamera.jpg",
@@ -46139,8 +46139,8 @@
   {
    "qid": "Q94650325",
    "nome": "Gaetano Sardiello",
-   "nascita": "1890",
-   "prec_nascita": "anno",
+   "nascita": "1890-10-06",
+   "prec_nascita": "giorno",
    "morte": "1985-08-23",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Gaetano%20Sardiello.jpg",
@@ -77363,7 +77363,7 @@
    "nome": "Luigi Rocco",
    "nascita": "1882-10-01",
    "prec_nascita": "giorno",
-   "morte": "1974-01-16",
+   "morte": "1974-01-28",
    "prec_morte": "giorno",
    "foto": null,
    "wikipedia": "https://it.wikipedia.org/wiki/Luigi_Rocco_(politico_1882)",
@@ -87145,7 +87145,6 @@
     "Partito Popolare Italiano"
    ],
    "gruppo_eletto": "DC",
-   "registro_muto": "Senato",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -117872,8 +117871,8 @@
   {
    "qid": "Q2094539",
    "nome": "Vittorio Vidali",
-   "nascita": "1900",
-   "prec_nascita": "anno",
+   "nascita": "1900-09-27",
+   "prec_nascita": "giorno",
    "morte": "1983-11-09",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Vittorio%20Vidali.jpg",
