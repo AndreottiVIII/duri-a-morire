@@ -1,5 +1,5 @@
 {
- "generato": "2026-09-11",
+ "generato": "2026-09-12",
  "eta_massima_credibile": 106,
  "persone": [
   {
@@ -36308,8 +36308,8 @@
   {
    "qid": "Q95887841",
    "nome": "Ezio Villani",
-   "nascita": "1892",
-   "prec_nascita": "anno",
+   "nascita": "1892-01-10",
+   "prec_nascita": "giorno",
    "morte": "1955-05-10",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Ezio%20Villani%20daticamera.jpg",
@@ -43175,7 +43175,6 @@
    "partiti": [],
    "id_camera": "31030",
    "gruppo_eletto": "DEMOCRATICO CRISTIANO",
-   "fonte_morte": "Camera dei deputati",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -46139,8 +46138,8 @@
   {
    "qid": "Q94650325",
    "nome": "Gaetano Sardiello",
-   "nascita": "1890-10-06",
-   "prec_nascita": "giorno",
+   "nascita": "1890",
+   "prec_nascita": "anno",
    "morte": "1985-08-23",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Gaetano%20Sardiello.jpg",
@@ -55858,8 +55857,8 @@
   {
    "qid": "Q1241",
    "nome": "Giovanni Gronchi",
-   "nascita": "1887",
-   "prec_nascita": "anno",
+   "nascita": "1887-09-10",
+   "prec_nascita": "giorno",
    "morte": "1978-10-17",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giovanni%20Gronchi%20hq%20%28cropped%29.jpg",
@@ -98784,8 +98783,8 @@
    "nome": "Raffaele Costa",
    "nascita": "1936-09-08",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2026-09-11",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Raffaele%20Costa%201992.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Raffaele_Costa",
    "mandati": [
@@ -98839,7 +98838,7 @@
      "a": null
     }
    ],
-   "stato": "vivente",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": true,
    "cursus": "Affari Regionali (1992-1993), Trasporti (1993-1994), Sanità (1993), Segretario PLI (1993-1994)",
@@ -113422,17 +113421,17 @@
    "registro_muto": "Camera dei deputati",
    "cariche_datate": [
     {
-     "carica": "Ministro dell'ambiente e della tutela del territorio e del mare",
-     "da": "1993",
-     "a": "1994"
-    },
-    {
      "carica": "Ministro senza portafoglio per il coordinamento delle politiche comunitarie e per gli affari regionali",
      "da": "1993",
      "a": "1993"
     },
     {
      "carica": "Ministro senza portafoglio per i problemi delle aree urbane",
+     "da": "1993",
+     "a": "1994"
+    },
+    {
+     "carica": "Ministro dell'ambiente e della tutela del territorio e del mare",
      "da": "1993",
      "a": "1994"
     }
@@ -116176,8 +116175,8 @@
   {
    "qid": "Q105126086",
    "nome": "Vitilio Masiello",
-   "nascita": "1934-11-16",
-   "prec_nascita": "giorno",
+   "nascita": "1934",
+   "prec_nascita": "anno",
    "morte": "2018-04-03",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Vitilio%20Masiello%20VIII.jpg",
@@ -117871,8 +117870,8 @@
   {
    "qid": "Q2094539",
    "nome": "Vittorio Vidali",
-   "nascita": "1900-09-27",
-   "prec_nascita": "giorno",
+   "nascita": "1900",
+   "prec_nascita": "anno",
    "morte": "1983-11-09",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Vittorio%20Vidali.jpg",
