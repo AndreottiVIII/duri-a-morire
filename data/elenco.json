@@ -1,5 +1,5 @@
 {
- "generato": "2026-09-18",
+ "generato": "2026-09-20",
  "eta_massima_credibile": 106,
  "persone": [
   {
@@ -6601,7 +6601,6 @@
     "Alleanza Nazionale"
    ],
    "gruppo_eletto": "MSI - DN",
-   "registro_muto": "Senato",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -7833,6 +7832,7 @@
    "id_camera": "15960",
    "gruppo_eletto": "PARTITO COMUNISTA ITALIANO",
    "registro_muto": "Camera dei deputati",
+   "aggancio": "data di nascita",
    "fonte_morte": "Senato",
    "stato": "deceduto",
    "non_eletto": false,
@@ -21497,8 +21497,8 @@
    "nome": "Carlo D'Amato",
    "nascita": "1943-05-15",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2026-07-31",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Carlo%20D%27Amato%20daticamera.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Carlo_D%27Amato",
    "mandati": [
@@ -21513,8 +21513,8 @@
    ],
    "id_camera": "29420",
    "gruppo_eletto": "PARTITO SOCIALISTA ITALIANO",
-   "registro_muto": "Camera dei deputati",
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -36307,8 +36307,8 @@
   {
    "qid": "Q95887841",
    "nome": "Ezio Villani",
-   "nascita": "1892",
-   "prec_nascita": "anno",
+   "nascita": "1892-01-10",
+   "prec_nascita": "giorno",
    "morte": "1955-05-10",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Ezio%20Villani%20daticamera.jpg",
@@ -46137,8 +46137,8 @@
   {
    "qid": "Q94650325",
    "nome": "Gaetano Sardiello",
-   "nascita": "1890-10-06",
-   "prec_nascita": "giorno",
+   "nascita": "1890",
+   "prec_nascita": "anno",
    "morte": "1985-08-23",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Gaetano%20Sardiello.jpg",
@@ -46711,7 +46711,7 @@
   {
    "qid": "Q3759258",
    "nome": "Gelasio Adamoli",
-   "nascita": "1972-05-24",
+   "nascita": "1907-03-30",
    "prec_nascita": "giorno",
    "morte": "1978-07-30",
    "prec_morte": "giorno",
@@ -55856,8 +55856,8 @@
   {
    "qid": "Q1241",
    "nome": "Giovanni Gronchi",
-   "nascita": "1887",
-   "prec_nascita": "anno",
+   "nascita": "1887-09-10",
+   "prec_nascita": "giorno",
    "morte": "1978-10-17",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giovanni%20Gronchi%20hq%20%28cropped%29.jpg",
@@ -63886,7 +63886,7 @@
    "nome": "Giuseppe Mininni-Jannuzzi",
    "nascita": "1924-02-05",
    "prec_nascita": "giorno",
-   "morte": "2012-02-19",
+   "morte": "2012-02-20",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giuseppe%20Mininni-Iannuzzi%20XI.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Giuseppe_Mininni-Jannuzzi",
@@ -80213,8 +80213,8 @@
    "nome": "Mariella Mazzetto",
    "nascita": "1943-03-31",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2026-07-20",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Mariella%20Mazzetto%20daticamera.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Mariella_Mazzetto",
    "mandati": [
@@ -80228,8 +80228,8 @@
    ],
    "id_camera": "33700",
    "gruppo_eletto": "LEGA NORD",
-   "registro_muto": "Camera dei deputati",
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -104857,8 +104857,8 @@
    "nome": "Rosalba Molineri",
    "nascita": "1935-03-31",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2026-07-08",
+   "prec_morte": "giorno",
    "foto": null,
    "wikipedia": "https://it.wikipedia.org/wiki/Rosalba_Molineri",
    "mandati": [
@@ -104872,8 +104872,8 @@
    ],
    "id_camera": "21620",
    "gruppo_eletto": "PARTITO COMUNISTA ITALIANO",
-   "registro_muto": "Camera dei deputati",
-   "stato": "vivente",
+   "fonte_morte": "Camera dei deputati",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -116175,8 +116175,8 @@
   {
    "qid": "Q105126086",
    "nome": "Vitilio Masiello",
-   "nascita": "1934",
-   "prec_nascita": "anno",
+   "nascita": "1934-11-16",
+   "prec_nascita": "giorno",
    "morte": "2018-04-03",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Vitilio%20Masiello%20VIII.jpg",
@@ -117870,8 +117870,8 @@
   {
    "qid": "Q2094539",
    "nome": "Vittorio Vidali",
-   "nascita": "1900-09-27",
-   "prec_nascita": "giorno",
+   "nascita": "1900",
+   "prec_nascita": "anno",
    "morte": "1983-11-09",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Vittorio%20Vidali.jpg",
