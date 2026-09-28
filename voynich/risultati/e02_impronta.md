@@ -10,6 +10,8 @@ Campioni di 30.000 parole, media di 3 finestre. Le misure dopo h2 non cambiano s
 - **ripetute ×**: quante volte una parola si ripete subito, rispetto al caso.
 - **somiglianza vicine**: distanza fra parole vicine diviso distanza fra parole a caso, escluse le ripetizioni identiche; sotto 1 le vicine si somigliano più del caso.
 
+> **Attenzione.** "IM in più" dipende molto dal genere del testo: i testi tecnici latini (esperimento 3) scendono quanto il Voynich. La "poca sintassi" che sembra emergere qui è un effetto del confronto con la Bibbia. Anche "somiglianza vicine" va letta insieme agli esperimenti 4 e 5: quasi tutta viene dalla pagina, non dall'essere adiacenti.
+
 | testo | scrittura | h2 | lung. | tipi/parole | hapax | IM in più | ripetute × | somiglianza vicine |
 |---|---|---|---|---|---|---|---|---|
 | Japanese | logografica | 4.27 | 11.76 | 0.810 | 0.94 | 0.060 | 2.46 | 0.968 |

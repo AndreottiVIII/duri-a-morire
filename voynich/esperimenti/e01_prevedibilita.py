@@ -152,7 +152,7 @@ def disegna(ris):
         ax.set_ylabel('h2: incertezza sulla lettera successiva (bit)')
         leg = ax.legend(loc='lower right', frameon=False, fontsize=8, labelcolor=t['secondario'])
         grafici.titoli(fig, ax, t,
-                       'La lettera successiva: il Voynich è più prevedibile di ogni lingua',
+                       'A parità di alfabeto, il Voynich è più prevedibile di ogni lingua',
                        'Bibbia in circa 100 lingue e testo del Voynich, campioni di %d simboli.\n'
                        'Più in basso = la lettera che segue è più facile da indovinare.' % ris['N'])
         grafici.salva(fig, RISULTATI, 'e01_prevedibilita', tema)

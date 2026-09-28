@@ -256,3 +256,52 @@ def parole_misure(parole, dividi=None, semi=5, max_coppie=8000):
         'dist_rapporto': media_(vicine) / media_(caso),
         'dist_rapporto_diverse': media_(vicine_div) / media_(caso_div),
     }
+
+
+# --- righe e pagine --------------------------------------------------------
+
+DISTANZE = range(0, 7)
+PAROLE_RIGA, RIGHE_PAGINA = 8, 20
+
+
+def pagine_finte(parole):
+    righe = [parole[i:i + PAROLE_RIGA] for i in range(0, len(parole) - PAROLE_RIGA + 1, PAROLE_RIGA)]
+    return [righe[i:i + RIGHE_PAGINA] for i in range(0, len(righe), RIGHE_PAGINA)]
+
+
+def decadimento(pagine, dividi=None, semi=0, coppie_caso=200000, distanze=DISTANZE):
+    """Per ogni distanza fra righe: distanza media fra parole diverse e quota
+    di parole identiche, divise per gli stessi valori su coppie a caso."""
+    unita = lambda p: tuple(dividi(p)) if dividi else tuple(p)
+    pagine = [[[unita(p) for p in riga] for riga in pag] for pag in pagine]
+    tutte = [p for pag in pagine for riga in pag for p in riga]
+    rnd = random.Random(semi)
+    dist_caso, ident_caso = [], 0
+    for _ in range(coppie_caso):
+        a, b = tutte[rnd.randrange(len(tutte))], tutte[rnd.randrange(len(tutte))]
+        if a == b:
+            ident_caso += 1
+        else:
+            dist_caso.append(_dist_norm(a, b))
+    base_dist = sum(dist_caso) / len(dist_caso)
+    base_ident = ident_caso / coppie_caso
+    out = {}
+    for d in distanze:
+        somma = n = ident = tot = 0
+        for pag in pagine:
+            for i in range(len(pag) - d):
+                sopra, sotto = pag[i], pag[i + d]
+                if d == 0:
+                    coppie = [(sopra[x], sopra[y]) for x in range(len(sopra)) for y in range(x + 1, len(sopra))]
+                else:
+                    coppie = [(a, b) for a in sopra for b in sotto]
+                for a, b in coppie:
+                    tot += 1
+                    if a == b:
+                        ident += 1
+                    else:
+                        somma += _dist_norm(a, b)
+                        n += 1
+        out[d] = {'coppie': tot, 'distanza': (somma / n) / base_dist,
+                  'identiche': (ident / tot) / base_ident if base_ident else None}
+    return out

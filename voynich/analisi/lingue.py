@@ -4,7 +4,7 @@
 Il corpus e' quello di Christos Christodoulopoulos (github.com/christos-c/
 bible-corpus, pubblico dominio CC0), fissato a un commit preciso perche' i
 numeri si possano rifare. Non lo copiamo nel repository: pesa 600 MB. Lo script
-prepara_lingue.py lo clona e ne estrae i campioni in dati/cache/.
+prepara.py lo clona e ne estrae i campioni in dati/cache/.
 
 Normalizzazione uguale per tutti: minuscole, via punteggiatura e cifre, restano
 lettere e segni combinanti (servono alle scritture indiane), una parola e'
@@ -15,7 +15,8 @@ import csv, json, os, re, unicodedata
 
 QUI = os.path.dirname(os.path.abspath(__file__))
 CACHE = os.path.join(QUI, '..', 'dati', 'cache', 'lingue')
-SORGENTE = os.environ.get('BIBLE_CORPUS', '/home/user/christos-c/bible-corpus')
+SORGENTI = os.path.join(QUI, '..', 'dati', 'cache', 'sorgenti')
+SORGENTE = os.environ.get('BIBLE_CORPUS', os.path.join(SORGENTI, 'bible-corpus'))
 COMMIT = '44e5fca'
 
 _VERSO = re.compile(r"<seg id=['\"]b\.([A-Z0-9]+)\.(\d+)\.(\d+)['\"][^>]*>(.*?)</seg>", re.S)
@@ -132,7 +133,7 @@ def indice():
 # sintassi bisogna vedere quanta ne hanno ricette, manuali e voci di piante.
 # Dalla Latin Library (github.com/cltk/lat_text_latin_library, commit fissato).
 
-LATIN_LIBRARY = os.environ.get('LATIN_LIBRARY', '/home/user/cltk/lat_text_latin_library')
+LATIN_LIBRARY = os.environ.get('LATIN_LIBRARY', os.path.join(SORGENTI, 'lat_text_latin_library'))
 COMMIT_LL = '76229acaf02efd1964ac32009408a90b6f279758'
 
 GENERI = {

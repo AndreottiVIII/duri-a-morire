@@ -2,9 +2,11 @@
 """Prepara i testi di confronto: clona il corpus biblico e ne estrae i campioni.
 
 Le trascrizioni del Voynich stanno gia' nel repository (dati/trascrizioni/);
-le cento Bibbie no, pesano troppo. Questo script le scarica una volta sola,
-al commit fissato in analisi/lingue.py, e scrive i testi normalizzati in
-dati/cache/lingue/, che git ignora.
+i testi di confronto no, pesano troppo. Questo script scarica una volta sola
+le cento Bibbie e la Latin Library (ricette, agricoltura, piante), ai commit
+fissati in analisi/lingue.py, dentro dati/cache/sorgenti/, e scrive i testi
+normalizzati delle Bibbie in dati/cache/lingue/. Git ignora tutta dati/cache/.
+I testi latini si leggono direttamente dalla copia scaricata.
 
     python3 voynich/prepara.py
 """
@@ -24,6 +26,7 @@ def git(*argomenti, cwd=None):
 
 def fissa(url, cartella, commit):
     """Clona (se serve) e porta la copia locale esattamente al commit indicato."""
+    os.makedirs(os.path.dirname(os.path.abspath(cartella)), exist_ok=True)
     if not os.path.isdir(os.path.join(cartella, '.git')):
         git('clone', '--depth', '1', url, cartella)
     attuale = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=cartella).decode().strip()
