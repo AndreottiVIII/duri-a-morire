@@ -242,7 +242,7 @@ def disegna(ris):
         ax.legend(loc='upper right', frameon=False, fontsize=8, labelcolor=t['secondario'])
         grafici.titoli(fig, ax, t, 'Le parole del Voynich non sono anagrammi ordinati',
                        'Con le lettere in un ordine fisso si starebbe in basso a destra: tutto in ordine,\n'
-                       'nessun anagramma. Il Voynich ha l\'ordine di una lingua e più anagrammi di ogni lingua.')
+                       'nessun anagramma. Il Voynich ha l\'ordine di una lingua e più anagrammi di quasi tutte.')
         grafici.salva(fig, RISULTATI, 'e18_anagrammi', tema)
 
 
