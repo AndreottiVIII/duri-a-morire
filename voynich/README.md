@@ -5,13 +5,16 @@ manoscritto Voynich (Beinecke MS 408), un codice su pergamena datata al
 radiocarbonio fra il 1404 e il 1438, scritto in un alfabeto che nessuno ha
 mai letto.
 
-**Qui non c'è una decifrazione.** Ci sono sedici esperimenti ripetibili, in due
+**Qui non c'è una decifrazione.** Ci sono venti esperimenti ripetibili, in tre
 tornate. La prima mette alla prova un'idea precisa: che il testo non sia una
 lingua scritta con un alfabeto normale, ma qualcosa di "tokenizzato", cioè fatto
 di unità più grandi delle lettere (gruppi di segni per una lettera, codici per
 una parola, sillabe). La seconda allarga le analisi e tenta una decifrazione vera,
-con i controlli che servono a non illudersi. Ogni numero si rifà con i comandi in
-fondo alla pagina.
+con i controlli che servono a non illudersi. La terza costruisce un risolutore
+capace di leggere un testo cifrato anche senza spazi, lo prova su testi di cui
+si conosce la risposta e poi lo usa sul Voynich: in 71 lingue, contando i segni
+in molti modi diversi. Prova anche l'idea che le parole siano anagrammi. Ogni
+numero si rifà con i comandi in fondo alla pagina.
 
 ## In breve
 
@@ -219,6 +222,150 @@ rompe nemmeno i controlli: lì non possiamo dire niente.
   <img alt="Parole vere diverse nel testo decifrato, per quattordici lingue: centinaia o migliaia nei controlli positivi, poche decine nel Voynich e nei controlli negativi" src="risultati/e14_decifrazione-chiaro.png">
 </picture>
 
+## Terza tornata: un risolutore vero, e altre strade
+
+**11. Un risolutore che funziona anche senza spazi.** Nella seconda tornata l'attacco
+senza spazi non rompeva nemmeno i controlli. Adesso c'è un risolutore costruito come
+quelli che si usano sui cifrari omofonici veri, per esempio quelli dello Zodiac
+([analisi/ricottura.py](analisi/ricottura.py)):
+- **come cerca:** parte da una chiave a caso e la cambia un segno alla volta, per
+  decine o centinaia di migliaia di passi. Ogni tanto accetta anche un cambio che
+  peggiora, sempre più di rado (ricottura simulata): così la ricerca non resta
+  incastrata nella prima chiave discreta;
+- **come giudica:** con la probabilità del testo decifrato secondo un modello della
+  lingua fatto di gruppi di cinque lettere, senza spazi. Per il latino il modello
+  impara da circa 9 milioni di lettere: la Bibbia più la Latin Library, tolti i testi
+  usati come prova;
+- **l'accorgimento decisivo:** conta anche quanto sono varie le lettere decifrate.
+  Senza, la ricerca finisce in chiavi degeneri che usano cinque o sei lettere
+  frequenti ("etetitis…"). Non è un trucco: è la probabilità di aver scelto proprio
+  quei segni per quelle lettere.
+
+Sui testi di prova ritrova la chiave: dal 98% al 100% nelle Bibbie in quattordici
+lingue, con 26–74 segni diversi, e il 100% in due testi latini che non sono la Bibbia
+(Varrone sull'agricoltura, Isidoro sulle piante). Un testo finlandese attaccato come
+se fosse in un'altra lingua resta illeggibile, come deve.
+
+**12. Senza spazi, il Voynich non si legge in nessuna delle quattordici lingue,
+comunque si contino i segni.** Le lingue sono quelle della seconda tornata. Ogni riga
+del Voynich è presa come una sequenza continua, e l'ipotesi è che ogni unità valga
+una lettera (più unità possono valere la stessa). Le unità si contano in quattro
+modi:
+- i segni EVA (26 segni diversi);
+- i segni di Glen Claston (alfabeto v101, 59);
+- gruppi di segni imparati dal testo, a due gradi (45 e 74 gruppi diversi). È la
+  versione "tokenizzata": *aiin*, *ol*, *dy*, *qok*, *chedy* diventano ciascuno una
+  lettera.
+
+Le parole intere come lettere non le abbiamo provate: con 8.000 parole diverse
+servirebbero centinaia di segni per ogni lettera, e la forma realistica di questa
+idea, il Naibbe, è già stata messa alla prova (punto 6).
+
+I gruppi si imparano fondendo via via, dentro le parole, le due unità vicine più
+legate fra loro. Su un cifrario verboso fatto apposta (ogni lettera diventa uno o due
+gruppi di 1–3 segni EVA) questo metodo ritrova tutti i 35 gruppi veri, e il
+risolutore legge il testo: con 50 fusioni le parole vere di almeno sei lettere coprono
+il 49% del testo decifrato, contro il 61% del testo in chiaro. Ma solo al grado giusto:
+con 20 fusioni, o prendendo i segni uno per uno, si resta al 3–7%. Il metodo più
+diffuso (byte-pair encoding), che guarda solo quanto spesso due unità stanno insieme,
+ritrovava 27 gruppi su 35 e ne incollava di diversi.
+
+Per ogni lingua e ogni modo di contare, i controlli hanno lo stesso numero di simboli
+e la stessa lunghezza del Voynich letto in quel modo.
+- **Il risolutore funziona:** nei 56 controlli positivi (14 lingue per 4 modi) ritrova
+  almeno il 99,9% della chiave, tranne uno che si ferma al 98%: il chinanteco, che ha
+  più lettere (30) di quanti segni EVA abbia il Voynich (26).
+- **Sul Voynich no.** Mettiamo a 0 il punteggio del controllo negativo (un'altra
+  lingua cifrata allo stesso modo) e a 1 quello del positivo: il Voynich sta fra
+  −0,6 e 0,4, sotto lo 0 in 30 casi su 56. Nel testo decifrato le parole vere di
+  almeno sei lettere coprono fra lo 0,3% e il 10% delle lettere. Nei controlli
+  negativi si va dallo 0,5% al 9%, nei positivi dal 16% al 61%.
+- **Il testo "decifrato" è una poltiglia di sillabe della lingua:** in latino
+  *lusacarutusunummodetdesacsicaresdetta*, in italiano
+  *taoisitanaramaggioanoaridresitaroandi*, in tedesco
+  *saieheranabaralleieniebegbsherebiente*. Il cifrario verboso di prova, invece,
+  diventa *…ascendissent venerunt in hierusalem et…*.
+- **Il punto più alto, l'ebraico letto a segni EVA (0,42), non regge.** Viene da una
+  sola delle quattro ripartenze; le altre tre danno fra 0,09 e 0,22. Il testo
+  decifrato è una fila di parolette frequenti ripetute (כי, כל, לא, היא…), con le
+  forme finali delle lettere dove non possono stare. E nella prova su tutte le lingue
+  (punto 14) il Naibbe, che non è ebraico, arriva dove arriva il Voynich: 0,39 contro
+  0,37.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="risultati/e17_ricottura-scuro.png">
+  <img alt="Per quattordici lingue e quattro modi di contare i segni, il punteggio del Voynich decifrato fra un testo in un'altra lingua (0) e un testo vero (1): tutti i punti fra −0,6 e 0,4" src="risultati/e17_ricottura-chiaro.png">
+</picture>
+
+**13. Nemmeno a gruppi più corti o più lunghi.** Il cifrario verboso di prova si legge
+solo quando i gruppi sono quelli giusti: con 50 fusioni sì, con 20 no. Se il Voynich
+fosse un cifrario verboso con gruppi di un'altra misura, due gradi scelti a mano
+potrebbero mancarlo. Per questo abbiamo provato nove gradi, da 10 a 150 fusioni (da 36
+a 173 gruppi diversi), in latino e in italiano, con i controlli rifatti a ogni grado.
+- **I controlli positivi si risolvono tutti**, con il 100% della chiave, anche con
+  173 simboli.
+- **Il cifrario verboso di prova si legge** fra 30 e 60 fusioni (posizione fra 0,47 e
+  0,74), sempre meno allontanandosi da lì.
+- **Il Voynich non si legge a nessun grado**: sta fra −0,33 e 0,00, cioè come un testo
+  in un'altra lingua, o peggio.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="risultati/e20_gradi-scuro.png">
+  <img alt="Posizione fra controllo negativo e positivo al variare delle fusioni: il cifrario verboso di prova sale fino a 0,74 intorno a 50 fusioni, il Voynich in latino e in italiano resta fra −0,33 e 0 a ogni grado" src="risultati/e20_gradi-chiaro.png">
+</picture>
+
+**14. Nemmeno in tutte le altre lingue, né leggendo al contrario.** Le quattordici
+lingue sono una scelta. Per non lasciarne fuori una inattesa, il risolutore ha provato
+tutte le 71 Bibbie del corpus scritte in un alfabeto o in un abjad con al massimo 32
+lettere:
+- lingue europee, semitiche, turche e uraliche;
+- lingue austronesiane, amerindiane e africane;
+- il cinese in pinyin.
+
+Il Voynich è letto a segni EVA, una riga su due per stare nei tempi. Lo leggiamo anche
+da destra a sinistra, nel caso la scrittura andasse all'indietro.
+- **I controlli positivi riescono in tutte le 71 lingue**, con il 91–100% della chiave.
+- **Il Voynich non supera 0,47** (shona), e in 66 lingue su 71 resta sotto 0,3.
+  Letto al contrario non supera 0,39.
+- **Quel poco che sale è grana, non lingua.** Il Naibbe non è una sostituzione di
+  nessuna di queste lingue: è latino cifrato in un altro modo. Ha però la grana del
+  Voynich (segni prevedibili, parole corte e regolari), e arriva poco sotto, in mediana
+  0,09 in meno. Nelle cinque lingue dove il Voynich sale di più:
+  - shona: Voynich 0,47, Naibbe 0,33;
+  - ebraico: 0,37 e 0,39;
+  - rumeno: 0,33 e 0,27;
+  - paite: 0,32 e 0,07;
+  - persiano: 0,30 e 0,17.
+- **Le parole vere di almeno sei lettere** coprono al massimo un quarto di quanto
+  coprono in un testo vero cifrato: in mediana l'1,7% del testo decifrato, contro il
+  47%.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="risultati/e19_tutte_le_lingue-scuro.png">
+  <img alt="Per 71 lingue in ordine, la posizione del Voynich fra un testo in un'altra lingua (0) e un testo vero (1): tutte sotto 0,5, con il Voynich letto al contrario e il Naibbe agli stessi livelli" src="risultati/e19_tutte_le_lingue-chiaro.png">
+</picture>
+
+**15. Le parole del Voynich non sono anagrammi ordinati.** Un'idea che torna spesso
+(Hauer e Kondrak, 2016) è che ogni parola sia una parola vera con le lettere rimesse
+in un ordine fisso, per esempio alfabetico. Allora un ordine dei segni sarebbe
+rispettato da tutte le parole, e non esisterebbero due parole con gli stessi segni in
+ordine diverso. Nel Voynich:
+- **l'ordine migliore dei segni** è rispettato dal 78,5% delle coppie di segni dentro
+  le parole. È un valore da lingua: fra 60% e 96%, mediana 66%, con il vietnamita a
+  79% e il cinese in pinyin a 96%. Il latino con le lettere in ordine alfabetico,
+  per costruzione, fa 100%;
+- **il 35% delle parole ha un anagramma nel testo** (27% contando i segni come Glen
+  Claston). Nelle lingue si va dall'1% al 27%, mediana 5%, e il massimo è l'ebraico
+  scritto senza vocali. Con le parole ordinate sarebbe 0%. Spesso l'anagramma è una
+  variante rara con un pezzo spostato da un capo all'altro (*chol* → *lcho*, *shey*
+  → *yshe*, *ol* → *lo*): ricorda la mobilità dei pezzi vista nelle giunture fra
+  parole (punto 7).
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="risultati/e18_anagrammi-scuro.png">
+  <img alt="Coppie di segni che rispettano l'ordine migliore contro parole con un anagramma: le lingue in basso a sinistra, le parole ordinate in basso a destra, il Voynich e il Naibbe in alto al centro" src="risultati/e18_anagrammi-chiaro.png">
+</picture>
+
 ## La lista di controllo
 
 Chi propone una decifrazione, un cifrario o un meccanismo che generi il testo deve
@@ -259,9 +406,11 @@ mette in fila così.
 La seconda tornata toglie di mezzo anche la versione più sofisticata oggi sul
 tavolo, il cifrario Naibbe, in cui ogni parola vale una o due lettere; e un
 attacco da manuale, che rompe senza fatica testi veri cifrati allo stesso modo,
-non legge il Voynich in nessuna delle quattordici lingue provate. Resta aperto il
-caso in cui gli spazi non contano: il nostro attacco senza spazi non è abbastanza
-forte da rompere nemmeno i controlli, quindi su questo non possiamo dire niente.
+non legge il Voynich in nessuna delle quattordici lingue provate. La terza chiude
+anche il caso in cui gli spazi non contano: un risolutore che rompe tutti i
+controlli, compreso un cifrario verboso fatto apposta, non trova un testo né
+prendendo come lettere i segni né prendendo come lettere i gruppi di segni, in
+nessuna delle 71 lingue provate. E le parole non sono anagrammi ordinati.
 
 Uno studio uscito nell'agosto 2026, [*A Glyph Is Not a Letter, a Token Is Not a Word,
 a Space Is Not a Space*](https://arxiv.org/abs/2608.17096), arriva per altra via a
@@ -297,9 +446,13 @@ di controllo qui sopra. Nessuna proposta provata finora ci riesce.
 - **L'algoritmo completo di Timm e Schinner**, invece della nostra versione
   ridotta, per mettere davvero alla prova la possibilità 3 con la lista di
   controllo.
-- **Un risolutore più potente per il testo senza spazi** (ricottura simulata con
-  modelli di lingua più lunghi, come quelli usati per i cifrari dello Zodiac): il
-  nostro non rompe nemmeno i controlli, e quella strada resta aperta.
+- **Unità che valgono più lettere, o nessuna.** Il risolutore dà a ogni unità una
+  lettera sola. Un segno che vale una sillaba o una desinenza, come le abbreviazioni
+  dei manoscritti latini (*-us*, *-rum*, *per*), o un segno che non vale niente,
+  richiedono un modello in cui un'unità può valere zero, una o più lettere. È la
+  prossima estensione naturale del risolutore.
+- **Trasposizioni**: un testo rimescolato con una regola fissa dentro la riga o la
+  pagina non si legge con questo risolutore.
 - **Cifrari con "stile di pagina"**: varianti del Naibbe in cui le giunture fra
   parole sono morbide e lo stile cambia gradualmente, riga dopo riga. Sono le due
   cose che il Naibbe non ha.
@@ -330,7 +483,11 @@ di controllo qui sopra. Nessuna proposta provata finora ci riesce.
 | 13 | A quali lingue somiglia, tutto considerato? | A nessuna: è più isolato di qualsiasi lingua | [e13](risultati/e13_profilo.md) |
 | 14 | Una sostituzione omofonica lo legge, in 14 lingue? | No; i controlli positivi invece si leggono | [e14](risultati/e14_decifrazione.md) |
 | 15 | Le etichette dello zodiaco sono numeri? | No | [e15](risultati/e15_zodiaco.md) |
-| 16 | E ignorando gli spazi? | Non si sa: il metodo non rompe nemmeno il controllo positivo | [e16](risultati/e16_senza_spazi.md) |
+| 16 | E ignorando gli spazi? | Non si sa: il metodo non rompe nemmeno il controllo positivo (rifatto nel 17) | [e16](risultati/e16_senza_spazi.md) |
+| 17 | Senza spazi, con un risolutore vero, in 14 lingue e 4 modi di contare i segni? | Nessuna lettura; i controlli, anche un cifrario verboso, si leggono | [e17](risultati/e17_ricottura.md) |
+| 18 | Le parole sono anagrammi ordinati? | No: ordine da lingua, più anagrammi di quasi tutte le lingue | [e18](risultati/e18_anagrammi.md) |
+| 19 | E in tutte le lingue del corpus, anche al contrario? | No: mai oltre 0,47 fra un'altra lingua (0) e la lingua stessa (1), anche al contrario; il Naibbe arriva poco sotto | [e19](risultati/e19_tutte_le_lingue.md) |
+| 20 | E con i gruppi di segni a ogni grado? | No, a nessuno dei nove gradi; il cifrario verboso di prova sì, fra 30 e 60 fusioni | [e20](risultati/e20_gradi.md) |
 
 ## Come rifare tutto
 
@@ -338,9 +495,14 @@ di controllo qui sopra. Nessuna proposta provata finora ci riesce.
 pip install -r voynich/requirements.txt
 python3 voynich/prepara.py                     # scarica e prepara i testi di confronto
 python3 voynich/esperimenti/e01_prevedibilita.py
-python3 voynich/esperimenti/e02_impronta.py    # e cosi' via fino a e16
+python3 voynich/esperimenti/e02_impronta.py    # e cosi' via fino a e20
 python3 voynich/esperimenti/e14_decifrazione.py --naibbe   # il controllo in più dell'esperimento 14
 ```
+
+Gli esperimenti 17, 19 e 20 fanno girare il risolutore centinaia di volte: con
+quattro processori ci vogliono circa due ore il primo e un'ora ciascuno gli altri
+due (la variabile `PROCESSI` sceglie quanti processori usare). Con `--tabella` e
+`--grafico` rifanno solo tabella e grafico dai risultati salvati.
 
 Ogni esperimento scrive in `risultati/` un file `.json` con tutti i numeri, una
 tabella `.md` e, dove serve, un grafico in versione chiara e scura. I generatori
@@ -361,12 +523,18 @@ casuali hanno semi fissi: rifacendo, i numeri tornano uguali.
   tutte le lingue e il difetto di essere un genere particolare. Per questo ci sono
   anche i testi tecnici latini, che hanno ribaltato una delle conclusioni.
 - **Le immagini non ci sono.** Tutto quello che dipende dai disegni resta fuori.
-- **Il tentativo di decifrazione** mette alla prova un modello preciso: ogni segno
-  vale una lettera (più segni possono valere la stessa) e gli spazi sono spazi. Non
-  copre codici, trasposizioni, lettere nulle, abbreviazioni, né lingue fuori dalle
-  quattordici provate. Un esito negativo esclude quel modello per quelle lingue, non
-  "ogni decifrazione". La versione senza spazi non ha superato il suo controllo
-  positivo, quindi non esclude niente.
+- **I tentativi di decifrazione** mettono alla prova un modello preciso: ogni unità
+  (un segno, o un gruppo di segni) vale una lettera, e più unità possono valere la
+  stessa. Con gli spazi al loro posto (esperimento 14) e senza (17, 19, 20). Non
+  coprono codici, trasposizioni, lettere nulle, abbreviazioni (un segno per più
+  lettere), né le lingue fuori dal corpus. Un esito negativo esclude quel modello
+  per quelle lingue, non "ogni decifrazione".
+- **I modelli delle lingue** vengono dalla Bibbia, un genere solo; un testo tecnico
+  li sorprende di più. Per il latino, dove il modello impara anche dalla Latin
+  Library, i controlli su Varrone e Isidoro mostrano che al risolutore basta. Per
+  le altre lingue non possiamo verificarlo.
+- **L'islandese** nel corpus è segnato per errore come scritto in etiopico, e resta
+  fuori dai confronti fra alfabeti.
 - **Le fonti** dei dati, con versioni e impronte, sono in [dati/FONTI.md](dati/FONTI.md).
 
 ## Glossario
@@ -382,6 +550,11 @@ casuali hanno semi fissi: rifacendo, i numeri tornano uguali.
   pagine del Voynich, scoperte da Prescott Currier negli anni Settanta.
 - **Cifrario omofonico**: ogni lettera si può scrivere con più segni diversi.
 - **Cifrario verboso**: ogni lettera si scrive con un gruppo di più segni.
+- **Ricottura simulata**: un modo di cercare la soluzione migliore fra moltissime.
+  Si cambia una cosa alla volta e ogni tanto si accetta anche un peggioramento,
+  sempre più di rado: così non ci si ferma alla prima soluzione discreta.
+- **Modello a 5-grammi**: la probabilità di ogni lettera sapendo le quattro prima,
+  imparata da un testo lungo nella lingua.
 - **Controllo positivo**: un testo di cui si conosce la risposta, trattato come il
   Voynich. Se il metodo non lo risolve, un esito negativo sul Voynich non vale niente.
 - **Controllo negativo**: un testo che *non* dovrebbe dare risultati. Dice quanto si
