@@ -3,10 +3,10 @@
 
 Le trascrizioni del Voynich stanno gia' nel repository (dati/trascrizioni/);
 i testi di confronto no, pesano troppo. Questo script scarica una volta sola
-le cento Bibbie e la Latin Library (ricette, agricoltura, piante), ai commit
-fissati in analisi/lingue.py, dentro dati/cache/sorgenti/, e scrive i testi
-normalizzati delle Bibbie in dati/cache/lingue/. Git ignora tutta dati/cache/.
-I testi latini si leggono direttamente dalla copia scaricata.
+le cento Bibbie, la Latin Library (ricette, agricoltura, piante) e il codice
+del cifrario Naibbe, ciascuno a un commit fissato, dentro dati/cache/sorgenti/,
+e scrive i testi normalizzati delle Bibbie in dati/cache/lingue/. Git ignora
+tutta dati/cache/. I testi latini e il Naibbe si leggono dalla copia scaricata.
 
     python3 voynich/prepara.py
 """
@@ -38,6 +38,9 @@ def fissa(url, cartella, commit):
 def main():
     fissa(URL, lingue.SORGENTE, COMMIT_PIENO)
     fissa('https://github.com/cltk/lat_text_latin_library', lingue.LATIN_LIBRARY, lingue.COMMIT_LL)
+    # il cifrario Naibbe di Greshko (2025): tabelle e testo cifrato di esempio
+    fissa('https://github.com/greshko/naibbe-cipher', os.path.join(lingue.SORGENTI, 'naibbe-cipher'),
+          'f2675ec5dd275268bc64dd48ea64fc0e0e9827a2')
     indice = lingue.prepara()
     lingue.prepara_pinyin()
     indice = lingue.indice()

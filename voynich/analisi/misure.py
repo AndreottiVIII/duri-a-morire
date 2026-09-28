@@ -12,7 +12,7 @@ sempre su campioni della stessa lunghezza; accanto diamo anche la correzione
 di Miller-Madow, che dice di quanto potrebbe spostarsi il numero.
 """
 import math, random
-from collections import Counter
+from collections import Counter, defaultdict
 
 LN2 = math.log(2)
 
@@ -190,6 +190,37 @@ def vicinato(blocchi, dividi=None, campioni=6, semi=0):
     }
 
 
+def spazi(righe, dividi=None, contesto=1):
+    """Quanto e' prevedibile lo spazio dal segno (o dai segni) che lo precedono.
+
+    Per ogni posizione dentro una riga, tranne l'ultima: dato il segno appena
+    scritto (o gli ultimi `contesto` segni della parola in corso), viene uno
+    spazio o no? Restituisce l'entropia di questa scelta prima e dopo aver
+    visto il contesto, e la quota di incertezza che il contesto toglie. Se lo
+    spazio dipende quasi solo dal segno precedente, e' una regola di scrittura
+    (una forma di fine parola), non una scelta di chi scrive."""
+    scelte = []
+    for r in righe:
+        u = [tuple(dividi(p)) if dividi else tuple(p) for p in r]
+        for i, parola in enumerate(u):
+            for j in range(len(parola)):
+                fine = j == len(parola) - 1
+                if fine and i == len(u) - 1:
+                    continue                      # fine riga: non e' una scelta
+                ctx = parola[max(0, j - contesto + 1):j + 1]
+                scelte.append((ctx, fine))
+    tot = Counter(f for _, f in scelte)
+    h_prima = entropia(tot)
+    per_ctx = defaultdict(Counter)
+    for ctx, f in scelte:
+        per_ctx[ctx][f] += 1
+    n = len(scelte)
+    h_dopo = sum(sum(c.values()) / n * entropia(c) for c in per_ctx.values())
+    return {'h_spazio': h_prima, 'h_spazio_dato_contesto': h_dopo,
+            'spiegata': 1 - h_dopo / h_prima if h_prima else 0.0,
+            'quota_spazi': tot[True] / n}
+
+
 def a_blocchi(parole, lunghezza):
     """Taglia una sequenza di parole in blocchi consecutivi di lunghezza fissa."""
     return [parole[i:i + lunghezza] for i in range(0, len(parole) - lunghezza + 1, lunghezza)]
@@ -256,6 +287,33 @@ def parole_misure(parole, dividi=None, semi=5, max_coppie=8000):
         'dist_rapporto': media_(vicine) / media_(caso),
         'dist_rapporto_diverse': media_(vicine_div) / media_(caso_div),
     }
+
+
+def confine(righe, dividi=None, mescolamenti=5, semi=0, solo_interne=False):
+    """Dipendenza attraverso lo spazio: quanto l'ultimo segno di una parola
+    dice sul primo segno della parola dopo, nella stessa riga, oltre quello che
+    si avrebbe rimescolando le parole dentro ogni riga.
+
+    Se ogni parola cifra una o due lettere di un testo continuo, fine di una
+    parola e inizio della successiva cifrano lettere consecutive, e dipendono
+    l'una dall'altra come le lettere di una lingua. Se le parole sono parole,
+    la dipendenza viene solo dalla sintassi ed e' piu' debole."""
+    unita = lambda p: tuple(dividi(p)) if dividi else tuple(p)
+    righe = [[unita(p) for p in r] for r in righe if len(r) > 1]
+    if solo_interne:
+        # la prima e l'ultima parola di una riga hanno forme proprie: fuori
+        righe = [r[1:-1] for r in righe if len(r) > 3]
+
+    def coppie(rr):
+        return [(a[-1], b[0]) for r in rr for a, b in zip(r, r[1:])]
+
+    vera = informazione_mutua(coppie(righe))
+    rnd = random.Random(semi)
+    mescolate = []
+    for _ in range(mescolamenti):
+        mescolate.append(informazione_mutua(coppie([rnd.sample(r, len(r)) for r in righe])))
+    base = sum(mescolate) / len(mescolate)
+    return {'im_confine': vera, 'im_confine_mescolata': base, 'im_confine_eccesso': vera - base}
 
 
 # --- righe e pagine --------------------------------------------------------

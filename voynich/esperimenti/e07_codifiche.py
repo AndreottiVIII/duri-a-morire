@@ -45,7 +45,7 @@ def impronta(pagine, dividi):
     righe = [riga for pag in pagine for riga in pag]
     parole = [p for riga in righe for p in riga]
     vic = misure.vicinato(righe, dividi)
-    dec = misure.decadimento(pagine, dividi, coppie_caso=100000)
+    dec = misure.decadimento(pagine, dividi, coppie_caso=100000, distanze=[0, 1, 6])
     tipi = Counter(parole[:N_TIPI])
     return {
         'parole': len(parole),

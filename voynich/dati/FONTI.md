@@ -24,3 +24,9 @@ impronte. Gli autori le rendono liberamente disponibili per la ricerca.
 - **Testi tecnici latini** (ricette, agricoltura, piante, trattati):
   [cltk/lat_text_latin_library](https://github.com/cltk/lat_text_latin_library),
   commit `76229acaf02efd1964ac32009408a90b6f279758`, i testi della Latin Library.
+- **Il cifrario Naibbe** (tabelle e Plinio cifrato di esempio):
+  [greshko/naibbe-cipher](https://github.com/greshko/naibbe-cipher), commit
+  `f2675ec5dd275268bc64dd48ea64fc0e0e9827a2`, licenza MIT modificata che chiede di citare
+  Greshko, M. A. (2025), *The Naibbe cipher: a substitution cipher that encrypts Latin and
+  Italian as Voynich Manuscript-like ciphertext*, Cryptologia,
+  [doi:10.1080/01611194.2025.2566408](https://doi.org/10.1080/01611194.2025.2566408).

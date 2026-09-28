@@ -261,6 +261,100 @@ def codice_con_stile(testo, parole_voynich, modello, modifiche, rnd, parole_pagi
     return out
 
 
+# --- il cifrario Naibbe (Greshko 2025) ---------------------------------------
+#
+# Greshko, M. A. (2025). The Naibbe cipher: a substitution cipher that encrypts
+# Latin and Italian as Voynich Manuscript-like ciphertext. Cryptologia,
+# doi:10.1080/01611194.2025.2566408. Codice e tabelle: github.com/greshko/
+# naibbe-cipher (licenza MIT modificata, che chiede questa citazione).
+#
+# Qui lo stesso algoritmo di naibbe.py, riscritto per avere semi fissi e per
+# poter far cambiare da una pagina all'altra le preferenze fra le tabelle.
+# Il testo in chiaro, senza spazi, si taglia a caso in pezzi di una o due
+# lettere; ogni pezzo diventa una "parola": una lettera sola prende la forma
+# 'unigram' di una tabella, una coppia unisce il 'prefix' della prima lettera
+# e il 'suffix' della seconda, ciascuno da una tabella pescata a parte. Le
+# tabelle si pescano da un mazzo di 52 carte con pesi diversi.
+
+NAIBBE_TABELLE = ['alpha', 'beta1', 'beta2', 'beta3', 'gamma1', 'gamma2']
+NAIBBE_PESI = {'alpha': 20, 'beta1': 8, 'beta2': 8, 'beta3': 8, 'gamma1': 4, 'gamma2': 4}
+
+
+def naibbe_pulisci(testo):
+    """Come clean_line di naibbe.py: niente diacritici, solo lettere,
+    w -> uu, j -> i, k -> c."""
+    import unicodedata
+    n = unicodedata.normalize('NFD', testo)
+    n = ''.join(c for c in n if unicodedata.category(c) != 'Mn')
+    sostituzioni = {'æ': 'ae', 'œ': 'oe', 'ð': 'd', 'þ': 'th', 'ł': 'l', 'ß': 'ss', 'ø': 'o'}
+    n = ''.join(sostituzioni.get(c, c) for c in n.lower())
+    n = ''.join(c for c in n if c.isalpha()).upper()
+    return n.replace('W', 'UU').replace('J', 'I').replace('K', 'C').lower()
+
+
+def naibbe_tabelle(percorso_csv):
+    import csv
+    with open(percorso_csv, encoding='utf-8-sig') as f:
+        return {r['code']: r['glyphs'] for r in csv.DictReader(f)}
+
+
+def naibbe(lettere, glifi, rnd, parole_pagina=None, concentrazione=None):
+    """Cifra una stringa di lettere. Restituisce la lista delle parole e, per
+    controllo, la lista dei pezzi in chiaro (una o due lettere) di ciascuna.
+
+    Senza concentrazione il mazzo e' quello di Greshko. Con concentrazione=k,
+    a ogni nuova pagina (ogni parole_pagina parole) le probabilita' delle sei
+    tabelle si ripescano da una Dirichlet centrata sui pesi del mazzo: piu' k
+    e' piccolo, piu' ogni pagina preferisce poche tabelle, come uno scriba che
+    cambia abitudini da una seduta all'altra."""
+    unigrammi = {g for c, g in glifi.items() if c.startswith('unigram_')}
+    pezzi, i = [], 0
+    while i < len(lettere):
+        if i == len(lettere) - 1 or rnd.random() < 17 / 36:
+            pezzi.append(lettere[i])
+            i += 1
+        else:
+            pezzi.append(lettere[i:i + 2])
+            i += 2
+    mazzo, pos = [], 0
+    probabilita = None
+
+    def pesca(dal_mazzo=False):
+        nonlocal mazzo, pos
+        if probabilita is not None and not dal_mazzo:
+            return rnd.choices(NAIBBE_TABELLE, weights=probabilita)[0]
+        if pos >= len(mazzo):
+            mazzo = [t for t, n in NAIBBE_PESI.items() for _ in range(n)]
+            rnd.shuffle(mazzo)
+            pos = 0
+        pos += 1
+        return mazzo[pos - 1]
+
+    parole = []
+    for pezzo in pezzi:
+        if concentrazione and parole_pagina and len(parole) % parole_pagina == 0:
+            base = [NAIBBE_PESI[t] for t in NAIBBE_TABELLE]
+            tot = sum(base)
+            g = [rnd.gammavariate(concentrazione * b / tot, 1) for b in base]
+            probabilita = [x / sum(g) for x in g]
+        if len(pezzo) == 1:
+            parole.append(glifi['unigram_%s_%s' % (pesca(), pezzo)])
+        else:
+            tentativi = 0
+            while True:
+                # con una pagina tutta su una tabella certe coppie danno sempre
+                # una parola gia' usata per una lettera sola: dopo 50 tentativi
+                # si torna al mazzo normale, altrimenti non si esce piu'
+                dal_mazzo = tentativi >= 50
+                w = (glifi['prefix_%s_%s' % (pesca(dal_mazzo), pezzo[0])] +
+                     glifi['suffix_%s_%s' % (pesca(dal_mazzo), pezzo[1])])
+                if w not in unigrammi:
+                    break
+                tentativi += 1
+            parole.append(w)
+    return parole, pezzi
+
+
 def poisson(rnd, lam):
     soglia, k, p = math.exp(-lam), 0, 1.0
     while True:
