@@ -4,3 +4,6 @@ data/cache/
 
 __pycache__/
 *.pyc
+
+# Voynich: i testi di confronto si rigenerano con voynich/prepara.py
+voynich/dati/cache/
