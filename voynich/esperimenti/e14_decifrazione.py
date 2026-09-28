@@ -248,10 +248,11 @@ def disegna(ris):
         ax.set_xticks(range(len(nomi)))
         ax.set_xticklabels(nomi, rotation=35, ha='right', fontsize=8.5)
         ax.set_ylabel('parole vere diverse nel testo decifrato')
-        ax.legend(loc='center right', frameon=False, fontsize=8, labelcolor=t['secondario'])
+        ax.legend(loc='center left', bbox_to_anchor=(0.0, 0.57), frameon=False, fontsize=8,
+                  labelcolor=t['secondario'])
         grafici.titoli(fig, ax, t, 'Nessuna lingua legge il Voynich',
-                       'La chiave migliore per ogni lingua: una decifrazione vera trova migliaia di parole diverse,\n'
-                       'il Voynich poche decine, come un testo in un\'altra lingua.')
+                       'La chiave migliore per ogni lingua: una decifrazione vera trova centinaia o migliaia\n'
+                       'di parole diverse, il Voynich poche decine, come un testo in un\'altra lingua.')
         grafici.salva(fig, RISULTATI, 'e14_decifrazione', tema)
 
 
