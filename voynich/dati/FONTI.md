@@ -39,3 +39,12 @@ impronte. Gli autori le rendono liberamente disponibili per la ricerca.
   [DivinumOfficium/divinum-officium](https://github.com/DivinumOfficium/divinum-officium), commit
   `2dbc3c24ea7f96f014060aaa51caeec477f3c578`, licenza MIT; se ne scarica solo la cartella
   `web/www/horas/Latin`.
+- **La decifrazione latina di Scott Schechter** (glossario EVA → latino e trascrizione usata):
+  [scott-schechter/voynich-decoded](https://github.com/scott-schechter/voynich-decoded), commit
+  `71f2f3c91e9113d285ab21e024f1dd70c1f43c44` (25/03/2026). Il repository non dichiara una licenza:
+  non se ne copia niente qui, si scarica in cache e si legge.
+- **La corrispondenza EVA → ebraico di Antenore Gatta**:
+  [antenore/voynich-toolkit](https://github.com/antenore/voynich-toolkit), commit
+  `cb137630762908517636b7f9ffb98bc5fe0dc05e`, licenza MIT; articolo su Zenodo,
+  [doi:10.5281/zenodo.19226178](https://doi.org/10.5281/zenodo.19226178). L'esperimento 26 ne ricopia
+  la tabella (`full_decode.py`: 17 segni più ii, i e ch, lettura da destra, due regole per l'iniziale).

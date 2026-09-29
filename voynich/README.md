@@ -5,8 +5,8 @@ manoscritto Voynich (Beinecke MS 408), un codice su pergamena datata al
 radiocarbonio fra il 1404 e il 1438, scritto in un alfabeto che nessuno ha
 mai letto.
 
-**Qui non c'è una decifrazione.** Ci sono venticinque esperimenti ripetibili, in
-quattro tornate. La prima mette alla prova un'idea precisa: che il testo non sia una
+**Qui non c'è una decifrazione.** Ci sono ventisei esperimenti ripetibili, in
+cinque tornate. La prima mette alla prova un'idea precisa: che il testo non sia una
 lingua scritta con un alfabeto normale, ma qualcosa di "tokenizzato", cioè fatto
 di unità più grandi delle lettere (gruppi di segni per una lettera, codici per
 una parola, sillabe). La seconda allarga le analisi e tenta una decifrazione vera,
@@ -18,7 +18,9 @@ quarta è un giro di sondaggi veloci sulle strade rimaste aperte, e finisce con
 l'algoritmo completo di Timm e Schinner, un testo senza messaggio che rifà gran
 parte del Voynich; con una regola in più, sulle giunture fra parole, ne rifà quasi
 tutto, tranne la varietà del vocabolario. Preghiere e litanie, invece, non gli
-somigliano. Ogni numero si rifà con i comandi in fondo alla pagina.
+somigliano. La quinta rifà due decifrazioni pubblicate con il controllo che
+mancava, un testo senza messaggio: lo leggono allo stesso modo. Ogni numero si rifà
+con i comandi in fondo alla pagina.
 
 ## In breve
 
@@ -556,6 +558,61 @@ immediate né le pagine omogenee. La strada del "contenuto che non è prosa" si
 indebolisce ancora: né gli elenchi (punto 19) né le preghiere hanno le due proprietà
 più strane del Voynich.
 
+## Quinta tornata: le decifrazioni pubblicate
+
+**25. Due decifrazioni pubblicate leggono anche un testo senza messaggio.** Ogni tanto
+qualcuno annuncia di aver letto il Voynich. Due proposte recenti hanno il codice
+pubblico, e si possono rifare con i controlli di questo lavoro
+([dettagli](risultati/e26_decifrazioni_pubblicate.md)). Il controllo che manca a
+entrambe è il testo del generatore di Timm e Schinner (punti 21 e 22): non dice niente,
+ma somiglia al Voynich.
+
+*Scott Schechter* legge il Voynich come latino, con qualche parola occitana ed ebraica,
+attraverso un glossario di 4.063 parole EVA
+([voynich-decoded](https://github.com/scott-schechter/voynich-decoded)). Dichiara di
+decifrare l'87,8% delle parole, contro il 2,1% di stringhe EVA a caso. Abbiamo rifatto
+in Python il suo programma e i numeri tornano: 89,2% con la versione attuale del
+glossario, identici sezione per sezione. Però:
+- **la copertura non dice niente.** Le voci del glossario vengono dal testo stesso: un
+  "glossario" fatto delle 4.445 parole più frequenti, senza alcun significato, copre il
+  90,8%. Delle 4.445 parole diverse che il suo glossario legge, 2.067 compaiono una volta
+  sola nel manoscritto. Il confronto con stringhe a caso non misura niente, perché parole
+  inventate non stanno nel testo;
+- **il glossario legge anche il testo senza messaggio**, al 67–70%;
+- **la prova sulle pagine lasciate fuori** (79–81%) è la semplice quota di parole di una
+  metà del manoscritto che compaiono già nell'altra (82–83%). Il testo senza messaggio
+  ne ha anche di più (85–88%);
+- **l'ordine delle parole non è latino.** Nel latino vero (Apicio e Isidoro sulle
+  piante) il 30% delle coppie di parole vicine compare anche altrove nel latino; con le
+  stesse parole rimescolate dentro la riga, il 22% (×1,34). Nel Voynich decifrato le
+  coppie attestate sono l'8,8%, e rimescolate restano l'8,8% (×0,99). È quello che danno
+  il testo senza messaggio decifrato (×0,94–0,98) e il glossario con i significati spostati
+  a caso fra le voci (×1,01);
+- **le frasi ripetute e la legge di Zipf non sono un segno di latino.** Il testo senza
+  messaggio, decifrato allo stesso modo, ha più frasi di tre parole ripetute del Voynich
+  decifrato (77–112 contro 57), e anche lì molte più che con le parole rimescolate. Non
+  decifrato, ha lo stesso esponente di Zipf del Voynich (circa −1).
+
+*Antenore Gatta* ([voynich-toolkit](https://github.com/antenore/voynich-toolkit)) fa
+corrispondere a ogni segno EVA una consonante ebraica e legge da destra a sinistra. Lui
+stesso conclude che nessuna pagina si legge, ma vede un segnale: con la sua
+corrispondenza, più parole di 3–4 consonanti diventano parole ebraiche che con
+corrispondenze a caso. Contando come parole ebraiche le forme della Bibbia in ebraico,
+il segnale c'è anche qui (35% contro il 12,5% a caso, z = 4,4). Però:
+- sul testo senza messaggio la stessa corrispondenza dà il 30% (z = 2,7);
+- una corrispondenza cercata apposta per ciascun testo, con una breve ricerca automatica,
+  dà il 53% sul Voynich e il 50–61% sul testo senza messaggio: più della sua.
+
+Le parole lunghe (5 consonanti o più) vanno meglio sul Voynich che sul testo senza
+messaggio: 3,1% contro 1,4–1,6%. Ma il 69% dei casi viene da due parole sole, *okaiin* e
+*okain*.
+
+In breve: le due proposte trovano nel Voynich quello che si trova anche in un testo
+senza messaggio. Altre letture annunciate negli ultimi anni, come quella in una lingua
+"proto-romanza" di Cheshire (2019) o quella in turco antico di Ardıç, non le abbiamo
+provate: non abbiamo trovato un programma o un glossario pubblico che le applichi al testo
+intero. Appena ci sono, si provano allo stesso modo.
+
 ## La lista di controllo
 
 Chi propone una decifrazione, un cifrario o un meccanismo che generi il testo deve
@@ -698,6 +755,7 @@ manca soprattutto la varietà del vocabolario.
 | 23 | E con una regola sulle giunture fra parole? | Il legame compare (0,178 contro 0,188) senza guastare il resto; resta meno vario il vocabolario | [e23](risultati/e23_giunture.md) |
 | 24 | Doppio ritocco o copia da lontano danno un vocabolario più vario? | Un po' (fino al 58% di parole uniche), ma a spese della somiglianza di pagina | [e24](risultati/e24_varieta.md) |
 | 25 | Preghiere e litanie somigliano al Voynich? | No: niente ripetizioni immediate né pagine omogenee; solo un forte legame fra parole vicine | [e25](risultati/e25_preghiere.md) |
+| 26 | Due decifrazioni pubblicate (Schechter in latino, Gatta in ebraico) reggono ai controlli? | No: leggono allo stesso modo un testo senza messaggio, e l'ordine delle parole latine è quello del caso | [e26](risultati/e26_decifrazioni_pubblicate.md) |
 
 ## Come rifare tutto
 
@@ -705,7 +763,7 @@ manca soprattutto la varietà del vocabolario.
 pip install -r voynich/requirements.txt
 python3 voynich/prepara.py                     # scarica e prepara i testi di confronto
 python3 voynich/esperimenti/e01_prevedibilita.py
-python3 voynich/esperimenti/e02_impronta.py    # e cosi' via fino a e25
+python3 voynich/esperimenti/e02_impronta.py    # e cosi' via fino a e26
 python3 voynich/esperimenti/e14_decifrazione.py --naibbe   # il controllo in più dell'esperimento 14
 ```
 
@@ -713,8 +771,8 @@ Gli esperimenti 17, 19 e 20 fanno girare il risolutore centinaia di volte: con
 quattro processori ci vogliono circa due ore il primo e un'ora ciascuno gli altri
 due (la variabile `PROCESSI` sceglie quanti processori usare). Con `--tabella` e
 `--grafico` rifanno solo tabella e grafico dai risultati salvati. Gli esperimenti 22,
-23 e 24 fanno girare il generatore di Timm e Schinner, che è scritto in Java: serve
-Java (il 23 e il 24 lo ricompilano dal sorgente, con le aggiunte in
+23, 24 e 26 fanno girare il generatore di Timm e Schinner, che è scritto in Java: serve
+Java (il 23, il 24 e il 26 lo ricompilano dal sorgente, con le aggiunte in
 `analisi/timm_schinner/`).
 
 Ogni esperimento scrive in `risultati/` un file `.json` con tutti i numeri, una

@@ -61,6 +61,9 @@ def main():
     fissa_in_parte('https://github.com/DivinumOfficium/divinum-officium',
                    os.path.join(lingue.SORGENTI, 'divinum-officium'), '2dbc3c24ea7f96f014060aaa51caeec477f3c578',
                    ['web/www/horas/Latin'])
+    # la decifrazione latina di Schechter (glossario e trascrizione): esperimento 26
+    fissa('https://github.com/scott-schechter/voynich-decoded',
+          os.path.join(lingue.SORGENTI, 'voynich-decoded'), '71f2f3c91e9113d285ab21e024f1dd70c1f43c44')
     indice = lingue.prepara()
     lingue.prepara_pinyin()
     indice = lingue.indice()
