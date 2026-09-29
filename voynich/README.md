@@ -5,7 +5,7 @@ manoscritto Voynich (Beinecke MS 408), un codice su pergamena datata al
 radiocarbonio fra il 1404 e il 1438, scritto in un alfabeto che nessuno ha
 mai letto.
 
-**Qui non c'è una decifrazione.** Ci sono venti esperimenti ripetibili, in tre
+**Qui non c'è una decifrazione.** Ci sono ventuno esperimenti ripetibili, in quattro
 tornate. La prima mette alla prova un'idea precisa: che il testo non sia una
 lingua scritta con un alfabeto normale, ma qualcosa di "tokenizzato", cioè fatto
 di unità più grandi delle lettere (gruppi di segni per una lettera, codici per
@@ -13,8 +13,9 @@ una parola, sillabe). La seconda allarga le analisi e tenta una decifrazione ver
 con i controlli che servono a non illudersi. La terza costruisce un risolutore
 capace di leggere un testo cifrato anche senza spazi, lo prova su testi di cui
 si conosce la risposta e poi lo usa sul Voynich: in 71 lingue, contando i segni
-in molti modi diversi. Prova anche l'idea che le parole siano anagrammi. Ogni
-numero si rifà con i comandi in fondo alla pagina.
+in molti modi diversi. Prova anche l'idea che le parole siano anagrammi. La
+quarta è un giro di sondaggi veloci sulle strade rimaste aperte. Ogni numero si
+rifà con i comandi in fondo alla pagina.
 
 ## In breve
 
@@ -366,6 +367,63 @@ ordine diverso. Nel Voynich:
   <img alt="Coppie di segni che rispettano l'ordine migliore contro parole con un anagramma: le lingue in basso a sinistra, le parole ordinate in basso a destra, il Voynich e il Naibbe in alto al centro" src="risultati/e18_anagrammi-chiaro.png">
 </picture>
 
+## Quarta tornata: sondaggi sulle strade rimaste
+
+Un giro veloce, su campioni di 20.000 parole: per ogni strada rimasta aperta abbiamo
+costruito un testo come lo produrrebbe quell'ipotesi, partendo da testi veri, e lo
+abbiamo misurato con la lista di controllo. Non è una decifrazione. Serve a vedere
+quali strade vanno nella direzione del Voynich
+([tabella completa](risultati/e21_sondaggi.md)). Nel Voynich:
+- h2 vale 2,2 (il latino 3,3);
+- lo spazio è prevedibile al 66% (il latino al 19%);
+- una parola ripete la precedente ×1,0 (il latino ×0,18);
+- la somiglianza fra parole della stessa riga è del 3,8% (il latino 0,2%).
+
+**16. Abbreviazioni: la direzione sbagliata.** Il latino scritto con le abbreviazioni
+dei manoscritti (*-us*, *-um*, *-rum*, *-que*, *per*, *con*, le vocali nasali con la
+tilde…) diventa meno prevedibile, non di più: h2 sale da 3,26 a 3,37. Chi abbrevia
+toglie proprio le parti più prevedibili. Lo spazio diventa un po' più prevedibile (32%),
+perché le abbreviazioni finali stanno solo in fondo alle parole. Ripetizioni e somiglianze
+restano quelle del latino. Estendere il risolutore a segni che valgono più lettere
+quindi promette poco: da sola, questa strada allontana dal Voynich.
+
+**17. Lettere nulle: a metà strada, se messe a regola.** Nulle sparse a caso allontanano
+dal Voynich (h2 3,54, vocabolario gonfiato). Nulle messe con una regola fissa, in testa
+alle parole che cominciano per vocale e in coda a quelle che finiscono per vocale,
+avvicinano h2 (2,94) e la prevedibilità dello spazio (53%). Ripetizioni e somiglianze,
+però, non cambiano.
+
+**18. Trasposizioni: no.** Rimescolare le lettere, con una trasposizione a colonne o
+dentro le parole, porta h2 a 3,9 e rende le parole casuali. Capovolgere le parole non
+cambia niente. Ordinarne le lettere avvicina h2 (2,5), ma è l'ipotesi degli anagrammi,
+già esclusa (punto 15).
+
+**19. Testi a elenco, anche cifrati con un codice: non bastano.** Abbiamo provato tre
+elenchi veri in latino:
+- le genealogie e i censimenti della Bibbia;
+- la Notitia Dignitatum, un elenco di cariche;
+- i Fasti di Idazio, un elenco di consoli.
+
+Ripetono la parola precedente ancora meno della prosa (×0,00–0,07), e la somiglianza
+nella riga arriva al massimo all'1,6%. Cifrati con un codice parola per parola prendono la
+grana del Voynich (h2 1,9–2,2, spazio 69–75%). Ma non le sue anomalie: ripetizioni
+×0,00–0,07, somiglianza nella riga intorno a 0. Almeno questo tipo di contenuto non spiega
+il Voynich. Altri tipi (litanie, formule magiche, tavole) restano da provare.
+
+**20. Nessun messaggio: l'unica strada che produce le anomalie.** Abbiamo provato
+due varianti veloci dell'autocitazione di Timm e Schinner: ogni parola è una copia
+ritoccata di una parola delle righe sopra. Entrambe fanno uscire da sole le due proprietà
+più strane del Voynich:
+- **le ripetizioni immediate:** ×1,07 e ×1,29;
+- **la somiglianza di pagina che cala con la distanza fra le righe:** dal 12% della
+  riga al 4% a sei righe, o dal 9% al 6%.
+
+Nessun'altra strada provata ci arriva. Tarare tutto insieme però non è banale. Se le
+modifiche seguono la forma delle parole del Voynich, h2 e spazio tornano, ma il
+vocabolario collassa su poche parole brevi. Se seguono solo la lunghezza, il vocabolario
+regge ma le parole perdono la grammatica del Voynich (h2 3,34, spazio 5%). L'algoritmo
+completo degli autori, pensato apposta, è il prossimo passo naturale.
+
 ## La lista di controllo
 
 Chi propone una decifrazione, un cifrario o un meccanismo che generi il testo deve
@@ -443,14 +501,16 @@ di controllo qui sopra. Nessuna proposta provata finora ci riesce.
 - **Testi "a elenco"** come termine di paragone: ricettari fatti di liste,
   cataloghi di stelle, glossari, tavole. Se anche loro non evitano le ripetizioni
   e hanno pagine omogenee, la possibilità 1 si rafforza.
-- **L'algoritmo completo di Timm e Schinner**, invece della nostra versione
-  ridotta, per mettere davvero alla prova la possibilità 3 con la lista di
-  controllo.
+- **L'algoritmo completo di Timm e Schinner**, invece delle nostre versioni
+  ridotte, per mettere davvero alla prova la possibilità 3 con la lista di
+  controllo. Dopo i sondaggi della quarta tornata è la strada più promettente:
+  l'unica che produce da sola ripetizioni e somiglianza di pagina.
 - **Unità che valgono più lettere, o nessuna.** Il risolutore dà a ogni unità una
   lettera sola. Un segno che vale una sillaba o una desinenza, come le abbreviazioni
   dei manoscritti latini (*-us*, *-rum*, *per*), o un segno che non vale niente,
-  richiedono un modello in cui un'unità può valere zero, una o più lettere. È la
-  prossima estensione naturale del risolutore.
+  richiedono un modello in cui un'unità può valere zero, una o più lettere. I sondaggi
+  (punti 16 e 17) dicono che le abbreviazioni da sole allontanano dal Voynich e le nulle
+  a regola lo avvicinano solo in parte: è un'estensione possibile, ma non la prima.
 - **Trasposizioni**: un testo rimescolato con una regola fissa dentro la riga o la
   pagina non si legge con questo risolutore.
 - **Cifrari con "stile di pagina"**: varianti del Naibbe in cui le giunture fra
@@ -488,6 +548,7 @@ di controllo qui sopra. Nessuna proposta provata finora ci riesce.
 | 18 | Le parole sono anagrammi ordinati? | No: ordine da lingua, più anagrammi di quasi tutte le lingue | [e18](risultati/e18_anagrammi.md) |
 | 19 | E in tutte le lingue del corpus, anche al contrario? | No: mai oltre 0,47 fra un'altra lingua (0) e la lingua stessa (1), anche al contrario; il Naibbe arriva poco sotto | [e19](risultati/e19_tutte_le_lingue.md) |
 | 20 | E con i gruppi di segni a ogni grado? | No, a nessuno dei nove gradi; il cifrario verboso di prova sì, fra 30 e 60 fusioni | [e20](risultati/e20_gradi.md) |
+| 21 | Sondaggi: abbreviazioni, nulle, trasposizioni, elenchi, autocitazione | Solo l'autocitazione produce ripetizioni e somiglianza di pagina; le altre no | [e21](risultati/e21_sondaggi.md) |
 
 ## Come rifare tutto
 
@@ -495,7 +556,7 @@ di controllo qui sopra. Nessuna proposta provata finora ci riesce.
 pip install -r voynich/requirements.txt
 python3 voynich/prepara.py                     # scarica e prepara i testi di confronto
 python3 voynich/esperimenti/e01_prevedibilita.py
-python3 voynich/esperimenti/e02_impronta.py    # e cosi' via fino a e20
+python3 voynich/esperimenti/e02_impronta.py    # e cosi' via fino a e21
 python3 voynich/esperimenti/e14_decifrazione.py --naibbe   # il controllo in più dell'esperimento 14
 ```
 
