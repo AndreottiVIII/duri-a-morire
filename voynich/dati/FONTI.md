@@ -30,3 +30,8 @@ impronte. Gli autori le rendono liberamente disponibili per la ricerca.
   Greshko, M. A. (2025), *The Naibbe cipher: a substitution cipher that encrypts Latin and
   Italian as Voynich Manuscript-like ciphertext*, Cryptologia,
   [doi:10.1080/01611194.2025.2566408](https://doi.org/10.1080/01611194.2025.2566408).
+- **Il generatore ad autocitazione di Timm e Schinner** (programma Java e parametri pubblicati):
+  [TorstenTimm/SelfCitationTextgenerator](https://github.com/TorstenTimm/SelfCitationTextgenerator),
+  commit `a6ede2202dd7ad6285ce2c007bf22c2a0e7709b7`, licenza MIT. Timm, T. e Schinner, A. (2020),
+  *A possible generating algorithm of the Voynich manuscript*, Cryptologia 44(1),
+  [doi:10.1080/01611194.2019.1596999](https://doi.org/10.1080/01611194.2019.1596999). Serve Java.

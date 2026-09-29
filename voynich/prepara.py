@@ -3,8 +3,9 @@
 
 Le trascrizioni del Voynich stanno gia' nel repository (dati/trascrizioni/);
 i testi di confronto no, pesano troppo. Questo script scarica una volta sola
-le cento Bibbie, la Latin Library (ricette, agricoltura, piante) e il codice
-del cifrario Naibbe, ciascuno a un commit fissato, dentro dati/cache/sorgenti/,
+le cento Bibbie, la Latin Library (ricette, agricoltura, piante), il codice
+del cifrario Naibbe e il generatore di Timm e Schinner, ciascuno a un commit
+fissato, dentro dati/cache/sorgenti/,
 e scrive i testi normalizzati delle Bibbie in dati/cache/lingue/. Git ignora
 tutta dati/cache/. I testi latini e il Naibbe si leggono dalla copia scaricata.
 
@@ -41,6 +42,9 @@ def main():
     # il cifrario Naibbe di Greshko (2025): tabelle e testo cifrato di esempio
     fissa('https://github.com/greshko/naibbe-cipher', os.path.join(lingue.SORGENTI, 'naibbe-cipher'),
           'f2675ec5dd275268bc64dd48ea64fc0e0e9827a2')
+    # il generatore ad autocitazione di Timm e Schinner (2020), in Java: serve all'esperimento 22
+    fissa('https://github.com/TorstenTimm/SelfCitationTextgenerator',
+          os.path.join(lingue.SORGENTI, 'SelfCitationTextgenerator'), 'a6ede2202dd7ad6285ce2c007bf22c2a0e7709b7')
     indice = lingue.prepara()
     lingue.prepara_pinyin()
     indice = lingue.indice()

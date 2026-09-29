@@ -5,7 +5,7 @@ manoscritto Voynich (Beinecke MS 408), un codice su pergamena datata al
 radiocarbonio fra il 1404 e il 1438, scritto in un alfabeto che nessuno ha
 mai letto.
 
-**Qui non c'è una decifrazione.** Ci sono ventuno esperimenti ripetibili, in quattro
+**Qui non c'è una decifrazione.** Ci sono ventidue esperimenti ripetibili, in quattro
 tornate. La prima mette alla prova un'idea precisa: che il testo non sia una
 lingua scritta con un alfabeto normale, ma qualcosa di "tokenizzato", cioè fatto
 di unità più grandi delle lettere (gruppi di segni per una lettera, codici per
@@ -14,8 +14,9 @@ con i controlli che servono a non illudersi. La terza costruisce un risolutore
 capace di leggere un testo cifrato anche senza spazi, lo prova su testi di cui
 si conosce la risposta e poi lo usa sul Voynich: in 71 lingue, contando i segni
 in molti modi diversi. Prova anche l'idea che le parole siano anagrammi. La
-quarta è un giro di sondaggi veloci sulle strade rimaste aperte. Ogni numero si
-rifà con i comandi in fondo alla pagina.
+quarta è un giro di sondaggi veloci sulle strade rimaste aperte, e finisce con
+l'algoritmo completo di Timm e Schinner, un testo senza messaggio che rifà gran
+parte del Voynich. Ogni numero si rifà con i comandi in fondo alla pagina.
 
 ## In breve
 
@@ -424,27 +425,76 @@ vocabolario collassa su poche parole brevi. Se seguono solo la lunghezza, il voc
 regge ma le parole perdono la grammatica del Voynich (h2 3,34, spazio 5%). L'algoritmo
 completo degli autori, pensato apposta, è il prossimo passo naturale.
 
+**21. L'algoritmo completo di Timm e Schinner rifà gran parte del Voynich.** Abbiamo
+fatto girare il loro generatore così com'è
+([TorstenTimm/SelfCitationTextgenerator](https://github.com/TorstenTimm/SelfCitationTextgenerator),
+Java, licenza MIT), con i parametri pubblicati. Cambiano solo la lunghezza, 4.000 righe
+come il Voynich, e il seme del caso: cinque semi, circa 36.700 parole ciascuno. Il
+procedimento è quello descritto sopra, con le regole scritte dagli autori:
+- da quali righe copiare, e quanto spesso dalla stessa posizione della riga sopra;
+- quali segni si scambiano fra loro;
+- quali pezzi si aggiungono o tolgono;
+- quando due parole si uniscono o una si divide;
+- quali parole frequenti del Voynich "suggerire" quando mancano parole in *-aiin*,
+  *-ol* o *-dy*.
+
+Regole e parametri vengono dal Voynich stesso: che il testo generato gli somigli non è
+una sorpresa. Conta che un procedimento così semplice, eseguibile a mano, riproduca
+proprietà che nessuna lingua e nessun cifrario hanno.
+
+Il risultato, misurato con la lista di controllo
+([tabella completa](risultati/e22_timm_schinner.md)):
+- **uguale al Voynich:**
+  - h2: 2,23–2,26 (Voynich 2,24);
+  - somiglianza nella riga: 3,5–3,9% (3,8%);
+  - somiglianza a sei righe, che cala come nel Voynich: 3,2–3,5% (3,4%);
+- **vicino:**
+  - ripetizioni immediate ×0,72–0,78 (Voynich ×1,0, lingue ×0,12);
+  - spazio prevedibile 51–57% (66%);
+  - anagrammi 42–46% (35%);
+- **lontano:**
+  - vocabolario meno vario: hapax 52% contro 68%, parole diverse 14% contro 21%;
+  - le parole vicine unite danno parole esistenti 1,2 volte più del caso, nel Voynich
+    2 volte;
+- **mancante:** il legame fra la fine di una parola e l'inizio della successiva. Nel
+  Voynich vale 0,19 bit, più che nella lingua tipica (0,07); nel generatore 0,01–0,02,
+  come nel Naibbe (0,002). Nel Voynich come comincia una parola dipende da come è
+  finita la precedente. Nel generatore quasi no, perché ogni parola è copiata dalle
+  righe sopra senza guardare quella appena scritta.
+
+Nessun cifrario provato in questo lavoro si avvicina altrettanto. Non dimostra che il
+Voynich sia senza messaggio. Dimostra che un procedimento eseguibile a mano, senza
+nessun contenuto, basta a produrre quasi tutte le sue stranezze. E indica che cosa manca
+per il resto: le giunture fra parole vicine.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="risultati/e22_timm_schinner-scuro.png">
+  <img alt="Otto proprietà su una scala da 0 (lingua tipica) a 1 (Voynich): il generatore di Timm e Schinner sta vicino a 1 su h2 e somiglianze, fra 0,4 e 0,8 su spazi, ripetizioni e unioni, oltre 1 sugli anagrammi e sotto 0 sul legame fra parole vicine, come il Naibbe" src="risultati/e22_timm_schinner-chiaro.png">
+</picture>
+
 ## La lista di controllo
 
 Chi propone una decifrazione, un cifrario o un meccanismo che generi il testo deve
 riprodurre tutte queste proprietà insieme, misurate come qui (testo in paragrafi
 della trascrizione ZL, segni composti fusi). Accanto, i valori dei testi naturali
 (la Bibbia in circa 90 lingue in alfabeto o abjad, più otto testi tecnici latini)
-e del cifrario Naibbe.
+e del cifrario Naibbe. Nell'ultima colonna il generatore di Timm e Schinner
+(punto 21): ✓ uguale, ≈ vicino, ✗ lontano.
 
-| proprietà | Voynich | testi naturali | Naibbe |
-|---|---|---|---|
-| incertezza sul segno successivo (h2) | 2,22 bit | 2,6–3,3 a parità di alfabeto | 2,2 ✓ |
-| spazio prevedibile dal segno precedente | 66% | 6–100%, mediana 17% | 64% ✓ |
-| parole diverse ogni 30.000 | 21% | 3–33% | 17–18% ✓ |
-| parole usate una volta sola (hapax) | 68% | 12–72% | 37–44% ✗ |
-| parola identica alla precedente, rispetto alla riga | ×1,0 | ×0,01–1,9, mediana ×0,12 | ×0,33–0,69 ✗ |
-| somiglianza fra parole della stessa riga | 3,8% | da −0,4% a 1,5% | 0–2,2% ✗ |
-| la stessa somiglianza a 6 righe di distanza | 3,4% (cala) | vicino a 0 | piatta ✗ |
-| legame fine parola → inizio parola seguente | 0,19 bit | 0,02–0,40, mediana 0,07 | 0,002–0,013 ✗ |
-| due parole vicine unite danno una parola esistente | 9,2% (caso 4,8%) | 0,1–0,7%, pari al caso (4 testi) | 1,0% (caso 1,3%) ✗ |
+| proprietà | Voynich | testi naturali | Naibbe | Timm e Schinner |
+|---|---|---|---|---|
+| incertezza sul segno successivo (h2) | 2,22 bit | 2,6–3,3 a parità di alfabeto | 2,2 ✓ | 2,24 ✓ |
+| spazio prevedibile dal segno precedente | 66% | 6–100%, mediana 17% | 64% ✓ | 54% ≈ |
+| parole diverse ogni 30.000 | 21% | 3–33% | 17–18% ✓ | 14% ≈ |
+| parole usate una volta sola (hapax) | 68% | 12–72% | 37–44% ✗ | 52% ✗ |
+| parola identica alla precedente, rispetto alla riga | ×1,0 | ×0,01–1,9, mediana ×0,12 | ×0,33–0,69 ✗ | ×0,76 ≈ |
+| somiglianza fra parole della stessa riga | 3,8% | da −0,4% a 1,5% | 0–2,2% ✗ | 3,8% ✓ |
+| la stessa somiglianza a 6 righe di distanza | 3,4% (cala) | vicino a 0 | piatta ✗ | 3,4% (cala) ✓ |
+| legame fine parola → inizio parola seguente | 0,19 bit | 0,02–0,40, mediana 0,07 | 0,002–0,013 ✗ | 0,016 ✗ |
+| due parole vicine unite danno una parola esistente | 9,2% (caso 4,8%) | 0,1–0,7%, pari al caso (4 testi) | 1,0% (caso 1,3%) ✗ | 13,9% (caso 11,7%) ≈ |
 
-Nessun testo naturale e nessun testo artificiale provato fin qui le ha tutte.
+Nessun testo naturale e nessun testo artificiale provato fin qui le ha tutte. Il
+generatore di Timm e Schinner è quello che ci va più vicino.
 
 ## Che cosa vuol dire per l'ipotesi "tokenizzata"
 
@@ -494,17 +544,21 @@ Restano tre possibilità, che questi esperimenti non sanno ancora distinguere:
    variando quello che si è appena scritto.
 
 Qualunque sia la risposta, deve riprodurre tutte insieme le proprietà della lista
-di controllo qui sopra. Nessuna proposta provata finora ci riesce.
+di controllo qui sopra. Nessuna proposta provata finora ci riesce. Dopo la quarta
+tornata la terza possibilità è la più avanti: l'algoritmo di Timm e Schinner arriva
+più vicino di qualsiasi cifrario, e gli manca soprattutto il legame fra parole
+vicine.
 
 ## Cosa fare adesso
 
 - **Testi "a elenco"** come termine di paragone: ricettari fatti di liste,
   cataloghi di stelle, glossari, tavole. Se anche loro non evitano le ripetizioni
   e hanno pagine omogenee, la possibilità 1 si rafforza.
-- **L'algoritmo completo di Timm e Schinner**, invece delle nostre versioni
-  ridotte, per mettere davvero alla prova la possibilità 3 con la lista di
-  controllo. Dopo i sondaggi della quarta tornata è la strada più promettente:
-  l'unica che produce da sola ripetizioni e somiglianza di pagina.
+- **Un'autocitazione che guarda la parola appena scritta.** L'algoritmo di Timm e
+  Schinner (punto 21) manca soprattutto il legame fra la fine di una parola e
+  l'inizio della successiva, e ha un vocabolario meno vario del Voynich. Il passo
+  successivo è far scegliere o ritoccare la parola nuova anche in base a come è
+  finita la precedente, e vedere se il legame compare senza guastare il resto.
 - **Unità che valgono più lettere, o nessuna.** Il risolutore dà a ogni unità una
   lettera sola. Un segno che vale una sillaba o una desinenza, come le abbreviazioni
   dei manoscritti latini (*-us*, *-rum*, *per*), o un segno che non vale niente,
@@ -549,6 +603,7 @@ di controllo qui sopra. Nessuna proposta provata finora ci riesce.
 | 19 | E in tutte le lingue del corpus, anche al contrario? | No: mai oltre 0,47 fra un'altra lingua (0) e la lingua stessa (1), anche al contrario; il Naibbe arriva poco sotto | [e19](risultati/e19_tutte_le_lingue.md) |
 | 20 | E con i gruppi di segni a ogni grado? | No, a nessuno dei nove gradi; il cifrario verboso di prova sì, fra 30 e 60 fusioni | [e20](risultati/e20_gradi.md) |
 | 21 | Sondaggi: abbreviazioni, nulle, trasposizioni, elenchi, autocitazione | Solo l'autocitazione produce ripetizioni e somiglianza di pagina; le altre no | [e21](risultati/e21_sondaggi.md) |
+| 22 | L'algoritmo completo di Timm e Schinner rifà la lista di controllo? | In gran parte sì (h2, somiglianze, quasi le ripetizioni); manca il legame fra parole vicine | [e22](risultati/e22_timm_schinner.md) |
 
 ## Come rifare tutto
 
@@ -556,14 +611,15 @@ di controllo qui sopra. Nessuna proposta provata finora ci riesce.
 pip install -r voynich/requirements.txt
 python3 voynich/prepara.py                     # scarica e prepara i testi di confronto
 python3 voynich/esperimenti/e01_prevedibilita.py
-python3 voynich/esperimenti/e02_impronta.py    # e cosi' via fino a e21
+python3 voynich/esperimenti/e02_impronta.py    # e cosi' via fino a e22
 python3 voynich/esperimenti/e14_decifrazione.py --naibbe   # il controllo in più dell'esperimento 14
 ```
 
 Gli esperimenti 17, 19 e 20 fanno girare il risolutore centinaia di volte: con
 quattro processori ci vogliono circa due ore il primo e un'ora ciascuno gli altri
 due (la variabile `PROCESSI` sceglie quanti processori usare). Con `--tabella` e
-`--grafico` rifanno solo tabella e grafico dai risultati salvati.
+`--grafico` rifanno solo tabella e grafico dai risultati salvati. L'esperimento 22
+fa girare il generatore di Timm e Schinner, che è scritto in Java: serve Java.
 
 Ogni esperimento scrive in `risultati/` un file `.json` con tutti i numeri, una
 tabella `.md` e, dove serve, un grafico in versione chiara e scura. I generatori
