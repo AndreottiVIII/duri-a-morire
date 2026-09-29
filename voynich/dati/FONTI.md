@@ -47,4 +47,6 @@ impronte. Gli autori le rendono liberamente disponibili per la ricerca.
   [antenore/voynich-toolkit](https://github.com/antenore/voynich-toolkit), commit
   `cb137630762908517636b7f9ffb98bc5fe0dc05e`, licenza MIT; articolo su Zenodo,
   [doi:10.5281/zenodo.19226178](https://doi.org/10.5281/zenodo.19226178). L'esperimento 26 ne ricopia
-  la tabella (`full_decode.py`: 17 segni più ii, i e ch, lettura da destra, due regole per l'iniziale).
+  la tabella (`full_decode.py`: 17 segni più ii, i e ch, lettura da destra, due regole per l'iniziale);
+  l'esperimento 27 le identificazioni delle piante (`champollion.py`, `FOLIO_PLANTS`: 58 fogli con nome
+  italiano e grado di confidenza), a cui aggiunge i nomi latini.

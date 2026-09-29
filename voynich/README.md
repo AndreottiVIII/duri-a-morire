@@ -5,7 +5,7 @@ manoscritto Voynich (Beinecke MS 408), un codice su pergamena datata al
 radiocarbonio fra il 1404 e il 1438, scritto in un alfabeto che nessuno ha
 mai letto.
 
-**Qui non c'è una decifrazione.** Ci sono ventisei esperimenti ripetibili, in
+**Qui non c'è una decifrazione.** Ci sono ventisette esperimenti ripetibili, in
 cinque tornate. La prima mette alla prova un'idea precisa: che il testo non sia una
 lingua scritta con un alfabeto normale, ma qualcosa di "tokenizzato", cioè fatto
 di unità più grandi delle lettere (gruppi di segni per una lettera, codici per
@@ -19,8 +19,9 @@ l'algoritmo completo di Timm e Schinner, un testo senza messaggio che rifà gran
 parte del Voynich; con una regola in più, sulle giunture fra parole, ne rifà quasi
 tutto, tranne la varietà del vocabolario. Preghiere e litanie, invece, non gli
 somigliano. La quinta rifà due decifrazioni pubblicate con il controllo che
-mancava, un testo senza messaggio: lo leggono allo stesso modo. Ogni numero si rifà
-con i comandi in fondo alla pagina.
+mancava, un testo senza messaggio: lo leggono allo stesso modo. Poi cerca i nomi delle
+piante nelle pagine dell'erbario, senza trovarli. Ogni numero si rifà con i comandi in
+fondo alla pagina.
 
 ## In breve
 
@@ -558,7 +559,7 @@ immediate né le pagine omogenee. La strada del "contenuto che non è prosa" si
 indebolisce ancora: né gli elenchi (punto 19) né le preghiere hanno le due proprietà
 più strane del Voynich.
 
-## Quinta tornata: le decifrazioni pubblicate
+## Quinta tornata: le decifrazioni pubblicate e i nomi delle piante
 
 **25. Due decifrazioni pubblicate leggono anche un testo senza messaggio.** Ogni tanto
 qualcuno annuncia di aver letto il Voynich. Due proposte recenti hanno il codice
@@ -612,6 +613,35 @@ senza messaggio. Altre letture annunciate negli ultimi anni, come quella in una 
 "proto-romanza" di Cheshire (2019) o quella in turco antico di Ardıç, non le abbiamo
 provate: non abbiamo trovato un programma o un glossario pubblico che le applichi al testo
 intero. Appena ci sono, si provano allo stesso modo.
+
+**26. I nomi delle piante come cartigli: nella prima parola non ci sono.** Se una pagina
+dell'erbario parla della pianta disegnata, il suo nome potrebbe stare nel testo: nella
+prima parola, come in molti erbari, o almeno nella prima riga. È l'idea con cui Champollion
+lesse i cartigli di Tolomeo e Cleopatra ([dettagli](risultati/e27_cartigli.md)).
+
+Le identificazioni delle piante, da qui, non si raggiungono alla fonte: voynich.nu,
+HerbalGram, i blog di botanica voynichiana, l'articolo di Bax e le scansioni della Beinecke
+sono bloccati. L'unico elenco raggiungibile è quello del toolkit di Gatta: 58 fogli, di cui
+15 con identificazioni "universali", "forti" o di Bax e gli altri "moderate", alcune poco
+credibili. I nomi latini li abbiamo aggiunti noi.
+
+La prova non presuppone né una lingua né un cifrario preciso. Un modello di allineamento,
+come quelli della traduzione automatica, impara quali segni del Voynich "producono" quali
+lettere del nome, su tutte le pagine insieme. Se i nomi sono scritti nelle pagine in modo
+coerente, gli abbinamenti veri si spiegano meglio di quelli rimescolati fra i fogli.
+- **Il controllo positivo si ritrova.** Se al posto della prima parola mettiamo il nome
+  cifrato con un cifrario verboso casuale, la prova lo trova sempre (p = 0,001). Con un segno
+  su cinque sbagliato lo trova ancora su tutti i fogli, e sui 15 migliori in italiano. Nella
+  prima riga intera la prova è più debole: sui 15 fogli migliori ritrova il nome solo in latino
+  e senza errori.
+- **Nel Voynich non si trova niente**, né in italiano né in latino, né nella prima parola né
+  nella prima riga. Il risultato migliore, p = 0,053, è quello che ci si aspetta dal caso su
+  otto prove.
+
+Se queste identificazioni sono giuste, la prima parola delle pagine non contiene il nome della
+pianta scritto lettera per lettera in italiano o in latino, nemmeno con un cifrario verboso.
+La prova resta pronta: con un elenco di identificazioni più affidabile, o con le immagini, si
+rifà in pochi minuti.
 
 ## La lista di controllo
 
@@ -718,9 +748,10 @@ manca soprattutto la varietà del vocabolario.
 - **Cifrari con "stile di pagina"**: varianti del Naibbe in cui le giunture fra
   parole sono morbide e lo stile cambia gradualmente, riga dopo riga. Sono le due
   cose che il Naibbe non ha.
-- **Le immagini.** Le scansioni della Beinecke da questo ambiente non si
-  raggiungono. Con quelle si possono usare come appigli le etichette accanto ai
-  disegni (una pianta riconosciuta è un nome da cercare nel testo della pagina).
+- **Le immagini e le identificazioni delle piante.** Le scansioni della Beinecke e gli
+  elenchi di identificazioni pubblicati da questo ambiente non si raggiungono. La prova dei
+  cartigli (punto 26) è pronta: con un elenco affidabile (foglio, pianta) si rifà subito, e
+  con le immagini si possono aggiungere le etichette accanto ai disegni.
 - **Letteratura recente.** Da questo ambiente arXiv non si raggiunge: lo studio citato
   sopra va letto per intero e confrontato numero per numero con questi risultati.
 - **La posizione nella riga e nel paragrafo**: la prima e l'ultima parola di ogni
@@ -756,6 +787,7 @@ manca soprattutto la varietà del vocabolario.
 | 24 | Doppio ritocco o copia da lontano danno un vocabolario più vario? | Un po' (fino al 58% di parole uniche), ma a spese della somiglianza di pagina | [e24](risultati/e24_varieta.md) |
 | 25 | Preghiere e litanie somigliano al Voynich? | No: niente ripetizioni immediate né pagine omogenee; solo un forte legame fra parole vicine | [e25](risultati/e25_preghiere.md) |
 | 26 | Due decifrazioni pubblicate (Schechter in latino, Gatta in ebraico) reggono ai controlli? | No: leggono allo stesso modo un testo senza messaggio, e l'ordine delle parole latine è quello del caso | [e26](risultati/e26_decifrazioni_pubblicate.md) |
+| 27 | Il nome della pianta sta nella prima parola o nella prima riga della pagina? | Nessuna traccia, né in italiano né in latino; lo stesso nome cifrato apposta invece si ritrova | [e27](risultati/e27_cartigli.md) |
 
 ## Come rifare tutto
 
@@ -763,7 +795,7 @@ manca soprattutto la varietà del vocabolario.
 pip install -r voynich/requirements.txt
 python3 voynich/prepara.py                     # scarica e prepara i testi di confronto
 python3 voynich/esperimenti/e01_prevedibilita.py
-python3 voynich/esperimenti/e02_impronta.py    # e cosi' via fino a e26
+python3 voynich/esperimenti/e02_impronta.py    # e cosi' via fino a e27
 python3 voynich/esperimenti/e14_decifrazione.py --naibbe   # il controllo in più dell'esperimento 14
 ```
 
