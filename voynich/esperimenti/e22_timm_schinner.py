@@ -73,7 +73,7 @@ def lista_di_controllo(pagine, dividi):
     r['unione_attestata'] = sum(1 for a, b in coppie if vocabolario[a + b]) / len(coppie)
     r['unione_caso'] = sum(1 for a, b in coppie if vocabolario[rnd.choice(prime) + b]) / len(coppie)
     # ordine dei segni e anagrammi (esperimento 18), sulle prime 35.000 parole
-    parole = [dividi(p) for rr in righe for p in rr][:e18.PAROLE]
+    parole = [dividi(p) if dividi else list(p) for rr in righe for p in rr][:e18.PAROLE]
     r['ordine_rispettato'] = e18.ordine_migliore(e18.coppie(parole), random.Random(18))[0]
     r['anagrammi'] = e18.anagrammi(parole)
     return r

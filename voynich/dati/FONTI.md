@@ -35,3 +35,7 @@ impronte. Gli autori le rendono liberamente disponibili per la ricerca.
   commit `a6ede2202dd7ad6285ce2c007bf22c2a0e7709b7`, licenza MIT. Timm, T. e Schinner, A. (2020),
   *A possible generating algorithm of the Voynich manuscript*, Cryptologia 44(1),
   [doi:10.1080/01611194.2019.1596999](https://doi.org/10.1080/01611194.2019.1596999). Serve Java.
+- **Il breviario romano in latino** (litanie, salmi, preci, preghiere):
+  [DivinumOfficium/divinum-officium](https://github.com/DivinumOfficium/divinum-officium), commit
+  `2dbc3c24ea7f96f014060aaa51caeec477f3c578`, licenza MIT; se ne scarica solo la cartella
+  `web/www/horas/Latin`.

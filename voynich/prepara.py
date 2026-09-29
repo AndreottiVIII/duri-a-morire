@@ -4,8 +4,8 @@
 Le trascrizioni del Voynich stanno gia' nel repository (dati/trascrizioni/);
 i testi di confronto no, pesano troppo. Questo script scarica una volta sola
 le cento Bibbie, la Latin Library (ricette, agricoltura, piante), il codice
-del cifrario Naibbe e il generatore di Timm e Schinner, ciascuno a un commit
-fissato, dentro dati/cache/sorgenti/,
+del cifrario Naibbe, il generatore di Timm e Schinner e il breviario romano
+(Divinum Officium), ciascuno a un commit fissato, dentro dati/cache/sorgenti/,
 e scrive i testi normalizzati delle Bibbie in dati/cache/lingue/. Git ignora
 tutta dati/cache/. I testi latini e il Naibbe si leggono dalla copia scaricata.
 
@@ -36,6 +36,18 @@ def fissa(url, cartella, commit):
         git('checkout', '--quiet', commit, cwd=cartella)
 
 
+def fissa_in_parte(url, cartella, commit, percorsi):
+    """Come fissa, ma scarica solo alcune cartelle: il repository intero e' grande."""
+    os.makedirs(os.path.dirname(os.path.abspath(cartella)), exist_ok=True)
+    if not os.path.isdir(os.path.join(cartella, '.git')):
+        git('clone', '--depth', '1', '--filter=blob:none', '--sparse', url, cartella)
+    git('sparse-checkout', 'set', *percorsi, cwd=cartella)
+    attuale = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=cartella).decode().strip()
+    if attuale != commit:
+        git('fetch', '--depth', '1', '--filter=blob:none', 'origin', commit, cwd=cartella)
+        git('checkout', '--quiet', commit, cwd=cartella)
+
+
 def main():
     fissa(URL, lingue.SORGENTE, COMMIT_PIENO)
     fissa('https://github.com/cltk/lat_text_latin_library', lingue.LATIN_LIBRARY, lingue.COMMIT_LL)
@@ -45,6 +57,10 @@ def main():
     # il generatore ad autocitazione di Timm e Schinner (2020), in Java: serve all'esperimento 22
     fissa('https://github.com/TorstenTimm/SelfCitationTextgenerator',
           os.path.join(lingue.SORGENTI, 'SelfCitationTextgenerator'), 'a6ede2202dd7ad6285ce2c007bf22c2a0e7709b7')
+    # il breviario romano in latino (progetto Divinum Officium): preghiere e litanie per l'esperimento 25
+    fissa_in_parte('https://github.com/DivinumOfficium/divinum-officium',
+                   os.path.join(lingue.SORGENTI, 'divinum-officium'), '2dbc3c24ea7f96f014060aaa51caeec477f3c578',
+                   ['web/www/horas/Latin'])
     indice = lingue.prepara()
     lingue.prepara_pinyin()
     indice = lingue.indice()

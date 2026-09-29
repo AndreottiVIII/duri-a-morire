@@ -5,8 +5,8 @@ manoscritto Voynich (Beinecke MS 408), un codice su pergamena datata al
 radiocarbonio fra il 1404 e il 1438, scritto in un alfabeto che nessuno ha
 mai letto.
 
-**Qui non c'è una decifrazione.** Ci sono ventitré esperimenti ripetibili, in quattro
-tornate. La prima mette alla prova un'idea precisa: che il testo non sia una
+**Qui non c'è una decifrazione.** Ci sono venticinque esperimenti ripetibili, in
+quattro tornate. La prima mette alla prova un'idea precisa: che il testo non sia una
 lingua scritta con un alfabeto normale, ma qualcosa di "tokenizzato", cioè fatto
 di unità più grandi delle lettere (gruppi di segni per una lettera, codici per
 una parola, sillabe). La seconda allarga le analisi e tenta una decifrazione vera,
@@ -17,7 +17,8 @@ in molti modi diversi. Prova anche l'idea che le parole siano anagrammi. La
 quarta è un giro di sondaggi veloci sulle strade rimaste aperte, e finisce con
 l'algoritmo completo di Timm e Schinner, un testo senza messaggio che rifà gran
 parte del Voynich; con una regola in più, sulle giunture fra parole, ne rifà quasi
-tutto. Ogni numero si rifà con i comandi in fondo alla pagina.
+tutto, tranne la varietà del vocabolario. Preghiere e litanie, invece, non gli
+somigliano. Ogni numero si rifà con i comandi in fondo alla pagina.
 
 ## In breve
 
@@ -503,6 +504,58 @@ regola a forza 3 (cinque semi):
   <img alt="Otto proprietà su una scala da 0 (lingua tipica) a 1 (Voynich): con la regola delle giunture il legame fra parole vicine passa da −0,5 a 0,9, le altre proprietà restano vicine a dove erano nel generatore originale" src="risultati/e23_giunture-chiaro.png">
 </picture>
 
+**23. Il vocabolario: più parole nuove, meno somiglianza.** Con le giunture al
+generatore mancava soprattutto la varietà del vocabolario. Abbiamo provato due regole
+in più, eseguibili a mano ([dettagli](risultati/e24_varieta.md)), a varie dosi su un
+seme e, per la combinazione migliore, su cinque:
+- **il doppio ritocco:** a volte lo scriba ritocca una seconda volta la copia appena
+  ritoccata. Le parole usate una volta sola salgono dal 50% fino al 58%, ma la
+  somiglianza fra parole della stessa riga scende da 3,4% a 2,9%;
+- **la copia da lontano:** a volte la parola da copiare viene dalle pagine già finite.
+  Le parole uniche non salgono (51–52%), e la somiglianza crolla (1,0–2,4%): le pagine
+  smettono di avere un lessico proprio.
+
+La combinazione più vicina al Voynich (30% di doppi ritocchi, su cinque semi) ha il 54%
+di parole uniche, somiglianza 3,2%, ripetizioni ×0,77 e legame fra parole 0,19. Il
+Voynich ha il 68% di parole uniche **e** il 3,8% di somiglianza. Nell'autocitazione
+provata qui le due cose si escludono: più parole nuove vogliono dire copie più
+diverse dalle fonti, quindi pagine meno omogenee. Il Voynich le ha tutte e due, e
+nessuna combinazione provata ci arriva. È la differenza più importante rimasta fra il
+Voynich e un testo generato così.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="risultati/e24_varieta-scuro.png">
+  <img alt="Parole usate una volta sola contro somiglianza fra parole della stessa riga: il generatore, con dosi diverse di doppio ritocco e copia da lontano, sta fra il 50% e il 59% di parole uniche e scende di somiglianza quando sale; il Voynich sta in alto a destra, al 68% e al 3,8%" src="risultati/e24_varieta-chiaro.png">
+</picture>
+
+**24. Preghiere e litanie: ripetono, ma non come il Voynich.** Se il Voynich fosse un
+testo fatto di formule, preghiere ripetute o litanie, le sue ripetizioni verrebbero dal
+contenuto. Abbiamo misurato le preghiere più ripetitive del breviario romano in
+latino, dal progetto Divinum Officium ([dettagli](risultati/e25_preghiere.md)):
+- la litania dei santi ("Sancte Petre, ora pro nobis. Sancte Paule, ora pro nobis…");
+- l'ordine della raccomandazione dell'anima, con la litania dei moribondi;
+- salmi e cantici con ritornello (il salmo 135, "quoniam in aeternum misericordia
+  ejus" a ogni versetto; il cantico dei tre giovani, "Benedicite… Domino");
+- le preci del breviario;
+- un rosario di quindici decine, ricostruito da Pater noster, Ave Maria e Gloria: il
+  caso estremo di una preghiera ripetuta.
+
+Il risultato è netto:
+- **nessuna ripete subito la stessa parola:** ×0,00–0,11, contro ×1,0 del Voynich
+  (la prosa latina ×0,18). Le preghiere ripetono frasi intere a distanza, non la
+  parola appena scritta;
+- **niente pagine omogenee:** la somiglianza fra parole della stessa riga è 0,4–1,1%,
+  a sei righe intorno a 0;
+- **il legame fra parole vicine, invece, c'è, ed è fortissimo:** da 0,09 a 1,37 bit
+  (Voynich 0,19), perché "ora pro nobis" torna sempre uguale. Cifrate con un codice
+  parola per parola, le preghiere prendono la grana del Voynich (h2 1,76, spazio 82%),
+  ma ripetizioni e somiglianze restano quelle delle preghiere.
+
+Preghiere e litanie spiegano quindi il legame fra parole vicine, non le ripetizioni
+immediate né le pagine omogenee. La strada del "contenuto che non è prosa" si
+indebolisce ancora: né gli elenchi (punto 19) né le preghiere hanno le due proprietà
+più strane del Voynich.
+
 ## La lista di controllo
 
 Chi propone una decifrazione, un cifrario o un meccanismo che generi il testo deve
@@ -527,7 +580,9 @@ e del cifrario Naibbe. Nelle ultime due colonne il generatore di Timm e Schinner
 
 Nessun testo naturale e nessun testo artificiale provato fin qui le ha tutte. Il
 generatore di Timm e Schinner con la regola delle giunture ci va più vicino di tutti:
-gli manca soprattutto un vocabolario vario quanto quello del Voynich.
+gli manca soprattutto un vocabolario vario quanto quello del Voynich, e le regole
+provate per darglielo gli tolgono la somiglianza di pagina (punto 23). Preghiere e
+litanie non ripetono le parole come il Voynich (punto 24).
 
 ## Che cosa vuol dire per l'ipotesi "tokenizzata"
 
@@ -589,10 +644,12 @@ manca soprattutto la varietà del vocabolario.
   e hanno pagine omogenee, la possibilità 1 si rafforza.
 - **Il vocabolario dell'autocitazione.** Con la regola delle giunture (punto 22) al
   generatore manca soprattutto la varietà: le parole usate una volta sola sono il 51%,
-  nel Voynich il 68%, e i suoi parametri non la cambiano. Va capito che cosa, in un
-  procedimento a mano, produce tante parole uniche senza perdere la somiglianza fra
-  parole vicine. Per esempio uno scriba che a volte ritocca due volte la stessa copia,
-  o che copia anche da pagine lontane.
+  nel Voynich il 68%. Né i suoi parametri né il doppio ritocco o la copia da lontano
+  (punto 23) la danno senza togliere la somiglianza di pagina. Serve un'idea diversa:
+  per esempio ritocchi che cambiano solo segni "simili" (*ch*/*sh*, *k*/*t*), che
+  creano parole nuove restando vicini alla fonte. Oppure un Voynich misurato su una
+  trascrizione diversa, per vedere quante delle sue parole uniche vengono da varianti
+  di lettura.
 - **Unità che valgono più lettere, o nessuna.** Il risolutore dà a ogni unità una
   lettera sola. Un segno che vale una sillaba o una desinenza, come le abbreviazioni
   dei manoscritti latini (*-us*, *-rum*, *per*), o un segno che non vale niente,
@@ -639,6 +696,8 @@ manca soprattutto la varietà del vocabolario.
 | 21 | Sondaggi: abbreviazioni, nulle, trasposizioni, elenchi, autocitazione | Solo l'autocitazione produce ripetizioni e somiglianza di pagina; le altre no | [e21](risultati/e21_sondaggi.md) |
 | 22 | L'algoritmo completo di Timm e Schinner rifà la lista di controllo? | In gran parte sì (h2, somiglianze, quasi le ripetizioni); manca il legame fra parole vicine | [e22](risultati/e22_timm_schinner.md) |
 | 23 | E con una regola sulle giunture fra parole? | Il legame compare (0,178 contro 0,188) senza guastare il resto; resta meno vario il vocabolario | [e23](risultati/e23_giunture.md) |
+| 24 | Doppio ritocco o copia da lontano danno un vocabolario più vario? | Un po' (fino al 58% di parole uniche), ma a spese della somiglianza di pagina | [e24](risultati/e24_varieta.md) |
+| 25 | Preghiere e litanie somigliano al Voynich? | No: niente ripetizioni immediate né pagine omogenee; solo un forte legame fra parole vicine | [e25](risultati/e25_preghiere.md) |
 
 ## Come rifare tutto
 
@@ -646,16 +705,17 @@ manca soprattutto la varietà del vocabolario.
 pip install -r voynich/requirements.txt
 python3 voynich/prepara.py                     # scarica e prepara i testi di confronto
 python3 voynich/esperimenti/e01_prevedibilita.py
-python3 voynich/esperimenti/e02_impronta.py    # e cosi' via fino a e23
+python3 voynich/esperimenti/e02_impronta.py    # e cosi' via fino a e25
 python3 voynich/esperimenti/e14_decifrazione.py --naibbe   # il controllo in più dell'esperimento 14
 ```
 
 Gli esperimenti 17, 19 e 20 fanno girare il risolutore centinaia di volte: con
 quattro processori ci vogliono circa due ore il primo e un'ora ciascuno gli altri
 due (la variabile `PROCESSI` sceglie quanti processori usare). Con `--tabella` e
-`--grafico` rifanno solo tabella e grafico dai risultati salvati. Gli esperimenti 22
-e 23 fanno girare il generatore di Timm e Schinner, che è scritto in Java: serve Java
-(il 23 lo ricompila dal sorgente, con l'aggiunta in `analisi/timm_schinner/`).
+`--grafico` rifanno solo tabella e grafico dai risultati salvati. Gli esperimenti 22,
+23 e 24 fanno girare il generatore di Timm e Schinner, che è scritto in Java: serve
+Java (il 23 e il 24 lo ricompilano dal sorgente, con le aggiunte in
+`analisi/timm_schinner/`).
 
 Ogni esperimento scrive in `risultati/` un file `.json` con tutti i numeri, una
 tabella `.md` e, dove serve, un grafico in versione chiara e scura. I generatori
