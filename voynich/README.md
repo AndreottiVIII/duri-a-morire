@@ -5,7 +5,7 @@ manoscritto Voynich (Beinecke MS 408), un codice su pergamena datata al
 radiocarbonio fra il 1404 e il 1438, scritto in un alfabeto che nessuno ha
 mai letto.
 
-**Qui non c'è una decifrazione.** Ci sono ventisette esperimenti ripetibili, in
+**Qui non c'è una decifrazione.** Ci sono ventotto esperimenti ripetibili, in
 cinque tornate. La prima mette alla prova un'idea precisa: che il testo non sia una
 lingua scritta con un alfabeto normale, ma qualcosa di "tokenizzato", cioè fatto
 di unità più grandi delle lettere (gruppi di segni per una lettera, codici per
@@ -20,8 +20,9 @@ parte del Voynich; con una regola in più, sulle giunture fra parole, ne rifà q
 tutto, tranne la varietà del vocabolario. Preghiere e litanie, invece, non gli
 somigliano. La quinta rifà due decifrazioni pubblicate con il controllo che
 mancava, un testo senza messaggio: lo leggono allo stesso modo. Poi cerca i nomi delle
-piante nelle pagine dell'erbario, senza trovarli. Ogni numero si rifà con i comandi in
-fondo alla pagina.
+piante nelle pagine dell'erbario, senza trovarli, e guarda se le parole uniche che mancano
+al generatore possano essere errori di scrittura o di lettura: in parte sì. Ogni numero si
+rifà con i comandi in fondo alla pagina.
 
 ## In breve
 
@@ -559,7 +560,7 @@ immediate né le pagine omogenee. La strada del "contenuto che non è prosa" si
 indebolisce ancora: né gli elenchi (punto 19) né le preghiere hanno le due proprietà
 più strane del Voynich.
 
-## Quinta tornata: le decifrazioni pubblicate e i nomi delle piante
+## Quinta tornata: le decifrazioni pubblicate, i nomi delle piante, le parole uniche
 
 **25. Due decifrazioni pubblicate leggono anche un testo senza messaggio.** Ogni tanto
 qualcuno annuncia di aver letto il Voynich. Due proposte recenti hanno il codice
@@ -643,6 +644,40 @@ pianta scritto lettera per lettera in italiano o in latino, nemmeno con un cifra
 La prova resta pronta: con un elenco di identificazioni più affidabile, o con le immagini, si
 rifà in pochi minuti.
 
+**27. Le parole uniche hanno l'aria di errori di scrittura o di lettura, ma aggiungere errori
+al generatore non basta.** Al generatore di Timm e Schinner manca soprattutto la varietà del
+vocabolario: il 50% di parole uniche, contro il 68% del Voynich. I ritocchi fra segni simili
+(*k*/*t*, *ol*/*or*, *ch*/*sh*…) sono già il cuore del generatore. Resta un'altra idea: una parte
+delle parole uniche non viene dal testo, ma da come è stato scritto o letto. Una *a* chiusa
+male sembra una *o*, una *r* sembra una *s*. Un errore così crea una parola nuova che nessuno
+copia dopo, cioè proprio una parola unica ([dettagli](risultati/e28_letture.md)).
+- **Quanto è incerta la lettura.** Le trascrizioni di Zandbergen-Landini e di Takahashi leggono
+  allo stesso modo l'87,5% delle parole, il 5,1% in modo diverso (soprattutto *a*/*o*, *r*/*s*,
+  *k*/*t*, *ch*/*sh*) e il 7,4% con spazi diversi.
+- **Le parole uniche sono le più incerte:** Takahashi ne legge diversamente il 15,5%, contro il
+  4,1% delle altre. Prendendo la sua lettura quando dà una parola già nota, però, le parole uniche
+  scendono appena, dal 68% al 66%; e con la trascrizione di Takahashi il Voynich ne ha comunque
+  il 68%.
+- **Errori aggiunti al testo senza messaggio.** Aggiungiamo al generatore errori come quelli fra
+  le due trascrizioni: scambi di un segno con le frequenze osservate, parole unite o divise. Con
+  la stessa dose le parole uniche salgono dal 50% al 60–61%; col doppio al 64–65%, e le parole
+  diverse arrivano al 20–21%, come nel Voynich. La somiglianza fra parole della stessa riga cambia
+  poco (3,0–3,2% contro 3,4%).
+- **Le parole uniche del Voynich sono irregolari quanto quelle nate da errori.** Misuriamo quanto
+  una parola rispetta le abitudini delle parole ripetute dello stesso testo, in bit per segno:
+  le parole uniche del Voynich costano 3,38 bit per segno, quelle del generatore 3,06–3,10,
+  quelle del generatore con errori (alla dose osservata o doppia) 3,35–3,42.
+- **Ma gli errori guastano il resto:** segni e spazi diventano meno prevedibili. Col doppio
+  degli errori h2 passa da 2,21–2,29 a 2,37–2,45 (Voynich 2,24), lo spazio spiegato dal 58–60%
+  al 50–52% (Voynich 66%). Senza errori di spazio gli spazi reggono un po' meglio (55–57%), ma
+  le parole uniche salgono meno (58–62%), h2 sale lo stesso e il legame fra parole vicine si
+  indebolisce (0,150–0,164, Voynich 0,188).
+
+Quindi errori di scrittura o di lettura possono spiegare una parte delle parole uniche, e le
+parole uniche del Voynich ne hanno proprio l'aria. Aggiunti a questo generatore, però, lo
+rendono meno regolare del Voynich. Servirebbe un generatore più regolare in partenza, che con
+gli errori arrivi dove sta il Voynich.
+
 ## La lista di controllo
 
 Chi propone una decifrazione, un cifrario o un meccanismo che generi il testo deve
@@ -722,7 +757,10 @@ Qualunque sia la risposta, deve riprodurre tutte insieme le proprietà della lis
 di controllo qui sopra. Nessuna proposta provata finora ci riesce. Dopo la quarta
 tornata la terza possibilità è la più avanti. L'algoritmo di Timm e Schinner, con una
 regola in più sulle giunture fra parole, arriva più vicino di qualsiasi cifrario: gli
-manca soprattutto la varietà del vocabolario.
+manca soprattutto la varietà del vocabolario. La quinta tornata non cambia il quadro. Le
+due decifrazioni pubblicate che si possono rifare leggono allo stesso modo un testo senza
+messaggio. I nomi delle piante non si trovano nelle pagine. Le parole uniche che mancano
+al generatore potrebbero in parte essere errori di scrittura o di lettura.
 
 ## Cosa fare adesso
 
@@ -730,13 +768,13 @@ manca soprattutto la varietà del vocabolario.
   cataloghi di stelle, glossari, tavole. Se anche loro non evitano le ripetizioni
   e hanno pagine omogenee, la possibilità 1 si rafforza.
 - **Il vocabolario dell'autocitazione.** Con la regola delle giunture (punto 22) al
-  generatore manca soprattutto la varietà: le parole usate una volta sola sono il 51%,
+  generatore manca soprattutto la varietà: le parole usate una volta sola sono il 50%,
   nel Voynich il 68%. Né i suoi parametri né il doppio ritocco o la copia da lontano
-  (punto 23) la danno senza togliere la somiglianza di pagina. Serve un'idea diversa:
-  per esempio ritocchi che cambiano solo segni "simili" (*ch*/*sh*, *k*/*t*), che
-  creano parole nuove restando vicini alla fonte. Oppure un Voynich misurato su una
-  trascrizione diversa, per vedere quante delle sue parole uniche vengono da varianti
-  di lettura.
+  (punto 23) la danno senza togliere la somiglianza di pagina. Errori di scrittura o di
+  lettura ne danno una buona parte, e le parole uniche del Voynich ne hanno l'aria
+  (punto 27), ma rendono il testo meno prevedibile del Voynich. Il passo successivo è un
+  generatore più regolare in partenza (segni e spazi più prevedibili), a cui aggiungere
+  gli errori.
 - **Unità che valgono più lettere, o nessuna.** Il risolutore dà a ogni unità una
   lettera sola. Un segno che vale una sillaba o una desinenza, come le abbreviazioni
   dei manoscritti latini (*-us*, *-rum*, *per*), o un segno che non vale niente,
@@ -788,6 +826,7 @@ manca soprattutto la varietà del vocabolario.
 | 25 | Preghiere e litanie somigliano al Voynich? | No: niente ripetizioni immediate né pagine omogenee; solo un forte legame fra parole vicine | [e25](risultati/e25_preghiere.md) |
 | 26 | Due decifrazioni pubblicate (Schechter in latino, Gatta in ebraico) reggono ai controlli? | No: leggono allo stesso modo un testo senza messaggio, e l'ordine delle parole latine è quello del caso | [e26](risultati/e26_decifrazioni_pubblicate.md) |
 | 27 | Il nome della pianta sta nella prima parola o nella prima riga della pagina? | Nessuna traccia, né in italiano né in latino; lo stesso nome cifrato apposta invece si ritrova | [e27](risultati/e27_cartigli.md) |
+| 28 | Le parole uniche vengono da errori di scrittura o di lettura? | In parte possono: ne hanno l'aria, ed errori aggiunti al generatore ne alzano il numero (fino al 64–65%), ma lo rendono meno prevedibile del Voynich | [e28](risultati/e28_letture.md) |
 
 ## Come rifare tutto
 
@@ -795,7 +834,7 @@ manca soprattutto la varietà del vocabolario.
 pip install -r voynich/requirements.txt
 python3 voynich/prepara.py                     # scarica e prepara i testi di confronto
 python3 voynich/esperimenti/e01_prevedibilita.py
-python3 voynich/esperimenti/e02_impronta.py    # e cosi' via fino a e27
+python3 voynich/esperimenti/e02_impronta.py    # e cosi' via fino a e28
 python3 voynich/esperimenti/e14_decifrazione.py --naibbe   # il controllo in più dell'esperimento 14
 ```
 
@@ -803,8 +842,8 @@ Gli esperimenti 17, 19 e 20 fanno girare il risolutore centinaia di volte: con
 quattro processori ci vogliono circa due ore il primo e un'ora ciascuno gli altri
 due (la variabile `PROCESSI` sceglie quanti processori usare). Con `--tabella` e
 `--grafico` rifanno solo tabella e grafico dai risultati salvati. Gli esperimenti 22,
-23, 24 e 26 fanno girare il generatore di Timm e Schinner, che è scritto in Java: serve
-Java (il 23, il 24 e il 26 lo ricompilano dal sorgente, con le aggiunte in
+23, 24, 26 e 28 fanno girare il generatore di Timm e Schinner, che è scritto in Java: serve
+Java (dal 23 in poi lo ricompilano dal sorgente, con le aggiunte in
 `analisi/timm_schinner/`).
 
 Ogni esperimento scrive in `risultati/` un file `.json` con tutti i numeri, una
