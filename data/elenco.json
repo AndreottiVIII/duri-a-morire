@@ -1,5 +1,5 @@
 {
- "generato": "2026-09-20",
+ "generato": "2026-09-30",
  "eta_massima_credibile": 106,
  "persone": [
   {
@@ -19768,8 +19768,8 @@
   {
    "qid": "Q17285286",
    "nome": "Bruno Pellegrino",
-   "nascita": "1946-03-12",
-   "prec_nascita": "giorno",
+   "nascita": "1946",
+   "prec_nascita": "anno",
    "morte": null,
    "prec_morte": null,
    "foto": null,
@@ -21513,7 +21513,6 @@
    ],
    "id_camera": "29420",
    "gruppo_eletto": "PARTITO SOCIALISTA ITALIANO",
-   "fonte_morte": "Camera dei deputati",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -26748,7 +26747,7 @@
    "prec_nascita": "giorno",
    "morte": null,
    "prec_morte": null,
-   "foto": null,
+   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/D28880.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Danilo_Bertoli",
    "mandati": [
     "X",
@@ -29994,8 +29993,8 @@
   {
    "qid": "Q1287420",
    "nome": "Edoardo Martino",
-   "nascita": "1910-04-20",
-   "prec_nascita": "giorno",
+   "nascita": "1910",
+   "prec_nascita": "anno",
    "morte": "1999-12-05",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Edoardo%20Martino.jpg",
@@ -30012,7 +30011,6 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
-   "aggancio": "data di nascita",
    "id_camera": "9080",
    "gruppo_eletto": "DEMOCRATICO CRISTIANO",
    "stato": "deceduto",
@@ -43627,6 +43625,32 @@
    "hall_of_fame": false
   },
   {
+   "qid": "Q3767260",
+   "nome": "Franco Antoci",
+   "nascita": "1947-01-28",
+   "prec_nascita": "giorno",
+   "morte": null,
+   "prec_morte": null,
+   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Franco%20Antoci.jpg",
+   "wikipedia": "https://it.wikipedia.org/wiki/Franco_Antoci",
+   "mandati": [
+    "XI"
+   ],
+   "cariche": [
+    "deputato della Repubblica Italiana"
+   ],
+   "partiti": [
+    "Unione di Centro"
+   ],
+   "aggancio": "data di nascita",
+   "id_camera": "32170",
+   "gruppo_eletto": "DEMOCRATICO CRISTIANO",
+   "registro_muto": "Camera dei deputati",
+   "stato": "vivente",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
    "qid": "Q3751115",
    "nome": "Franco Antonicelli",
    "nascita": "1902",
@@ -46137,8 +46161,8 @@
   {
    "qid": "Q94650325",
    "nome": "Gaetano Sardiello",
-   "nascita": "1890",
-   "prec_nascita": "anno",
+   "nascita": "1890-10-06",
+   "prec_nascita": "giorno",
    "morte": "1985-08-23",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Gaetano%20Sardiello.jpg",
@@ -46907,7 +46931,6 @@
    "partiti": [],
    "id_camera": "15670",
    "gruppo_eletto": "MISTO",
-   "fonte_morte": "Camera dei deputati",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -55434,31 +55457,6 @@
    "id_camera": "23520",
    "gruppo_eletto": "MOVIMENTO SOCIALE ITALIANO - DESTRA NAZIONALE",
    "stato": "deceduto",
-   "non_eletto": false,
-   "hall_of_fame": false
-  },
-  {
-   "qid": "Q3767260",
-   "nome": "Giovanni Francesco Antoci",
-   "nascita": "1947-01-28",
-   "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
-   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Franco%20Antoci.jpg",
-   "wikipedia": "https://it.wikipedia.org/wiki/Franco_Antoci",
-   "mandati": [
-    "XI"
-   ],
-   "cariche": [
-    "deputato della Repubblica Italiana"
-   ],
-   "partiti": [
-    "Unione di Centro"
-   ],
-   "id_camera": "32170",
-   "gruppo_eletto": "DEMOCRATICO CRISTIANO",
-   "registro_muto": "Camera dei deputati",
-   "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -78740,6 +78738,7 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [
+    "+Europa",
     "Partito Radicale"
    ],
    "id_camera": "32000",
@@ -79321,8 +79320,8 @@
    "nome": "Maria Immacolata Barbarossa",
    "nascita": "1938-08-13",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2026-09-26",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Maria%20Immacolata%20Barbarossa%20daticamera.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Maria_Immacolata_Barbarossa",
    "mandati": [
@@ -79333,12 +79332,14 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [
-    "Partito Comunista Italiano"
+    "Partito Comunista Italiano",
+    "Partito della Rifondazione Comunista"
    ],
    "id_camera": "14590",
    "gruppo_eletto": "PARTITO COMUNISTA ITALIANO",
    "registro_muto": "Camera dei deputati",
-   "stato": "vivente",
+   "fonte_morte": "Wikipedia",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -80213,7 +80214,7 @@
    "nome": "Mariella Mazzetto",
    "nascita": "1943-03-31",
    "prec_nascita": "giorno",
-   "morte": "2026-07-20",
+   "morte": "2026-07-21",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Mariella%20Mazzetto%20daticamera.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Mariella_Mazzetto",
@@ -80228,7 +80229,6 @@
    ],
    "id_camera": "33700",
    "gruppo_eletto": "LEGA NORD",
-   "fonte_morte": "Camera dei deputati",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -97680,8 +97680,8 @@
    "nome": "Pietro Soddu",
    "nascita": "1929-06-19",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2026-09-16",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Pietro%20Soddu.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Pietro_Soddu",
    "mandati": [
@@ -97698,7 +97698,8 @@
    "id_camera": "24760",
    "gruppo_eletto": "DEMOCRAZIA CRISTIANA",
    "registro_muto": "Camera dei deputati",
-   "stato": "vivente",
+   "fonte_morte": "Wikipedia",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -97760,7 +97761,7 @@
    "prec_nascita": "giorno",
    "morte": "1948-07-23",
    "prec_morte": "giorno",
-   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Bottega%20di%20jacopino%20da%20tradate%2C%20monumento%20di%20pietro%20torelli%2C%20m.%201416%2C%2001%20%28cropped%29.jpg",
+   "foto": null,
    "wikipedia": "https://it.wikipedia.org/wiki/Pietro_Torelli",
    "mandati": [
     "I"
@@ -104295,7 +104296,7 @@
   {
    "qid": "Q3940256",
    "nome": "Rolando Anzilotti",
-   "nascita": "1919-12-26",
+   "nascita": "1919-12-25",
    "prec_nascita": "giorno",
    "morte": "1982-04-02",
    "prec_morte": "giorno",
@@ -104310,9 +104311,6 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
-   "aggancio": "data di nascita",
-   "id_camera": "17770",
-   "gruppo_eletto": "DEMOCRATICO CRISTIANO",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -104872,7 +104870,6 @@
    ],
    "id_camera": "21620",
    "gruppo_eletto": "PARTITO COMUNISTA ITALIANO",
-   "fonte_morte": "Camera dei deputati",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -116175,8 +116172,8 @@
   {
    "qid": "Q105126086",
    "nome": "Vitilio Masiello",
-   "nascita": "1934-11-16",
-   "prec_nascita": "giorno",
+   "nascita": "1934",
+   "prec_nascita": "anno",
    "morte": "2018-04-03",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Vitilio%20Masiello%20VIII.jpg",
@@ -117870,8 +117867,8 @@
   {
    "qid": "Q2094539",
    "nome": "Vittorio Vidali",
-   "nascita": "1900",
-   "prec_nascita": "anno",
+   "nascita": "1900-09-27",
+   "prec_nascita": "giorno",
    "morte": "1983-11-09",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Vittorio%20Vidali.jpg",
