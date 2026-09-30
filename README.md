@@ -42,6 +42,14 @@ che la Camera per forza di cose ignora. Ne aggiunge altri 9 — pochi perché mo
 senatori di quegli anni erano stati prima deputati, e la Camera li aveva già
 coperti.
 
+Quarto controllo, il piu' svelto: la voce di **Wikipedia** in italiano. Wikidata
+e i registri arrivano tardi, a volte di settimane: Pietro Soddu e' morto il 16
+settembre 2026 e Imma Barbarossa il 26, le loro voci lo dicevano il giorno
+stesso, e a fine mese tutte e tre le altre fonti li davano ancora per vivi. Si
+legge la data di morte dal template Bio, solo per chi risulta ancora vivo, e
+solo dove nessun'altra fonte ne ha gia' scritta una. Se Wikipedia non risponde
+il lavoro si ferma, perche' i morti che conosce solo lei tornerebbero vivi.
+
 **Come si agganciano i nomi.** Per nome piu' legislatura in comune, mai per data
 di nascita: e' proprio quella che a volte sbaglia Wikidata, e usarla come prova
 d'identita' lascerebbe in vita chi ce l'ha storta — Giovanni Battista Melis su
@@ -158,6 +166,7 @@ e la colonna resta vuota invece di inventarselo.
 
 - `scripts/wd.py` — utility per Wikidata (API di ricerca + SPARQL)
 - `scripts/camera.py`, `scripts/senato.py` — i registri ufficiali di Camera e Senato
+- `scripts/wikipedia.py` — la data di morte letta dalle voci di Wikipedia
 - `scripts/verifica_viventi.py` — chiede conto ai registri di chi risulta vivo
 - `scripts/aggancia_hall_of_fame.py` — collega i 66 nomi curati ai record Wikidata
 - `scripts/scarica_elenco.py` — scarica l'elenco grande in `data/elenco.json`

@@ -7,7 +7,7 @@ servito come 1 gennaio, e preso alla lettera produrrebbe compleanni inventati.
 """
 import sys, os, json, time, datetime, re, urllib.parse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import wd, camera, senato
+import wd, camera, senato, wikipedia
 
 # La console di Windows parla ancora cp1252 e va in errore su una lettera
 # straniera: un nome come Stojan Spetic ha fatto morire lo script prima che
@@ -403,6 +403,25 @@ def main():
             p['prec_morte'] = 'giorno' if len(v['morte']) == 10 else 'anno'
             p['fonte_morte'] = etichetta
         print('  %d decessi che Wikidata non registrava' % recuperati)
+
+    # Quarta fonte, la piu' svelta: la voce di Wikipedia. Si interroga solo per
+    # chi tutte le altre danno ancora per vivo, e scrive una data solo dove non
+    # ce n'e' gia' una. Se non risponde ci si ferma: senza di lei i morti che
+    # conosce solo lei tornerebbero vivi.
+    print('Incrocio con le voci di Wikipedia...')
+    vivi = [p for p in persone.values() if not p['morte'] and p.get('wikipedia')]
+    try:
+        trovate = wikipedia.morti([wikipedia.titolo(p['wikipedia']) for p in vivi])
+    except Exception as e:
+        raise SystemExit('Wikipedia non risponde (%s): mi fermo qui.' % e)
+    for p in vivi:
+        m = trovate.get(wikipedia.titolo(p['wikipedia']))
+        if m:
+            p['morte'], p['prec_morte'] = m
+            p['fonte_morte'] = 'Wikipedia'
+            print('    %-26s %s' % (p['nome'], m[0]))
+    print('  %d decessi che solo Wikipedia registrava' % len(trovate))
+
     # Una morte che ha il solo anno, che viene dalla sola Wikidata, e che il
     # registro ufficiale smentisce tacendo, e' quasi sempre un fine mandato
     # finito nella casella sbagliata: Stojan Spetic risultava morto nel 1992,

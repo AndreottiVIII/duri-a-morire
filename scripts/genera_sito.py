@@ -24,8 +24,9 @@ COLOFONE = [
     'i ministri della Prima Repubblica: dalla Costituente del 1946 all’XI '
     'legislatura, più i ministri dei governi Ciampi e Dini.',
     '',
-    'Si aggiorna ogni notte da solo, incrociando tre fonti pubbliche: Wikidata, '
-    'gli open data della Camera dei deputati e quelli del Senato.',
+    'Si aggiorna ogni notte da solo, incrociando quattro fonti pubbliche: '
+    'Wikidata, gli open data della Camera dei deputati e quelli del Senato, e '
+    'le voci di Wikipedia.',
     '',
     '#CHI LO FA',
     'Davide Caniatti',
