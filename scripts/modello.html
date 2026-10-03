@@ -67,6 +67,19 @@
   #colofone a{color:var(--ciano);text-decoration:none;border-bottom:1px dotted var(--spento);cursor:pointer}
   #colofone a:hover{border-bottom-color:var(--ciano)}
 </style>
+<!-- Contatore di visite GoatCounter: niente cookie, niente dati personali. Conta
+     solo sul dominio dell'edizione che gira fuori, non su github.io ne' dal disco. -->
+<script>
+(function(){
+  var codice = {'primarepubblica.net': 'primarepubblica'}[location.hostname];
+  if (!codice) return;
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://gc.zgo.at/count.js';
+  s.setAttribute('data-goatcounter', 'https://' + codice + '.goatcounter.com/count');
+  document.head.appendChild(s);
+})();
+</script>
 </head>
 <body>
 
