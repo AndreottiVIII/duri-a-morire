@@ -15,12 +15,17 @@
     --spento:#6f6f6f;
   }
   *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   html,body{margin:0;padding:0;background:#0a0a0a;color:var(--bianco);
     font-family:"Cascadia Mono","Consolas","DejaVu Sans Mono","Liberation Mono",monospace;}
   body{display:flex;flex-direction:column;align-items:center;min-height:100vh;padding:10px 6px 24px}
 
   #tv{position:relative;background:var(--nero);border-radius:6px;padding:10px 8px;
-    width:100%;max-width:44em;font-size:min(4.1vw,20px);line-height:1.25;
+    width:100%;max-width:44em;line-height:1.25;
+    /* 40 colonne devono stare nello schermo coi margini (28px fra pagina e
+       riquadro). Un carattere monospazio e' largo circa 0.6 volte la sua
+       altezza: 25 invece di 24 lascia spazio ai font un po' piu' larghi. */
+    font-size:min(20px, calc((100vw - 28px) / 25));
     box-shadow:0 0 0 2px #222, 0 0 30px rgba(0,255,255,.07)}
   /* righe di scansione: appena accennate, non deve dare fastidio a leggere */
   #tv::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:6px;
