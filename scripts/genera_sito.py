@@ -70,11 +70,33 @@ COLOFONE = [
     'Per chiedere l’autorizzazione: davide.caniatti@gmail.com',
 ]
 
+# L'anteprima per WhatsApp, Telegram, Facebook, X. Solo per l'edizione che gira
+# fuori: punta a primarepubblica.net, e l'immagine sta nel repository che la
+# pubblica (prima-repubblica-tracker, sito/anteprima.png).
+DESCRIZIONE_TRACKER = ('Chi è ancora vivo, fra i parlamentari e i ministri della Prima '
+                       'Repubblica: dalla Costituente del 1946 all’XI legislatura.')
+ANTEPRIMA_TRACKER = '\n'.join([
+    '<meta name="description" content="%s">' % DESCRIZIONE_TRACKER,
+    '<meta property="og:type" content="website">',
+    '<meta property="og:locale" content="it_IT">',
+    '<meta property="og:site_name" content="Prima Repubblica Tracker">',
+    '<meta property="og:title" content="Prima Repubblica Tracker">',
+    '<meta property="og:description" content="%s">' % DESCRIZIONE_TRACKER,
+    '<meta property="og:url" content="https://primarepubblica.net/">',
+    '<meta property="og:image" content="https://primarepubblica.net/anteprima.png">',
+    '<meta property="og:image:width" content="1200">',
+    '<meta property="og:image:height" content="630">',
+    '<meta property="og:image:alt" content="Una pagina del Televideo: Prima Repubblica, '
+    'chi è ancora vivo e chi no">',
+    '<meta name="twitter:card" content="summary_large_image">',
+])
+
 EDIZIONI = [
-    # nome file, titolo, testata, colofone
+    # nome file, titolo, testata, colofone, anteprima per le condivisioni
     ('index.html', 'Duri a morire — Prima Repubblica edition',
-     'DURI A MORIRE', None),
-    ('tracker.html', 'Prima Repubblica Tracker', 'PRIMA REPUBBLICA', COLOFONE),
+     'DURI A MORIRE', None, ''),
+    ('tracker.html', 'Prima Repubblica Tracker', 'PRIMA REPUBBLICA', COLOFONE,
+     ANTEPRIMA_TRACKER),
 ]
 MODELLO = os.path.join(QUI, 'modello.html')
 
@@ -480,9 +502,10 @@ def main():
                            json.dumps(dati, ensure_ascii=False, separators=(',', ':')))
 
     os.makedirs(USCITA_DIR, exist_ok=True)
-    for nome_file, titolo, testata, colofone in EDIZIONI:
+    for nome_file, titolo, testata, colofone, anteprima in EDIZIONI:
         percorso = os.path.join(USCITA_DIR, nome_file)
-        html = (base.replace('%%TITOLO%%', titolo)
+        html = (base.replace('<!--%%ANTEPRIMA%%-->', anteprima)
+                    .replace('%%TITOLO%%', titolo)
                     .replace('%%TESTATA%%', testata)
                     .replace('/*__COLOFONE__*/',
                              json.dumps(colofone, ensure_ascii=False)))
