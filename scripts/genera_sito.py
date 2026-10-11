@@ -77,7 +77,7 @@ COLOFONE = [
 
 # L'anteprima per WhatsApp, Telegram, Facebook, X. Solo per l'edizione che gira
 # fuori: punta a primarepubblica.net, e l'immagine sta nel repository che la
-# pubblica (prima-repubblica-tracker, sito/anteprima.png).
+# pubblica (prima-repubblica-tracker, sito/preview.jpg).
 # La descrizione che Google mostra sotto il titolo. Sta sotto i 160 caratteri,
 # oltre i quali viene tagliata, e porta il numero delle schede.
 DESCRIZIONE_TRACKER = ('Chi è ancora vivo dei %s parlamentari e ministri della '
@@ -91,12 +91,18 @@ ANTEPRIMA_TRACKER = '\n'.join([
     '<meta property="og:title" content="Prima Repubblica Tracker">',
     '<meta property="og:description" content="%%DESCRIZIONE%%">',
     '<meta property="og:url" content="https://primarepubblica.net/">',
-    '<meta property="og:image" content="https://primarepubblica.net/anteprima.png">',
+    # Come voynichizer.com, dove WhatsApp l'anteprima la mostra: JPEG e non PNG,
+    # tipo e indirizzo sicuro dichiarati, e un nome di file nuovo, perche'
+    # WhatsApp si ricorda a lungo di un'immagine che non e' riuscito a leggere.
+    '<meta property="og:image" content="https://primarepubblica.net/preview.jpg">',
+    '<meta property="og:image:secure_url" content="https://primarepubblica.net/preview.jpg">',
+    '<meta property="og:image:type" content="image/jpeg">',
     '<meta property="og:image:width" content="1200">',
     '<meta property="og:image:height" content="630">',
     '<meta property="og:image:alt" content="Una pagina del Televideo: Prima Repubblica, '
     'chi è ancora vivo e chi no">',
     '<meta name="twitter:card" content="summary_large_image">',
+    '<meta name="twitter:image" content="https://primarepubblica.net/preview.jpg">',
 ])
 
 EDIZIONI = [

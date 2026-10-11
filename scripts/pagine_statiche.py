@@ -384,12 +384,17 @@ def anteprima(indirizzo, titolo, descrizione, num):
         '<meta property="og:title" content="%s">' % e(titolo),
         '<meta property="og:description" content="%s">' % e(descrizione),
         '<meta property="og:url" content="%s">' % e(INDIRIZZO + indirizzo),
-        '<meta property="og:image" content="%s/anteprima.png">' % INDIRIZZO,
+        # JPEG con nome nuovo e tipo dichiarato: vedi ANTEPRIMA_TRACKER in
+        # genera_sito.py, e' quello che fa funzionare WhatsApp.
+        '<meta property="og:image" content="%s/preview.jpg">' % INDIRIZZO,
+        '<meta property="og:image:secure_url" content="%s/preview.jpg">' % INDIRIZZO,
+        '<meta property="og:image:type" content="image/jpeg">',
         '<meta property="og:image:width" content="1200">',
         '<meta property="og:image:height" content="630">',
         '<meta property="og:image:alt" content="Una pagina del Televideo: Prima '
         'Repubblica, chi è ancora vivo e chi no">',
         '<meta name="twitter:card" content="summary_large_image">',
+        '<meta name="twitter:image" content="%s/preview.jpg">' % INDIRIZZO,
     ]
     return '\n'.join(righe)
 
