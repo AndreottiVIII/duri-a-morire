@@ -189,6 +189,8 @@ def ripulisci_carica(etichetta):
             # 'Presidente': senza il seguito la carica non vuol dire niente.
             e = tagliato if len(tagliato.split()) >= 2 else tagliato + ' della Repubblica'
             break
+    # 'gli italiani all' estero e l' immigrazione': l'apostrofo non vuole spazio
+    e = re.sub(r"\b(\w{1,4})' (?=\w)", r"\1'", e)
     return e[:1].upper() + e[1:] if e else e
 
 
@@ -205,26 +207,123 @@ def scarica_cariche(persone, quali):
         blocco = ' '.join('wd:' + q for q in lista[i:i + 60])
         righe += cache_o_query('cariche_%d' % i, Q_CARICHE % blocco)
 
+    cariche = cariche_da_righe(righe)
+    for q, fuori in cariche.items():
+        persone[q]['cariche_datate'] = fuori
+    print('  cariche ricostruite per %d persone' % len(cariche))
+
+
+# Wikidata chiama ogni ministero col nome che ha oggi: chi nel 1987 stava
+# all'Industria risultava "Ministro dello sviluppo economico", che allora non
+# esisteva. Qui si rimette il nome di allora. Per ogni carica: fino a quale
+# data d'inizio valeva quale nome, dal piu' vecchio.
+NOMI_DI_ALLORA = {
+    'ministro dello sviluppo economico': [
+        ('2006-05-17', "Ministro dell'industria, del commercio e dell'artigianato")],
+    'ministro delle politiche agricole alimentari e forestali': [
+        ('1994-01-01', "Ministro dell'agricoltura e delle foreste"),
+        ('1999-01-01', 'Ministro delle risorse agricole, alimentari e forestali')],
+    'ministro della salute': [('2001-06-11', 'Ministro della sanità')],
+    "ministro dell'ambiente e della tutela del territorio e del mare": [
+        ('2001-06-11', "Ministro dell'ambiente"),
+        ('2006-05-17', "Ministro dell'ambiente e della tutela del territorio")],
+    'ministro del lavoro e delle politiche sociali': [
+        ('2001-06-11', 'Ministro del lavoro e della previdenza sociale')],
+    'ministro delle comunicazioni': [
+        ('1998-01-01', 'Ministro delle poste e delle telecomunicazioni')],
+    'ministro del commercio internazionale': [
+        ('2006-05-17', "Ministro del commercio con l'estero")],
+    'ministro dei beni e delle attività culturali': [
+        ('1998-10-21', 'Ministro per i beni culturali e ambientali')],
+    'ministri per la pubblica amministrazione': [
+        ('9999-12-31', 'Ministro per la funzione pubblica')],
+    # il supplente del Presidente della Repubblica: Mancino nel maggio 1999,
+    # fra le dimissioni di Scalfaro e il giuramento di Ciampi
+    'presidente supplente': [
+        ('9999-12-31', 'Presidente supplente della Repubblica')],
+    'segretario dei democratici di sinistra': [
+        ('1998-02-14', 'Segretario del Partito Democratico della Sinistra')],
+}
+
+# Etichette che da sole non dicono niente ("Presidente" di che cosa?) o che
+# non sono cariche. Meglio niente che una riga muta.
+NON_CARICHE = {'presidente', 'sindaco', 'internazionale democratica centrista'}
+
+# Incarichi veri ma minori, che allungavano il cursus senza dire granche':
+# le delegazioni all'Assemblea del Consiglio d'Europa. Scelta di Davide.
+MINORI = ("consiglio d'europa",)
+
+# Due periodi della stessa carica separati da meno di cosi' sono uno solo: fra
+# un governo e il successivo passa qualche giorno, a volte Wikidata fa finire
+# il primo il giorno dopo l'inizio del secondo, e fra due mandati da sindaco
+# ci sono le settimane delle elezioni.
+STACCO_MASSIMO = 92
+
+
+def nome_di_allora(etichetta, inizio):
+    for fino_a, nome in NOMI_DI_ALLORA.get(etichetta.lower(), []):
+        if inizio and inizio < fino_a:
+            return nome
+    return etichetta
+
+
+def _giorni(a, b):
+    g = lambda s: datetime.date(int(s[:4]), int(s[5:7]), int(s[8:10]))
+    return (g(b) - g(a)).days
+
+
+def cariche_da_righe(righe):
+    """Da una riga per ogni mandato di Wikidata al cursus di ognuno.
+
+    Prima tutti i periodi di una stessa carica venivano fusi in uno, dal primo
+    anno all'ultimo: Rino Formica risultava alle Finanze dal 1981 al 1992,
+    mentre c'e' stato due volte, con sette anni in mezzo. Ora i periodi
+    attaccati si uniscono e quelli staccati restano righe distinte, in ordine
+    di tempo."""
     grezze = {}
     for r in righe:
         q = wd.qid(r, 'p')
         etichetta = wd.v(r, 'posLabel')
         if not q or not etichetta or etichetta.lower().startswith(SEGGI):
             continue
-        da = (wd.v(r, 'inizio') or '')[:4]
-        a = (wd.v(r, 'fine') or '')[:4]
-        grezze.setdefault(q, {}).setdefault(ripulisci_carica(etichetta), []).append((da, a))
+        inizio = (wd.v(r, 'inizio') or '')[:10] or None
+        fine = (wd.v(r, 'fine') or '')[:10] or None
+        nome = nome_di_allora(ripulisci_carica(etichetta), inizio)
+        if nome.lower() in NON_CARICHE or any(m in nome.lower() for m in MINORI):
+            continue
+        # 'Ministro del Tesoro' e 'Ministro del tesoro' sono la stessa poltrona
+        voce = grezze.setdefault(q, {}).setdefault(nome.lower(), {'nomi': [], 'periodi': set()})
+        voce['nomi'].append(nome)
+        voce['periodi'].add((inizio, fine))
 
+    fuori = {}
     for q, cariche in grezze.items():
-        fuori = []
-        for etichetta, periodi in cariche.items():
-            anni = sorted(x for coppia in periodi for x in coppia if x)
-            fuori.append({'carica': etichetta,
-                          'da': anni[0] if anni else None,
-                          'a': anni[-1] if anni and any(p[1] for p in periodi) else None})
-        fuori.sort(key=lambda c: c['da'] or '9999')
-        persone[q]['cariche_datate'] = fuori
-    print('  cariche ricostruite per %d persone' % len(grezze))
+        elenco = []
+        for voce in cariche.values():
+            # il nome scritto piu' spesso, a parita' quello in minuscolo
+            nome = max(set(voce['nomi']), key=lambda n: (voce['nomi'].count(n), n != n.capitalize()))
+            datati = sorted(p for p in voce['periodi'] if p[0])
+            uniti = []
+            for inizio, fine in datati:
+                if uniti and (uniti[-1][1] is None
+                              or _giorni(uniti[-1][1], inizio) <= STACCO_MASSIMO):
+                    ultimo = uniti[-1]
+                    if ultimo[1] is not None and (fine is None or fine > ultimo[1]):
+                        uniti[-1] = (ultimo[0], fine)
+                    continue
+                uniti.append((inizio, fine))
+            # Senza inizio si tiene la riga solo se non ce n'e' una datata:
+            # 'giudice costituzionale, fino al 2005' e' meglio di niente.
+            if not uniti:
+                fine = max((p[1] for p in voce['periodi'] if p[1]), default=None)
+                uniti = [(None, fine)]
+            for inizio, fine in uniti:
+                elenco.append({'carica': nome,
+                               'da': inizio[:4] if inizio else None,
+                               'a': fine[:4] if fine else None})
+        elenco.sort(key=lambda c: (c['da'] or c['a'] or '9999', c['carica']))
+        fuori[q] = elenco
+    return fuori
 
 
 def leggi_json(nome):

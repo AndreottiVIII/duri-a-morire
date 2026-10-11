@@ -92,6 +92,37 @@ def gia_detta(voce, cariche):
     return False
 
 
+def completa_date(cursus, cariche):
+    """Le cariche che Wikidata conosce senza date, con gli anni del cursus.
+
+    Lamberto Dini e' "Direttore generale della Banca d'Italia" su Wikidata, ma
+    senza un anno; il foglio scritto a mano dice 1979-1994. Si prendono gli
+    anni dal foglio, e la voce del foglio poi risulta gia' detta."""
+    if not cursus or not cariche:
+        return cariche or []
+    voci = [v.strip() for v in re.split(r',\s*', cursus) if v.strip()]
+    fuori = []
+    for c in cariche:
+        if c['da'] or c['a']:
+            fuori.append(c)
+            continue
+        loro = parole(c['carica'])
+        trovati = []
+        for voce in voci:
+            mie = parole(voce)
+            if mie and mie <= loro and periodi(voce):
+                trovati = sorted(periodi(voce))
+                break
+        if not trovati:
+            fuori.append(c)
+            continue
+        for da, a in trovati:
+            fuori.append({'carica': c['carica'], 'da': str(da),
+                          'a': None if a == APERTO else str(a)})
+    fuori.sort(key=lambda c: (c['da'] or c['a'] or '9999', c['carica']))
+    return fuori
+
+
 def residuo(cursus, cariche):
     """Le voci del cursus curato che le cariche non dicono gia'."""
     if not cursus:

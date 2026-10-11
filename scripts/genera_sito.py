@@ -545,8 +545,9 @@ def compatta(p):
         d['x'] = 1
     # Del cursus scritto a mano resta solo quello che le cariche non dicono
     # gia': altrimenti la scheda ripete due volte le stesse poltrone.
+    cariche = cursus.completa_date(p.get('cursus'), p.get('cariche_datate'))
     if p.get('cursus'):
-        avanzo = cursus.residuo(p['cursus'], p.get('cariche_datate'))
+        avanzo = cursus.residuo(p['cursus'], cariche)
         if avanzo:
             d['cr'] = avanzo
     if p.get('fonte_morte'):
@@ -559,8 +560,8 @@ def compatta(p):
         d['ci'] = p['id_camera']
     if p.get('morte_ignota'):
         d['di'] = 1
-    if p.get('cariche_datate'):
-        d['cd'] = [[c['carica'], c['da'] or '', c['a'] or ''] for c in p['cariche_datate']]
+    if cariche:
+        d['cd'] = [[c['carica'], c['da'] or '', c['a'] or ''] for c in cariche]
     return d
 
 

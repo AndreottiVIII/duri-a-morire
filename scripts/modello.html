@@ -473,8 +473,10 @@ PAGINE[250] = classificaLegislature(() => P, 'PIÙ LEGISLATURE DI TUTTI',
 PAGINE[135] = () => {
   // Gli incarichi contati sono quelli della scheda: cariche datate piu' le
   // voci che solo il cursus curato conosce.
+  // Le poltrone diverse, non le righe: due volte alle Finanze e' una
+  // poltrona sola, anche se nella scheda sono due periodi.
   const conCursus = hof.filter(p => p.cd || p.cr)
-    .map(p => [p, (p.cd ? p.cd.length : 0) + (p.cr ? p.cr.length : 0)])
+    .map(p => [p, (p.cd ? new Set(p.cd.map(c => c[0])).size : 0) + (p.cr ? p.cr.length : 0)])
     .sort((a, b) => b[1] - a[1]).slice(0, 16);
   const r = [titolo('H.F. — PIÙ INCARICHI'),
     [seg(' quante poltrone hanno occupato', 'c')], vuota()];
@@ -781,7 +783,11 @@ function scheda(q){
   }
   if(p.cd){
     p.cd.forEach(c => {
-      const anni = c[1] ? (c[2] && c[2] !== c[1] ? c[1] + '-' + c[2] : c[1] + '-') : '';
+      // '1993' per un incarico finito nello stesso anno, '2015-' per uno
+      // ancora in corso, '…-2005' quando si sa solo quando e' finito. Prima un
+      // anno solo usciva come '1993-' e sembrava ancora in carica.
+      const anni = c[1] ? (!c[2] ? c[1] + '-' : (c[2] !== c[1] ? c[1] + '-' + c[2] : c[1]))
+                        : (c[2] ? '…-' + c[2] : '');
       const largo = W - 2 - (anni.length + 1);
       let riga = '  ', prima = true;
       c[0].split(' ').forEach(parola => {
