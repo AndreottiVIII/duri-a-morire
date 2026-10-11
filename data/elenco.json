@@ -1,5 +1,5 @@
 {
- "generato": "2026-09-30",
+ "generato": "2026-10-11",
  "eta_massima_credibile": 106,
  "persone": [
   {
@@ -297,17 +297,17 @@
     {
      "carica": "Eurodeputato",
      "da": "1989",
-     "a": "2007"
+     "a": "1998"
     },
     {
-     "carica": "Segretario dei Democratici di Sinistra",
+     "carica": "Segretario del Partito Democratico della Sinistra",
      "da": "1991",
      "a": "1994"
     },
     {
-     "carica": "Rappresentante dell'Assemblea parlamentare del Consiglio d'Europa",
-     "da": "2001",
-     "a": "2006"
+     "carica": "Eurodeputato",
+     "da": "2006",
+     "a": "2007"
     }
    ],
    "stato": "vivente",
@@ -793,12 +793,7 @@
    "gruppo_eletto": "PARTITO REPUBBLICANO",
    "cariche_datate": [
     {
-     "carica": "Membro supplente dell'Assemblea Parlamentare del Consiglio d'Europa",
-     "da": "1980",
-     "a": "1983"
-    },
-    {
-     "carica": "Ministro dello sviluppo economico",
+     "carica": "Ministro dell'industria, del commercio e dell'artigianato",
      "da": "1987",
      "a": "1991"
     }
@@ -1744,7 +1739,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Agostino_Pennisi_Statella",
    "mandati": [
     "I",
-    "III"
+    "III",
+    "IV"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -2520,7 +2516,8 @@
    "mandati": [
     "VI",
     "VII",
-    "VIII"
+    "VIII",
+    "V"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -4725,7 +4722,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Alessandro_Bermani",
    "mandati": [
     "V",
-    "VI"
+    "VI",
+    "IV"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -4877,7 +4875,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Alessandro%20Coppi%20I.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Alessandro_Coppi",
    "mandati": [
-    "I"
+    "I",
+    "Costituente"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -5174,7 +5173,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Alessandro%20Morino.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Alessandro_Morino",
    "mandati": [
-    "V"
+    "V",
+    "IV"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -5230,7 +5230,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Alessandro%20Niccoli.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Alessandro_Niccoli",
    "mandati": [
-    "VI"
+    "VI",
+    "V"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -6477,7 +6478,7 @@
      "a": "1984"
     },
     {
-     "carica": "Ministro delle politiche agricole alimentari e forestali",
+     "carica": "Ministro dell'agricoltura e delle foreste",
      "da": "1993",
      "a": "1994"
     }
@@ -6601,6 +6602,7 @@
     "Alleanza Nazionale"
    ],
    "gruppo_eletto": "MSI - DN",
+   "registro_muto": "Senato",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -7326,7 +7328,14 @@
     "I",
     "II",
     "III",
-    "IV"
+    "IV",
+    "VII",
+    "VI",
+    "V",
+    "IX",
+    "VIII",
+    "XI",
+    "X"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -7833,7 +7842,6 @@
    "gruppo_eletto": "PARTITO COMUNISTA ITALIANO",
    "registro_muto": "Camera dei deputati",
    "aggancio": "data di nascita",
-   "fonte_morte": "Senato",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -7978,7 +7986,8 @@
     "Costituente",
     "I",
     "II",
-    "III"
+    "III",
+    "IV"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -8262,7 +8271,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Angelo%20Bellato%20I.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Angelo_Bellato",
    "mandati": [
-    "I"
+    "I",
+    "Costituente"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -8614,7 +8624,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Angelo_Custode_Masciale",
    "mandati": [
     "IV",
-    "V"
+    "V",
+    "III"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -8664,7 +8675,8 @@
     "II",
     "III",
     "V",
-    "VI"
+    "VI",
+    "IV"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -9330,7 +9342,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Angelo%20Roman%C3%B2%2071.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Angelo_Roman%C3%B2",
    "mandati": [
-    "VIII"
+    "VIII",
+    "VII"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -9646,7 +9659,8 @@
     "I",
     "III",
     "IV",
-    "V"
+    "V",
+    "II"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -10822,7 +10836,9 @@
     "VII",
     "IX",
     "X",
-    "XI"
+    "XI",
+    "VIII",
+    "V"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -10892,7 +10908,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Antonino%20Papalia%20Senato.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Antonino_Papalia",
    "mandati": [
-    "VIII"
+    "VIII",
+    "IX"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -11100,7 +11117,8 @@
    "foto": null,
    "wikipedia": "https://it.wikipedia.org/wiki/Antonino_Senese",
    "mandati": [
-    "V"
+    "V",
+    "VII"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -12780,7 +12798,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Antonio%20Franchi.gif",
    "wikipedia": "https://it.wikipedia.org/wiki/Antonio_Franchi_(politico)",
    "mandati": [
-    "XI"
+    "XI",
+    "X"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -14204,7 +14223,8 @@
     "Costituente",
     "I",
     "III",
-    "IV"
+    "IV",
+    "II"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -14590,7 +14610,9 @@
     "I",
     "II",
     "III",
-    "IV"
+    "IV",
+    "VI",
+    "V"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -14787,7 +14809,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/AntonioToselli.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Antonio_Toselli",
    "mandati": [
-    "II"
+    "II",
+    "I"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -14811,7 +14834,9 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Antonio_Ventre",
    "mandati": [
     "VIII",
-    "IX"
+    "IX",
+    "XI",
+    "X"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -14881,7 +14906,12 @@
    "foto": null,
    "wikipedia": null,
    "mandati": [
-    "VIII"
+    "VIII",
+    "VII",
+    "VI",
+    "IX",
+    "XI",
+    "X"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -14962,7 +14992,8 @@
     "VI",
     "VII",
     "VIII",
-    "IX"
+    "IX",
+    "V"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -15016,7 +15047,8 @@
     "VII",
     "VIII",
     "IX",
-    "X"
+    "X",
+    "XI"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -15230,7 +15262,8 @@
    "foto": null,
    "wikipedia": "https://it.wikipedia.org/wiki/Ariella_Farneti",
    "mandati": [
-    "IV"
+    "IV",
+    "V"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -15269,11 +15302,6 @@
    "id_camera": "3100",
    "gruppo_eletto": "REPUBBLICANO",
    "cariche_datate": [
-    {
-     "carica": "Membro supplente dell'Assemblea Parlamentare del Consiglio d'Europa",
-     "da": "1983",
-     "a": "1984"
-    },
     {
      "carica": "Ministro per gli affari regionali e le autonomie",
      "da": "1987",
@@ -16292,7 +16320,8 @@
    "foto": null,
    "wikipedia": "https://it.wikipedia.org/wiki/Aroldo_Tolomelli",
    "mandati": [
-    "VII"
+    "VII",
+    "VIII"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -16375,7 +16404,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Arrigo%20Morandi.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Arrigo_Morandi",
    "mandati": [
-    "IX"
+    "IX",
+    "VIII"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -16653,7 +16683,8 @@
    "mandati": [
     "VI",
     "VIII",
-    "IX"
+    "IX",
+    "VII"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -16722,7 +16753,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Robba%20V.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Arturo_Robba",
    "mandati": [
-    "V"
+    "V",
+    "VI"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -16901,7 +16933,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Attilio_Busseti",
    "mandati": [
     "VII",
-    "VIII"
+    "VIII",
+    "X"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -17121,7 +17154,8 @@
     "II",
     "III",
     "V",
-    "VI"
+    "VI",
+    "IV"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -17323,7 +17357,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Attilio%20Venudo.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Attilio_Venudo",
    "mandati": [
-    "III"
+    "III",
+    "IV"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -17518,7 +17553,6 @@
    "partiti": [
     "Partito Democratico della Sinistra"
    ],
-   "aggancio": "data di nascita",
    "gruppo_eletto": "PDS",
    "stato": "deceduto",
    "non_eletto": false,
@@ -17605,7 +17639,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Augusto_Talamona",
    "mandati": [
     "VI",
-    "VII"
+    "VII",
+    "VIII"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -18467,7 +18502,8 @@
     "VI",
     "VII",
     "VIII",
-    "IX"
+    "IX",
+    "X"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -18778,7 +18814,7 @@
    "prec_nascita": "giorno",
    "morte": "2000-01-19",
    "prec_morte": "giorno",
-   "foto": null,
+   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Bettino%20Craxi-1.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Bettino_Craxi",
    "mandati": [
     "V",
@@ -19518,7 +19554,8 @@
    "mandati": [
     "VII",
     "VIII",
-    "IX"
+    "IX",
+    "X"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -19752,13 +19789,6 @@
    "id_camera": "16350",
    "gruppo_eletto": "DEMOCRAZIA CRISTIANA",
    "registro_muto": "Camera dei deputati",
-   "cariche_datate": [
-    {
-     "carica": "Rappresentante dell'Assemblea parlamentare del Consiglio d'Europa",
-     "da": "1976",
-     "a": "1980"
-    }
-   ],
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": true,
@@ -19768,8 +19798,8 @@
   {
    "qid": "Q17285286",
    "nome": "Bruno Pellegrino",
-   "nascita": "1946",
-   "prec_nascita": "anno",
+   "nascita": "1946-03-12",
+   "prec_nascita": "giorno",
    "morte": null,
    "prec_morte": null,
    "foto": null,
@@ -20335,9 +20365,9 @@
      "a": "1982"
     },
     {
-     "carica": "Ministro delle politiche agricole alimentari e forestali",
+     "carica": "Ministro dell'agricoltura e delle foreste",
      "da": "1982",
-     "a": "1990"
+     "a": "1983"
     },
     {
      "carica": "Ministro dei trasporti",
@@ -20345,14 +20375,14 @@
      "a": "1988"
     },
     {
+     "carica": "Ministro dell'agricoltura e delle foreste",
+     "da": "1988",
+     "a": "1990"
+    },
+    {
      "carica": "Ministro senza portafoglio per gli interventi straordinari nel Mezzogiorno",
      "da": "1991",
      "a": "1992"
-    },
-    {
-     "carica": "Rappresentante dell'Assemblea parlamentare del Consiglio d'Europa",
-     "da": "1992",
-     "a": "1994"
     }
    ],
    "stato": "vivente",
@@ -20434,7 +20464,10 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Camilla_Ravera",
    "mandati": [
     "I",
-    "II"
+    "II",
+    "IX",
+    "VIII",
+    "X"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -20484,7 +20517,8 @@
    "foto": null,
    "wikipedia": null,
    "mandati": [
-    "VII"
+    "VII",
+    "VIII"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -20586,7 +20620,9 @@
     "III",
     "IV",
     "VI",
-    "VIII"
+    "VIII",
+    "VII",
+    "V"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -20634,7 +20670,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Carlo%20Braitenberg.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Carl_von_Braitenberg",
    "mandati": [
-    "I"
+    "I",
+    "II"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -20685,7 +20722,9 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Carla_Federica_Nespolo",
    "mandati": [
     "VII",
-    "VIII"
+    "VIII",
+    "IX",
+    "X"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -21077,7 +21116,8 @@
    "mandati": [
     "VII",
     "VIII",
-    "X"
+    "X",
+    "IX"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -21513,6 +21553,7 @@
    ],
    "id_camera": "29420",
    "gruppo_eletto": "PARTITO SOCIALISTA ITALIANO",
+   "registro_muto": "Camera dei deputati",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -21606,7 +21647,8 @@
     "VI",
     "VII",
     "VIII",
-    "X"
+    "X",
+    "IX"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -21885,7 +21927,8 @@
    "mandati": [
     "I",
     "II",
-    "III"
+    "III",
+    "IV"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -21979,7 +22022,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Carlo_Levi",
    "mandati": [
     "III",
-    "IV"
+    "IV",
+    "V"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -22032,7 +22076,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Carlo%20Marselli.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Carlo_Marselli",
    "mandati": [
-    "VI"
+    "VI",
+    "VIII"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -22079,7 +22124,8 @@
     "VII",
     "VIII",
     "IX",
-    "X"
+    "X",
+    "XI"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -23138,7 +23184,7 @@
      "a": "1991"
     },
     {
-     "carica": "Ministro delle comunicazioni",
+     "carica": "Ministro delle poste e delle telecomunicazioni",
      "da": "1991",
      "a": "1992"
     }
@@ -23455,7 +23501,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Carmine%20Mancinelli.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Carmine_Mancinelli",
    "mandati": [
-    "I"
+    "I",
+    "II"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -24250,7 +24297,16 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Cesare%20Merzagora.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Cesare_Merzagora",
    "mandati": [
-    "I"
+    "I",
+    "VII",
+    "II",
+    "VI",
+    "V",
+    "III",
+    "IV",
+    "IX",
+    "VIII",
+    "X"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -24355,7 +24411,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Cesare%20Rotta%20IV.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Cesare_Rotta",
    "mandati": [
-    "V"
+    "V",
+    "IV"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -24677,7 +24734,11 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Ciccio%20Franco%20senato.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Ciccio_Franco",
    "mandati": [
-    "X"
+    "X",
+    "IX",
+    "VIII",
+    "VII",
+    "VI"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -25143,7 +25204,7 @@
     {
      "carica": "Eurodeputato",
      "da": "1984",
-     "a": "2004"
+     "a": "1989"
     },
     {
      "carica": "Vicepresidente del Consiglio dei ministri",
@@ -25154,6 +25215,11 @@
      "carica": "Ministro della giustizia",
      "da": "1991",
      "a": "1993"
+    },
+    {
+     "carica": "Eurodeputato",
+     "da": "1999",
+     "a": "2004"
     }
    ],
    "stato": "vivente",
@@ -26162,7 +26228,8 @@
     "VI",
     "VII",
     "VIII",
-    "X"
+    "X",
+    "IX"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -26747,7 +26814,7 @@
    "prec_nascita": "giorno",
    "morte": null,
    "prec_morte": null,
-   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/D28880.jpg",
+   "foto": null,
    "wikipedia": "https://it.wikipedia.org/wiki/Danilo_Bertoli",
    "mandati": [
     "X",
@@ -27292,7 +27359,8 @@
     "VI",
     "VII",
     "VIII",
-    "IX"
+    "IX",
+    "II"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -27339,7 +27407,9 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Daverio%20Clementino%20Giovannetti.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Daverio_Clementino_Giovannetti",
    "mandati": [
-    "VII"
+    "VII",
+    "VIII",
+    "VI"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -27465,7 +27535,8 @@
     "VI",
     "VII",
     "VIII",
-    "IX"
+    "IX",
+    "V"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -27514,7 +27585,8 @@
    "mandati": [
     "VII",
     "VIII",
-    "IX"
+    "IX",
+    "X"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -28044,7 +28116,8 @@
    "mandati": [
     "V",
     "VI",
-    "VII"
+    "VII",
+    "IV"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -28912,7 +28985,7 @@
    "prec_nascita": "giorno",
    "morte": "1986-03-25",
    "prec_morte": "giorno",
-   "foto": null,
+   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Domenico%20Mezzadra%20Americano.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Domenico_Mezzadra",
    "mandati": [
     "Costituente"
@@ -29158,7 +29231,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Domenico_Pittella",
    "mandati": [
     "VI",
-    "VIII"
+    "VIII",
+    "VII"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -29183,7 +29257,8 @@
    "mandati": [
     "VII",
     "IX",
-    "X"
+    "X",
+    "VIII"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -29384,7 +29459,9 @@
    "mandati": [
     "VII",
     "VIII",
-    "IX"
+    "IX",
+    "VI",
+    "V"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -29869,7 +29946,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Edoardo_Battaglia",
    "mandati": [
     "II",
-    "III"
+    "III",
+    "IV"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -30057,7 +30135,10 @@
    "mandati": [
     "VI",
     "VII",
-    "IX"
+    "IX",
+    "VIII",
+    "V",
+    "IV"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -30462,7 +30543,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Egisto%20Cappellini%20senato.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Egisto_Cappellini",
    "mandati": [
-    "I"
+    "I",
+    "II"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -31009,7 +31091,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Elio_Tiriolo",
    "mandati": [
     "VI",
-    "VII"
+    "VII",
+    "VIII"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -31482,7 +31565,8 @@
    "mandati": [
     "I",
     "II",
-    "IV"
+    "IV",
+    "III"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -31715,7 +31799,8 @@
     "I",
     "III",
     "IV",
-    "V"
+    "V",
+    "II"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -32144,7 +32229,8 @@
    "mandati": [
     "VII",
     "VIII",
-    "X"
+    "X",
+    "IX"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -32366,7 +32452,7 @@
     {
      "carica": "Eurodeputato",
      "da": "1979",
-     "a": "2006"
+     "a": "1984"
     },
     {
      "carica": "Commissario europeo per la salute e la politica dei consumatori",
@@ -32374,12 +32460,17 @@
      "a": "1999"
     },
     {
-     "carica": "Ministro per gli affari europei",
+     "carica": "Eurodeputato",
+     "da": "1999",
+     "a": "2006"
+    },
+    {
+     "carica": "Ministro del commercio internazionale",
      "da": "2006",
      "a": "2008"
     },
     {
-     "carica": "Ministro del commercio internazionale",
+     "carica": "Ministro per gli affari europei",
      "da": "2006",
      "a": "2008"
     },
@@ -32786,7 +32877,8 @@
     "I",
     "II",
     "III",
-    "V"
+    "V",
+    "IV"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -32938,7 +33030,9 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Enrico%20De%20Nicola%20%28cropped%29.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Enrico_De_Nicola",
    "mandati": [
-    "II"
+    "II",
+    "III",
+    "I"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -32946,9 +33040,7 @@
    "partiti": [
     "Partito Liberale Italiano"
    ],
-   "id_camera": "5560",
-   "gruppo_eletto": "DEMOCRATICO CRISTIANO",
-   "fonte_morte": "Senato",
+   "gruppo_eletto": "Misto",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -33507,9 +33599,9 @@
   {
    "qid": "Q26155693",
    "nome": "Enrico Nicola Spadola",
-   "nascita": "1877-11-09",
+   "nascita": "1920-09-22",
    "prec_nascita": "giorno",
-   "morte": "1959-10-01",
+   "morte": "1991-04-15",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Enrico%20Spadola.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Enrico_Spadola",
@@ -33528,7 +33620,6 @@
    ],
    "id_camera": "5560",
    "gruppo_eletto": "DEMOCRATICO CRISTIANO",
-   "fonte_morte": "Senato",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -33702,7 +33793,8 @@
     "Costituente",
     "I",
     "II",
-    "III"
+    "III",
+    "IV"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -33899,7 +33991,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Enzo_Berlanda",
    "mandati": [
     "VIII",
-    "IX"
+    "IX",
+    "X"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -33974,7 +34067,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Enzo_Capalozza",
    "mandati": [
     "I",
-    "II"
+    "II",
+    "III"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -34742,7 +34836,10 @@
    "mandati": [
     "Costituente",
     "I",
-    "III"
+    "III",
+    "VI",
+    "V",
+    "IV"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -36152,7 +36249,7 @@
   {
    "qid": "Q3736397",
    "nome": "Ezio Maria Gray",
-   "nascita": "1884-10-09",
+   "nascita": "1885-10-09",
    "prec_nascita": "giorno",
    "morte": "1969-02-08",
    "prec_morte": "giorno",
@@ -36843,7 +36940,9 @@
    "mandati": [
     "III",
     "IV",
-    "V"
+    "V",
+    "II",
+    "VI"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -38166,7 +38265,7 @@
     },
     {
      "carica": "Giudice della Corte costituzionale",
-     "da": "2005",
+     "da": null,
      "a": "2005"
     }
    ],
@@ -38189,7 +38288,8 @@
     "II",
     "III",
     "IV",
-    "V"
+    "V",
+    "VI"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -38481,7 +38581,12 @@
    "mandati": [
     "Costituente",
     "I",
-    "III"
+    "III",
+    "VII",
+    "VI",
+    "V",
+    "IV",
+    "VIII"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -38929,12 +39034,17 @@
      "a": "1980"
     },
     {
-     "carica": "Ministro dello sviluppo economico",
+     "carica": "Ministro dell'industria, del commercio e dell'artigianato",
      "da": "1980",
+     "a": "1981"
+    },
+    {
+     "carica": "Ministro dell'industria, del commercio e dell'artigianato",
+     "da": "1982",
      "a": "1983"
     },
     {
-     "carica": "Ministro delle politiche agricole alimentari e forestali",
+     "carica": "Ministro dell'agricoltura e delle foreste",
      "da": "1983",
      "a": "1988"
     }
@@ -39335,7 +39445,8 @@
    "mandati": [
     "VI",
     "VII",
-    "VIII"
+    "VIII",
+    "V"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -39436,7 +39547,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Florestano%20Di%20Fausto%2001.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Florestano_Di_Fausto",
    "mandati": [
-    "I"
+    "I",
+    "Costituente"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -40620,7 +40732,9 @@
     "V",
     "VI",
     "VII",
-    "VIII"
+    "VIII",
+    "IX",
+    "XI"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -40671,7 +40785,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Francesco_D%27Onofrio",
    "mandati": [
     "X",
-    "XI"
+    "XI",
+    "IX"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -40787,12 +40902,12 @@
    "registro_muto": "Camera dei deputati",
    "cariche_datate": [
     {
-     "carica": "Ministro dell'ambiente e della tutela del territorio e del mare",
+     "carica": "Ministro dell'ambiente",
      "da": "1986",
      "a": "1987"
     },
     {
-     "carica": "Ministro della salute",
+     "carica": "Ministro della sanità",
      "da": "1989",
      "a": "1993"
     }
@@ -40820,7 +40935,10 @@
     "V",
     "VI",
     "VII",
-    "VIII"
+    "VIII",
+    "IX",
+    "XI",
+    "X"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -41315,7 +41433,9 @@
    "foto": null,
    "wikipedia": "https://it.wikipedia.org/wiki/Francesco_Iannelli",
    "mandati": [
-    "V"
+    "V",
+    "IX",
+    "VIII"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -41782,7 +41902,8 @@
     "VIII",
     "IX",
     "X",
-    "Governo Ciampi"
+    "Governo Ciampi",
+    "XI"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -42199,7 +42320,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Francesco%20Parrino.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Francesco_Parrino_(politico)",
    "mandati": [
-    "IX"
+    "IX",
+    "VIII"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -42466,7 +42588,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Francesco%20Pontone.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Francesco_Pontone",
    "mandati": [
-    "X"
+    "X",
+    "XI"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -42642,7 +42765,9 @@
    "mandati": [
     "VI",
     "VII",
-    "IX"
+    "IX",
+    "VIII",
+    "X"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -42760,7 +42885,12 @@
    "registro_muto": "Camera dei deputati",
    "cariche_datate": [
     {
-     "carica": "Ministro dell'ambiente e della tutela del territorio e del mare",
+     "carica": "Ministro dell'ambiente",
+     "da": "1993",
+     "a": "1993"
+    },
+    {
+     "carica": "Ministro senza portafoglio per i problemi delle aree urbane",
      "da": "1993",
      "a": "1993"
     },
@@ -42768,11 +42898,6 @@
      "carica": "Sindaco di Roma",
      "da": "1993",
      "a": "2001"
-    },
-    {
-     "carica": "Ministro senza portafoglio per i problemi delle aree urbane",
-     "da": "1993",
-     "a": "1993"
     },
     {
      "carica": "Eurodeputato",
@@ -43481,7 +43606,8 @@
    "mandati": [
     "I",
     "II",
-    "IV"
+    "IV",
+    "III"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -43877,7 +44003,8 @@
    "mandati": [
     "V",
     "VI",
-    "VII"
+    "VII",
+    "VIII"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -44329,7 +44456,7 @@
     },
     {
      "carica": "Giudice della Corte costituzionale",
-     "da": "2013",
+     "da": null,
      "a": "2013"
     }
    ],
@@ -44725,7 +44852,7 @@
     {
      "carica": "Ministro delle finanze",
      "da": "1979",
-     "a": "1993"
+     "a": "1981"
     },
     {
      "carica": "Ministro del bilancio e della programmazione economica",
@@ -44738,9 +44865,9 @@
      "a": "1993"
     },
     {
-     "carica": "Presidente",
-     "da": null,
-     "a": null
+     "carica": "Ministro delle finanze",
+     "da": "1993",
+     "a": "1993"
     }
    ],
    "stato": "deceduto",
@@ -44902,7 +45029,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Franco_Tedeschi_(politico)",
    "mandati": [
     "V",
-    "VI"
+    "VI",
+    "IV"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -45633,7 +45761,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Gaetano_Arf%C3%A9",
    "mandati": [
     "VII",
-    "X"
+    "X",
+    "VI"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -45685,7 +45814,8 @@
     "Costituente",
     "I",
     "II",
-    "III"
+    "III",
+    "IV"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -46161,8 +46291,8 @@
   {
    "qid": "Q94650325",
    "nome": "Gaetano Sardiello",
-   "nascita": "1890-10-06",
-   "prec_nascita": "giorno",
+   "nascita": "1890",
+   "prec_nascita": "anno",
    "morte": "1985-08-23",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Gaetano%20Sardiello.jpg",
@@ -46209,14 +46339,15 @@
   {
    "qid": "Q3757131",
    "nome": "Gaetano Stammati",
-   "nascita": "1908-10-04",
+   "nascita": "1908-10-05",
    "prec_nascita": "giorno",
    "morte": "2002-02-11",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Gaetano%20Stammati%20VIII%20Legislatura.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Gaetano_Stammati",
    "mandati": [
-    "VII"
+    "VII",
+    "VIII"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -46794,7 +46925,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Petrella%20VII.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Generoso_Petrella",
    "mandati": [
-    "VII"
+    "VII",
+    "VI"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -47117,11 +47249,6 @@
    "gruppo_eletto": "DEMOCRAZIA CRISTIANA",
    "cariche_datate": [
     {
-     "carica": "Rappresentante dell'Assemblea parlamentare del Consiglio d'Europa",
-     "da": "1984",
-     "a": "2006"
-    },
-    {
      "carica": "Ministro della pubblica istruzione",
      "da": "1990",
      "a": "1991"
@@ -47176,7 +47303,8 @@
     "VII",
     "VIII",
     "IX",
-    "X"
+    "X",
+    "XI"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -48103,7 +48231,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giacomo%20Piola.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Giacomo_Piola",
    "mandati": [
-    "III"
+    "III",
+    "II"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -48414,7 +48543,9 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Gian_Carlo_Ruffino",
    "mandati": [
     "VII",
-    "IX"
+    "IX",
+    "XI",
+    "X"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -49046,12 +49177,12 @@
      "a": "1982"
     },
     {
-     "carica": "Ministro della marina mercantile",
+     "carica": "Ministro dei trasporti",
      "da": "1992",
      "a": "1993"
     },
     {
-     "carica": "Ministro dei trasporti",
+     "carica": "Ministro della marina mercantile",
      "da": "1992",
      "a": "1993"
     }
@@ -49279,6 +49410,11 @@
     {
      "carica": "Eurodeputato",
      "da": "1989",
+     "a": "1992"
+    },
+    {
+     "carica": "Eurodeputato",
+     "da": "1994",
      "a": "2001"
     },
     {
@@ -49616,7 +49752,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Gianfranco_Spadaccia",
    "mandati": [
     "IX",
-    "X"
+    "X",
+    "VIII"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -50498,7 +50635,8 @@
     "VII",
     "VIII",
     "IX",
-    "XI"
+    "XI",
+    "X"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -51820,7 +51958,9 @@
     "VI",
     "VII",
     "IX",
-    "XI"
+    "XI",
+    "VIII",
+    "X"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -51846,7 +51986,8 @@
    "mandati": [
     "VI",
     "VII",
-    "VIII"
+    "VIII",
+    "IX"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -51897,7 +52038,9 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giorgio%20Fenoaltea.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Giorgio_Fenoaltea",
    "mandati": [
-    "V"
+    "V",
+    "III",
+    "IV"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -52101,6 +52244,11 @@
     {
      "carica": "Eurodeputato",
      "da": "1989",
+     "a": "1992"
+    },
+    {
+     "carica": "Eurodeputato",
+     "da": "1994",
      "a": "1999"
     },
     {
@@ -52330,7 +52478,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giorgio%20Morandi%20senato.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Giorgio_Morandi_(politico)",
    "mandati": [
-    "V"
+    "V",
+    "IV"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -52401,7 +52550,7 @@
     {
      "carica": "Eurodeputato",
      "da": "1989",
-     "a": "2004"
+     "a": "1992"
     },
     {
      "carica": "Presidente della Camera dei deputati",
@@ -52417,6 +52566,11 @@
      "carica": "Ministro senza portafoglio per il coordinamento della protezione civile",
      "da": "1996",
      "a": "1998"
+    },
+    {
+     "carica": "Eurodeputato",
+     "da": "1999",
+     "a": "2004"
     },
     {
      "carica": "Presidente della Repubblica",
@@ -52522,7 +52676,8 @@
     "VI",
     "VII",
     "VIII",
-    "X"
+    "X",
+    "IX"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -52602,7 +52757,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Giorgio_Ruffolo",
    "mandati": [
     "IX",
-    "X"
+    "X",
+    "XI"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -52618,12 +52774,17 @@
     {
      "carica": "Eurodeputato",
      "da": "1979",
-     "a": "2004"
+     "a": "1983"
     },
     {
-     "carica": "Ministro dell'ambiente e della tutela del territorio e del mare",
+     "carica": "Ministro dell'ambiente",
      "da": "1987",
      "a": "1992"
+    },
+    {
+     "carica": "Eurodeputato",
+     "da": "1994",
+     "a": "2004"
     }
    ],
    "stato": "deceduto",
@@ -53274,7 +53435,9 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giovanni%20Alliata%20Di%20Montereale.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Giovanni_Alliata_di_Montereale",
    "mandati": [
-    "III"
+    "III",
+    "II",
+    "I"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -53424,7 +53587,7 @@
    "registro_muto": "Camera dei deputati",
    "cariche_datate": [
     {
-     "carica": "Ministro delle politiche agricole alimentari e forestali",
+     "carica": "Ministro dell'agricoltura e delle foreste",
      "da": "1992",
      "a": "1993"
     }
@@ -54425,7 +54588,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giovanni%20Brambilla%20senato.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Giovanni_Brambilla",
    "mandati": [
-    "IV"
+    "IV",
+    "V"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -54448,7 +54612,8 @@
    "mandati": [
     "Costituente",
     "I",
-    "II"
+    "II",
+    "III"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -55472,7 +55637,8 @@
    "mandati": [
     "VI",
     "VII",
-    "VIII"
+    "VIII",
+    "IX"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -55864,7 +56030,11 @@
     "Costituente",
     "I",
     "II",
-    "III"
+    "III",
+    "VI",
+    "VII",
+    "V",
+    "IV"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -56036,7 +56206,13 @@
     "I",
     "II",
     "III",
-    "IV"
+    "IV",
+    "VII",
+    "V",
+    "IX",
+    "VIII",
+    "XI",
+    "X"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -56978,7 +57154,8 @@
     "II",
     "III",
     "IV",
-    "V"
+    "V",
+    "VI"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -57485,7 +57662,8 @@
     "VIII",
     "IX",
     "X",
-    "XI"
+    "XI",
+    "VII"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -57560,7 +57738,9 @@
     "VI",
     "VIII",
     "X",
-    "XI"
+    "XI",
+    "IX",
+    "VII"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -57613,7 +57793,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Senatore%20Giovanni%20Spezia.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Giovanni_Spezia",
    "mandati": [
-    "VII"
+    "VII",
+    "VIII"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -57818,7 +57999,9 @@
     "VI",
     "VIII",
     "IX",
-    "X"
+    "X",
+    "XI",
+    "IV"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -57870,7 +58053,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giovanni%20Zonca.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Giovanni_Zonca",
    "mandati": [
-    "V"
+    "V",
+    "IV"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -58278,7 +58462,7 @@
    "registro_muto": "Camera dei deputati",
    "cariche_datate": [
     {
-     "carica": "Ministro del Tesoro",
+     "carica": "Ministro del tesoro",
      "da": "1987",
      "a": "1989"
     },
@@ -58288,19 +58472,14 @@
      "a": "1988"
     },
     {
-     "carica": "Ministro del tesoro",
-     "da": "1987",
-     "a": "1989"
-    },
-    {
      "carica": "Ministro degli esteri",
      "da": "1992",
-     "a": "2001"
+     "a": "1992"
     },
     {
      "carica": "Presidente del Consiglio dei ministri",
      "da": "1992",
-     "a": "2001"
+     "a": "1993"
     },
     {
      "carica": "Ministro della giustizia",
@@ -58321,6 +58500,16 @@
      "carica": "Ministro del tesoro, del bilancio e della programmazione economica",
      "da": "1999",
      "a": "2000"
+    },
+    {
+     "carica": "Presidente del Consiglio dei ministri",
+     "da": "2000",
+     "a": "2001"
+    },
+    {
+     "carica": "Ministro degli esteri",
+     "da": "2001",
+     "a": "2001"
     },
     {
      "carica": "Ministro dell'università e della ricerca scientifica e tecnologica",
@@ -58514,7 +58703,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giuliano%20Procacci%20Senato.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Giuliano_Procacci",
    "mandati": [
-    "VIII"
+    "VIII",
+    "IX"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -58565,7 +58755,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giuliano%20Vassalli.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Giuliano_Vassalli",
    "mandati": [
-    "V"
+    "V",
+    "IX"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -58680,7 +58871,8 @@
     "VII",
     "VIII",
     "IX",
-    "X"
+    "X",
+    "XI"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -59265,7 +59457,8 @@
     "VI",
     "VII",
     "VIII",
-    "X"
+    "X",
+    "IX"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -59645,7 +59838,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giuseppe%20Albertini.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Giuseppe_Albertini_(politico)",
    "mandati": [
-    "XI"
+    "XI",
+    "X"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -60760,7 +60954,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Giuseppe_Branca",
    "mandati": [
     "VII",
-    "VIII"
+    "VIII",
+    "VI"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -60839,7 +61034,8 @@
     "I",
     "II",
     "III",
-    "IV"
+    "IV",
+    "V"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -61046,7 +61242,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giuseppe%20Cannata.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Giuseppe_Cannata",
    "mandati": [
-    "IX"
+    "IX",
+    "X"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -61330,7 +61527,9 @@
    "mandati": [
     "V",
     "VIII",
-    "IX"
+    "IX",
+    "VII",
+    "VI"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -62199,7 +62398,11 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giuseppe%20Ferrandi%20daticamera.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Giuseppe_Ferrandi",
    "mandati": [
-    "I"
+    "I",
+    "II",
+    "III",
+    "VI",
+    "IV"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -62435,7 +62638,8 @@
     "V",
     "VI",
     "VII",
-    "VIII"
+    "VIII",
+    "IX"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -62621,7 +62825,8 @@
     "I",
     "II",
     "III",
-    "IV"
+    "IV",
+    "Costituente"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -64214,7 +64419,10 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Giuseppe_Paratore",
    "mandati": [
     "Costituente",
-    "I"
+    "I",
+    "II",
+    "III",
+    "IV"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -64242,7 +64450,8 @@
     "II",
     "III",
     "IV",
-    "V"
+    "V",
+    "VI"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -65192,7 +65401,12 @@
     "II",
     "III",
     "IV",
-    "VI"
+    "VI",
+    "VII",
+    "V",
+    "IX",
+    "VIII",
+    "X"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -65449,7 +65663,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giuseppe%20Specchia.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Giuseppe_Specchia",
    "mandati": [
-    "XI"
+    "XI",
+    "X"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -65990,7 +66205,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Giuseppe_Vignola",
    "mandati": [
     "VIII",
-    "IX"
+    "IX",
+    "X"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -66110,7 +66326,9 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giuseppe%20Vitale%201935.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Giuseppe_Vitale_(politico_1935)",
    "mandati": [
-    "X"
+    "X",
+    "IX",
+    "VIII"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -66654,7 +66872,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Grazia%20Zuffa.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Grazia_Zuffa",
    "mandati": [
-    "X"
+    "X",
+    "XI"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -66776,7 +66995,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Grazia%20Riga.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Graziella_Riga",
    "mandati": [
-    "VII"
+    "VII",
+    "VI"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -66851,7 +67071,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Gualtiero_Nepi",
    "mandati": [
     "IX",
-    "X"
+    "X",
+    "VIII"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -67431,7 +67652,7 @@
      "a": "1983"
     },
     {
-     "carica": "Ministro dello sviluppo economico",
+     "carica": "Ministro dell'industria, del commercio e dell'artigianato",
      "da": "1991",
      "a": "1992"
     },
@@ -68008,7 +68229,7 @@
   {
    "qid": "Q23047421",
    "nome": "Guido Martino",
-   "nascita": "1943-08-22",
+   "nascita": "1929-09-01",
    "prec_nascita": "giorno",
    "morte": "2001-01-02",
    "prec_morte": "giorno",
@@ -68026,7 +68247,6 @@
    ],
    "id_camera": "24950",
    "gruppo_eletto": "REPUBBLICANO",
-   "registro_muto": "Senato",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -69746,7 +69966,8 @@
    "mandati": [
     "IV",
     "VI",
-    "VII"
+    "VII",
+    "V"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -69928,7 +70149,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Ivo_Butini",
    "mandati": [
     "IX",
-    "XI"
+    "XI",
+    "X"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -70371,14 +70593,14 @@
      "a": "1996"
     },
     {
-     "carica": "Ministro senza portafoglio per gli italiani nel mondo",
-     "da": "1996",
-     "a": "1999"
-    },
-    {
      "carica": "Ministro degli esteri",
      "da": "1996",
      "a": "2001"
+    },
+    {
+     "carica": "Ministro senza portafoglio per gli italiani nel mondo",
+     "da": "1996",
+     "a": "1999"
     },
     {
      "carica": "Direttore generale della Banca d'Italia",
@@ -70944,7 +71166,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/LeoLeonePDItaly.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Leo_Leone",
    "mandati": [
-    "III"
+    "III",
+    "II"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -71007,17 +71230,32 @@
     {
      "carica": "Sindaco di Palermo",
      "da": "1985",
-     "a": "2022"
+     "a": "1990"
+    },
+    {
+     "carica": "Sindaco di Palermo",
+     "da": "1993",
+     "a": "2000"
     },
     {
      "carica": "Eurodeputato",
      "da": "1994",
-     "a": "2024"
+     "a": "1999"
+    },
+    {
+     "carica": "Sindaco di Palermo",
+     "da": "2012",
+     "a": "2022"
     },
     {
      "carica": "Sindaco metropolitano di Palermo",
      "da": "2016",
      "a": "2022"
+    },
+    {
+     "carica": "Eurodeputato",
+     "da": "2024",
+     "a": null
     }
    ],
    "stato": "vivente",
@@ -71409,7 +71647,8 @@
     "Costituente",
     "I",
     "III",
-    "IV"
+    "IV",
+    "II"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -72903,7 +73142,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Luca_De_Luca",
    "mandati": [
     "II",
-    "IV"
+    "IV",
+    "III"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -73221,7 +73461,8 @@
    "mandati": [
     "VIII",
     "IX",
-    "X"
+    "X",
+    "VII"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -74746,6 +74987,11 @@
     {
      "carica": "Ministro dell'università e della ricerca scientifica e tecnologica",
      "da": "1993",
+     "a": "1993"
+    },
+    {
+     "carica": "Ministro dell'università e della ricerca scientifica e tecnologica",
+     "da": "1996",
      "a": "1998"
     },
     {
@@ -75826,7 +76072,9 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Luigi_Einaudi",
    "mandati": [
     "Costituente",
-    "I"
+    "I",
+    "II",
+    "III"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -76744,9 +76992,9 @@
   {
    "qid": "Q44607446",
    "nome": "Luigi Michele Galli",
-   "nascita": "1900-10-07",
+   "nascita": "1924-10-27",
    "prec_nascita": "giorno",
-   "morte": "1976-02-20",
+   "morte": "2001-11-20",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Luigi%20Michele%20Galli.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Luigi_Michele_Galli",
@@ -76767,7 +77015,6 @@
    ],
    "id_camera": "2750",
    "gruppo_eletto": "DEMOCRATICO CRISTIANO",
-   "fonte_morte": "Senato",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -77047,9 +77294,9 @@
   {
    "qid": "Q20888870",
    "nome": "Luigi Passoni",
-   "nascita": "1894-04-27",
+   "nascita": "1926-12-29",
    "prec_nascita": "giorno",
-   "morte": "1969-03-18",
+   "morte": "2005-09-17",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Luigi%20Passoni%20V.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Luigi_Passoni",
@@ -77066,7 +77313,6 @@
    ],
    "id_camera": "17270",
    "gruppo_eletto": "PARTITO SOCIALISTA ITALIANO",
-   "fonte_morte": "Senato",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -77102,7 +77348,7 @@
    "prec_nascita": "giorno",
    "morte": "2017-05-09",
    "prec_morte": "giorno",
-   "foto": null,
+   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Luigi%20Pingitore%20IX.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Luigi_Pingitore",
    "mandati": [
     "IX"
@@ -77517,7 +77763,10 @@
    "mandati": [
     "I",
     "II",
-    "IV"
+    "IV",
+    "III",
+    "VI",
+    "V"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -77708,7 +77957,8 @@
    "mandati": [
     "V",
     "VII",
-    "VIII"
+    "VIII",
+    "VI"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -77905,7 +78155,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Luis%20Sand%20III.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Luis_Sand",
    "mandati": [
-    "IV"
+    "IV",
+    "III"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -78080,7 +78331,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Manlio_Ianni",
    "mandati": [
     "X",
-    "XI"
+    "XI",
+    "IX"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -78774,17 +79026,12 @@
    "registro_muto": "Camera dei deputati",
    "cariche_datate": [
     {
-     "carica": "Membro supplente dell'Assemblea Parlamentare del Consiglio d'Europa",
-     "da": "1980",
-     "a": "2008"
-    },
-    {
      "carica": "Eurodeputato",
      "da": "1987",
      "a": "1989"
     },
     {
-     "carica": "Ministro senza portafoglio per gli italiani all' estero e l' immigrazione",
+     "carica": "Ministro senza portafoglio per gli italiani all'estero e l'immigrazione",
      "da": "1991",
      "a": "1992"
     },
@@ -79713,7 +79960,7 @@
    "registro_muto": "Camera dei deputati",
    "cariche_datate": [
     {
-     "carica": "Ministro della salute",
+     "carica": "Ministro della sanità",
      "da": "1993",
      "a": "1994"
     }
@@ -80229,6 +80476,7 @@
    ],
    "id_camera": "33700",
    "gruppo_eletto": "LEGA NORD",
+   "registro_muto": "Camera dei deputati",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -80317,7 +80565,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Marino%20Carboni.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Marino_Carboni",
    "mandati": [
-    "VII"
+    "VII",
+    "VIII"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -81368,7 +81617,9 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Mario%20Condorelli.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Mario_Condorelli",
    "mandati": [
-    "XI"
+    "XI",
+    "IX",
+    "X"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -81671,7 +81922,8 @@
    "mandati": [
     "II",
     "III",
-    "IV"
+    "IV",
+    "V"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -81724,7 +81976,8 @@
     "V",
     "VI",
     "VIII",
-    "IX"
+    "IX",
+    "X"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -81803,7 +82056,8 @@
     "VI",
     "VII",
     "VIII",
-    "IX"
+    "IX",
+    "X"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -81828,7 +82082,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Follieri%20VI.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Mario_Follieri",
    "mandati": [
-    "VI"
+    "VI",
+    "V"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -82053,7 +82308,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Mario_Gozzini",
    "mandati": [
     "VII",
-    "IX"
+    "IX",
+    "VIII"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -82643,7 +82899,8 @@
    "mandati": [
     "I",
     "II",
-    "III"
+    "III",
+    "IV"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -82697,7 +82954,8 @@
     "IV",
     "V",
     "VI",
-    "VII"
+    "VII",
+    "VIII"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -83077,7 +83335,9 @@
     "III",
     "IV",
     "VII",
-    "VIII"
+    "VIII",
+    "VI",
+    "V"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -83712,7 +83972,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Marisa_Moltisanti",
    "mandati": [
     "IX",
-    "XI"
+    "XI",
+    "X"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -83840,7 +84101,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/MartinoMartini.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Martino_Martini_(politico)",
    "mandati": [
-    "III"
+    "III",
+    "II"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -84707,7 +84969,7 @@
    "prec_nascita": "giorno",
    "morte": "2003-04-23",
    "prec_morte": "giorno",
-   "foto": null,
+   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Mattia%20Coppola%20Senato.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Mattia_Coppola",
    "mandati": [
     "V",
@@ -84927,7 +85189,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Maurizio%20Lotti.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Maurizio_Lotti",
    "mandati": [
-    "X"
+    "X",
+    "IX"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -84950,7 +85213,8 @@
    "foto": null,
    "wikipedia": "https://it.wikipedia.org/wiki/Maurizio_Mesoraca",
    "mandati": [
-    "XI"
+    "XI",
+    "X"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -84998,7 +85262,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Maurizio_Noci",
    "mandati": [
     "IX",
-    "X"
+    "X",
+    "VIII"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -85025,7 +85290,8 @@
    "mandati": [
     "IX",
     "XI",
-    "Governo Ciampi"
+    "Governo Ciampi",
+    "X"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -85827,7 +86093,10 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Meuccio_Ruini",
    "mandati": [
     "Costituente",
-    "I"
+    "I",
+    "III",
+    "V",
+    "IV"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -85927,7 +86196,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Michelangelo%20Iorio%20II%20legislatura.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Michelangelo_Iorio",
    "mandati": [
-    "III"
+    "III",
+    "II"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -86547,7 +86817,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Michele%20De%20Pietro.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Michele_De_Pietro",
    "mandati": [
-    "II"
+    "II",
+    "I"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -86708,9 +86979,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
-   "id_camera": "2750",
-   "gruppo_eletto": "DEMOCRATICO CRISTIANO",
-   "fonte_morte": "Senato",
+   "gruppo_eletto": "DC",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -86802,7 +87071,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Michele%20Guanti.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Michele_Guanti",
    "mandati": [
-    "V"
+    "V",
+    "IV"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -87143,6 +87413,7 @@
     "Partito Popolare Italiano"
    ],
    "gruppo_eletto": "DC",
+   "registro_muto": "Senato",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -87600,7 +87871,8 @@
     "VIII",
     "IX",
     "X",
-    "XI"
+    "XI",
+    "VI"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -89553,7 +89825,7 @@
      "a": "2001"
     },
     {
-     "carica": "Presidente supplente",
+     "carica": "Presidente supplente della Repubblica",
      "da": "1999",
      "a": "1999"
     },
@@ -89974,6 +90246,11 @@
     {
      "carica": "Ministro del turismo e dello spettacolo",
      "da": "1973",
+     "a": "1974"
+    },
+    {
+     "carica": "Ministro del turismo e dello spettacolo",
+     "da": "1980",
      "a": "1983"
     },
     {
@@ -89983,13 +90260,8 @@
     },
     {
      "carica": "Sindaco di Roma",
-     "da": "1988",
-     "a": "1988"
-    },
-    {
-     "carica": "Sindaco",
      "da": null,
-     "a": null
+     "a": "1988"
     }
    ],
    "stato": "deceduto",
@@ -90249,7 +90521,9 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Nicol%C3%B2%20Cipolla%20III.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Nicol%C3%B2_Cipolla",
    "mandati": [
-    "VI"
+    "VI",
+    "V",
+    "IV"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -90624,7 +90898,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/No%C3%A8%20Pajetta.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/No%C3%A8_Pajetta",
    "mandati": [
-    "IV"
+    "IV",
+    "III"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -91116,7 +91391,8 @@
    "mandati": [
     "VI",
     "VII",
-    "VIII"
+    "VIII",
+    "IX"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -91399,7 +91675,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Oreste_Gelmini",
    "mandati": [
     "III",
-    "IV"
+    "IV",
+    "II"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -92559,7 +92836,7 @@
    "partiti": [],
    "cariche_datate": [
     {
-     "carica": "Ministro del commercio internazionale",
+     "carica": "Ministro del commercio con l'estero",
      "da": "1993",
      "a": "1994"
     },
@@ -92569,7 +92846,7 @@
      "a": "1993"
     },
     {
-     "carica": "Ministro dello sviluppo economico",
+     "carica": "Ministro dell'industria, del commercio e dell'artigianato",
      "da": "1994",
      "a": "1994"
     },
@@ -92579,7 +92856,7 @@
      "a": "1996"
     },
     {
-     "carica": "Ministro dell'ambiente e della tutela del territorio e del mare",
+     "carica": "Ministro dell'ambiente",
      "da": "1995",
      "a": "1996"
     }
@@ -92649,7 +92926,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Paolo%20Barsacchi.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Paolo_Barsacchi",
    "mandati": [
-    "IX"
+    "IX",
+    "VIII"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -92883,7 +93161,11 @@
    "mandati": [
     "V",
     "VI",
-    "X"
+    "X",
+    "IX",
+    "VIII",
+    "VII",
+    "IV"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -93082,7 +93364,7 @@
    "gruppo_eletto": "DEMOCRAZIA CRISTIANA",
    "cariche_datate": [
     {
-     "carica": "Ministri per la pubblica amministrazione",
+     "carica": "Ministro per la funzione pubblica",
      "da": "1988",
      "a": "1989"
     },
@@ -93310,7 +93592,12 @@
     "III",
     "IV",
     "V",
-    "VI"
+    "VI",
+    "VII",
+    "IX",
+    "VIII",
+    "XI",
+    "X"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -93464,7 +93751,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Paolo_Guerrini",
    "mandati": [
     "VII",
-    "IX"
+    "IX",
+    "VIII"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -93868,7 +94156,7 @@
    "partiti": [],
    "cariche_datate": [
     {
-     "carica": "Ministro dello sviluppo economico",
+     "carica": "Ministro dell'industria, del commercio e dell'artigianato",
      "da": "1993",
      "a": "1994"
     },
@@ -94398,7 +94686,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Pasquale%20Lops%20X.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Pasquale_Lops",
    "mandati": [
-    "IX"
+    "IX",
+    "X"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -94520,7 +94809,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Pasquale%20Perugini.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Pasquale_Perugini",
    "mandati": [
-    "IX"
+    "IX",
+    "X"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -94823,7 +95113,8 @@
     "VI",
     "VII",
     "VIII",
-    "IX"
+    "IX",
+    "V"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -94920,11 +95211,6 @@
      "carica": "Eurodeputato",
      "da": "1994",
      "a": "2001"
-    },
-    {
-     "carica": "Internazionale Democratica Centrista",
-     "da": null,
-     "a": null
     }
    ],
    "stato": "vivente",
@@ -95000,9 +95286,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
-   "id_camera": "17270",
-   "gruppo_eletto": "PARTITO SOCIALISTA ITALIANO",
-   "fonte_morte": "Senato",
+   "gruppo_eletto": "PSI",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -95569,14 +95853,14 @@
    "partiti": [],
    "cariche_datate": [
     {
-     "carica": "Ministri per la pubblica amministrazione",
-     "da": "1992",
-     "a": "1993"
-    },
-    {
      "carica": "Ministro del tesoro",
      "da": "1992",
      "a": "1994"
+    },
+    {
+     "carica": "Ministro per la funzione pubblica",
+     "da": "1992",
+     "a": "1993"
     }
    ],
    "stato": "deceduto",
@@ -95668,7 +95952,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Piero_Caleffi",
    "mandati": [
     "IV",
-    "V"
+    "V",
+    "III"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -96250,7 +96535,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Pietro_Carmeno",
    "mandati": [
     "VII",
-    "VIII"
+    "VIII",
+    "IX"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -97103,7 +97389,8 @@
    "mandati": [
     "VIII",
     "IX",
-    "X"
+    "X",
+    "VII"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -97199,7 +97486,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Pietro%20Montresori.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Pietro_Montresori",
    "mandati": [
-    "XI"
+    "XI",
+    "X"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -97227,7 +97515,10 @@
     "II",
     "III",
     "IV",
-    "V"
+    "V",
+    "VIII",
+    "VII",
+    "VI"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -97362,7 +97653,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Pietro_Pirolo",
    "mandati": [
     "VI",
-    "VIII"
+    "VIII",
+    "IX"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -97861,7 +98153,9 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Pietro%20Vergani.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Pietro_Vergani",
    "mandati": [
-    "V"
+    "V",
+    "III",
+    "IV"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -98343,7 +98637,7 @@
    "prec_nascita": "giorno",
    "morte": "1994-04-17",
    "prec_morte": "giorno",
-   "foto": null,
+   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/PrimoSchiavon.daticamera.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Primo_Schiavon",
    "mandati": [
     "III",
@@ -98715,7 +99009,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Deputato%20Raffaele%20Caporali.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Raffaele_Caporali",
    "mandati": [
-    "II"
+    "II",
+    "I"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -98823,8 +99118,13 @@
      "a": "1994"
     },
     {
-     "carica": "Ministro della salute",
+     "carica": "Ministro della sanità",
      "da": "1993",
+     "a": "1993"
+    },
+    {
+     "carica": "Ministro della sanità",
+     "da": "1994",
      "a": "1995"
     },
     {
@@ -100350,7 +100650,8 @@
     "II",
     "III",
     "IV",
-    "VI"
+    "VI",
+    "V"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -100405,7 +100706,8 @@
     "IV",
     "V",
     "VII",
-    "VIII"
+    "VIII",
+    "VI"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -100453,7 +100755,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Renata_Talassi",
    "mandati": [
     "VI",
-    "VII"
+    "VII",
+    "VIII"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -101523,7 +101826,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Renato_Treu",
    "mandati": [
     "V",
-    "VI"
+    "VI",
+    "VII"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -101648,7 +101952,9 @@
     "III",
     "IV",
     "VII",
-    "VIII"
+    "VIII",
+    "VI",
+    "V"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -102263,7 +102569,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Riccardo%20Margheriti.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Riccardo_Margheriti",
    "mandati": [
-    "IX"
+    "IX",
+    "X"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -102595,17 +102902,22 @@
     {
      "carica": "Ministro delle finanze",
      "da": "1981",
-     "a": "1992"
+     "a": "1982"
     },
     {
-     "carica": "Ministro del commercio internazionale",
+     "carica": "Ministro del commercio con l'estero",
      "da": "1986",
      "a": "1987"
     },
     {
-     "carica": "Ministro del lavoro e delle politiche sociali",
+     "carica": "Ministro del lavoro e della previdenza sociale",
      "da": "1987",
      "a": "1989"
+    },
+    {
+     "carica": "Ministro delle finanze",
+     "da": "1989",
+     "a": "1992"
     }
    ],
    "stato": "vivente",
@@ -103005,7 +103317,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Roberto%20Cassola.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Roberto_Cassola",
    "mandati": [
-    "IX"
+    "IX",
+    "X"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -103361,7 +103674,8 @@
     "VI",
     "VII",
     "IX",
-    "X"
+    "X",
+    "VIII"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -103643,7 +103957,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Roberto%20Ruffilli.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Roberto_Ruffilli",
    "mandati": [
-    "IX"
+    "IX",
+    "X"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -103989,7 +104304,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Rocco_Salomone",
    "mandati": [
     "II",
-    "III"
+    "III",
+    "I"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -104137,7 +104453,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Rodolfo_Morandi",
    "mandati": [
     "Costituente",
-    "II"
+    "II",
+    "I"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -104277,7 +104594,8 @@
     "VII",
     "VIII",
     "IX",
-    "XI"
+    "XI",
+    "X"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -104819,7 +105137,7 @@
      "a": "1992"
     },
     {
-     "carica": "Ministro del lavoro e delle politiche sociali",
+     "carica": "Ministro del lavoro e della previdenza sociale",
      "da": "1991",
      "a": "1991"
     },
@@ -104829,12 +105147,12 @@
      "a": "1994"
     },
     {
-     "carica": "Ministro senza portafoglio per il coordinamento della protezione civile",
+     "carica": "Ministro dell'interno",
      "da": "1998",
      "a": "1999"
     },
     {
-     "carica": "Ministro dell'interno",
+     "carica": "Ministro senza portafoglio per il coordinamento della protezione civile",
      "da": "1998",
      "a": "1999"
     },
@@ -104870,6 +105188,7 @@
    ],
    "id_camera": "21620",
    "gruppo_eletto": "PARTITO COMUNISTA ITALIANO",
+   "registro_muto": "Camera dei deputati",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -105216,7 +105535,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Ruggero_Grieco",
    "mandati": [
     "Costituente",
-    "I"
+    "I",
+    "II"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -105372,13 +105692,13 @@
    "partiti": [],
    "cariche_datate": [
     {
-     "carica": "Ministri per la pubblica amministrazione",
+     "carica": "Ministro per la funzione pubblica",
      "da": "1993",
      "a": "1994"
     },
     {
      "carica": "Giudice della Corte costituzionale",
-     "da": "2014",
+     "da": null,
      "a": "2014"
     }
    ],
@@ -105732,7 +106052,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Salvatore_Crocetta",
    "mandati": [
     "IX",
-    "XI"
+    "XI",
+    "X"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -106908,7 +107229,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Alessandro%20Fontana%20MEP%201994.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Sandro_Fontana",
    "mandati": [
-    "X"
+    "X",
+    "XI"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -106939,7 +107261,9 @@
     "IV",
     "V",
     "VI",
-    "VII"
+    "VII",
+    "IX",
+    "X"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -108436,7 +108760,8 @@
    "wikipedia": "https://it.wikipedia.org/wiki/Severino_Fallucchi",
    "mandati": [
     "VIII",
-    "IX"
+    "IX",
+    "X"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -109647,7 +109972,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Stefano%20Bazoli%20daticamera.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Stefano_Bazoli",
    "mandati": [
-    "I"
+    "I",
+    "Costituente"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -110244,7 +110570,8 @@
     "VII",
     "VIII",
     "IX",
-    "Governo Dini"
+    "Governo Dini",
+    "X"
    ],
    "cariche": [
     "deputato della Repubblica Italiana",
@@ -110630,7 +110957,9 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Teresio%20Guglielmone.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Teresio_Guglielmone",
    "mandati": [
-    "I"
+    "I",
+    "II",
+    "III"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -111193,7 +111522,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Tommaso%20Mitrotti%20VIII.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Tommaso_Mitrotti",
    "mandati": [
-    "VIII"
+    "VIII",
+    "IX"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -112599,11 +112929,21 @@
     {
      "carica": "Eurodeputato",
      "da": "1994",
-     "a": "2008"
+     "a": "2001"
     },
     {
      "carica": "Ministro per le riforme istituzionali",
      "da": "2001",
+     "a": "2004"
+    },
+    {
+     "carica": "Eurodeputato",
+     "da": "2004",
+     "a": "2008"
+    },
+    {
+     "carica": "Ministro per le riforme istituzionali",
+     "da": "2008",
      "a": "2011"
     }
    ],
@@ -113176,7 +113516,8 @@
     "V",
     "VII",
     "VIII",
-    "IX"
+    "IX",
+    "VI"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -113418,7 +113759,12 @@
    "registro_muto": "Camera dei deputati",
    "cariche_datate": [
     {
-     "carica": "Ministro dell'ambiente e della tutela del territorio e del mare",
+     "carica": "Ministro dell'ambiente",
+     "da": "1993",
+     "a": "1994"
+    },
+    {
+     "carica": "Ministro senza portafoglio per i problemi delle aree urbane",
      "da": "1993",
      "a": "1994"
     },
@@ -113426,11 +113772,6 @@
      "carica": "Ministro senza portafoglio per il coordinamento delle politiche comunitarie e per gli affari regionali",
      "da": "1993",
      "a": "1993"
-    },
-    {
-     "carica": "Ministro senza portafoglio per i problemi delle aree urbane",
-     "da": "1993",
-     "a": "1994"
     }
    ],
    "stato": "vivente",
@@ -113858,7 +114199,8 @@
     "Costituente",
     "I",
     "II",
-    "IV"
+    "IV",
+    "III"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana",
@@ -115043,7 +115385,8 @@
    "mandati": [
     "I",
     "II",
-    "III"
+    "III",
+    "IV"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -115420,9 +115763,9 @@
    "registro_muto": "Camera dei deputati",
    "cariche_datate": [
     {
-     "carica": "Ministro del lavoro e delle politiche sociali",
+     "carica": "Ministro del lavoro e della previdenza sociale",
      "da": "1978",
-     "a": "1983"
+     "a": "1980"
     },
     {
      "carica": "Ministro per gli affari europei",
@@ -115433,6 +115776,11 @@
      "carica": "Ministro per i beni culturali e ambientali",
      "da": "1981",
      "a": "1982"
+    },
+    {
+     "carica": "Ministro del lavoro e della previdenza sociale",
+     "da": "1982",
+     "a": "1983"
     },
     {
      "carica": "Ministro senza portafoglio per il coordinamento della protezione civile",
@@ -115717,6 +116065,11 @@
     {
      "carica": "Ministro delle finanze",
      "da": "1993",
+     "a": "1993"
+    },
+    {
+     "carica": "Ministro delle finanze",
+     "da": "1996",
      "a": "2000"
     },
     {
@@ -116284,7 +116637,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Vito%20Consoli.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Vito_Consoli",
    "mandati": [
-    "IX"
+    "IX",
+    "X"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -117222,7 +117576,8 @@
    "foto": null,
    "wikipedia": null,
    "mandati": [
-    "IV"
+    "IV",
+    "V"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -117726,7 +118081,8 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Vittorio%20Pozzar%20VI.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Vittorio_Pozzar",
    "mandati": [
-    "V"
+    "V",
+    "VI"
    ],
    "cariche": [
     "senatore della Repubblica Italiana"
@@ -117751,7 +118107,8 @@
    "mandati": [
     "I",
     "II",
-    "III"
+    "III",
+    "IV"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -117867,8 +118224,8 @@
   {
    "qid": "Q2094539",
    "nome": "Vittorio Vidali",
-   "nascita": "1900-09-27",
-   "prec_nascita": "giorno",
+   "nascita": "1900",
+   "prec_nascita": "anno",
    "morte": "1983-11-09",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Vittorio%20Vidali.jpg",
@@ -117887,6 +118244,7 @@
    ],
    "id_camera": "20320",
    "gruppo_eletto": "COMUNISTA",
+   "fonte_morte": "Camera dei deputati",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false

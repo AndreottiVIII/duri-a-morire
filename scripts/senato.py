@@ -219,9 +219,11 @@ def indice_per_mandato(reg):
     return camera.indice_per_mandato(reg)
 
 
-def cerca_ampia(reg, indice, nome, nascita, mandati, per_mandato=None):
+def cerca_ampia(reg, indice, nome, nascita, mandati, per_mandato=None,
+                nascita_wd=None, morte_wd=None):
     import camera
-    return camera.cerca_ampia(reg, indice, nome, nascita, mandati, per_mandato)
+    return camera.cerca_ampia(reg, indice, nome, nascita, mandati, per_mandato,
+                              nascita_wd, morte_wd)
 
 
 if __name__ == '__main__':

@@ -829,11 +829,19 @@ function leggiSalvati(){
 // Una data si scrive unicamente dove non ce n'e' gia' una, e nessuno torna
 // dai defunti ai viventi. Se una fonte tace su qualcuno, il silenzio non
 // cancella cio' che un'altra fonte ha gia' certificato.
+// Una morte che il lavoro notturno ha gia' esaminato e scartato (p.md:
+// Wikidata la dava, il registro ufficiale no) non e' una novita'. Senza
+// questo controllo il tasto ripescava ogni volta Stojan Spetic', che Wikidata
+// fa morire nel 1992, l'anno in cui ha solo finito il mandato.
+const giaScartata = c => {
+  const p = perQid[c.q];
+  return !!(p && p.md && c.d && c.d.slice(0, 4) === p.md[0]);
+};
 function applicaCambi(cambi){
   let n = 0;
   cambi.forEach(c => {
     const p = perQid[c.q];
-    if(p && !p.d && c.d){ p.d = c.d; p.dp = c.dp; p.s = 2; p.nuovo = 1; n++; }
+    if(p && !p.d && c.d && !giaScartata(c)){ p.d = c.d; p.dp = c.dp; p.s = 2; p.nuovo = 1; n++; }
   });
   return n;
 }
@@ -944,7 +952,7 @@ async function controllaOra(){
       avanzamento.camera = e.message;
     }
 
-    const cambi = trovati.filter(c => perQid[c.q] && !perQid[c.q].d);
+    const cambi = trovati.filter(c => perQid[c.q] && !perQid[c.q].d && !giaScartata(c));
     const primaDefunti = defunti.length;
     applicaCambi(cambi);
     ricalcola();

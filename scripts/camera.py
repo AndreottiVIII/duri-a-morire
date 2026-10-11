@@ -250,7 +250,8 @@ def indice_per_mandato(reg):
     return fuori
 
 
-def cerca_ampia(reg, indice, nome, nascita, mandati, per_mandato=None):
+def cerca_ampia(reg, indice, nome, nascita, mandati, per_mandato=None,
+                nascita_wd=None, morte_wd=None):
     """Tre tentativi, dal piu' stretto al piu' largo.
 
     1. nome esatto e legislatura in comune;
@@ -272,11 +273,28 @@ def cerca_ampia(reg, indice, nome, nascita, mandati, per_mandato=None):
                 if pezzi & {x for x in k.split() if len(x) >= 3}:
                     return voce, 'data'
 
+    # Qui la data di nascita non fa da prova d'identita', fa da freno: se tutte
+    # e due le fonti la conoscono e l'anno non torna, sono due persone. Senza
+    # questo Enrico De Nicola, nato nel 1877, finiva agganciato a Enrico Nicola
+    # Spadola, nato nel 1920, perche' "enrico" e "nicola" stanno nell'altro.
+    #
+    # Ma la nascita che si ha in mano puo' essere gia' stata cambiata dalla
+    # Camera agganciando un omonimo: Giovanni Ferrara Salute, storico, 1928-2007,
+    # prendeva le date di un Giovanni Ferrara deputato, 1929-2021, e solo il
+    # Senato le rimetteva a posto. Allora l'aggancio passa lo stesso se Wikidata
+    # conferma sia la nascita sia la morte della voce. Non basta la sola
+    # nascita: Wikidata a Guido Martino, repubblicano morto nel 2001, ha dato
+    # la nascita di Guido De Martino, senatore socialista vivente.
     if per_mandato and len(pezzi) >= 2:
         for mandato in mandati:
             for k, voce in per_mandato.get(mandato, []):
                 altri = {x for x in k.split() if len(x) >= 3}
                 if len(altri) >= 2 and (altri <= pezzi or pezzi <= altri):
+                    if nascita and voce.get('nascita') and nascita[:4] != voce['nascita'][:4]:
+                        conferma = (nascita_wd and nascita_wd[:4] == voce['nascita'][:4]
+                                    and (voce.get('morte') or '')[:4] == (morte_wd or '')[:4])
+                        if not conferma:
+                            continue
                     return voce, 'nome contenuto'
     return None, None
 

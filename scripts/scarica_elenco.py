@@ -39,6 +39,9 @@ LEGISLATURE = [
 
 GOVERNI = [('Ciampi', 'Q2237427', '1993-1994'), ('Dini', 'Q2294580', '1995-1996')]
 
+# le legislature che i registri possono aggiungere a una scheda
+LEGISLATURE_PERIMETRO = {COSTITUENTE[0]} | {L[0] for L in LEGISLATURE}
+
 DATE = """
   OPTIONAL { ?p p:P569/psv:P569 [ wikibase:timeValue ?nascita ; wikibase:timePrecision ?precN ] }
   OPTIONAL { ?p p:P570/psv:P570 [ wikibase:timeValue ?morte   ; wikibase:timePrecision ?precM ] }
@@ -448,6 +451,10 @@ def main():
     # Battista Melis su Wikidata e' del 1922, alla Camera del 1904.
     discordanze, contese = [], []
     alias = leggi_json('alias_registri.json')
+    # le nascite come le dice Wikidata, prima che i registri le correggano
+    nascite_wd = {q: p['nascita'] for q, p in persone.items()}
+    morti_wd = {q: p['morte'] for q, p in persone.items()}
+    da_aggiungere = {}
     for etichetta, modulo in [('Camera dei deputati', camera), ('Senato', senato)]:
         print('Incrocio con gli open data: %s...' % etichetta)
         # Nessun proseguimento al buio: senza registro il sito perde i morti
@@ -458,14 +465,19 @@ def main():
             raise SystemExit('%s: registro vuoto, mi fermo qui.' % etichetta)
         indice = modulo.indice_per_data(reg)
         per_mandato = modulo.indice_per_mandato(reg)
+        # da una voce del registro alla persona a cui appartiene, per leggerne
+        # tutte le legislature
+        chiave_di = {id(x): k for k, voci in reg.items() for x in voci.values()}
         recuperati = 0
         for p in persone.values():
+            wd_n, wd_m = nascite_wd.get(p['qid']), morti_wd.get(p['qid'])
             v, come = modulo.cerca_ampia(reg, indice, p['nome'], p['nascita'],
-                                         p['mandati'], per_mandato)
+                                         p['mandati'], per_mandato, wd_n, wd_m)
             if not v and alias.get(p['qid']):
                 # Gianna Schelotto per i registri e' Giovanna Bochicchio.
                 v, come = modulo.cerca_ampia(reg, indice, alias[p['qid']],
-                                             p['nascita'], p['mandati'], per_mandato)
+                                             p['nascita'], p['mandati'], per_mandato,
+                                             wd_n, wd_m)
             if not v:
                 continue
             if come == 'data':
@@ -477,6 +489,22 @@ def main():
                 p['prec_nascita'] = 'giorno' if len(v['nascita']) == 10 else 'anno'
             if v.get('id'):
                 p['id_camera'] = v['id']
+            # Le legislature che Wikidata non conosce e il registro si'. Ad
+            # Andreotti mancava l'XI, quella da senatore a vita; a Fanfani tutto
+            # il Senato dal 1968; a Leone, Saragat, Gronchi gli anni da senatori
+            # di diritto dopo il Quirinale. Si annotano qui e si aggiungono solo
+            # dopo aver passato tutti e due i registri: aggiunte subito, facevano
+            # trovare al Senato una legislatura in comune con un omonimo, e
+            # Giovanni Ferrara si prendeva le date di un altro Giovanni Ferrara.
+            # Solo quelle con l'anno di nascita della voce agganciata, perche'
+            # il registro tiene insieme gli omonimi, e solo se Wikidata conferma
+            # quell'anno: un aggancio dubbio non porta legislature.
+            anno = (v.get('nascita') or '')[:4]
+            if anno and anno == (nascite_wd.get(p['qid']) or '')[:4]:
+                for m, altra in reg.get(chiave_di.get(id(v)), {}).items():
+                    if (m in LEGISLATURE_PERIMETRO and m not in p['mandati']
+                            and (altra.get('nascita') or '')[:4] == anno):
+                        da_aggiungere.setdefault(p['qid'], set()).add(m)
             # Il gruppo parlamentare e' il partito di allora. Wikidata elenca
             # anche le militanze successive, e per Vittorio Sgarbi finiva per
             # dire Forza Italia di un deputato che sedeva col PLI.
@@ -553,6 +581,19 @@ def main():
         print('    %-26s wikidata %s -> %s (%s)' % (d[0], d[1], d[2], d[3]))
 
     fondi_doppioni(persone)
+
+    # Le legislature dei registri entrano solo adesso, a doppioni gia' fusi:
+    # prima avrebbero fatto sembrare la stessa persona due omonimi.
+    aggiunte = 0
+    for q, nuove in da_aggiungere.items():
+        if q not in persone:
+            continue
+        for m in nuove:
+            if m not in persone[q]['mandati']:
+                persone[q]['mandati'].append(m)
+                aggiunte += 1
+    print('%d legislature che Wikidata non registrava, prese dai registri'
+          % aggiunte)
 
     print('Cariche della hall of fame...')
     scarica_cariche(persone, list(hof))
