@@ -4,3 +4,10 @@ data/cache/
 
 __pycache__/
 *.pyc
+
+# L'edizione a pagine per il sito specchio: la pubblica il lavoro notturno,
+# nel repository non serve.
+sito/primarepubblica.tar.gz
+
+# dove si scompatta l'edizione a pagine per provarla in locale
+anteprima-pagine/

@@ -7,11 +7,16 @@ senza server e senza installare niente. Le foto arrivano da Wikimedia Commons.
 import sys, os, json, datetime, re
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import cursus
+import pagine_statiche
 
 QUI = os.path.dirname(os.path.abspath(__file__))
 INGRESSO = os.path.join(QUI, '..', 'data', 'elenco.json')
 USCITA_DIR = os.path.join(QUI, '..', 'sito')
 USCITA = os.path.join(USCITA_DIR, 'index.html')
+# L'edizione che gira fuori, una pagina per schermata, impacchettata per il
+# sito specchio (vedi pagine_statiche.py). Non entra nel repository: la
+# pubblica solo il lavoro notturno.
+ARCHIVIO = os.path.join(USCITA_DIR, 'primarepubblica.tar.gz')
 
 # Lo stesso sito esce due volte, identico salvo il nome: uno per chi capisce
 # la battuta e uno da mandare in giro senza spiegazioni. Il lavoro notturno li
@@ -118,8 +123,12 @@ def testa_per_motori(nome_file, dati):
     strutturati: dicono a Google che questo e' un archivio, chi lo cura e da
     quali fonti viene, e lo rendono trovabile nella ricerca di dataset."""
     righe = ['<link rel="canonical" href="%s">' % INDIRIZZO_UFFICIALE]
-    if nome_file != 'tracker.html':
-        return '\n'.join(righe)
+    if nome_file == 'tracker.html':
+        righe.append(dati_strutturati(dati))
+    return '\n'.join(righe)
+
+
+def dati_strutturati(dati):
     autore = {'@type': 'Person', '@id': INDIRIZZO_UFFICIALE + '#autore',
               'name': 'Davide Caniatti'}
     grafo = {
@@ -153,9 +162,8 @@ def testa_per_motori(nome_file, dati):
                           'storia politica italiana']},
         ],
     }
-    righe.append('<script type="application/ld+json">%s</script>'
-                 % json.dumps(grafo, ensure_ascii=False, separators=(',', ':')))
-    return '\n'.join(righe)
+    return ('<script type="application/ld+json">%s</script>'
+            % json.dumps(grafo, ensure_ascii=False, separators=(',', ':')))
 
 
 def intestazione(nome_file):
@@ -595,6 +603,23 @@ def main():
         open(percorso, 'w', encoding='utf-8').write(html)
         print('Scritto %s (%.0f KB) — %s'
               % (os.path.normpath(percorso), os.path.getsize(percorso) / 1024.0, titolo))
+    # L'edizione a pagine: stessi dati, piu' l'indirizzo di ogni scheda e il
+    # posto dove andra' la tabella degli indirizzi.
+    persone_veri = [dict(p) for p in persone]
+    pagine_statiche.assegna_schegge(persone_veri)
+    dati_veri = dict(dati, persone=persone_veri, __INDIRIZZI__=None)
+    _, titolo_home, testata_home, _, _ = EDIZIONI[1]
+    scheletro = (modello
+                 .replace('/*__DATI__*/',
+                          json.dumps(dati_veri, ensure_ascii=False, separators=(',', ':')))
+                 .replace('<!--%%PRESENTAZIONE%%-->', presentazione('tracker.html', dati))
+                 .replace('%%TESTATA%%', testata_home)
+                 .replace('/*__COLOFONE__*/', json.dumps(COLOFONE, ensure_ascii=False)))
+    quanti, in_mappa = pagine_statiche.costruisci(
+        scheletro, dati_veri, (titolo_home, descrizione, dati_strutturati(dati)), ARCHIVIO)
+    print('Scritto %s (%.0f KB) — %d file, %d indirizzi nella mappa del sito'
+          % (os.path.normpath(ARCHIVIO), os.path.getsize(ARCHIVIO) / 1024.0,
+             quanti, in_mappa))
     print('%d persone, di cui %d viventi' % (
         len(persone), sum(1 for p in persone if p['s'] == 1)))
 

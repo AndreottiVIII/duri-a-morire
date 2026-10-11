@@ -171,6 +171,7 @@ e la colonna resta vuota invece di inventarselo.
 - `scripts/aggancia_hall_of_fame.py` — collega i 66 nomi curati ai record Wikidata
 - `scripts/scarica_elenco.py` — scarica l'elenco grande in `data/elenco.json`
 - `scripts/genera_sito.py` + `scripts/modello.html` — costruiscono `sito/index.html`
+- `scripts/pagine_statiche.py` — l'edizione a pagine per primarepubblica.net
 
 Le risposte di Wikidata restano in `data/cache/`: rigenerare il sito non ribussa
 all'endpoint. Per riscaricare tutto da capo, svuota quella cartella.
@@ -192,6 +193,14 @@ Sono generati dallo stesso modello nello stesso momento, quindi non divergono
 mai: si aggiornano insieme e hanno sempre gli stessi dati. Per cambiare o
 aggiungere un'edizione si tocca la lista `EDIZIONI` in `genera_sito.py`.
 
+Esce anche un terzo pezzo, `sito/primarepubblica.tar.gz`: l'edizione Tracker
+scomposta in una pagina per schermata, che è quella pubblicata davvero su
+primarepubblica.net (vedi sotto, *Gli indirizzi*). Lo scrive
+`scripts/pagine_statiche.py`, non entra nel repository e lo pubblica solo il
+lavoro notturno. Per provarlo in locale lo si scompatta in `anteprima-pagine/`
+e lo si serve da lì: le pagine chiamano `/televideo.js` e `/stile.css` dalla
+radice, quindi col doppio clic non funziona.
+
 Poi si apre `sito/index.html` con un doppio clic. È un file unico e autoportante:
 niente server, niente installazioni. Le foto arrivano da Wikimedia Commons.
 
@@ -207,6 +216,23 @@ funziona e le pagine si possono mandare a qualcuno:
 
 Le sottopagine sostituiscono l'ultima voce invece di aggiungerne una: sfogliare
 duecento sottopagine non deve seppellire il punto da cui si e' arrivati.
+
+Su primarepubblica.net gli indirizzi sono veri, perché la parte dopo il
+cancelletto Google la ignora e per lui il sito era una pagina sola:
+
+    /                              l'indice
+    /viventi/                      una pagina
+    /onorevole/rino-formica/       una scheda (l'anno di nascita solo per gli omonimi)
+    /viventi/partito/dc/           un elenco filtrato
+    /ricerca/#rossi                una ricerca
+
+Ogni indirizzo è un file con il suo titolo e la sua descrizione, e tutti
+contengono lo stesso Televideo: a vista non cambia niente, e spostandosi nel
+sito non si ricarica nulla. La tabella numero → indirizzo sta in `PAGINE` e
+`ELENCHI` di `pagine_statiche.py`; il Televideo la riceve insieme ai dati. Una
+volta che Google ha preso un indirizzo, cambiarlo costa caro: si aggiunge, non
+si rinomina. I vecchi link col cancelletto funzionano ancora, e l'indirizzo si
+corregge da solo in quello vero.
 
 ## Le pagine
 

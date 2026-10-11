@@ -204,10 +204,12 @@ function rigaHtmlConLink(segs){
   let len = segs.reduce((a, s) => a + s.t.length, 0);
   let out = segs.map(s => {
     const dentro = '<span class="' + (s.c||'b') + '">' + esc(s.t) + '</span>';
-    if(s.link) return '<a class="n" data-q="' + s.link + '" href="#' + s.link + '">' + dentro + '</a>';
-    if(s.pag)  return '<a class="n" data-p="' + s.pag + '" href="#p' + s.pag + '">' + dentro + '</a>';
-    if(s.el)   return '<a class="n" data-l="' + esc(s.el) + '" href="#l/' +
-                      esc(encodeURIComponent(s.el)) + '">' + dentro + '</a>';
+    if(s.link) return '<a class="n" data-q="' + s.link + '" href="' +
+                      esc(indirizzoDi({qid: s.link})) + '">' + dentro + '</a>';
+    if(s.pag)  return '<a class="n" data-p="' + s.pag + '" href="' +
+                      esc(indirizzoDi({pagina: s.pag})) + '">' + dentro + '</a>';
+    if(s.el)   return '<a class="n" data-l="' + esc(s.el) + '" href="' +
+                      esc(indirizzoDi({el: s.el})) + '">' + dentro + '</a>';
     return dentro;
   }).join('');
   return out + sp(W - len);
@@ -1107,7 +1109,8 @@ function disegna(){
   const rimando = document.getElementById('colofone');
   if(COLOFONE && !rimando.dataset.pronto){
     rimando.dataset.pronto = '1';
-    rimando.innerHTML = ' <a class="n" data-p="700" href="#p700">Info su questo sito</a>';
+    rimando.innerHTML = ' <a class="n" data-p="700" href="' + esc(indirizzoDi({pagina: 700})) +
+                        '">Info su questo sito</a>';
     rimando.addEventListener('click', e => {
       const a = e.target.closest('a.n');
       if(a){ e.preventDefault(); vaiA(700); }
@@ -1147,7 +1150,118 @@ function statoDaIndirizzo(h){
   return null;
 }
 
+/* ---------- indirizzi veri ----------
+   L'edizione che gira fuori non e' piu' un file solo: ogni schermata ha anche
+   una pagina sua sul disco del sito, con il suo titolo e la sua descrizione,
+   perche' Google la parte dopo il cancelletto la ignora, e per lui il sito
+   era una pagina sola. A vista non cambia niente: il Televideo e' lo stesso,
+   e spostandosi dentro il sito non si ricarica nulla, cambia solo l'indirizzo.
+
+     /                             l'indice
+     /viventi/                     una pagina
+     /onorevole/rino-formica/      una scheda
+     /viventi/partito/dc/          un elenco filtrato
+     /ricerca/#rossi               una ricerca
+
+   La tabella degli indirizzi arriva dal generatore insieme ai dati. Dove manca
+   (l'altra edizione, o il file aperto dal disco) restano gli indirizzi col
+   cancelletto, e i vecchi link col cancelletto funzionano anche qui. */
+const INDIRIZZI = DATI.indirizzi || null;
+const SITO = 'Prima Repubblica Tracker';
+const perScheggia = {}; P.forEach(p => { if(p.u) perScheggia[p.u] = p; });
+
+// La stessa riduzione che fa il generatore: minuscole, niente accenti, un
+// trattino al posto di tutto il resto. 'IND.' diventa 'ind'.
+function scheggia(s){
+  return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+function percorsoDiStato(s){
+  if(s.qid){
+    const p = perQid[s.qid];
+    return p && p.u ? '/onorevole/' + p.u + '/' : null;
+  }
+  if(s.el){
+    const i = s.el.indexOf(':');
+    const inizio = INDIRIZZI.elenchi[s.el.slice(0, i)];
+    return inizio ? inizio + scheggia(s.el.slice(i + 1)) + '/' : null;
+  }
+  if(s.pagina === 150 && s.filtro)
+    return INDIRIZZI.pagine['150'] + '#' + encodeURIComponent(s.filtro);
+  return INDIRIZZI.pagine[String(s.pagina)] || null;
+}
+
+// Da 'dc' a 'DC': si cerca fra i valori che esistono davvero quello che
+// ridotto a scheggia torna uguale.
+function valoreDaScheggia(tipo, pezzo){
+  if(tipo === 'morti') return /^\d{4}$/.test(pezzo) ? pezzo : null;
+  const candidati = tipo === 'mandato' ? DATI.legislature.map(L => L[0])
+                                       : P.map(p => p.p).filter(Boolean);
+  return candidati.find(c => scheggia(c) === pezzo) || null;
+}
+
+function statoDaPercorso(percorso){
+  let x;
+  try { x = decodeURI(percorso || '/'); } catch(e){ x = percorso || '/'; }
+  x = x.replace(/index\.html$/, '');
+  if(x.slice(-1) !== '/') x += '/';
+  const scheda = x.match(/^\/onorevole\/([^/]+)\/$/);
+  if(scheda){
+    const p = perScheggia[scheda[1]];
+    return p ? Object.assign({}, STATO_INIZIALE, {qid: p.q}) : null;
+  }
+  for(const n in INDIRIZZI.pagine){
+    if(INDIRIZZI.pagine[n] !== x) continue;
+    const s = Object.assign({}, STATO_INIZIALE, {pagina: +n});
+    if(+n === 150 && location.hash.length > 1){
+      try { s.filtro = decodeURIComponent(location.hash.slice(1)); } catch(e){}
+    }
+    return s;
+  }
+  // i prefissi piu' lunghi prima: /in-memoriam/partito/ prima di /in-memoriam/
+  const tipi = Object.keys(INDIRIZZI.elenchi)
+    .sort((a, b) => INDIRIZZI.elenchi[b].length - INDIRIZZI.elenchi[a].length);
+  for(const tipo of tipi){
+    const inizio = INDIRIZZI.elenchi[tipo];
+    if(x.indexOf(inizio) !== 0) continue;
+    const pezzo = x.slice(inizio.length, -1);
+    if(!pezzo || pezzo.indexOf('/') >= 0) continue;
+    const valore = valoreDaScheggia(tipo, pezzo);
+    if(valore) return Object.assign({}, STATO_INIZIALE, {el: tipo + ':' + valore});
+  }
+  return null;
+}
+
+// Il titolo della scheda nella linguetta del browser. Lo stesso che il
+// generatore scrive nella pagina: chi cambia l'uno cambi anche l'altro.
+function titoloScheda(p){
+  const a = anno(p.b);
+  if(p.s === 2) return p.n + ' (' + (a || '?') + '–' + (anno(p.d) || '?') + ')';
+  return p.n + (a ? ' (' + a + ')' : '') + (p.s === 1 ? ', vivente' : ', sorte ignota');
+}
+function titoloDiStato(s){
+  if(s.qid && perQid[s.qid]) return titoloScheda(perQid[s.qid]) + ' | ' + SITO;
+  const x = (percorsoDiStato(s) || '').split('#')[0];
+  return INDIRIZZI.titoli[x] || SITO;
+}
+
+function indirizzoDi(parziale){
+  return indirizzoDiStato(Object.assign({}, STATO_INIZIALE, parziale));
+}
+
 function indirizzoDiStato(s){
+  if(INDIRIZZI){
+    const x = percorsoDiStato(s);
+    if(x) return x;
+    // una schermata senza pagina sua, come la 999 che non esiste: resta il
+    // cancelletto, appoggiato all'indice
+    return '/' + indirizzoACancelletto(s);
+  }
+  return indirizzoACancelletto(s);
+}
+
+function indirizzoACancelletto(s){
   if(s.qid) return '#' + s.qid;
   if(s.el) return '#l/' + encodeURIComponent(s.el);
   if(s.pagina === 150 && s.filtro) return '#cerca/' + encodeURIComponent(s.filtro);
@@ -1157,6 +1271,10 @@ function indirizzoDiStato(s){
 function mostra(nuovo, spingi){
   stato = nuovo;
   const dove = indirizzoDiStato(stato);
+  // Al primo disegno il titolo resta quello scritto nella pagina, che e'
+  // quello che legge Google; dopo, segue la schermata.
+  if(INDIRIZZI && mostra.gia) document.title = titoloDiStato(stato);
+  mostra.gia = true;
   try {
     if(spingi) history.pushState(stato, '', dove);
     else history.replaceState(stato, '', dove);
@@ -1184,13 +1302,18 @@ function vaiASottopagina(n){
 
 window.addEventListener('popstate', e => {
   stato = e.state || statoDaIndirizzo(location.hash) ||
+          (INDIRIZZI && statoDaPercorso(location.pathname)) ||
           Object.assign({}, STATO_INIZIALE);
+  if(INDIRIZZI) document.title = titoloDiStato(stato);
   disegna();
 });
 
 document.getElementById('schermo').addEventListener('click', e => {
   const a = e.target.closest('a.n');
   if(!a) return;
+  // con ctrl o il tasto centrale si vuole una scheda nuova del browser:
+  // ci pensa lui, l'indirizzo del link e' quello vero
+  if(e.ctrlKey || e.metaKey || e.shiftKey || e.button) return;
   e.preventDefault();
   if(a.dataset.p) vaiA(+a.dataset.p);
   else if(a.dataset.l) apriLista(a.dataset.l);
@@ -1232,7 +1355,14 @@ if(salvato && salvato.cambi && salvato.cambi.length){
 
 // Un indirizzo con l'ancora apre direttamente quella schermata: le pagine
 // sono condivisibili, e il ricaricamento non riporta all'indice.
-stato = statoDaIndirizzo(location.hash) || stato;
+// Prima il cancelletto, perche' i link vecchi girano ancora: chi apre
+// primarepubblica.net/#Q50005 finisce sulla scheda, e l'indirizzo si
+// corregge da solo in quello vero.
+const daCancelletto = statoDaIndirizzo(location.hash);
+stato = daCancelletto || (INDIRIZZI && statoDaPercorso(location.pathname)) || stato;
+// arrivando da un link vecchio la pagina caricata e' l'indice, e il suo
+// titolo non c'entra con la schermata che si apre
+if(INDIRIZZI && daCancelletto) document.title = titoloDiStato(stato);
 mostra(stato, false);
 
 /* Il file e' uno solo e il suo indirizzo non cambia mai, quindi un browser
