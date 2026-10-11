@@ -932,8 +932,8 @@ async function interrogaCamera(dal){
 async function controllaOra(){
   if(avanzamento.fase === 'corso') return;
   avanzamento = {fase: 'corso', cambi: [], messaggio: 'preparo…'};
-  stato = {pagina: 600, sub: 0, qid: null, el: null, filtro: stato.filtro};
-  disegna();
+  // anche l'indirizzo va sulla 600, non solo lo schermo
+  mostra(Object.assign({}, STATO_INIZIALE, {pagina: 600, filtro: stato.filtro}), true);
   try {
     const daVedere = viventi.concat(ignoti).map(p => p.q);
     const lotti = [];
