@@ -8,6 +8,7 @@
      Incorporato nella pagina: il sito resta un file solo. -->
 <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAVUlEQVR42u3VMQoAIAxD0UQ8ifc/k1fRxUHH4lDB380h+LBCLGkocYqSJx1Q98NoLRR27ysYvNWsAAAAAAAeAvj7Oj7bMPgW9m2QTwgAAAAAtCErkCaOmQs/KFHCIgAAAABJRU5ErkJggg==">
 <title>%%TITOLO%%</title>
+<!--%%CANONICO%%-->
 <!--%%ANTEPRIMA%%-->
 <style>
   :root{
@@ -72,6 +73,10 @@
   footer a{color:var(--spento)}
   #colofone a{color:var(--ciano);text-decoration:none;border-bottom:1px dotted var(--spento);cursor:pointer}
   #colofone a:hover{border-bottom-color:var(--ciano)}
+  /* visibile solo a chi legge con un lettore di schermo e ai motori: il
+     titolo vero della pagina, che graficamente e' gia' nella testata */
+  .solo-lettori{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  footer .presentazione{margin:0 0 .5em}
 </style>
 <!-- Contatore di visite GoatCounter: niente cookie, niente dati personali. Conta
      solo sul dominio dell'edizione che gira fuori, non su github.io ne' dal disco. -->
@@ -89,25 +94,27 @@
 </head>
 <body>
 
-<div id="tv"><pre id="schermo"></pre></div>
-<div id="extra"></div>
-<div id="sub">
+<!--%%INTESTAZIONE%%-->
+<div id="tv" data-nosnippet><pre id="schermo"></pre></div>
+<div id="extra" data-nosnippet></div>
+<div id="sub" data-nosnippet>
   <button id="prev">&larr;</button><span id="subetichetta"></span><button id="next">&rarr;</button>
 </div>
-<div id="comandi">
+<div id="comandi" data-nosnippet>
   <input id="pag" inputmode="numeric" placeholder="pagina" maxlength="3" aria-label="numero di pagina">
   <input id="cerca" placeholder="cerca un nome…" aria-label="cerca un nome">
   <button id="aggiorna" title="ricontrolla su Wikidata chi e' ancora vivo">AGGIORNA</button>
 </div>
-<div class="fast">
+<div class="fast" data-nosnippet>
   <button class="f1" data-p="100">100 INDICE</button>
   <button class="f2" data-p="101">101 VIVENTI</button>
   <button class="f3" data-p="200">200 STATISTICHE</button>
   <button class="f4" data-p="130">130 HALL OF FAME</button>
 </div>
 <footer>
+  <!--%%PRESENTAZIONE%%-->
   Dati da Wikidata, la versione interrogabile di Wikipedia. Foto da Wikimedia Commons.
-  <span id="pieno"></span>
+  <span id="pieno" data-nosnippet></span>
   <span id="colofone"></span>
 </footer>
 

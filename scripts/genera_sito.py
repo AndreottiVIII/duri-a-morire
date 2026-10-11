@@ -73,15 +73,18 @@ COLOFONE = [
 # L'anteprima per WhatsApp, Telegram, Facebook, X. Solo per l'edizione che gira
 # fuori: punta a primarepubblica.net, e l'immagine sta nel repository che la
 # pubblica (prima-repubblica-tracker, sito/anteprima.png).
-DESCRIZIONE_TRACKER = ('Chi è ancora vivo, fra i parlamentari e i ministri della Prima '
-                       'Repubblica: dalla Costituente del 1946 all’XI legislatura.')
+# La descrizione che Google mostra sotto il titolo. Sta sotto i 160 caratteri,
+# oltre i quali viene tagliata, e porta il numero delle schede.
+DESCRIZIONE_TRACKER = ('Chi è ancora vivo dei %s parlamentari e ministri della '
+                       'Prima Repubblica, dalla Costituente al 1994. Aggiornato ogni '
+                       'giorno con i dati di Camera e Senato.')
 ANTEPRIMA_TRACKER = '\n'.join([
-    '<meta name="description" content="%s">' % DESCRIZIONE_TRACKER,
+    '<meta name="description" content="%%DESCRIZIONE%%">',
     '<meta property="og:type" content="website">',
     '<meta property="og:locale" content="it_IT">',
     '<meta property="og:site_name" content="Prima Repubblica Tracker">',
     '<meta property="og:title" content="Prima Repubblica Tracker">',
-    '<meta property="og:description" content="%s">' % DESCRIZIONE_TRACKER,
+    '<meta property="og:description" content="%%DESCRIZIONE%%">',
     '<meta property="og:url" content="https://primarepubblica.net/">',
     '<meta property="og:image" content="https://primarepubblica.net/anteprima.png">',
     '<meta property="og:image:width" content="1200">',
@@ -95,10 +98,85 @@ EDIZIONI = [
     # nome file, titolo, testata, colofone, anteprima per le condivisioni
     ('index.html', 'Duri a morire — Prima Repubblica edition',
      'DURI A MORIRE', None, ''),
-    ('tracker.html', 'Prima Repubblica Tracker', 'PRIMA REPUBBLICA', COLOFONE,
-     ANTEPRIMA_TRACKER),
+    ('tracker.html', 'Prima Repubblica Tracker: chi è ancora vivo fra i parlamentari',
+     'PRIMA REPUBBLICA', COLOFONE, ANTEPRIMA_TRACKER),
 ]
 MODELLO = os.path.join(QUI, 'modello.html')
+
+# Tutte e due le edizioni, e la copia che sta su github.io, sono la stessa
+# pagina. Google deve sapere qual e' quella da mostrare, o sceglie da solo e
+# puo' scegliere quella sbagliata.
+INDIRIZZO_UFFICIALE = 'https://primarepubblica.net/'
+
+
+def migliaia(n):
+    return format(n, ',').replace(',', '.')
+
+
+def testa_per_motori(nome_file, dati):
+    """L'indirizzo ufficiale e, per l'edizione che gira fuori, i dati
+    strutturati: dicono a Google che questo e' un archivio, chi lo cura e da
+    quali fonti viene, e lo rendono trovabile nella ricerca di dataset."""
+    righe = ['<link rel="canonical" href="%s">' % INDIRIZZO_UFFICIALE]
+    if nome_file != 'tracker.html':
+        return '\n'.join(righe)
+    autore = {'@type': 'Person', '@id': INDIRIZZO_UFFICIALE + '#autore',
+              'name': 'Davide Caniatti'}
+    grafo = {
+        '@context': 'https://schema.org',
+        '@graph': [
+            {'@type': 'WebSite', '@id': INDIRIZZO_UFFICIALE + '#sito',
+             'url': INDIRIZZO_UFFICIALE, 'name': 'Prima Repubblica Tracker',
+             'inLanguage': 'it-IT', 'author': {'@id': autore['@id']}},
+            autore,
+            {'@type': 'Dataset',
+             'name': 'Parlamentari e ministri della Prima Repubblica: chi è ancora vivo',
+             'description': ('Elenco dei %s parlamentari e ministri della Prima '
+                             'Repubblica italiana, dalla Costituente del 1946 all’XI '
+                             'legislatura, con data di nascita, data di morte, '
+                             'legislature e gruppo parlamentare. Si aggiorna ogni '
+                             'giorno incrociando Wikidata, gli open data della '
+                             'Camera dei deputati e del Senato, e Wikipedia.'
+                             % migliaia(len(dati['persone']))),
+             'url': INDIRIZZO_UFFICIALE,
+             'creator': {'@id': autore['@id']},
+             'inLanguage': 'it-IT',
+             'temporalCoverage': '1946/1996',
+             'spatialCoverage': {'@type': 'Place', 'name': 'Italia'},
+             'dateModified': dati['generato'],
+             'isBasedOn': ['https://www.wikidata.org/',
+                           'https://dati.camera.it/',
+                           'https://dati.senato.it/',
+                           'https://it.wikipedia.org/'],
+             'keywords': ['Prima Repubblica', 'parlamentari', 'Assemblea Costituente',
+                          'Camera dei deputati', 'Senato della Repubblica',
+                          'storia politica italiana']},
+        ],
+    }
+    righe.append('<script type="application/ld+json">%s</script>'
+                 % json.dumps(grafo, ensure_ascii=False, separators=(',', ':')))
+    return '\n'.join(righe)
+
+
+def intestazione(nome_file):
+    """Il titolo della pagina per chi legge con lo schermo e per i motori.
+    Graficamente c'e' gia', nella testata del Televideo."""
+    nome = ('Prima Repubblica Tracker' if nome_file == 'tracker.html'
+            else 'Duri a morire')
+    return ('<h1 class="solo-lettori">%s: chi è ancora vivo fra i parlamentari '
+            'della Prima Repubblica</h1>' % nome)
+
+
+def presentazione(nome_file, dati):
+    """Una riga in chiaro in fondo alla pagina, per l'edizione che gira
+    fuori. Senza, l'unico testo che Google trova e' la griglia dello schermo."""
+    if nome_file != 'tracker.html':
+        return ''
+    vivi = sum(1 for p in dati['persone'] if p['s'] == 1)
+    return ('<p class="presentazione">Prima Repubblica Tracker tiene il conto di chi '
+            'è ancora vivo fra i %s parlamentari e ministri della Prima '
+            'Repubblica, dalla Costituente del 1946 all’XI legislatura: '
+            'oggi sono %s.</p>' % (migliaia(len(dati['persone'])), migliaia(vivi)))
 
 # Sigle di partito: quarant'anni di prima Repubblica in sei caratteri.
 SIGLE = [
@@ -502,9 +580,14 @@ def main():
                            json.dumps(dati, ensure_ascii=False, separators=(',', ':')))
 
     os.makedirs(USCITA_DIR, exist_ok=True)
+    descrizione = DESCRIZIONE_TRACKER % migliaia(len(dati['persone']))
     for nome_file, titolo, testata, colofone, anteprima in EDIZIONI:
         percorso = os.path.join(USCITA_DIR, nome_file)
         html = (base.replace('<!--%%ANTEPRIMA%%-->', anteprima)
+                    .replace('%%DESCRIZIONE%%', descrizione)
+                    .replace('<!--%%CANONICO%%-->', testa_per_motori(nome_file, dati))
+                    .replace('<!--%%INTESTAZIONE%%-->', intestazione(nome_file))
+                    .replace('<!--%%PRESENTAZIONE%%-->', presentazione(nome_file, dati))
                     .replace('%%TITOLO%%', titolo)
                     .replace('%%TESTATA%%', testata)
                     .replace('/*__COLOFONE__*/',
