@@ -542,8 +542,11 @@ def _giorni(a, b):
 
 
 def _carica_pulita(c):
-    """La Camera mette a volte lo spazio dopo l'apostrofo: 'dell' Industria'."""
-    return re.sub(r"(\w)' (?=\w)", r"\1'", c).strip()
+    """La Camera mette a volte lo spazio dopo l'apostrofo ('dell' Industria')
+    e ha qualche maiuscola di troppo battuta a mano ('MInistro del BIlancio')."""
+    c = re.sub(r"(\w)' (?=\w)", r"\1'", c)
+    c = re.sub(r'\b([A-Z])([A-Z])(?=[a-z])', lambda m: m.group(1) + m.group(2).lower(), c)
+    return c.strip()
 
 
 def _stessa_carica(c):
@@ -561,15 +564,31 @@ def incarichi_governo(lista):
         r = ultima.get(_stessa_carica(i['carica']))
         if r and r['a'] and i['da'] and _giorni(r['a'], i['da']) <= STACCO_GOVERNI:
             r['a'] = i['a'] if not i['a'] or i['a'] > r['a'] else r['a']
-            if i['governo'] and i['governo'] not in r['governi']:
+            if i.get('governo') and i['governo'] not in r['governi']:
                 r['governi'].append(i['governo'])
             continue
         r = {'carica': i['carica'], 'da': i['da'], 'a': i['a'],
-             'governi': [i['governo']] if i['governo'] else []}
+             'governi': [i['governo']] if i.get('governo') else []}
         righe.append(r)
         ultima[_stessa_carica(i['carica'])] = r
     return [[r['carica'], (r['da'] or '')[:4], (r['a'] or '')[:4], ', '.join(r['governi'])]
             for r in righe]
+
+
+def gia_in_parlamento(c, parlamento):
+    """Una carica di Wikidata che le Camere registrano gia': "Presidente della
+    Camera dei deputati 1992-1994" e "Presidente della Camera 1992-1994" sono
+    la stessa. Stesso inizio di nome e anni che si toccano."""
+    mia = c['carica'].lower()
+    for nome, da, a in parlamento:
+        loro = nome.lower()
+        if not (mia.startswith(loro) or loro.startswith(mia)):
+            continue
+        if not c.get('da') or not da:
+            return True
+        if int(c['da']) <= int(a or 9999) and int(da) <= int(c.get('a') or 9999):
+            return True
+    return False
 
 
 def compatta(p):
@@ -612,17 +631,33 @@ def compatta(p):
         d['fc'] = 1
     if p.get('consulta'):
         d['cn'] = 1
+    # dove e come e' stato eletto in ogni legislatura: ['IX', 'C', 'Bari'],
+    # ['VIII', 'S', 'a vita']
+    elezioni = p.get('elezioni') or {}
+    if elezioni:
+        d['el'] = [[m] + elezioni[m] for m in d['m'] if m in elezioni]
+    if p.get('proposte'):
+        d['pl'] = [p['proposte']['primo'], p['proposte']['cofirmate']]
     governo = incarichi_governo(p.get('incarichi_governo') or [])
     if governo:
         d['gv'] = governo
+    # le cariche in Parlamento si uniscono con la stessa regola: tre mandati
+    # di fila da Presidente della Camera sono una riga sola
+    parlamento = [r[:3] for r in incarichi_governo(p.get('incarichi_parlamento') or [])]
+    if parlamento:
+        d['ip'] = parlamento
 
     cariche = cursus.completa_date(p.get('cursus'), p.get('cariche_datate'))
     if governo:
         cariche = [c for c in cariche if not c['carica'].lower().startswith(PREFISSI_GOVERNO)]
+    if parlamento:
+        cariche = [c for c in cariche if not gia_in_parlamento(c, parlamento)]
     if p.get('cursus'):
-        # il cursus scritto a mano non deve ripetere ne' le cariche ne' il governo
+        # il cursus scritto a mano non deve ripetere ne' le cariche, ne' il
+        # governo, ne' il Parlamento
         avanzo = cursus.residuo(p['cursus'], cariche + [
-            {'carica': r[0], 'da': r[1] or None, 'a': r[2] or None} for r in governo])
+            {'carica': r[0], 'da': r[1] or None, 'a': r[2] or None}
+            for r in governo + parlamento])
         if avanzo:
             d['cr'] = avanzo
     if p.get('fonte_morte'):
@@ -691,8 +726,20 @@ def main():
                  .replace('<!--%%PRESENTAZIONE%%-->', presentazione('tracker.html', dati))
                  .replace('%%TESTATA%%', testata_home)
                  .replace('/*__COLOFONE__*/', json.dumps(COLOFONE, ensure_ascii=False)))
+    # I titoli delle proposte di legge non stanno nel programma, che pesa gia'
+    # abbastanza: ogni scheda ha il suo file, che il Televideo legge quando la
+    # si apre.
+    titoli_proposte = {}
+    copia = os.path.join(QUI, '..', 'data', 'registri', 'camera_proposte.json')
+    if os.path.exists(copia):
+        proposte = json.load(open(copia, encoding='utf-8'))
+        for p in grezzo['persone']:
+            v = proposte.get(p.get('anagrafe_camera') or p.get('id_camera') or '')
+            if p.get('proposte') and v and v.get('titoli'):
+                titoli_proposte[p['qid']] = [[d[:4], t] for d, t in v['titoli']]
     quanti, in_mappa = pagine_statiche.costruisci(
-        scheletro, dati_veri, (titolo_home, descrizione, dati_strutturati(dati)), ARCHIVIO)
+        scheletro, dati_veri, (titolo_home, descrizione, dati_strutturati(dati)), ARCHIVIO,
+        titoli_proposte)
     print('Scritto %s (%.0f KB) — %d file, %d indirizzi nella mappa del sito'
           % (os.path.normpath(ARCHIVIO), os.path.getsize(ARCHIVIO) / 1024.0,
              quanti, in_mappa))

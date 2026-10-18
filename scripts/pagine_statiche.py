@@ -423,7 +423,7 @@ def scomponi(scheletro):
     return involucro, stile.strip('\n') + '\n', programma.strip('\n') + '\n'
 
 
-def costruisci(scheletro, dati, home, uscita_archivio):
+def costruisci(scheletro, dati, home, uscita_archivio, titoli_proposte=None):
     """scheletro: il modello con dati, testata, colofone e presentazione gia'
     al loro posto, e ancora da riempire titolo, testa, anteprima, intestazione.
     home: (titolo, descrizione, dati strutturati) della pagina principale.
@@ -494,6 +494,12 @@ def costruisci(scheletro, dati, home, uscita_archivio):
     file['404.html'] = pagina_404.replace(
         '<meta name="description"', '<meta name="robots" content="noindex">\n'
         '<meta name="description"', 1)
+
+    # l'elenco delle proposte di legge, un file per scheda
+    for p in dati['persone']:
+        if titoli_proposte and p['q'] in titoli_proposte:
+            file['onorevole/%s/proposte.json' % p['u']] = json.dumps(
+                titoli_proposte[p['q']], ensure_ascii=False, separators=(',', ':'))
 
     file['stile.css'] = stile
     file['televideo.js'] = programma

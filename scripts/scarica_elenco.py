@@ -7,7 +7,7 @@ servito come 1 gennaio, e preso alla lettera produrrebbe compleanni inventati.
 """
 import sys, os, json, time, datetime, re, urllib.parse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import wd, camera, senato, wikipedia, camera_anagrafe
+import wd, camera, senato, wikipedia, camera_anagrafe, cariche_parlamento, proposte_camera
 
 # La console di Windows parla ancora cp1252 e va in errore su una lettera
 # straniera: un nome come Stojan Spetic ha fatto morire lo script prima che
@@ -608,6 +608,14 @@ def main():
     # Consulta Nazionale, e gli incarichi di governo coi nomi di allora.
     print('Anagrafe della Camera...')
     camera_anagrafe.aggancia(persone, camera_anagrafe.anagrafe(oggi), camera.chiave, alias)
+    # Le cariche dentro il Parlamento: presidenti e vicepresidenti delle
+    # Camere, questori, presidenti di commissione e di gruppo.
+    print('Cariche parlamentari...')
+    cariche_parlamento.aggancia(persone, cariche_parlamento.cariche(oggi), camera.chiave, alias)
+    # Le proposte di legge presentate alla Camera: i conteggi qui, i titoli
+    # li legge il generatore dalla copia versionata.
+    print('Proposte di legge...')
+    proposte_camera.aggancia(persone, proposte_camera.proposte(oggi))
 
     print('Cariche della hall of fame...')
     scarica_cariche(persone, list(hof))

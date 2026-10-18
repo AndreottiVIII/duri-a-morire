@@ -32,7 +32,7 @@
   /* righe di scansione: appena accennate, non deve dare fastidio a leggere */
   #tv::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:6px;
     background:repeating-linear-gradient(to bottom,rgba(0,0,0,0) 0 2px,rgba(0,0,0,.22) 2px 4px)}
-  pre#schermo{margin:0;white-space:pre;overflow-x:auto;text-shadow:0 0 6px currentColor}
+  pre#schermo,pre#testata{margin:0;white-space:pre;overflow-x:auto;text-shadow:0 0 6px currentColor}
 
   .b{color:var(--bianco)} .g{color:var(--giallo)} .c{color:var(--ciano)}
   .v{color:var(--verde)} .m{color:var(--magenta)} .r{color:var(--rosso)}
@@ -46,7 +46,9 @@
      telefono niente diceva che fossero da toccare */
   a.n[data-p]{text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px}
 
-  #extra{max-width:44em;width:100%;margin-top:10px;display:flex;gap:14px;align-items:flex-start}
+  #extra{width:100%;margin:10px 0 6px;display:flex;gap:14px;align-items:flex-start;
+    font-family:inherit}
+  #extra:empty{display:none}
   #extra img{width:130px;border:2px solid var(--ciano);filter:grayscale(1) contrast(1.35) brightness(.95);
     image-rendering:pixelated}
   #extra .via{font-size:13px;line-height:1.5}
@@ -95,8 +97,11 @@
 <body>
 
 <!--%%INTESTAZIONE%%-->
-<div id="tv" data-nosnippet><pre id="schermo"></pre></div>
-<div id="extra" data-nosnippet></div>
+<!-- la foto in cima allo schermo, subito sotto l'intestazione: sotto lo
+     schermo, nelle schede lunghe dei piu' importanti, finiva in fondo a tutte
+     le cariche -->
+
+<div id="tv" data-nosnippet><pre id="testata"></pre><div id="extra"></div><pre id="schermo"></pre></div>
 <div id="sub" data-nosnippet>
   <button id="prev">&larr;</button><span id="subetichetta"></span><button id="next">&rarr;</button>
 </div>
@@ -475,8 +480,8 @@ PAGINE[135] = () => {
   // voci che solo il cursus curato conosce.
   // Le poltrone diverse, non le righe: due volte alle Finanze e' una
   // poltrona sola, anche se nella scheda sono due periodi.
-  const conCursus = hof.filter(p => p.cd || p.cr || p.gv)
-    .map(p => [p, new Set((p.cd || []).concat(p.gv || []).map(c => c[0])).size +
+  const conCursus = hof.filter(p => p.cd || p.cr || p.gv || p.ip)
+    .map(p => [p, new Set((p.cd || []).concat(p.gv || [], p.ip || []).map(c => c[0])).size +
                   (p.cr ? p.cr.length : 0)])
     .sort((a, b) => b[1] - a[1]).slice(0, 16);
   const r = [titolo('H.F. — PIÙ INCARICHI'),
@@ -752,9 +757,48 @@ function rigaCarica(r, testo, da, a){
                  : [seg(riga, 'b')]);
 }
 
-function scheda(q){
+// I titoli delle proposte di legge non stanno nel programma: ogni scheda ha
+// il suo file accanto, che si legge quando la si apre. Nell'edizione a file
+// unico non c'e', e la scheda mostra solo i conteggi.
+const proposteCaricate = {};
+function caricaProposte(p){
+  if(!INDIRIZZI || !p.pl || !p.pl[0] || proposteCaricate[p.q]) return;
+  proposteCaricate[p.q] = 'attesa';
+  chiedi('/onorevole/' + p.u + '/proposte.json', {}, 30)
+    .then(r => r.ok ? r.json() : null)
+    .then(j => { proposteCaricate[p.q] = Array.isArray(j) ? j : 'no';
+                 if(stato.qid === p.q) disegna(); })
+    .catch(() => { proposteCaricate[p.q] = 'no'; });
+}
+
+// L'elenco a pagine: ogni titolo resta intero nella sua pagina, con l'anno
+// davanti.
+function pagineProposte(p){
+  const elenco = proposteCaricate[p.q];
+  if(!Array.isArray(elenco)) return [];
+  const pagine = [[]], spazio = RIGHE_LISTA - 2;
+  elenco.forEach(([a, t]) => {
+    const righe = avvolgi(t, '       ', '       ');
+    const blocco = righe.map((l, i) => i === 0 ? [seg('  ' + a + ' ', 'c'), seg(l.slice(7), 'b')]
+                                               : [seg(l, 'b')]);
+    const ultima = pagine[pagine.length - 1];
+    if(ultima.length && ultima.length + blocco.length > spazio) pagine.push([]);
+    pagine[pagine.length - 1].push.apply(pagine[pagine.length - 1], blocco);
+  });
+  return pagine;
+}
+
+function scheda(q, sub){
   const p = perQid[q];
   if(!p) return {righe: [titolo('NON TROVATO')], sottopagine: 1};
+  caricaProposte(p);
+  const pagProposte = pagineProposte(p);
+  if(sub > 0 && sub <= pagProposte.length){
+    return {righe: [titolo(tronca(p.n, W - 2)),
+                    [seg(' PROPOSTE DI LEGGE ' + sub + '/' + pagProposte.length + ' ', 'invg')],
+                    vuota()].concat(pagProposte[sub - 1]),
+            sottopagine: 1 + pagProposte.length, persona: p};
+  }
   const r = [titolo(tronca(p.n, W - 2))];
   // il sesso lo dice l'anagrafe della Camera: Nilde Iotti non e' "deceduto"
   const donna = p.g === 'f';
@@ -796,7 +840,18 @@ function scheda(q){
   const leg = legislatureDi(p), gov = governiDi(p);
   if(leg.length){
     r.push([seg(' LEGISLATURE: ' + leg.length + ' ', 'invg')]);
-    avvolgi(leg.join('  '), '  ', '  ').forEach(l => r.push([seg(l, 'c')]));
+    if(p.el){
+      // una riga per legislatura: dove sedeva e dove era stato eletto
+      const dove = {};
+      p.el.forEach(e => { dove[e[0]] = e; });
+      leg.forEach(m => {
+        const e = dove[m];
+        const ramo = !e || m === 'Costituente' ? '' : (e[1] === 'S' ? 'Senato, ' : 'Camera, ');
+        r.push([seg('  ' + m.padEnd(12), 'c'), seg(tronca(e ? ramo + e[2] : '', W - 15), 'b')]);
+      });
+    } else {
+      avvolgi(leg.join('  '), '  ', '  ').forEach(l => r.push([seg(l, 'c')]));
+    }
   }
   if(p.cn) r.push([seg('  e la Consulta Nazionale, 1945-46', 'c')]);
   // Con l'elenco della Camera i governi Ciampi e Dini compaiono gia' fra gli
@@ -808,6 +863,22 @@ function scheda(q){
   }
   if(p.x) r.push([seg(donna ? ' (mai eletta: dentro ma sulla porta)'
                             : ' (mai eletto: dentro ma sulla porta)', 'm')]);
+  // Le cariche dentro il Parlamento, dai registri di Camera e Senato:
+  // presidenze delle Camere, questori, commissioni, gruppi.
+  if(p.ip){
+    r.push(vuota());
+    r.push([seg(' INCARICHI IN PARLAMENTO', 'invg')]);
+    p.ip.forEach(c => rigaCarica(r, c[0], c[1], c[2]));
+  }
+  // Le proposte di legge presentate alla Camera: i conteggi qui, i titoli
+  // nelle sottopagine.
+  if(p.pl){
+    r.push(vuota());
+    r.push([seg(' PROPOSTE DI LEGGE ALLA CAMERA', 'invg')]);
+    if(p.pl[0]) r.push(sxdx(donna ? ' Prima firmataria' : ' Primo firmatario', String(p.pl[0]), 'b', 'g'));
+    if(p.pl[1]) r.push(sxdx(' Cofirmate', String(p.pl[1]), 'b', 'g'));
+    if(pagProposte.length) r.push([seg(' i titoli nelle pagine seguenti →', 'd')]);
+  }
   // Gli incarichi di governo, dall'elenco della Camera: il ministero col nome
   // di allora, gli anni, e sotto i governi in cui l'ha tenuto.
   if(p.gv){
@@ -836,7 +907,7 @@ function scheda(q){
     p.cr.forEach(voce => avvolgi(voce, '  ', '   ')
       .forEach(l => r.push([seg(l, 'b')])));
   }
-  return {righe: r, sottopagine: 1, persona: p};
+  return {righe: r, sottopagine: 1 + pagProposte.length, persona: p};
 }
 
 /* ---------- ricontrollo dal vivo su Wikidata ----------
@@ -1113,7 +1184,7 @@ function risultatiRicerca(testo){
 
 function disegna(){
   let costruttore, extra = '';
-  if(stato.qid) costruttore = () => scheda(stato.qid);
+  if(stato.qid) costruttore = sub => scheda(stato.qid, sub);
   else if(stato.el) costruttore = paginaFiltrata(stato.el);
   else if(stato.pagina === 150 && stato.filtro) costruttore = risultatiRicerca(stato.filtro);
   else costruttore = PAGINE[stato.pagina] || (() => ({
@@ -1130,7 +1201,10 @@ function disegna(){
   const testata = rigaHtml(sxdx(' ' + TESTATA, etichettaPag + '  ' + dataOggi + ' ', 'inv', 'inv'));
 
   const corpo = res.righe.map(rigaHtmlConLink).join('\n');
-  document.getElementById('schermo').innerHTML = testata + '\n' + corpo;
+  // l'intestazione sta in una riga a se', cosi' la foto puo' entrare fra lei
+  // e il resto dello schermo
+  document.getElementById('testata').innerHTML = testata;
+  document.getElementById('schermo').innerHTML = corpo;
 
   // foto e rimando alla fonte vivono fuori dalla griglia a 40 colonne
   const box = document.getElementById('extra');

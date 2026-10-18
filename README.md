@@ -178,7 +178,17 @@ e la colonna resta vuota invece di inventarselo.
   col nome del ministero com'era allora. Si riscarica una volta a settimana; la
   versione ridotta resta in `data/registri/camera_anagrafe.json`. Per gli
   incarichi di governo comanda lei: da Wikidata restano solo le cariche che la
-  Camera non ha (eurodeputato, sindaco, Quirinale, Consulta)
+  Camera non ha (eurodeputato, sindaco, Quirinale, Consulta). Dalla Camera
+  arriva anche il collegio di elezione (`elezione`)
+- `scripts/cariche_parlamento.py` — le cariche dentro le Camere: presidenti,
+  vicepresidenti e questori, presidenti di commissione e di gruppo (Camera dai
+  pacchetti `ufficioParlamentare` e `incarico`, Senato dal servizio di
+  interrogazione), piu' come e' entrato ogni senatore (regione, a vita, di
+  diritto). Copia in `data/registri/cariche_parlamento.json`
+- `scripts/proposte_camera.py` — le proposte di legge presentate alla Camera
+  dalla I all'XI legislatura (pacchetti `atto-01` … `atto-11`): conteggi nella
+  scheda, titoli in un file per scheda (`onorevole/<nome>/proposte.json`).
+  Copia in `data/registri/camera_proposte.json`
 
 Le risposte di Wikidata restano in `data/cache/`: rigenerare il sito non ribussa
 all'endpoint. Per riscaricare tutto da capo, svuota quella cartella.

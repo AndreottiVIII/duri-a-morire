@@ -91,6 +91,18 @@ def _pulisci(testo):
     return t[:1].upper() + t[1:] if t else ''
 
 
+PICCOLE_LUOGHI = {'di', 'del', 'della', 'dei', 'e', 'nell', 'nella', 'sul', 'in', 'd'}
+
+
+def nome_di_luogo(testo):
+    """'REGGIO NELL'EMILIA' -> "Reggio nell'Emilia"; 'BARI' -> 'Bari'."""
+    parole = re.split(r"([ '\-/])", (testo or '').strip().lower())
+    fuori = []
+    for i, w in enumerate(parole):
+        fuori.append(w if (w in PICCOLE_LUOGHI and i > 0) else w[:1].upper() + w[1:])
+    return ''.join(fuori)
+
+
 def _nome_governo(titolo, conta):
     """'I Governo Goria (28.07.1987 - 13.04.1988)' -> 'Goria'; 'VII Governo
     Andreotti (...)' -> 'Andreotti VII'. Il numero solo dove serve."""
@@ -152,6 +164,16 @@ def costruisci():
         elif p == 'membroConsulta' and o == 'true':
             x['consulta'] = 1
 
+    # Dove e' stato eletto, legislatura per legislatura: "BARI", "PARMA".
+    # L'identificativo dell'elezione porta gia' legislatura e persona:
+    # e10_23510_19870625.
+    elezioni = _scarica('elezione')
+    for s, p, o in _triple(elezioni, '<http://dati.camera.it/ocd/elezione.rdf/e'):
+        m = re.search(r'/e(\d+)_(\d+)_', s)
+        if p == 'coverage' and m and int(m.group(1)) < len(ROMANI) and m.group(2) in persone:
+            persone[m.group(2)].setdefault('elezioni', {})[ROMANI[int(m.group(1))]] = \
+                nome_di_luogo(o)
+
     # Solo chi tocca il nostro perimetro: una legislatura fino all'XI, la
     # Consulta, o un posto nei governi Ciampi e Dini.
     fuori = {}
@@ -171,6 +193,8 @@ def costruisci():
             voce['foto'] = x['depiction'].replace('http://', 'https://')
         if x.get('consulta'):
             voce['consulta'] = 1
+        if x.get('elezioni'):
+            voce['elezioni'] = x['elezioni']
         if gov:
             voce['governo'] = gov
         fuori[pid] = voce
@@ -286,6 +310,9 @@ def aggancia(persone, anagrafe_camera, chiave, alias=None):
                            ('consulta', 'consulta'), ('governo', 'incarichi_governo')):
             if v.get(campo):
                 p[mio] = v[campo]
+        # le elezioni alla Camera: {legislatura: ['C', luogo]}
+        for leg, luogo in (v.get('elezioni') or {}).items():
+            p.setdefault('elezioni', {})[leg] = ['C', luogo]
         agganciati += 1
     print('  %d schede legate all\'anagrafe della Camera' % agganciati)
     # La foto della Camera serve solo a chi su Wikimedia non ne ha una: si
