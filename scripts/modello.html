@@ -145,6 +145,8 @@ function rigaHtml(segs){
   let out = segs.map(s => '<span class="' + s.c + '">' + esc(s.t) + '</span>').join('');
   return out + sp(W - len);
 }
+// 9.841 e non 9841: in italiano il browser non mette il punto sotto i 10.000
+const migliaia = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 function sxdx(sx, dx, cs, cd){
   const spazio = W - sx.length - dx.length;
   return [seg(sx, cs), seg(sp(spazio)), seg(dx, cd)];
@@ -509,11 +511,19 @@ PAGINE[280] = paginaRighe(() => {
   return tutte.sort((a, b) => b[2] - a[2]).slice(0, 500).map(c => [
     seg(' '), {t: tronca(c[0].n, 22).padEnd(22), c: c[0].s === 1 ? 'b' : 'd', link: c[0].q},
     seg(' ' + (anni[c[1]] || ''), 'c'),
-    seg(c[2].toLocaleString('it-IT').padStart(W - 29), 'g')]);
+    seg(migliaia(c[2]).padStart(W - 29), 'g')]);
 }, 'I PIÙ VOTATI', 'preferenze 1948-1992, fonte Min. Interno');
 
 // La stessa classifica della 135, ma per tutti: chi ha occupato piu'
 // poltrone, al governo e in Parlamento.
+// I nomi della lista P2 sequestrata nel 1981: prima i vivi, dal piu'
+// anziano, poi gli altri.
+const listaP2 = () => perNascita(P.filter(p => p.p2 !== undefined && p.s === 1))
+  .concat(P.filter(p => p.p2 !== undefined && p.s !== 1));
+PAGINE[285] = paginaLista(listaP2, 'NELLA LISTA P2',
+  () => ancoraVivi(listaP2().filter(p => p.s === 1).length) + ' su ' + listaP2().length +
+        ', lista del 1981');
+
 PAGINE[270] = paginaRighe(() => P.map(p => [p, quantiIncarichi(p)])
   .filter(c => c[1] >= 2)
   .sort((a, b) => b[1] - a[1] || (a[0].n < b[0].n ? -1 : 1))
@@ -555,6 +565,7 @@ PAGINE[200] = () => {
     vocemenu(260, 'STATISTICHE DEI DEFUNTI'),
     vocemenu(270, 'PIÙ INCARICHI'),
     vocemenu(280, 'I PIÙ VOTATI'),
+    vocemenu(285, 'NELLA LISTA P2'),
     vocemenu(290, 'PER CIRCOSCRIZIONE (CAMERA)'),
     vocemenu(295, 'PER REGIONE (SENATO)'),
   ], sottopagine: 1};
@@ -878,14 +889,20 @@ function scheda(q, sub){
   }
   r.push([seg(' ' + st[0] + ' ', st[1])]);
   r.push(vuota());
+  // il luogo sotto la data, quando Wikidata lo sa
+  const lu = p.lu || ['', '', ''];
   r.push(sxdx(' Nascita', dataIt(p.b, p.bp), 'b', 'c'));
+  if(lu[0]) r.push(sxdx('', tronca(lu[0], W - 2), 'd', 'd'));
   if(p.d) r.push(sxdx(' Morte', dataIt(p.d, p.dp), 'b', 'r'));
+  if(p.d && lu[1]) r.push(sxdx('', tronca(lu[1], W - 2), 'd', 'd'));
   else if(p.di) r.push(sxdx(' Morte', 'data ignota', 'b', 'r'));
   // quando la morte non viene da Wikidata vale la pena dire chi l'ha registrata
   if(p.fd) r.push([seg(' via ' + tronca(p.fd, W - 6), 'd')]);
   const e = eta(p);
   // di chi e' di sorte ignota non si sa se sia vivo: l'eta' e' un condizionale
   if(e !== null) r.push(sxdx(p.d ? ' Aveva' : (p.s === 3 ? ' Avrebbe' : ' Ha'), e + ' anni', 'b', 'g'));
+  if(p.d && lu[2]) avvolgi((donna ? 'Sepolta: ' : 'Sepolto: ') + lu[2], ' ', '  ')
+    .forEach(l => r.push([seg(l, 'd')]));
   // Una riga scritta a mano dove i dati lasciano un vuoto da raccontare:
   // perche' di qualcuno non si sa niente.
   if(p.nt){
@@ -914,6 +931,16 @@ function scheda(q, sub){
     if(altro) r.push([seg(' ' + f[0] + ': ', 'd'),
                       {t: tronca(altro.n, W - f[0].length - 4), c: 'c', link: altro.q}]);
   });
+  // Il nome nella lista della P2 trovata a Castiglion Fibocchi: un fatto
+  // documentato dalla Commissione Anselmi, non una condanna.
+  if(p.p2 !== undefined){
+    r.push(vuota());
+    r.push([seg(' '), {t: 'NELLA LISTA P2', c: 'g', pag: 285}]);
+    avvolgi('nella lista sequestrata a Castiglion Fibocchi nel 1981' +
+            (p.p2 === 'in sonno' ? ', ' + (donna ? 'segnata «in sonno», cioè dimessa' : 'segnato «in sonno», cioè dimesso')
+             : p.p2 ? ', poi ' + (donna ? 'passata' : 'passato') + ' al Grande Oriente' : ''), ' ', ' ')
+      .forEach(l => r.push([seg(l, 'd')]));
+  }
   r.push(vuota());
   const leg = legislatureDi(p), gov = governiDi(p);
   if(leg.length){
@@ -928,7 +955,7 @@ function scheda(q, sub){
       leg.forEach(m => {
         const e = dove[m];
         const ramo = !e || m === 'Costituente' ? '' : (e[1] === 'S' ? 'Senato, ' : 'Camera, ');
-        const numero = voti[m] ? voti[m].toLocaleString('it-IT') : '';
+        const numero = voti[m] ? migliaia(voti[m]) : '';
         const spazio = W - 15 - (numero ? numero.length + 1 : 0);
         const riga = [seg('  ' + m.padEnd(12), 'c')];
         let usati = 14;

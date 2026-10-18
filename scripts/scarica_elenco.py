@@ -396,6 +396,41 @@ def scarica_parenti(persone):
     print('  %d legami di parentela fra persone dell\'elenco' % coppie)
 
 
+# Dove sono nati, morti e sepolti. Wikidata non li ha per tutti: chi manca
+# resta senza, e la scheda non lo dice.
+LUOGHI = {'P19': 'nascita', 'P20': 'morte', 'P119': 'sepoltura'}
+Q_LUOGHI = """SELECT ?a ?p ?nome WHERE {
+  VALUES ?a { %s }
+  VALUES ?p { %s }
+  ?a ?p ?l .
+  ?l rdfs:label ?nome . FILTER(LANG(?nome) = 'it')
+}"""
+
+
+def scarica_luoghi(persone):
+    lista = sorted(persone)
+    righe = []
+    for i in range(0, len(lista), 300):
+        righe += cache_o_query('luoghi_%d' % i, Q_LUOGHI % (
+            ' '.join('wd:' + q for q in lista[i:i + 300]),
+            ' '.join('wdt:' + k for k in LUOGHI)))
+    trovati = {}
+    for r in righe:
+        a, chi = wd.qid(r, 'a'), LUOGHI.get((wd.v(r, 'p') or '').rsplit('/', 1)[-1])
+        if a in persone and chi:
+            trovati.setdefault(a, {}).setdefault(chi, set()).add(wd.v(r, 'nome'))
+    quanti = {k: 0 for k in LUOGHI.values()}
+    for a, voci in trovati.items():
+        # due luoghi di nascita vuol dire che Wikidata non sa quale: meglio niente
+        buoni = {k: next(iter(v)) for k, v in voci.items() if len(v) == 1}
+        if buoni:
+            persone[a]['luoghi'] = buoni
+            for k in buoni:
+                quanti[k] += 1
+    print('  luoghi: %(nascita)d di nascita, %(morte)d di morte, %(sepoltura)d di sepoltura'
+          % quanti)
+
+
 def leggi_json(nome):
     percorso = os.path.join(QUI, '..', 'data', nome)
     if not os.path.exists(percorso):
@@ -689,6 +724,7 @@ def main():
     # Le parentele fra persone che sono tutte nell'elenco, da Wikidata.
     print('Famiglie...')
     scarica_parenti(persone)
+    scarica_luoghi(persone)
 
     print('Cariche della hall of fame...')
     scarica_cariche(persone, list(hof))

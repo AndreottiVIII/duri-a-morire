@@ -690,6 +690,10 @@ def compatta(p):
         d['di'] = 1
     if cariche:
         d['cd'] = [[c['carica'], c['da'] or '', c['a'] or ''] for c in cariche]
+    # dove e' nato, morto e sepolto, quando Wikidata lo sa
+    lu = p.get('luoghi') or {}
+    if lu:
+        d['lu'] = [lu.get('nascita', ''), lu.get('morte', ''), lu.get('sepoltura', '')]
     return d
 
 
@@ -715,6 +719,13 @@ def main():
     for d in persone:
         if d['q'] in note:
             d['nt'] = [note[d['q']]['testo'], note[d['q']]['fonte']]
+    # la lista della P2 sequestrata nel 1981, con la nota che vi si legge
+    p2 = os.path.join(QUI, '..', 'data', 'registri', 'lista_p2.json')
+    if os.path.exists(p2):
+        for v in json.load(open(p2, encoding='utf-8')):
+            if v['qid'] in per_qid:
+                per_qid[v['qid']]['p2'] = ('in sonno' if v['in_sonno'] else
+                                           'passato al Grande Oriente' if v['grande_oriente'] else '')
     persone.sort(key=lambda d: d['n'].lower())
 
     dati = {

@@ -54,6 +54,7 @@ PAGINE = {
     261: '/statistiche/defunti-per-partito/',
     270: '/statistiche/piu-incarichi/',
     280: '/statistiche/piu-votati/',
+    285: '/statistiche/lista-p2/',
     290: '/camera/circoscrizioni/',
     295: '/senato/regioni/',
     300: '/in-memoriam/',
@@ -336,6 +337,9 @@ def schermate(dati):
     pagina(280, 'I parlamentari più votati della Prima Repubblica',
            'La classifica dei voti di preferenza alla Camera dal 1948 al 1992, elezione '
            'per elezione: da Andreotti a Moro, da Berlinguer a Rumor.')
+    pagina(285, 'I parlamentari nella lista P2: chi è ancora vivo',
+           'I parlamentari della Prima Repubblica il cui nome compare nella lista della '
+           'loggia P2 sequestrata a Castiglion Fibocchi nel 1981: chi c’è ancora e chi no.')
     pagina(300, 'In memoriam: i parlamentari della Prima Repubblica scomparsi',
            'I %d parlamentari e ministri della Prima Repubblica che non ci sono più, '
            'dal più recente.' % len(defunti))
