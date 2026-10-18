@@ -96,7 +96,11 @@ PICCOLE_LUOGHI = {'di', 'del', 'della', 'dei', 'e', 'nell', 'nella', 'sul', 'in'
 
 def nome_di_luogo(testo):
     """'REGGIO NELL'EMILIA' -> "Reggio nell'Emilia"; 'BARI' -> 'Bari'."""
-    parole = re.split(r"([ '\-/])", (testo or '').strip().lower())
+    t = (testo or '').strip()
+    # il collegio dei resti nazionali la Camera lo scrive in due modi
+    if t.upper() == 'CUN' or t.upper().startswith('COLLEGIO UNICO'):
+        return 'Collegio unico nazionale'
+    parole = re.split(r"([ '\-/])", t.lower())
     fuori = []
     for i, w in enumerate(parole):
         fuori.append(w if (w in PICCOLE_LUOGHI and i > 0) else w[:1].upper() + w[1:])

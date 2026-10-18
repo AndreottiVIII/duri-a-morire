@@ -43,6 +43,8 @@ PAGINE = {
     133: '/hall-of-fame/per-partito/',
     134: '/hall-of-fame/compleanni/',
     135: '/hall-of-fame/piu-incarichi/',
+    140: '/camera/circoscrizioni/',
+    145: '/senato/regioni/',
     150: '/ricerca/',
     200: '/statistiche/',
     210: '/statistiche/sopravvissuti-per-partito/',
@@ -66,7 +68,25 @@ ELENCHI = {
     'mortipartito': '/in-memoriam/partito/',
     'morti': '/in-memoriam/',
     'hof': '/hall-of-fame/partito/',
+    # due dimensioni separate: la Camera votava per circoscrizioni, il Senato
+    # per regioni
+    'circ': '/camera/circoscrizione/',
+    'reg': '/senato/regione/',
 }
+
+NON_ELETTIVI = ('a vita', 'di diritto')
+
+
+def eletti_per_luogo(persone, ramo):
+    """{luogo: [persone]} per la Camera ('C') o il Senato ('S')."""
+    fuori = {}
+    for p in persone:
+        for leg, r, luogo in p.get('el', []):
+            if r == ramo and luogo and luogo not in NON_ELETTIVI:
+                gente = fuori.setdefault(luogo, [])
+                if p not in gente:
+                    gente.append(p)
+    return fuori
 
 # Schermate che non servono a chi cerca: esistono, ma Google non le mostri.
 FUORI_DAI_MOTORI = {150, 600}
@@ -263,6 +283,15 @@ def schermate(dati):
            'I prossimi compleanni fra i protagonisti della hall of fame ancora in vita.')
     pagina(135, 'Hall of fame: chi ha avuto più incarichi',
            'I protagonisti della Prima Repubblica che hanno occupato più poltrone.')
+    camera_luoghi = eletti_per_luogo(P, 'C')
+    senato_luoghi = eletti_per_luogo(P, 'S')
+    pagina(140, 'Le circoscrizioni della Camera: chi è ancora vivo fra gli eletti',
+           'Per ognuna delle %d circoscrizioni della Camera, dalla Costituente al 1994, '
+           'quanti deputati vi furono eletti e quanti sono ancora in vita.'
+           % len(camera_luoghi))
+    pagina(145, 'Le regioni del Senato: chi è ancora vivo fra gli eletti',
+           'Per ognuna delle %d regioni del Senato, dal 1948 al 1994, quanti senatori '
+           'vi furono eletti e quanti sono ancora in vita.' % len(senato_luoghi))
     pagina(150, 'Cerca un parlamentare della Prima Repubblica',
            'Cerca per nome fra i %s parlamentari e ministri della Prima Repubblica.' % n_tot)
     pagina(200, 'Statistiche: età, decano e sopravvissuti della Prima Repubblica',
@@ -332,6 +361,27 @@ def schermate(dati):
                     else L if L.startswith('Governo') else '%s legislatura' % L)
             elenco('mandato', L, '%s (%s): i sopravvissuti' % (nome, anni),
                    '%s (%s): i %d ancora in vita, dal più anziano.' % (nome, anni, len(vivi)))
+    def resto(vivi):
+        return ('non ne resta in vita nessuno' if not vivi
+                else 'ne resta in vita uno solo' if vivi == 1
+                else 'ne sono ancora in vita %d' % vivi)
+
+    for luogo, gente in sorted(camera_luoghi.items()):
+        vivi = sum(1 for p in gente if p['s'] == 1)
+        # il collegio dei resti nazionali non e' un territorio
+        nome = luogo if luogo.startswith('Collegio') else 'Circoscrizione di ' + luogo
+        dove = 'nel collegio unico nazionale' if luogo.startswith('Collegio') \
+            else 'nella circoscrizione di ' + luogo
+        elenco('circ', luogo, '%s: deputati della Prima Repubblica ancora vivi' % nome,
+               'Dei %d deputati eletti %s dalla Costituente al 1994 %s. L’elenco completo, '
+               'dal più anziano.' % (len(gente), dove, resto(vivi)))
+    for luogo, gente in sorted(senato_luoghi.items()):
+        vivi = sum(1 for p in gente if p['s'] == 1)
+        elenco('reg', luogo, 'Senatori eletti in %s nella Prima Repubblica: chi è ancora vivo'
+               % luogo,
+               'Dei %d senatori eletti in %s dal 1948 al 1994 %s. L’elenco completo, '
+               'dal più anziano.' % (len(gente), luogo, resto(vivi)))
+
     per_anno = {}
     for p in defunti:
         if p['d']:

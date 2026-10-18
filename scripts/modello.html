@@ -318,6 +318,8 @@ PAGINE[100] = () => {
     vocemenu(130, 'HALL OF FAME',
              hof.filter(p => p.s === 1).length + '/' + hof.length, 'g'),
     vocemenu(110, 'PER LEGISLATURA'),
+    vocemenu(140, 'PER CIRCOSCRIZIONE (CAMERA)'),
+    vocemenu(145, 'PER REGIONE (SENATO)'),
     vocemenu(200, 'STATISTICHE'),
     vocemenu(500, 'COMPLEANNI'),
     vocemenu(150, 'RICERCA'),
@@ -731,6 +733,37 @@ if(COLOFONE){
   }, 'INFO SU QUESTO SITO', '');
 }
 
+/* ---------- per territorio ----------
+   Due dimensioni separate: le circoscrizioni della Camera (e della
+   Costituente) e le regioni del Senato. I senatori a vita e di diritto non
+   sono stati eletti da nessuna parte e non stanno in nessuna regione. */
+const NON_ELETTIVI = ['a vita', 'di diritto'];
+function elettoIn(p, tipo, luogo){
+  return (p.el || []).some(e => (tipo === 'circ' ? e[1] === 'C' : e[1] === 'S') &&
+                                e[2] === luogo && NON_ELETTIVI.indexOf(e[2]) < 0);
+}
+function elettiIn(tipo, luogo){ return P.filter(p => elettoIn(p, tipo, luogo)); }
+function luoghiDi(tipo){
+  const visti = {};
+  P.forEach(p => (p.el || []).forEach(e => {
+    if((tipo === 'circ' ? e[1] === 'C' : e[1] === 'S') && e[2] &&
+       NON_ELETTIVI.indexOf(e[2]) < 0) visti[e[2]] = 1;
+  }));
+  return Object.keys(visti).sort((a, b) => a.localeCompare(b, 'it'));
+}
+function paginaLuoghi(tipo, intestazione, nota){
+  return paginaRighe(() => luoghiDi(tipo).map(l => {
+    const gente = elettiIn(tipo, l), vivi = gente.filter(p => p.s === 1).length;
+    return [seg(' '), {t: tronca(l, 22).padEnd(23), c: 'g', el: tipo + ':' + l},
+            seg(String(vivi).padStart(5), vivi ? 'c' : 'r'),
+            seg(' / ' + gente.length, 'd')];
+  }), intestazione, nota);
+}
+PAGINE[140] = paginaLuoghi('circ', 'CIRCOSCRIZIONI DELLA CAMERA',
+  'ancora vivi / eletti, dal 1946 al 1994');
+PAGINE[145] = paginaLuoghi('reg', 'REGIONI DEL SENATO',
+  'ancora vivi / eletti, dal 1948 al 1994');
+
 PAGINE[150] = () => ({righe: [titolo('RICERCA'), vuota(),
   [seg(' Scrivi un nome nel campo qui sotto.', 'c')]], sottopagine: 1});
 
@@ -847,7 +880,16 @@ function scheda(q, sub){
       leg.forEach(m => {
         const e = dove[m];
         const ramo = !e || m === 'Costituente' ? '' : (e[1] === 'S' ? 'Senato, ' : 'Camera, ');
-        r.push([seg('  ' + m.padEnd(12), 'c'), seg(tronca(e ? ramo + e[2] : '', W - 15), 'b')]);
+        const riga = [seg('  ' + m.padEnd(12), 'c')];
+        if(e && NON_ELETTIVI.indexOf(e[2]) < 0){
+          // il luogo porta alla pagina di chi e' stato eletto li'
+          riga.push(seg(ramo, 'b'));
+          riga.push({t: tronca(e[2], W - 15 - ramo.length), c: 'b',
+                     el: (e[1] === 'S' ? 'reg:' : 'circ:') + e[2]});
+        } else {
+          riga.push(seg(tronca(e ? ramo + e[2] : '', W - 15), 'b'));
+        }
+        r.push(riga);
       });
     } else {
       avvolgi(leg.join('  '), '  ', '  ').forEach(l => r.push([seg(l, 'c')]));
@@ -1165,6 +1207,17 @@ function paginaFiltrata(chiave){
     elenco = defunti.filter(p => anno(p.d) === +valore)
       .sort((a, b) => (a.d || '') < (b.d || '') ? -1 : 1);
     intestazione = 'MORTI NEL ' + valore;
+  } else if(tipo === 'circ' || tipo === 'reg'){
+    // Tutti gli eletti in quella circoscrizione della Camera o in quella
+    // regione del Senato, dal piu' anziano, e in cima quanti ne restano.
+    // Le due dimensioni restano separate: la Camera votava per
+    // circoscrizioni, il Senato per regioni.
+    elenco = perNascita(elettiIn(tipo, valore));
+    const vivi = elenco.filter(p => p.s === 1).length;
+    return paginaLista(() => elenco,
+      (tipo === 'reg' ? 'SENATO, ' : valore.indexOf('Collegio') === 0 ? '' : 'CIRCOSCRIZIONE DI ') +
+        valore.toUpperCase(),
+      ancoraVivi(vivi) + ' su ' + elenco.length + ' eletti');
   }
   const quante = elenco.length === 1 ? '1 persona' : elenco.length + ' persone';
   return paginaLista(() => elenco, intestazione,
@@ -1314,7 +1367,8 @@ function percorsoDiStato(s){
 function valoreDaScheggia(tipo, pezzo){
   if(tipo === 'morti') return /^\d{4}$/.test(pezzo) ? pezzo : null;
   const candidati = tipo === 'mandato' ? DATI.legislature.map(L => L[0])
-                                       : P.map(p => p.p).filter(Boolean);
+                  : (tipo === 'circ' || tipo === 'reg') ? luoghiDi(tipo)
+                  : P.map(p => p.p).filter(Boolean);
   return candidati.find(c => scheggia(c) === pezzo) || null;
 }
 
