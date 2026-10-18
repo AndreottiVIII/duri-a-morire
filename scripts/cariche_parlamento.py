@@ -318,13 +318,20 @@ def aggancia(persone, dati, chiave, alias=None):
     """Alla Camera la persona si riconosce dal suo identificativo; al Senato
     dal nome piu' la legislatura in cui ha tenuto la carica, che deve essere
     una delle sue. Due omonimi possibili: meglio niente che lo sbagliato."""
+    # Chi ha il numero del Senato si trova solo con la chiave che il Senato
+    # gli da'; e quella chiave non va a nessun altro, nemmeno a un omonimo.
     per_chiave = {}
+    prese = {p['chiave_senato'] for p in persone.values() if p.get('chiave_senato')}
     for p in persone.values():
+        if p.get('chiave_senato'):
+            per_chiave.setdefault(p['chiave_senato'], []).append(p)
+            continue
         nomi = {re.sub(r'\s*\([^)]*\)', '', p['nome'] or '')}
         if alias and alias.get(p['qid']):
             nomi.add(alias[p['qid']])
         for n in nomi:
-            per_chiave.setdefault(chiave(n), []).append(p)
+            if chiave(n) not in prese:
+                per_chiave.setdefault(chiave(n), []).append(p)
     contate = 0
 
     def metti(p, c):

@@ -137,6 +137,69 @@ def assorbi(persone, righe, etichetta_mandato):
             p['cariche'].add(pos)
 
 
+# Il numero della scheda del Senato, che Wikidata conserva (P2549): porta
+# dalla voce del registro alla persona senza passare dal nome. Lina Merlin
+# per il Senato e' Angelina, Enzo Bettiza e' Vincenzo; e due Giuseppe Russo,
+# un deputato del 1920 e un senatore del 1936, per nome sono uno solo.
+Q_ID_SENATO = 'SELECT ?p ?id WHERE { VALUES ?id { %s } ?p wdt:P2549 ?id }'
+Q_PERSONE = """SELECT ?p ?pLabel ?nascita ?precN ?morte ?precM ?foto ?art WHERE {
+  VALUES ?p { %s }
+""" + DATE + "}"
+
+
+def senatori_dal_registro(persone, oggi):
+    """Incrocia i senatori della Prima Repubblica con l'elenco attraverso il
+    numero del Senato. Chi c'e' gia' si porta dietro la chiave con cui il
+    registro lo conosce (p['chiave_senato']); chi manca entra, con le
+    legislature che il Senato gli da': i senatori a vita soprattutto, che su
+    Wikidata non sono legati a una legislatura (Sturzo, Montale, Bobbio).
+    Restituisce {chiave del registro: qid} per le voci gia' assegnate."""
+    mandati = cariche_parlamento.cariche(oggi).get('mandati_senato', [])
+    ids = {}
+    for c in mandati:
+        i = (c.get('id') or '').split(':')[-1]
+        if i and c['leg'] in LEGISLATURE_PERIMETRO:
+            voce = ids.setdefault(i, {'chiave': c['chiave'], 'legs': set()})
+            voce['legs'].add(c['leg'])
+    elenco = sorted(ids)
+    righe = []
+    for a in range(0, len(elenco), 400):
+        righe += cache_o_query('id_senato_%d' % a, Q_ID_SENATO % ' '.join(
+            '"%s"' % x for x in elenco[a:a + 400]))
+    di_chi = {}
+    for r in righe:
+        di_chi.setdefault(wd.v(r, 'id'), set()).add(wd.qid(r, 'p'))
+    assegnate, nuovi = {}, {}
+    for i, qq in di_chi.items():
+        if len(qq) != 1:
+            continue          # due voci Wikidata per un senatore: meglio niente
+        q = next(iter(qq))
+        voce = ids[i]
+        assegnate[voce['chiave']] = q
+        if q in persone:
+            persone[q]['chiave_senato'] = voce['chiave']
+            persone[q]['legislature_senato'] = sorted(voce['legs'])
+        else:
+            nuovi[q] = voce
+    if nuovi:
+        lista = sorted(nuovi)
+        dati = []
+        for a in range(0, len(lista), 200):
+            dati += cache_o_query('senatori_nuovi_%d' % a, Q_PERSONE % ' '.join(
+                'wd:' + q for q in lista[a:a + 200]))
+        ordine = [COSTITUENTE[0]] + [L[0] for L in LEGISLATURE]
+        for q, voce in nuovi.items():
+            sue = [r for r in dati if wd.qid(r, 'p') == q]
+            for m in sorted(voce['legs'], key=ordine.index):
+                assorbi(persone, sue or [{'p': {'value': 'http://www.wikidata.org/entity/' + q}}], m)
+            if q in persone:
+                persone[q]['chiave_senato'] = voce['chiave']
+                persone[q]['dal_senato'] = True
+    print('  %d senatori riconosciuti dal numero del Senato, %d aggiunti all\'elenco'
+          % (len(assegnate) - len(nuovi), len(nuovi)))
+    return assegnate
+
+
 def nome_leggibile(p, curato):
     """Quando su Wikidata manca l'etichetta, il servizio restituisce il codice
     (un 'Q2460954' al posto di Giorgio La Malfa). Si ripiega sul nome curato a
@@ -439,7 +502,7 @@ def leggi_json(nome):
             if not k.startswith('_')}
 
 
-def fondi_doppioni(persone):
+def fondi_doppioni(persone, nascite_wd=None):
     """Stesso nome e stessa legislatura vuol dire stessa persona.
 
     Su Wikidata capita che una persona compaia due volte, una col suo record
@@ -470,6 +533,20 @@ def fondi_doppioni(persone):
                 if a >= b or a not in persone or b not in persone:
                     continue
                 if not set(persone[a]['mandati']) & set(persone[b]['mandati']):
+                    continue
+                # chi e' entrato col numero del Senato e' una persona certa, e
+                # due numeri diversi sono due persone (i due Giuseppe Russo)
+                # due persone (i due Giuseppe Russo, 1920 e 1936); e quando solo
+                # uno ha il numero, a dividerli bastano anni di nascita lontani
+                sa, sb = persone[a].get('chiave_senato'), persone[b].get('chiave_senato')
+                if persone[a].get('dal_senato') or persone[b].get('dal_senato') or (sa and sb):
+                    continue
+                # la nascita di Wikidata, prima che un registro la sovrascriva
+                # con quella di un omonimo
+                nw = nascite_wd or {}
+                na = int((nw.get(a) or persone[a].get('nascita') or '0')[:4] or 0)
+                nb = int((nw.get(b) or persone[b].get('nascita') or '0')[:4] or 0)
+                if (sa or sb) and na and nb and abs(na - nb) > 2:
                     continue
                 tieni, scarta = sorted([a, b], key=valore, reverse=True)
                 buono, altro = persone[tieni], persone[scarta]
@@ -510,6 +587,13 @@ def main():
         assorbi(persone, cache_o_query('gov_%s' % nome, Q_GOVERNO % {'g': q}),
                 'Governo ' + nome)
         print('  totale cumulato: %d' % len(persone))
+
+    # I senatori riconosciuti dal numero del Senato, e quelli che mancavano.
+    print('Senatori dal registro del Senato...')
+    voci_assegnate = senatori_dal_registro(persone, datetime.date.today())
+    # i senatori entrati dal registro sono parlamentari a pieno titolo, non
+    # ministri mai eletti: a vita, di diritto o eletti che siano
+    eletti |= {q for q, p in persone.items() if p.get('dal_senato')}
 
     print('Partiti...')
     for nome, q, anni in LEGISLATURE:
@@ -573,8 +657,18 @@ def main():
         recuperati = 0
         for p in persone.values():
             wd_n, wd_m = nascite_wd.get(p['qid']), morti_wd.get(p['qid'])
-            v, come = modulo.cerca_ampia(reg, indice, p['nome'], p['nascita'],
-                                         p['mandati'], per_mandato, wd_n, wd_m)
+            if modulo is senato and p.get('chiave_senato'):
+                # col numero del Senato non si tira a indovinare: quella voce o niente
+                v = modulo.cerca(reg, p['chiave_senato'],
+                                 p['mandati'] + p.get('legislature_senato', []))
+                come = 'numero del Senato'
+            elif (modulo is senato and voci_assegnate.get(camera.chiave(p['nome']))
+                  not in (None, p['qid'])):
+                # la voce col suo nome e' di un omonimo, riconosciuto dal numero
+                continue
+            else:
+                v, come = modulo.cerca_ampia(reg, indice, p['nome'], p['nascita'],
+                                             p['mandati'], per_mandato, wd_n, wd_m)
             if not v and alias.get(p['qid']):
                 # Gianna Schelotto per i registri e' Giovanna Bochicchio.
                 v, come = modulo.cerca_ampia(reg, indice, alias[p['qid']],
@@ -686,11 +780,15 @@ def main():
     for d in discordanze[:8]:
         print('    %-26s wikidata %s -> %s (%s)' % (d[0], d[1], d[2], d[3]))
 
-    fondi_doppioni(persone)
+    fondi_doppioni(persone, nascite_wd)
 
     # Le legislature dei registri entrano solo adesso, a doppioni gia' fusi:
     # prima avrebbero fatto sembrare la stessa persona due omonimi.
     aggiunte = 0
+    for q, p in persone.items():
+        for m in p.pop('legislature_senato', []):
+            if m in LEGISLATURE_PERIMETRO:
+                da_aggiungere.setdefault(q, set()).add(m)
     for q, nuove in da_aggiungere.items():
         if q not in persone:
             continue

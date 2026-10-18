@@ -31,6 +31,12 @@ import unicodedata
 INDIRIZZO = 'https://primarepubblica.net'
 SITO = 'Prima Repubblica Tracker'
 
+
+def titolo_pieno(titolo):
+    """Il nome del sito davanti: la linguetta del browser mostra solo
+    l'inizio, e deve dire dove si e', non 'Statistiche: eta', dec...'."""
+    return titolo if titolo.startswith(SITO) else '%s · %s' % (SITO, titolo)
+
 # Le schermate del Televideo e il loro indirizzo. Le legislature si
 # aggiungono da sole, una per riga di DATI['legislature'].
 PAGINE = {
@@ -53,6 +59,7 @@ PAGINE = {
     260: '/statistiche/defunti/',
     261: '/statistiche/defunti-per-partito/',
     270: '/statistiche/piu-incarichi/',
+    275: '/statistiche/piu-loquaci/',
     280: '/statistiche/piu-votati/',
     285: '/statistiche/lista-p2/',
     290: '/camera/circoscrizioni/',
@@ -334,6 +341,9 @@ def schermate(dati):
     pagina(270, 'I parlamentari della Prima Repubblica con più incarichi',
            'La classifica di chi ha occupato più poltrone: ministeri, sottosegretariati, '
            'presidenze delle Camere, delle commissioni e dei gruppi parlamentari.')
+    pagina(275, 'I parlamentari della Prima Repubblica più loquaci',
+           'Chi ha preso più volte la parola nell’aula della Camera: la classifica degli '
+           'interventi, dal portale storico della Camera dei deputati.')
     pagina(280, 'I parlamentari più votati della Prima Repubblica',
            'La classifica dei voti di preferenza alla Camera dal 1948 al 1992, elezione '
            'per elezione: da Andreotti a Moro, da Berlinguer a Rumor.')
@@ -519,7 +529,7 @@ def costruisci(scheletro, dati, home, uscita_archivio, titoli_proposte=None):
     titoli = {'/': titolo_home}
     for indirizzo, num, titolo, descrizione, persona in elenco_schermate:
         if not persona:
-            titoli[indirizzo] = '%s | %s' % (titolo, SITO)
+            titoli[indirizzo] = titolo_pieno(titolo)
     programma = programma.replace(
         '"__INDIRIZZI__":null',
         '"indirizzi":' + json.dumps({'pagine': {str(k): x for k, x in PAGINE.items()},
@@ -560,7 +570,7 @@ def costruisci(scheletro, dati, home, uscita_archivio, titoli_proposte=None):
                                strutturati_home)
     mappa = ['/']
     for indirizzo, num, titolo, descrizione, persona in elenco_schermate:
-        pieno = '%s | %s' % (titolo, SITO)
+        pieno = titolo_pieno(titolo)
         file[indirizzo.strip('/') + '/index.html'] = monta(
             indirizzo, num, pieno, descrizione, persona, titolo)
         if num not in FUORI_DAI_MOTORI:

@@ -739,6 +739,23 @@ def main():
     for d in persone:
         if d['q'] in note:
             d['nt'] = [note[d['q']]['testo'], note[d['q']]['fonte']]
+    # quante volte ha parlato in aula alla Camera fino al 14 aprile 1994, dal
+    # portale storico (scaricato a mano con interventi_storici.py): per chi e'
+    # rimasto anche dopo conta 'fino_1994'
+    iv = os.path.join(QUI, '..', 'data', 'registri', 'camera_interventi.json')
+    if os.path.exists(iv):
+        conti = json.load(open(iv, encoding='utf-8'))
+        # chi e' rimasto alla Camera dopo il 1994 e non e' ancora stato
+        # ricontato resta senza numero: il totale di tutta la carriera qui no
+        dopo = os.path.join(QUI, '..', 'data', 'registri', 'camera_dopo_1994.json')
+        dopo = set(json.load(open(dopo, encoding='utf-8'))) if os.path.exists(dopo) else set()
+        for p in grezzo['persone']:
+            c = conti.get(p.get('storia_camera') or '') or {}
+            if p.get('storia_camera') in dopo and 'fino_1994' not in c:
+                continue
+            n = c.get('fino_1994', c.get('interventi'))
+            if n and p['qid'] in per_qid:
+                per_qid[p['qid']]['iv'] = n
     # la lista della P2 sequestrata nel 1981, con la nota che vi si legge
     p2 = os.path.join(QUI, '..', 'data', 'registri', 'lista_p2.json')
     if os.path.exists(p2):

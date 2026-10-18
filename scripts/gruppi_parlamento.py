@@ -128,13 +128,20 @@ def gruppi(oggi, forza=False):
 def aggancia(persone, dati, alias=None):
     """Alla Camera per identificativo; al Senato per nome e legislatura, e
     solo se la persona e' una. p['gruppi'] = [[leg, ramo, sigla, da, a]]."""
+    # Chi ha il numero del Senato si trova solo con la chiave che il Senato
+    # gli da'; e quella chiave non va a nessun altro, nemmeno a un omonimo.
     per_chiave = {}
+    prese = {p['chiave_senato'] for p in persone.values() if p.get('chiave_senato')}
     for p in persone.values():
+        if p.get('chiave_senato'):
+            per_chiave.setdefault(p['chiave_senato'], []).append(p)
+            continue
         nomi = {re.sub(r'\s*\([^)]*\)', '', p['nome'] or '')}
         if alias and alias.get(p['qid']):
             nomi.add(alias[p['qid']])
         for n in nomi:
-            per_chiave.setdefault(camera.chiave(n), []).append(p)
+            if camera.chiave(n) not in prese:
+                per_chiave.setdefault(camera.chiave(n), []).append(p)
     quanti = 0
     for p in persone.values():
         pid = p.get('anagrafe_camera') or p.get('id_camera')
