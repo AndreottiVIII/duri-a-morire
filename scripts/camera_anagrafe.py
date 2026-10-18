@@ -209,6 +209,39 @@ def anagrafe(oggi, forza=False):
     return nuova
 
 
+# Per molti deputati dei primi anni la Camera non ha la foto e serve al suo
+# posto un'immagine con scritto "Immagine non disponibile", sempre la stessa;
+# per altri il collegamento non porta a niente. Ogni foto si controlla una
+# volta sola, e l'esito resta in data/registri/camera_foto.json.
+SEGNAPOSTO = {'93274d1b9187'}
+ESITI_FOTO = os.path.join(QUI, '..', 'data', 'registri', 'camera_foto.json')
+
+
+def foto_vere(indirizzi):
+    import hashlib
+    import concurrent.futures
+    esiti = json.load(open(ESITI_FOTO, encoding='utf-8')) if os.path.exists(ESITI_FOTO) else {}
+
+    def prova(u):
+        try:
+            r = urllib.request.Request(u, headers={
+                'User-Agent': 'DuriAMorire/0.1 (progetto personale)'})
+            b = urllib.request.urlopen(r, timeout=60).read()
+        except Exception:
+            return u, False
+        return u, len(b) > 3000 and hashlib.sha1(b).hexdigest()[:12] not in SEGNAPOSTO
+
+    nuovi = sorted({u for u in indirizzi if u not in esiti})
+    if nuovi:
+        with concurrent.futures.ThreadPoolExecutor(6) as ex:
+            for u, ok in ex.map(prova, nuovi):
+                esiti[u] = ok
+        json.dump(esiti, open(ESITI_FOTO, 'w', encoding='utf-8'), sort_keys=True, indent=0)
+    print('  foto della Camera: %d controllate ora, %d vere su %d'
+          % (len(nuovi), sum(1 for u in indirizzi if esiti.get(u)), len(set(indirizzi))))
+    return {u for u in indirizzi if esiti.get(u)}
+
+
 def aggancia(persone, anagrafe_camera, chiave, alias=None):
     """Lega ogni nostra scheda alla sua voce d'anagrafe.
 
@@ -255,4 +288,12 @@ def aggancia(persone, anagrafe_camera, chiave, alias=None):
                 p[mio] = v[campo]
         agganciati += 1
     print('  %d schede legate all\'anagrafe della Camera' % agganciati)
+    # La foto della Camera serve solo a chi su Wikimedia non ne ha una: si
+    # controllano quelle, e si tengono solo le vere.
+    servono = [p['foto_camera'] for p in persone.values()
+               if p.get('foto_camera') and not p.get('foto')]
+    vere = foto_vere(servono)
+    for p in persone.values():
+        if p.get('foto_camera') and (p.get('foto') or p['foto_camera'] not in vere):
+            del p['foto_camera']
     return agganciati
