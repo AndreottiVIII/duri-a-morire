@@ -104,5 +104,64 @@ def main():
     print('fatto: %d domande' % len(fatto))
 
 
+def _norm(s):
+    import unicodedata
+    s = unicodedata.normalize('NFKD', s or '').upper()
+    return re.sub(r'[^A-Z]', '', ''.join(c for c in s if not unicodedata.combining(c)))
+
+
+def esito(r):
+    e = r.get('esito', '').upper()
+    if 'CONCESSA' in e:
+        return 'concessa'
+    if 'NEGATA' in e:
+        return 'negata'
+    if 'RESTITUZIONE' in e or 'RINVIO' in e:
+        return 'restituita'
+    return ''
+
+
+def aggancia(persone, anagrafe_camera, domande=None):
+    """Contro chi: 'CASALINUOVO (PSI), PERUGINI (DC)'. Il cognome deve essere
+    di un solo deputato di quella legislatura; se sono due, decidono il nome
+    (quando c'e') e il gruppo di allora. Altrimenti la domanda resta fuori.
+    p['autorizzazioni'] = [[leg, data, tipo, doc, esito, reato]]."""
+    if domande is None:
+        domande = json.load(open(USCITA, encoding='utf-8')) if os.path.exists(USCITA) else []
+    per_cognome = {}
+    for p in persone.values():
+        v = anagrafe_camera.get(p.get('anagrafe_camera') or '')
+        if v:
+            per_cognome.setdefault(_norm(v['cognome']), []).append((p, v))
+    trovate = mancate = 0
+    for d in domande:
+        contro = re.sub(r'\.\s*domanda annunziata.*$', '', d['contro'])
+        reato = re.sub(r'\s*\(doc\..*$', '', d['argomento']).strip()
+        for chi in re.findall(r'([^,(]+?)\s*\(([^)]*)\)', contro):
+            nome, gruppo = chi[0].strip(), _norm(chi[1])
+            parti = nome.split(' ')
+            cognome = ' '.join(x for x in parti if x.isupper() and len(x) > 1) or nome
+            battesimo = _norm(' '.join(x for x in parti if not x.isupper()))
+            tutti = [(p, v) for p, v in per_cognome.get(_norm(cognome), [])
+                     if d['leg'] in (p.get('mandati') or [])
+                     and (p.get('elezioni') or {}).get(d['leg'], ['C'])[0] == 'C']
+            if len(tutti) > 1 and battesimo:
+                tutti = [(p, v) for p, v in tutti if _norm(v['nome']).startswith(battesimo)]
+            if len(tutti) > 1:
+                tutti = [(p, v) for p, v in tutti
+                         if any(_norm(g[2]) == gruppo for g in p.get('gruppi') or []
+                                if g[0] == d['leg'])]
+            if len(tutti) == 1:
+                p = tutti[0][0]
+                riga = [d['leg'], d['data'], d['tipo'], d['doc'], esito(d), reato]
+                if riga not in p.setdefault('autorizzazioni', []):
+                    p['autorizzazioni'].append(riga)
+                trovate += 1
+            else:
+                mancate += 1
+    print('  autorizzazioni a procedere: %d agganciate, %d no' % (trovate, mancate))
+    return trovate, mancate
+
+
 if __name__ == '__main__':
     main()

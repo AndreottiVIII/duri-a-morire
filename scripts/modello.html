@@ -952,7 +952,20 @@ function scheda(q, sub){
       // i voti di preferenza, a destra, dove l'archivio del Ministero li ha
       const voti = {};
       (p.pf || []).forEach(x => { voti[x[0]] = x[1]; });
-      leg.forEach(m => {
+      // le candidature andate a vuoto, in grigio, al loro posto nel tempo
+      const ordine = DATI.legislature.map(L => L[0]);
+      const righe = leg.map(m => [ordine.indexOf(m), m])
+        .concat((p.sc || []).map(s => [ordine.indexOf(s[0]), null, s]))
+        .sort((a, b) => a[0] - b[0]);
+      let precedente = null;
+      righe.forEach(([_, m, s]) => {
+        if(s){
+          const numero = migliaia(s[3]);
+          const testo = tronca((donna ? 'non eletta, ' : 'non eletto, ') + s[2], W - 16 - numero.length);
+          r.push([seg('  ' + s[1].padEnd(12), 'd'), seg(testo, 'd'),
+                  seg(sp(W - 15 - testo.length - numero.length) + numero, 'd')]);
+          return;
+        }
         const e = dove[m];
         const ramo = !e || m === 'Costituente' ? '' : (e[1] === 'S' ? 'Senato, ' : 'Camera, ');
         const numero = voti[m] ? migliaia(voti[m]) : '';
@@ -972,8 +985,20 @@ function scheda(q, sub){
         }
         if(numero) riga.push(seg(sp(W - 1 - usati - numero.length) + numero, 'g'));
         r.push(riga);
+        // il gruppo, solo quando cambia: dentro la legislatura, o rispetto
+        // alla legislatura prima (alla prima, rispetto al partito)
+        const g = (p.gr || {})[m];
+        if(g && g.length){
+          const prima = precedente;
+          precedente = g[g.length - 1][0];
+          if(g.length > 1 || g[0][0] !== (prima || p.p)){
+            const testo = g.map((x, i) => i ? x[0] + ' (' + x[1] + ')' : x[0]).join(' › ');
+            avvolgi((g.length > 1 ? 'gruppi: ' : 'gruppo: ') + testo, '    ', '      ')
+              .forEach(l => r.push([seg(l, 'd')]));
+          }
+        }
       });
-      if(p.pf) r.push([seg('  a destra le preferenze (Min. Interno)', 'd')]);
+      if(p.pf || p.sc) r.push([seg('  a destra le preferenze (Min. Interno)', 'd')]);
     } else {
       avvolgi(leg.join('  '), '  ', '  ').forEach(l => r.push([seg(l, 'c')]));
     }
@@ -1003,6 +1028,30 @@ function scheda(q, sub){
     if(p.pl[0]) r.push(sxdx(donna ? ' Prima firmataria' : ' Primo firmatario', String(p.pl[0]), 'b', 'g'));
     if(p.pl[1]) r.push(sxdx(' Cofirmate', String(p.pl[1]), 'b', 'g'));
     if(pagProposte.length) r.push([seg(' i titoli nelle pagine seguenti →', 'd')]);
+  }
+  // Le domande dei giudici alla Camera per procedere contro di lui, o per
+  // arrestarlo, dal 1983 al 1994: quante, e come ha votato l'aula. Sono atti
+  // parlamentari, non condanne.
+  if(p.au){
+    const proc = p.au.filter(x => !x[1]), arr = p.au.filter(x => x[1]);
+    const anni = p.au.map(x => x[0]).sort();
+    const periodo = anni[0] === anni[anni.length - 1] ? anni[0] : anni[0] + '-' + anni[anni.length - 1];
+    r.push(vuota());
+    r.push([seg(' AUTORIZZAZIONI A PROCEDERE', 'invg')]);
+    const conta = (l, e) => l.filter(x => x[2] === e).length;
+    const esiti = l => [[conta(l, 'c'), 'concess'], [conta(l, 'n'), 'negat'],
+                        [conta(l, 'r'), 'restituit'], [conta(l, ''), 'senza voto']]
+      .filter(x => x[0])
+      .map(x => x[1] === 'senza voto' ? x[0] + ' senza voto' : x[0] + ' ' + x[1] + (x[0] === 1 ? 'a' : 'e') + (x[1] === 'restituit' ? ' ai giudici' : ''));
+    if(proc.length){
+      r.push(sxdx(' Domande dei giudici', String(proc.length), 'b', 'g'));
+      avvolgi(esiti(proc).join(', '), '  ', '  ').forEach(l => r.push([seg(l, 'd')]));
+    }
+    if(arr.length){
+      r.push(sxdx(" Domande d'arresto", String(arr.length), 'b', 'r'));
+      avvolgi(esiti(arr).join(', '), '  ', '  ').forEach(l => r.push([seg(l, 'd')]));
+    }
+    r.push([seg('  ' + periodo + ', fonte Camera dei deputati', 'd')]);
   }
   // Gli incarichi di governo, dall'elenco della Camera: il ministero col nome
   // di allora, gli anni, e sotto i governi in cui l'ha tenuto.

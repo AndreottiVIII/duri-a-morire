@@ -656,6 +656,26 @@ def compatta(p):
     if p.get('preferenze'):
         d['pf'] = [[x[0], x[4]] for x in sorted(p['preferenze'],
                                                 key=lambda x: ORDINE_MANDATI.index(x[0]))]
+    # I gruppi parlamentari, legislatura per legislatura, coi passaggi:
+    # {'IV': [['PSI', '1963'], ['PSI-PSDI', '1966']]}. Due adesioni di fila
+    # allo stesso gruppo (una sospensione, un cambio di ramo) sono una sola.
+    if p.get('gruppi'):
+        gr = {}
+        for leg, ramo, sigla, da, a in p['gruppi']:
+            righe = gr.setdefault(leg, [])
+            if not righe or righe[-1][0] != sigla:
+                righe.append([sigla, (da or '')[:4]])
+        d['gr'] = gr
+    # le domande di autorizzazione a procedere (e all'arresto) contro di lui,
+    # 1983-1994: [anno, arresto 0/1, esito 'c' concessa 'n' negata 'r' atti
+    # restituiti, '' nessun voto registrato]
+    if p.get('autorizzazioni'):
+        d['au'] = [['19' + x[1][-2:], 1 if x[2] == 'arresto' else 0, (x[4] or '')[:1]]
+                   for x in p['autorizzazioni']]
+    # le elezioni alla Camera in cui era candidato e non e' entrato:
+    # [legislatura, anno, circoscrizione, preferenze]
+    if p.get('sconfitte'):
+        d['sc'] = [[x[0], x[1], x[2].split('-')[0].title(), x[4]] for x in p['sconfitte']]
     governo = incarichi_governo(p.get('incarichi_governo') or [])
     if governo:
         d['gv'] = governo

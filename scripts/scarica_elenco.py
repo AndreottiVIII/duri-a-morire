@@ -8,7 +8,7 @@ servito come 1 gennaio, e preso alla lettera produrrebbe compleanni inventati.
 import sys, os, json, time, datetime, re, urllib.parse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import wd, camera, senato, wikipedia, camera_anagrafe, cariche_parlamento, proposte_camera
-import preferenze_camera
+import preferenze_camera, gruppi_parlamento, autorizzazioni_camera
 
 # La console di Windows parla ancora cp1252 e va in errore su una lettera
 # straniera: un nome come Stojan Spetic ha fatto morire lo script prima che
@@ -711,6 +711,11 @@ def main():
     # Camere, questori, presidenti di commissione e di gruppo.
     print('Cariche parlamentari...')
     cariche_parlamento.aggancia(persone, cariche_parlamento.cariche(oggi), camera.chiave, alias)
+    # i gruppi parlamentari di ogni legislatura, con i passaggi
+    gruppi_parlamento.aggancia(persone, gruppi_parlamento.gruppi(oggi), alias)
+    # le domande di autorizzazione a procedere 1983-1994 (registro scaricato a
+    # mano con autorizzazioni_camera.py: l'archivio non cambia piu')
+    autorizzazioni_camera.aggancia(persone, anagrafe)
     # i collegamenti alla voce della Treccani, da Wikidata
     print('Treccani...')
     scarica_treccani(persone)
@@ -720,7 +725,9 @@ def main():
     proposte_camera.aggancia(persone, proposte_camera.proposte(oggi))
     # I voti di preferenza alla Camera, dall'archivio del Ministero dell'Interno.
     print('Preferenze...')
-    preferenze_camera.aggancia(persone, preferenze_camera.preferenze(oggi, anagrafe), anagrafe)
+    voti = preferenze_camera.preferenze(oggi, anagrafe)
+    preferenze_camera.aggancia(persone, voti, anagrafe)
+    preferenze_camera.aggancia_sconfitte(persone, voti, anagrafe)
     # Le parentele fra persone che sono tutte nell'elenco, da Wikidata.
     print('Famiglie...')
     scarica_parenti(persone)

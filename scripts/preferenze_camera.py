@@ -143,3 +143,44 @@ def aggancia(persone, dati, anagrafe_camera):
                 mancate += 1
     print('  preferenze: %d elezioni ritrovate, %d no' % (trovate, mancate))
     return trovate, mancate
+
+
+ANNI_MINIMI = 25   # per la Camera si poteva essere candidati dai 25 anni
+
+
+def aggancia_sconfitte(persone, dati, anagrafe_camera):
+    """Le elezioni alla Camera in cui uno dei nostri si e' candidato e non e'
+    entrato. Solo dove l'aggancio e' sicuro: stesso nome di registro, una
+    circoscrizione in cui la Camera lo da' eletto almeno un'altra volta, e un
+    solo candidato con quel nome li', in quell'elezione. Niente sconfitte
+    negli anni in cui sedeva comunque in Parlamento (candidato in due posti,
+    eletto nell'altro), ne' prima dei 25 anni o dopo la morte."""
+    indice = {}
+    for c in dati.get('candidati', []):
+        indice.setdefault((c['leg'], c['chiave']), []).append(c)
+    trovate = 0
+    for p in persone.values():
+        v = anagrafe_camera.get(p.get('anagrafe_camera') or '')
+        if not v:
+            continue
+        k = chiave(v['nome'] + ' ' + v['cognome'])
+        elezioni = p.get('elezioni') or {}
+        dove = {re.sub(r'[^A-Z]', '', luogo.upper())[:5]
+                for ramo, luogo in elezioni.values() if ramo == 'C'}
+        dove.discard('COLLE')
+        seduto = set(elezioni) | set(p.get('mandati') or [])
+        nato = int((p.get('nascita') or '0')[:4] or 0)
+        morto = int((p.get('morte') or '9999')[:4] or 9999)
+        for data, leg in ELEZIONI:
+            anno = int(data[:4])
+            if leg in seduto or not nato or anno - nato < ANNI_MINIMI or anno > morto:
+                continue
+            tutti = indice.get((leg, k), [])
+            qui = [c for c in tutti if re.sub(r'[^A-Z]', '', c['circ'])[:5] in dove]
+            if len(qui) == 1 and not qui[0]['eletto']:
+                c = qui[0]
+                p.setdefault('sconfitte', []).append(
+                    [leg, c['anno'], c['circ'], c['lista'], c['preferenze']])
+                trovate += 1
+    print('  candidature non elette: %d' % trovate)
+    return trovate
