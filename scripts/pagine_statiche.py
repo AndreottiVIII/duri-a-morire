@@ -54,6 +54,7 @@ PAGINE = {
     250: '/statistiche/piu-legislature/',
     260: '/statistiche/defunti/',
     261: '/statistiche/defunti-per-partito/',
+    270: '/statistiche/piu-incarichi/',
     300: '/in-memoriam/',
     400: '/sorte-ignota/',
     500: '/compleanni/',
@@ -317,6 +318,9 @@ def schermate(dati):
     pagina(261, 'Parlamentari della Prima Repubblica scomparsi, per partito',
            'Quanti parlamentari e ministri della Prima Repubblica non ci sono più, '
            'partito per partito.')
+    pagina(270, 'I parlamentari della Prima Repubblica con più incarichi',
+           'La classifica di chi ha occupato più poltrone: ministeri, sottosegretariati, '
+           'presidenze delle Camere, delle commissioni e dei gruppi parlamentari.')
     pagina(300, 'In memoriam: i parlamentari della Prima Repubblica scomparsi',
            'I %d parlamentari e ministri della Prima Repubblica che non ci sono più, '
            'dal più recente.' % len(defunti))

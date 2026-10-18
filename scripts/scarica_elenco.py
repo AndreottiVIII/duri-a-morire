@@ -337,6 +337,34 @@ def cariche_da_righe(righe):
     return fuori
 
 
+# La voce della Treccani: prima il Dizionario Biografico degli Italiani, che
+# e' la biografia vera; se manca, la voce dell'Enciclopedia.
+Q_TRECCANI = """SELECT ?p ?dbi ?enc WHERE {
+  VALUES ?p { %s }
+  OPTIONAL { ?p wdt:P1986 ?dbi }
+  OPTIONAL { ?p wdt:P3365 ?enc }
+}"""
+
+
+def scarica_treccani(persone):
+    lista = sorted(persone)
+    righe = []
+    for i in range(0, len(lista), 300):
+        righe += cache_o_query('treccani_%d' % i, Q_TRECCANI % ' '.join(
+            'wd:' + q for q in lista[i:i + 300]))
+    trovate = {}
+    for r in righe:
+        q = wd.qid(r, 'p')
+        dbi, enc = wd.v(r, 'dbi'), wd.v(r, 'enc')
+        if q in persone and (dbi or enc):
+            voce = (dbi + '_(Dizionario-Biografico)') if dbi else enc
+            if dbi or q not in trovate:
+                trovate[q] = voce
+    for q, voce in trovate.items():
+        persone[q]['treccani'] = voce
+    print('  %d schede con una voce della Treccani' % len(trovate))
+
+
 def leggi_json(nome):
     percorso = os.path.join(QUI, '..', 'data', nome)
     if not os.path.exists(percorso):
@@ -497,6 +525,10 @@ def main():
                 p['prec_nascita'] = 'giorno' if len(v['nascita']) == 10 else 'anno'
             if v.get('id'):
                 p['id_camera'] = v['id']
+                # la nascita come la scrive la Camera: serve all'indirizzo della
+                # pagina sul suo portale storico
+                if v.get('nascita'):
+                    p['nascita_camera'] = v['nascita']
             # Le legislature che Wikidata non conosce e il registro si'. Ad
             # Andreotti mancava l'XI, quella da senatore a vita; a Fanfani tutto
             # il Senato dal 1968; a Leone, Saragat, Gronchi gli anni da senatori
@@ -612,6 +644,9 @@ def main():
     # Camere, questori, presidenti di commissione e di gruppo.
     print('Cariche parlamentari...')
     cariche_parlamento.aggancia(persone, cariche_parlamento.cariche(oggi), camera.chiave, alias)
+    # i collegamenti alla voce della Treccani, da Wikidata
+    print('Treccani...')
+    scarica_treccani(persone)
     # Le proposte di legge presentate alla Camera: i conteggi qui, i titoli
     # li legge il generatore dalla copia versionata.
     print('Proposte di legge...')

@@ -629,6 +629,11 @@ def compatta(p):
     if not d.get('f') and p.get('foto_camera'):
         d['f'] = p['foto_camera']
         d['fc'] = 1
+    # i collegamenti alle schede autorevoli: portale storico della Camera,
+    # scheda del Senato, Treccani
+    lk = [p.get('storia_camera') or '', p.get('scheda_senato') or '', p.get('treccani') or '']
+    if any(lk):
+        d['lk'] = lk
     if p.get('consulta'):
         d['cn'] = 1
     # dove e come e' stato eletto in ogni legislatura: ['IX', 'C', 'Bari'],

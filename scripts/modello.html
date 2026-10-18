@@ -477,14 +477,18 @@ const LEGISLATURE_POSSIBILI =
 PAGINE[250] = classificaLegislature(() => P, 'PIÙ LEGISLATURE DI TUTTI',
   () => 'vivi in bianco, defunti in grigio');
 
+// Gli incarichi contati sono quelli della scheda: governo, Parlamento, altre
+// cariche, piu' le voci che solo il cursus curato conosce. Le poltrone
+// diverse, non le righe: due volte alle Finanze e' una poltrona sola, anche
+// se nella scheda sono due periodi.
+function quantiIncarichi(p){
+  return new Set((p.cd || []).concat(p.gv || [], p.ip || []).map(c => c[0])).size +
+         (p.cr ? p.cr.length : 0);
+}
+
 PAGINE[135] = () => {
-  // Gli incarichi contati sono quelli della scheda: cariche datate piu' le
-  // voci che solo il cursus curato conosce.
-  // Le poltrone diverse, non le righe: due volte alle Finanze e' una
-  // poltrona sola, anche se nella scheda sono due periodi.
   const conCursus = hof.filter(p => p.cd || p.cr || p.gv || p.ip)
-    .map(p => [p, new Set((p.cd || []).concat(p.gv || [], p.ip || []).map(c => c[0])).size +
-                  (p.cr ? p.cr.length : 0)])
+    .map(p => [p, quantiIncarichi(p)])
     .sort((a, b) => b[1] - a[1]).slice(0, 16);
   const r = [titolo('H.F. — PIÙ INCARICHI'),
     [seg(' quante poltrone hanno occupato', 'c')], vuota()];
@@ -496,6 +500,17 @@ PAGINE[135] = () => {
   r.push([seg(' ■ = ancora vivo', 'd')]);
   return {righe: r, sottopagine: 1};
 };
+
+// La stessa classifica della 135, ma per tutti: chi ha occupato piu'
+// poltrone, al governo e in Parlamento.
+PAGINE[270] = paginaRighe(() => P.map(p => [p, quantiIncarichi(p)])
+  .filter(c => c[1] >= 2)
+  .sort((a, b) => b[1] - a[1] || (a[0].n < b[0].n ? -1 : 1))
+  .map(c => [
+    seg(' '), seg(c[0].s === 1 ? '■' : ' ', 'v'),
+    {t: tronca(c[0].n, 26).padEnd(26), c: c[0].s === 1 ? 'b' : 'd', link: c[0].q},
+    seg(String(c[1]).padStart(4), 'g'), seg(' inc.', 'd')]),
+  'PIÙ INCARICHI, DI TUTTI', '■ = ancora vivo. governo e Parlamento');
 
 PAGINE[200] = () => {
   const et = viventi.map(eta).filter(x => x !== null);
@@ -527,6 +542,7 @@ PAGINE[200] = () => {
     vocemenu(240, 'L’ULTIMO DEI… (PARTITI)'),
     vocemenu(250, 'PIÙ LEGISLATURE'),
     vocemenu(260, 'STATISTICHE DEI DEFUNTI'),
+    vocemenu(270, 'PIÙ INCARICHI'),
   ], sottopagine: 1};
 };
 
@@ -1244,6 +1260,23 @@ function risultatiRicerca(testo){
     trovati.length + ' risultati');
 }
 
+// Le schede delle fonti autorevoli: il portale storico della Camera, la
+// scheda di attivita' del Senato, la Treccani.
+function collegamentiAutorevoli(p){
+  if(!p.lk) return '';
+  const a = (url, testo) => '<a href="' + esc(url) + '" target="_blank" rel="noopener">' +
+                            testo + '</a><br>';
+  let h = '';
+  if(p.lk[0]) h += a('https://storia.camera.it/deputato/' + p.lk[0], 'portale storico della Camera');
+  if(p.lk[1]){
+    const [leg, id] = p.lk[1].split(':');
+    h += a('https://www.senato.it/legislature/' + leg +
+           '/composizione/senatori/elenco-alfabetico/scheda-attivita?did=' + id, 'scheda del Senato');
+  }
+  if(p.lk[2]) h += a('https://www.treccani.it/enciclopedia/' + p.lk[2] + '/', 'Treccani');
+  return h;
+}
+
 function disegna(){
   let costruttore, extra = '';
   if(stato.qid) costruttore = sub => scheda(stato.qid, sub);
@@ -1275,6 +1308,7 @@ function disegna(){
     // niente loading="lazy": la foto sta sotto la piega e non partirebbe mai
     box.innerHTML = (p.f ? '<img src="' + p.f + '" alt="' + esc(p.n) + '">' : '') +
       '<div class="via">' + (p.fc ? 'foto Camera dei deputati<br>' : '') +
+      collegamentiAutorevoli(p) +
       (p.w ? '<a href="' + p.w + '" target="_blank" rel="noopener">voce su Wikipedia</a><br>' : '') +
       '<a href="https://www.wikidata.org/wiki/' + p.q + '" target="_blank" rel="noopener">record Wikidata ' + p.q + '</a></div>';
   } else box.innerHTML = '';

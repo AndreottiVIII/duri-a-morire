@@ -170,10 +170,15 @@ Q_GRUPPI = PREFISSI + '''SELECT ?nome ?cognome ?l ?gr ?i ?f WHERE {
 # regione, a vita per nomina del Presidente, o di diritto da ex Presidente.
 # Una legislatura per volta: tutte insieme sbattono contro il tetto di
 # diecimila righe del Senato, che taglia senza dirlo.
-Q_MANDATI = PREFISSI + '''SELECT ?nome ?cognome ?tipo ?reg WHERE {
+# Con il mandato vengono anche il numero del senatore (per il collegamento
+# alla sua scheda sul sito del Senato), la foto ufficiale e la professione.
+Q_MANDATI = PREFISSI + '''PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?s ?nome ?cognome ?tipo ?reg ?foto ?prof WHERE {
   ?s a osr:Senatore ; foaf:firstName ?nome ; foaf:lastName ?cognome ; osr:mandato ?m .
   ?m osr:legislatura %d ; osr:tipoMandato ?tipo .
   OPTIONAL { ?m osr:regioneElezione ?reg }
+  OPTIONAL { ?s foaf:depiction ?foto }
+  OPTIONAL { ?s osr:professione ?x . ?x rdfs:label ?prof }
 }'''
 
 
@@ -260,15 +265,25 @@ def _mandati_senato():
             luogo = ('a vita' if 'a vita' in tipo and 'diritto' not in tipo
                      else 'di diritto' if 'diritto' in tipo else _v(r, 'reg'))
             fuori.append({'chiave': camera.chiave(_v(r, 'nome'), _v(r, 'cognome')),
-                          'leg': ROMANI[leg], 'luogo': luogo})
+                          'leg': ROMANI[leg], 'luogo': luogo,
+                          'id': '%d:%s' % (leg, _v(r, 's').rsplit('/', 1)[-1]),
+                          # il Senato scrive "leg/8/", ma la foto sta in "leg/08/"
+                          'foto': re.sub(r'/leg/(\d)/', r'/leg/0\1/',
+                                         _v(r, 'foto').replace('http://', 'https://')),
+                          'professione': _v(r, 'prof')})
         time.sleep(0.3)
     # ogni senatore torna piu' volte nella risposta: una riga per persona e
     # legislatura, preferendo quella che dice qualcosa
     unici = {}
     for x in fuori:
         k = (x['chiave'], x['leg'])
-        if k not in unici or (x['luogo'] and not unici[k]['luogo']):
+        if k not in unici:
             unici[k] = x
+            continue
+        # le righe ripetute si completano a vicenda
+        for campo in ('luogo', 'foto', 'professione'):
+            if x.get(campo) and not unici[k].get(campo):
+                unici[k][campo] = x[campo]
     return sorted(unici.values(), key=lambda x: (x['leg'], x['chiave']))
 
 
@@ -330,10 +345,22 @@ def aggancia(persone, dati, chiave, alias=None):
         candidati = {id(p): p for p in per_chiave.get(c['chiave'], []) if c['leg'] in p['mandati']}
         if len(candidati) == 1:
             metti(next(iter(candidati.values())), c)
-    # dove e come e' stato eletto al Senato, accanto alle elezioni alla Camera
-    for c in dati.get('mandati_senato', []):
+    # Dove e come e' stato eletto al Senato, accanto alle elezioni alla
+    # Camera; e per chi alla Camera non e' mai stato, la professione e la foto
+    # ufficiale che il Senato registra, come per i deputati fa la Camera.
+    ordine = {l: i for i, l in enumerate(ROMANI)}
+    for c in sorted(dati.get('mandati_senato', []), key=lambda c: ordine.get(c['leg'], 0)):
         candidati = {id(p): p for p in per_chiave.get(c['chiave'], []) if c['leg'] in p['mandati']}
-        if len(candidati) == 1 and c['luogo']:
-            next(iter(candidati.values())).setdefault('elezioni', {})[c['leg']] = ['S', c['luogo']]
+        if len(candidati) != 1:
+            continue
+        p = next(iter(candidati.values()))
+        if c['luogo']:
+            p.setdefault('elezioni', {})[c['leg']] = ['S', c['luogo']]
+        if c.get('id'):
+            p['scheda_senato'] = c['id']          # l'ultima legislatura vince
+        if c.get('professione') and not p.get('studi'):
+            p['studi'] = c['professione']
+        # Le foto del Senato si aprono dal suo sito ma non si lasciano mostrare
+        # dentro altri siti: qui sarebbero immagini rotte, e non si usano.
     print('  %d cariche parlamentari, per %d schede' % (
         contate, sum(1 for p in persone.values() if p.get('incarichi_parlamento'))))

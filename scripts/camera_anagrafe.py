@@ -314,6 +314,14 @@ def aggancia(persone, anagrafe_camera, chiave, alias=None):
                            ('consulta', 'consulta'), ('governo', 'incarichi_governo')):
             if v.get(campo):
                 p[mio] = v[campo]
+        # La pagina sul portale storico della Camera: nome e cognome come li
+        # scrive il registro, e la data di nascita. 'D'ALEMA' diventa 'd-alema',
+        # l'accento finale di 'SCHIRO'' cade.
+        if p.get('id_camera') and len(p.get('nascita_camera') or '') == 10:
+            nome = ('%s %s' % (v['nome'], v['cognome'])).lower()
+            nome = re.sub(r"'(?=[a-z])", '-', nome).replace("'", '')
+            nome = re.sub(r'\s+', '-', nome.strip())
+            p['storia_camera'] = '%s-%s' % (nome, p['nascita_camera'].replace('-', ''))
         # le elezioni alla Camera: {legislatura: ['C', luogo]}
         for leg, luogo in (v.get('elezioni') or {}).items():
             p.setdefault('elezioni', {})[leg] = ['C', luogo]
