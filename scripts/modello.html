@@ -562,8 +562,6 @@ PAGINE[200] = () => {
     vuota(),
     sxdx(' Età media dei viventi', media.toFixed(1) + ' anni', 'b', 'c'),
     sxdx(' Persi negli ultimi 12 mesi', String(recenti.length), 'b', 'r'),
-    sxdx(' Viventi con partito noto',
-         viventi.filter(p => p.p).length + '/' + viventi.length, 'd', 'd'),
     vuota(),
     [seg(' IL DECANO', 'invg')],
     [seg('  '), {t: tronca(dec.n, 26).padEnd(26), c: 'g', link: dec.q},
