@@ -44,6 +44,7 @@
   .invg{background:var(--giallo);color:#000;text-shadow:none}
   .invr{background:var(--rosso);color:#000;text-shadow:none}
   a.n{color:inherit;text-decoration:none;cursor:pointer}
+  #testata a.n{text-decoration:none}
   a.n:hover,a.n:focus{background:var(--giallo);color:#000;text-shadow:none;outline:none}
   /* le voci di menu vanno sottolineate: senza il passaggio del mouse, sul
      telefono niente diceva che fossero da toccare */
@@ -527,7 +528,7 @@ PAGINE[275] = paginaRighe(() => P.filter(p => p.iv)
     seg(' '), seg(p.s === 1 ? '■' : ' ', 'v'),
     {t: tronca(p.n, 26).padEnd(26), c: p.s === 1 ? 'b' : 'd', link: p.q},
     seg(migliaia(p.iv).padStart(W - 29), 'g')]),
-  'I PIÙ LOQUACI', 'interventi in aula fino al 1994. ■ = vivo');
+  'I PIÙ LOQUACI', 'interventi fino al 1994. ■ = vivo');
 
 // I nomi della lista P2 sequestrata nel 1981: prima i vivi, dal piu'
 // anziano, poi gli altri.
@@ -1425,7 +1426,10 @@ function disegna(){
     : (stato.el ? 'ELENCO' : 'P.' + stato.pagina);
   const dataOggi = OGGI.getDate() + ' ' + MESI[OGGI.getMonth()].toUpperCase() + ' ' +
     String(OGGI.getFullYear()).slice(2);
-  const testata = rigaHtml(sxdx(' ' + TESTATA, etichettaPag + '  ' + dataOggi + ' ', 'inv', 'inv'));
+  // il nome della testata riporta sempre all'indice, come il logo di un sito
+  const riga = sxdx(' ' + TESTATA, etichettaPag + '  ' + dataOggi + ' ', 'inv', 'inv');
+  riga[0] = {t: riga[0].t, c: 'inv', pag: 100};
+  const testata = rigaHtmlConLink(riga);
 
   const corpo = res.righe.map(rigaHtmlConLink).join('\n');
   // l'intestazione sta in una riga a se', cosi' la foto puo' entrare fra lei

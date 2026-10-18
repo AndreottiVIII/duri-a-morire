@@ -2081,6 +2081,7 @@
 "progetti": 0
 },
 "battistina-fumagalli-carulli-19440305": {
+"fino_1994": 82,
 "interventi": 102,
 "progetti": 346
 },
@@ -4321,6 +4322,7 @@
 "progetti": 198
 },
 "fernando-dalla-chiesa-19491103": {
+"fino_1994": 12,
 "interventi": 24,
 "progetti": 81
 },
@@ -5379,6 +5381,7 @@
 "progetti": 5
 },
 "gerardo-mario-oliverio-19530104": {
+"fino_1994": 3,
 "interventi": 7,
 "progetti": 403
 },
@@ -8195,6 +8198,7 @@
 "progetti": 135
 },
 "leonilde-iotti-19200410": {
+"fino_1994": 1237,
 "interventi": 1239,
 "progetti": 164
 },
@@ -9146,6 +9150,7 @@
 "progetti": 6
 },
 "maria-moioli-19471126": {
+"fino_1994": 10,
 "interventi": 24,
 "progetti": 124
 },
@@ -9162,6 +9167,7 @@
 "progetti": 4
 },
 "maria-rita-lorenzetti-19530316": {
+"fino_1994": 38,
 "interventi": 47,
 "progetti": 398
 },
@@ -9222,6 +9228,7 @@
 "progetti": 536
 },
 "marida-bolognesi-19520918": {
+"fino_1994": 29,
 "interventi": 74,
 "progetti": 465
 },
@@ -9230,6 +9237,7 @@
 "progetti": 54
 },
 "mariella-mazzetto-19430331": {
+"fino_1994": 1,
 "interventi": 9,
 "progetti": 187
 },
@@ -9314,6 +9322,7 @@
 "progetti": 7
 },
 "mario-borghezio-19471203": {
+"fino_1994": 24,
 "interventi": 39,
 "progetti": 128
 },
@@ -9322,6 +9331,7 @@
 "progetti": 17
 },
 "mario-brunetti-19321020": {
+"fino_1994": 55,
 "interventi": 109,
 "progetti": 131
 },
@@ -9459,6 +9469,7 @@
 "progetti": 22
 },
 "mario-lettieri-19420122": {
+"fino_1994": 32,
 "interventi": 388,
 "progetti": 255
 },
@@ -9579,6 +9590,7 @@
 "progetti": 90
 },
 "mario-tassone-19430808": {
+"fino_1994": 184,
 "interventi": 858,
 "progetti": 891
 },
@@ -9619,6 +9631,7 @@
 "progetti": 0
 },
 "mariotto-giovanni-battista-segni-19390516": {
+"fino_1994": 92,
 "interventi": 105,
 "progetti": 110
 },
@@ -9635,6 +9648,7 @@
 "progetti": 135
 },
 "martino-dorigo-19610619": {
+"fino_1994": 24,
 "interventi": 57,
 "progetti": 99
 },
@@ -9683,6 +9697,7 @@
 "progetti": 20
 },
 "massimo-d-alema-19490420": {
+"fino_1994": 40,
 "interventi": 261,
 "progetti": 183
 },
@@ -9711,6 +9726,7 @@
 "progetti": 5
 },
 "massimo-scalia-19420527": {
+"fino_1994": 131,
 "interventi": 163,
 "progetti": 577
 },
@@ -9747,14 +9763,17 @@
 "progetti": 14
 },
 "maura-camoirano-19500418": {
+"fino_1994": 6,
 "interventi": 11,
 "progetti": 307
 },
 "maurizio-balocchi-19421124": {
+"fino_1994": 4,
 "interventi": 6,
 "progetti": 534
 },
 "maurizio-gasparri-19560718": {
+"fino_1994": 74,
 "interventi": 140,
 "progetti": 462
 },
@@ -9791,6 +9810,7 @@
 "progetti": 196
 },
 "mauro-bonato-19591020": {
+"fino_1994": 5,
 "interventi": 5,
 "progetti": 162
 },
@@ -9799,6 +9819,7 @@
 "progetti": 79
 },
 "mauro-del-bue-19510423": {
+"fino_1994": 12,
 "interventi": 60,
 "progetti": 152
 },
@@ -9811,6 +9832,7 @@
 "progetti": 209
 },
 "mauro-guerra-19570811": {
+"fino_1994": 48,
 "interventi": 226,
 "progetti": 221
 },
@@ -9823,6 +9845,7 @@
 "progetti": 151
 },
 "mauro-michielon-19601004": {
+"fino_1994": 8,
 "interventi": 23,
 "progetti": 171
 },
@@ -9831,10 +9854,12 @@
 "progetti": 72
 },
 "mauro-paissan-19471022": {
+"fino_1994": 49,
 "interventi": 59,
 "progetti": 266
 },
 "mauro-polli-19520908": {
+"fino_1994": 21,
 "interventi": 45,
 "progetti": 160
 },
@@ -9867,6 +9892,7 @@
 "progetti": 205
 },
 "mauro-vannoni-19490711": {
+"fino_1994": 0,
 "interventi": 3,
 "progetti": 158
 },
@@ -10079,6 +10105,7 @@
 "progetti": 26
 },
 "nadia-masini-19491113": {
+"fino_1994": 49,
 "interventi": 64,
 "progetti": 205
 },
@@ -10159,6 +10186,7 @@
 "progetti": 12
 },
 "nedo-barzanti-19370922": {
+"fino_1994": 39,
 "interventi": 52,
 "progetti": 146
 },
@@ -10303,6 +10331,7 @@
 "progetti": 76
 },
 "nicola-pasetto-19610620": {
+"fino_1994": 15,
 "interventi": 21,
 "progetti": 256
 },
@@ -10347,6 +10376,7 @@
 "progetti": 29
 },
 "nicola-vendola-19580826": {
+"fino_1994": 10,
 "interventi": 28,
 "progetti": 316
 },
@@ -10383,6 +10413,7 @@
 "progetti": 0
 },
 "nino-sospiri-19480726": {
+"fino_1994": 158,
 "interventi": 164,
 "progetti": 519
 },
@@ -10491,6 +10522,7 @@
 "progetti": 142
 },
 "oreste-rossi-19640324": {
+"fino_1994": 16,
 "interventi": 31,
 "progetti": 335
 },
@@ -10523,6 +10555,7 @@
 "progetti": 157
 },
 "osvalda-trupia-19480531": {
+"fino_1994": 5,
 "interventi": 27,
 "progetti": 350
 },
@@ -10615,6 +10648,7 @@
 "progetti": 98
 },
 "paolo-antonio-mario-agostinacchio-19380722": {
+"fino_1994": 69,
 "interventi": 84,
 "progetti": 228
 },
@@ -10623,6 +10657,7 @@
 "progetti": 83
 },
 "paolo-bampo-19550423": {
+"fino_1994": 9,
 "interventi": 29,
 "progetti": 267
 },
@@ -10667,6 +10702,7 @@
 "progetti": 0
 },
 "paolo-cirino-pomicino-19390903": {
+"fino_1994": 140,
 "interventi": 147,
 "progetti": 363
 },
@@ -10691,6 +10727,7 @@
 "progetti": 25
 },
 "paolo-del-mese-19460923": {
+"fino_1994": 5,
 "interventi": 54,
 "progetti": 218
 },
@@ -10763,6 +10800,7 @@
 "progetti": 7
 },
 "paolo-tringali-19250831": {
+"fino_1994": 16,
 "interventi": 17,
 "progetti": 264
 },
@@ -10871,6 +10909,7 @@
 "progetti": 0
 },
 "pier-ferdinando-casini-19551203": {
+"fino_1994": 11,
 "interventi": 588,
 "progetti": 266
 },
@@ -10895,6 +10934,7 @@
 "progetti": 202
 },
 "pierantonio-mirko-tremaglia-19261117": {
+"fino_1994": 264,
 "interventi": 301,
 "progetti": 612
 },
