@@ -543,7 +543,9 @@ def _giorni(a, b):
 
 def _carica_pulita(c):
     """La Camera mette a volte lo spazio dopo l'apostrofo ('dell' Industria')
-    e ha qualche maiuscola di troppo battuta a mano ('MInistro del BIlancio')."""
+    e ha qualche maiuscola di troppo battuta a mano ('MInistro del BIlancio').
+    In alcuni governi l'accento e' un apostrofo: "Sanita'" accanto a "Sanità"."""
+    c = re.sub(r"(?<=\w)([aeiou])'(?!\w)", lambda m: 'àèìòù'['aeiou'.index(m.group(1))], c)
     c = re.sub(r"(\w)' (?=\w)", r"\1'", c)
     c = re.sub(r'\b([A-Z])([A-Z])(?=[a-z])', lambda m: m.group(1) + m.group(2).lower(), c)
     return c.strip()

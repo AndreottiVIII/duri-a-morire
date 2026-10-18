@@ -43,8 +43,6 @@ PAGINE = {
     133: '/hall-of-fame/per-partito/',
     134: '/hall-of-fame/compleanni/',
     135: '/hall-of-fame/piu-incarichi/',
-    140: '/camera/circoscrizioni/',
-    145: '/senato/regioni/',
     150: '/ricerca/',
     200: '/statistiche/',
     210: '/statistiche/sopravvissuti-per-partito/',
@@ -56,6 +54,8 @@ PAGINE = {
     261: '/statistiche/defunti-per-partito/',
     270: '/statistiche/piu-incarichi/',
     280: '/statistiche/piu-votati/',
+    290: '/camera/circoscrizioni/',
+    295: '/senato/regioni/',
     300: '/in-memoriam/',
     400: '/sorte-ignota/',
     500: '/compleanni/',
@@ -298,11 +298,11 @@ def schermate(dati):
            'I protagonisti della Prima Repubblica che hanno occupato più poltrone.')
     camera_luoghi = eletti_per_luogo(P, 'C')
     senato_luoghi = eletti_per_luogo(P, 'S')
-    pagina(140, 'Le circoscrizioni della Camera: chi è ancora vivo fra gli eletti',
+    pagina(290, 'Le circoscrizioni della Camera: chi è ancora vivo fra gli eletti',
            'Per ognuna delle %d circoscrizioni della Camera, dalla Costituente al 1994, '
            'quanti deputati vi furono eletti e quanti sono ancora in vita.'
            % len(camera_luoghi))
-    pagina(145, 'Le regioni del Senato: chi è ancora vivo fra gli eletti',
+    pagina(295, 'Le regioni del Senato: chi è ancora vivo fra gli eletti',
            'Per ognuna delle %d regioni del Senato, dal 1948 al 1994, quanti senatori '
            'vi furono eletti e quanti sono ancora in vita.' % len(senato_luoghi))
     pagina(150, 'Cerca un parlamentare della Prima Repubblica',

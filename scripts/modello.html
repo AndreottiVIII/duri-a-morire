@@ -555,8 +555,8 @@ PAGINE[200] = () => {
     vocemenu(260, 'STATISTICHE DEI DEFUNTI'),
     vocemenu(270, 'PIÙ INCARICHI'),
     vocemenu(280, 'I PIÙ VOTATI'),
-    vocemenu(140, 'PER CIRCOSCRIZIONE (CAMERA)'),
-    vocemenu(145, 'PER REGIONE (SENATO)'),
+    vocemenu(290, 'PER CIRCOSCRIZIONE (CAMERA)'),
+    vocemenu(295, 'PER REGIONE (SENATO)'),
   ], sottopagine: 1};
 };
 
@@ -789,9 +789,9 @@ function paginaLuoghi(tipo, intestazione, nota){
             seg(' / ' + gente.length, 'd')];
   }), intestazione, nota);
 }
-PAGINE[140] = paginaLuoghi('circ', 'CIRCOSCRIZIONI DELLA CAMERA',
+PAGINE[290] = paginaLuoghi('circ', 'CIRCOSCRIZIONI DELLA CAMERA',
   'ancora vivi / eletti, dal 1946 al 1994');
-PAGINE[145] = paginaLuoghi('reg', 'REGIONI DEL SENATO',
+PAGINE[295] = paginaLuoghi('reg', 'REGIONI DEL SENATO',
   'ancora vivi / eletti, dal 1948 al 1994');
 
 PAGINE[150] = () => ({righe: [titolo('RICERCA'), vuota(),
