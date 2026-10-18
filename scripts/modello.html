@@ -854,7 +854,16 @@ function scheda(q, sub){
   // quando la morte non viene da Wikidata vale la pena dire chi l'ha registrata
   if(p.fd) r.push([seg(' via ' + tronca(p.fd, W - 6), 'd')]);
   const e = eta(p);
-  if(e !== null) r.push(sxdx(p.d ? ' Aveva' : ' Ha', e + ' anni', 'b', 'g'));
+  // di chi e' di sorte ignota non si sa se sia vivo: l'eta' e' un condizionale
+  if(e !== null) r.push(sxdx(p.d ? ' Aveva' : (p.s === 3 ? ' Avrebbe' : ' Ha'), e + ' anni', 'b', 'g'));
+  // Una riga scritta a mano dove i dati lasciano un vuoto da raccontare:
+  // perche' di qualcuno non si sa niente.
+  if(p.nt){
+    r.push(vuota());
+    avvolgi(p.nt[0], ' ', ' ').forEach(l => r.push([seg(l, 'm')]));
+    avvolgi('fonte: ' + p.nt[1], ' ', '        ').forEach(l => r.push([seg(l, 'd')]));
+    r.push(vuota());
+  }
   // Quando una fonte lo dava per morto e il registro la smentisce, si dice.
   if(p.md){
     r.push([seg(' Wikidata ' + (donna ? 'la dava per morta' : 'lo dava per morto') +

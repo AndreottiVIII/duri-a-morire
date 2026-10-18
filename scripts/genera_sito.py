@@ -678,6 +678,11 @@ def compatta(p):
 def main():
     grezzo = json.load(open(INGRESSO, encoding='utf-8'))
     persone = [compatta(p) for p in grezzo['persone']]
+    # le righe di spiegazione scritte a mano, con la fonte
+    note = json.load(open(os.path.join(QUI, '..', 'data', 'note_redazione.json'), encoding='utf-8'))
+    for d in persone:
+        if d['q'] in note:
+            d['nt'] = [note[d['q']]['testo'], note[d['q']]['fonte']]
     persone.sort(key=lambda d: d['n'].lower())
 
     dati = {
