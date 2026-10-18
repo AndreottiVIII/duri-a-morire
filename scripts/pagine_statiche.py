@@ -472,6 +472,13 @@ def anteprima(indirizzo, titolo, descrizione, num):
         'Repubblica, chi è ancora vivo e chi no">',
         '<meta name="twitter:card" content="summary_large_image">',
         '<meta name="twitter:image" content="%s/preview.jpg">' % INDIRIZZO,
+        # L'icona come file vero, per Google: quella incorporata (data:) nei
+        # risultati di ricerca la ignora e mette il mappamondo grigio. I file
+        # stanno nello specchio, prima-repubblica-tracker/sito/.
+        '<link rel="icon" href="https://primarepubblica.net/favicon.ico" sizes="48x48">',
+        '<link rel="icon" type="image/png" sizes="96x96" href="https://primarepubblica.net/favicon-96.png">',
+        '<link rel="icon" type="image/png" sizes="192x192" href="https://primarepubblica.net/favicon-192.png">',
+        '<link rel="apple-touch-icon" href="https://primarepubblica.net/apple-touch-icon.png">',
     ]
     return '\n'.join(righe)
 
