@@ -523,6 +523,55 @@ def partito_di(p):
     return sigla(ammessi, mandati=p['mandati'])
 
 
+# Gli incarichi di governo arrivano dalla Camera uno per governo: Formica alle
+# Finanze sono quattro righe, Spadolini I e II, Andreotti VI e VII. Si
+# uniscono quelli attaccati, a meno di tre mesi uno dall'altro, e si tiene
+# l'elenco dei governi. Un incarico ripreso anni dopo resta una riga a se'.
+STACCO_GOVERNI = 92
+
+# Le cariche di Wikidata che sono incarichi di governo: dove c'e' l'elenco
+# della Camera, che ha il nome del ministero com'era allora, comanda quello.
+PREFISSI_GOVERNO = ('ministro', 'ministri ', 'presidente del consiglio',
+                    'vicepresidente del consiglio', 'sottosegretario',
+                    'viceministro', 'vice ministro', 'alto commissario')
+
+
+def _giorni(a, b):
+    g = lambda s: datetime.date(int(s[:4]), int(s[5:7]), int(s[8:10]))
+    return (g(b) - g(a)).days
+
+
+def _carica_pulita(c):
+    """La Camera mette a volte lo spazio dopo l'apostrofo: 'dell' Industria'."""
+    return re.sub(r"(\w)' (?=\w)", r"\1'", c).strip()
+
+
+def _stessa_carica(c):
+    """Lo stesso ministero la Camera lo scrive in piu' modi da un governo
+    all'altro: 'Previdenza Sociale' e 'Previdenza sociale', 'culturali ed
+    ambientali' e 'culturali e ambientali'. Per unirli conta la sostanza."""
+    k = _carica_pulita(c).lower().replace(' ed ', ' e ')
+    return re.sub(r'\s+', ' ', k)
+
+
+def incarichi_governo(lista):
+    righe, ultima = [], {}
+    for i in sorted(lista, key=lambda i: i['da'] or ''):
+        i = dict(i, carica=_carica_pulita(i['carica']))
+        r = ultima.get(_stessa_carica(i['carica']))
+        if r and r['a'] and i['da'] and _giorni(r['a'], i['da']) <= STACCO_GOVERNI:
+            r['a'] = i['a'] if not i['a'] or i['a'] > r['a'] else r['a']
+            if i['governo'] and i['governo'] not in r['governi']:
+                r['governi'].append(i['governo'])
+            continue
+        r = {'carica': i['carica'], 'da': i['da'], 'a': i['a'],
+             'governi': [i['governo']] if i['governo'] else []}
+        righe.append(r)
+        ultima[_stessa_carica(i['carica'])] = r
+    return [[r['carica'], (r['da'] or '')[:4], (r['a'] or '')[:4], ', '.join(r['governi'])]
+            for r in righe]
+
+
 def compatta(p):
     """Una persona ridotta all'osso: il file finito deve restare leggero."""
     d = {
@@ -551,9 +600,29 @@ def compatta(p):
         d['x'] = 1
     # Del cursus scritto a mano resta solo quello che le cariche non dicono
     # gia': altrimenti la scheda ripete due volte le stesse poltrone.
+    # Dall'anagrafe della Camera: il sesso, per scrivere "deceduta" e non
+    # "deceduto"; studi e professione; la foto ufficiale per chi su Wikimedia
+    # non ce l'ha; la Consulta Nazionale; gli incarichi di governo.
+    if p.get('genere') == 'f':
+        d['g'] = 'f'
+    if p.get('studi'):
+        d['st'] = p['studi']
+    if not d.get('f') and p.get('foto_camera'):
+        d['f'] = p['foto_camera']
+        d['fc'] = 1
+    if p.get('consulta'):
+        d['cn'] = 1
+    governo = incarichi_governo(p.get('incarichi_governo') or [])
+    if governo:
+        d['gv'] = governo
+
     cariche = cursus.completa_date(p.get('cursus'), p.get('cariche_datate'))
+    if governo:
+        cariche = [c for c in cariche if not c['carica'].lower().startswith(PREFISSI_GOVERNO)]
     if p.get('cursus'):
-        avanzo = cursus.residuo(p['cursus'], cariche)
+        # il cursus scritto a mano non deve ripetere ne' le cariche ne' il governo
+        avanzo = cursus.residuo(p['cursus'], cariche + [
+            {'carica': r[0], 'da': r[1] or None, 'a': r[2] or None} for r in governo])
         if avanzo:
             d['cr'] = avanzo
     if p.get('fonte_morte'):

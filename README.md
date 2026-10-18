@@ -172,6 +172,13 @@ e la colonna resta vuota invece di inventarselo.
 - `scripts/scarica_elenco.py` — scarica l'elenco grande in `data/elenco.json`
 - `scripts/genera_sito.py` + `scripts/modello.html` — costruiscono `sito/index.html`
 - `scripts/pagine_statiche.py` — l'edizione a pagine per primarepubblica.net
+- `scripts/camera_anagrafe.py` — l'anagrafe della Camera, dai pacchetti interi
+  di dati.camera.it (`persona`, `membroGoverno`, `governo`): sesso, studi e
+  professione, foto ufficiale, Consulta Nazionale, e gli incarichi di governo
+  col nome del ministero com'era allora. Si riscarica una volta a settimana; la
+  versione ridotta resta in `data/registri/camera_anagrafe.json`. Per gli
+  incarichi di governo comanda lei: da Wikidata restano solo le cariche che la
+  Camera non ha (eurodeputato, sindaco, Quirinale, Consulta)
 
 Le risposte di Wikidata restano in `data/cache/`: rigenerare il sito non ribussa
 all'endpoint. Per riscaricare tutto da capo, svuota quella cartella.

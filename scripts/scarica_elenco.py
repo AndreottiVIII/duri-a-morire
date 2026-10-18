@@ -7,7 +7,7 @@ servito come 1 gennaio, e preso alla lettera produrrebbe compleanni inventati.
 """
 import sys, os, json, time, datetime, re, urllib.parse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import wd, camera, senato, wikipedia
+import wd, camera, senato, wikipedia, camera_anagrafe
 
 # La console di Windows parla ancora cp1252 e va in errore su una lettera
 # straniera: un nome come Stojan Spetic ha fatto morire lo script prima che
@@ -113,11 +113,19 @@ def assorbi(persone, righe, etichetta_mandato):
             'morte': None, 'prec_morte': None, 'foto': None, 'wikipedia': None,
             'mandati': [], 'cariche': set(), 'partiti': set()})
         p['nome'] = p['nome'] or wd.v(r, 'pLabel')
+        # Wikidata a volte ha due date per la stessa persona, una col solo anno
+        # e una completa (Giovanni Gronchi: 1887 e 10 settembre 1887), e le
+        # righe arrivano in ordine sempre diverso. Si tiene la piu' precisa,
+        # o la data cambierebbe da un giro all'altro. A parita' di precisione
+        # (Franco Antonicelli: 5 o 6 novembre 1974) la prima in ordine, per lo
+        # stesso motivo; se un registro la conosce, poi comanda il registro.
+        meglio = lambda nuova, vecchia: (not vecchia or len(nuova) > len(vecchia)
+                                         or (len(nuova) == len(vecchia) and nuova < vecchia))
         n, pn = data(r, 'nascita', 'precN')
-        if n and not p['nascita']:
+        if n and meglio(n, p['nascita']):
             p['nascita'], p['prec_nascita'] = n, pn
         m, pm = data(r, 'morte', 'precM')
-        if m and not p['morte']:
+        if m and meglio(m, p['morte']):
             p['morte'], p['prec_morte'] = m, pm
         p['foto'] = p['foto'] or wd.v(r, 'foto')
         p['wikipedia'] = p['wikipedia'] or wd.v(r, 'art')
@@ -588,12 +596,18 @@ def main():
     for q, nuove in da_aggiungere.items():
         if q not in persone:
             continue
-        for m in nuove:
+        ordine = [COSTITUENTE[0]] + [L[0] for L in LEGISLATURE]
+        for m in sorted(nuove, key=ordine.index):
             if m not in persone[q]['mandati']:
                 persone[q]['mandati'].append(m)
                 aggiunte += 1
     print('%d legislature che Wikidata non registrava, prese dai registri'
           % aggiunte)
+
+    # L'anagrafe della Camera: sesso, studi e professione, foto ufficiale,
+    # Consulta Nazionale, e gli incarichi di governo coi nomi di allora.
+    print('Anagrafe della Camera...')
+    camera_anagrafe.aggancia(persone, camera_anagrafe.anagrafe(oggi), camera.chiave, alias)
 
     print('Cariche della hall of fame...')
     scarica_cariche(persone, list(hof))

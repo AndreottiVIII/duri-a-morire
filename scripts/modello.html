@@ -475,8 +475,9 @@ PAGINE[135] = () => {
   // voci che solo il cursus curato conosce.
   // Le poltrone diverse, non le righe: due volte alle Finanze e' una
   // poltrona sola, anche se nella scheda sono due periodi.
-  const conCursus = hof.filter(p => p.cd || p.cr)
-    .map(p => [p, (p.cd ? new Set(p.cd.map(c => c[0])).size : 0) + (p.cr ? p.cr.length : 0)])
+  const conCursus = hof.filter(p => p.cd || p.cr || p.gv)
+    .map(p => [p, new Set((p.cd || []).concat(p.gv || []).map(c => c[0])).size +
+                  (p.cr ? p.cr.length : 0)])
     .sort((a, b) => b[1] - a[1]).slice(0, 16);
   const r = [titolo('H.F. — PIÙ INCARICHI'),
     [seg(' quante poltrone hanno occupato', 'c')], vuota()];
@@ -729,11 +730,36 @@ PAGINE[150] = () => ({righe: [titolo('RICERCA'), vuota(),
   [seg(' Scrivi un nome nel campo qui sotto.', 'c')]], sottopagine: 1});
 
 /* ---------- scheda personale ---------- */
+
+// Una carica su una o piu' righe, con gli anni allineati a destra sulla prima.
+// '1993' per un incarico finito nello stesso anno, '2015-' per uno ancora in
+// corso, '…-2005' quando si sa solo quando e' finito. Prima un anno solo
+// usciva come '1993-' e sembrava ancora in carica.
+function rigaCarica(r, testo, da, a){
+  const anni = da ? (!a ? da + '-' : (a !== da ? da + '-' + a : da)) : (a ? '…-' + a : '');
+  const largo = W - 2 - (anni.length + 1);
+  let riga = '  ', prima = true;
+  testo.split(' ').forEach(parola => {
+    if((riga + parola).length > (prima ? largo : W - 2)){
+      r.push(prima ? [seg(riga.padEnd(W - anni.length - 1), 'b'), seg(anni, 'c')]
+                   : [seg(riga, 'b')]);
+      riga = '   '; prima = false;
+    }
+    riga += parola + ' ';
+  });
+  if(riga.trim())
+    r.push(prima ? [seg(riga.padEnd(W - anni.length - 1), 'b'), seg(anni, 'c')]
+                 : [seg(riga, 'b')]);
+}
+
 function scheda(q){
   const p = perQid[q];
   if(!p) return {righe: [titolo('NON TROVATO')], sottopagine: 1};
   const r = [titolo(tronca(p.n, W - 2))];
-  const st = p.s === 1 ? ['VIVENTE', 'invg'] : (p.s === 3 ? ['SORTE IGNOTA', 'inv'] : ['DECEDUTO', 'invr']);
+  // il sesso lo dice l'anagrafe della Camera: Nilde Iotti non e' "deceduto"
+  const donna = p.g === 'f';
+  const st = p.s === 1 ? ['VIVENTE', 'invg'] : (p.s === 3 ? ['SORTE IGNOTA', 'inv']
+                                                          : [donna ? 'DECEDUTA' : 'DECEDUTO', 'invr']);
   if(p.di){
     r.push([seg(' ' + st[0] + ' ', st[1])]);
     r.push(vuota());
@@ -754,7 +780,8 @@ function scheda(q){
   if(e !== null) r.push(sxdx(p.d ? ' Aveva' : ' Ha', e + ' anni', 'b', 'g'));
   // Quando una fonte lo dava per morto e il registro la smentisce, si dice.
   if(p.md){
-    r.push([seg(' Wikidata lo dava per morto nel ' + p.md[0] + ',', 'd')]);
+    r.push([seg(' Wikidata ' + (donna ? 'la dava per morta' : 'lo dava per morto') +
+                ' nel ' + p.md[0] + ',', 'd')]);
     r.push([seg(' il registro ' + tronca(p.md[1], 18) + ' no.', 'd')]);
     r.push(vuota());
   }
@@ -762,47 +789,48 @@ function scheda(q){
     r.push(sxdx(' Partito', p.p, 'b', 'c'));
     if(perEsteso(p.p)) r.push([seg('  ' + tronca(perEsteso(p.p), W - 3), 'd')]);
   }
+  // Studi e professione come li scrive la Camera: "Laurea in lettere;
+  // insegnante".
+  if(p.st) avvolgi(p.st, ' ', ' ').forEach(l => r.push([seg(l, 'b')]));
   r.push(vuota());
   const leg = legislatureDi(p), gov = governiDi(p);
   if(leg.length){
     r.push([seg(' LEGISLATURE: ' + leg.length + ' ', 'invg')]);
     avvolgi(leg.join('  '), '  ', '  ').forEach(l => r.push([seg(l, 'c')]));
   }
-  if(gov.length){
+  if(p.cn) r.push([seg('  e la Consulta Nazionale, 1945-46', 'c')]);
+  // Con l'elenco della Camera i governi Ciampi e Dini compaiono gia' fra gli
+  // incarichi, con il ministero: la riga che li nomina soltanto non serve.
+  if(gov.length && !p.gv){
     r.push([seg(' GOVERNI', 'invg')]);
     avvolgi(gov.map(g => g.replace('Governo ', '')).join('  '), '  ', '  ')
       .forEach(l => r.push([seg(l, 'c')]));
   }
-  if(p.x) r.push([seg(' (mai eletto: dentro ma sulla porta)', 'm')]);
-  // Un'unica sezione di incarichi: prima quelli datati presi dalla fonte,
-  // poi cio' che solo il cursus curato sa (segretari di partito, sindacati,
-  // Banca d'Italia). Se non avanza niente, la seconda parte non compare.
-  if(p.cd || p.cr){
+  if(p.x) r.push([seg(donna ? ' (mai eletta: dentro ma sulla porta)'
+                            : ' (mai eletto: dentro ma sulla porta)', 'm')]);
+  // Gli incarichi di governo, dall'elenco della Camera: il ministero col nome
+  // di allora, gli anni, e sotto i governi in cui l'ha tenuto.
+  if(p.gv){
     r.push(vuota());
-    r.push([seg(' CARICHE', 'invg')]);
-  }
-  if(p.cd){
-    p.cd.forEach(c => {
-      // '1993' per un incarico finito nello stesso anno, '2015-' per uno
-      // ancora in corso, '…-2005' quando si sa solo quando e' finito. Prima un
-      // anno solo usciva come '1993-' e sembrava ancora in carica.
-      const anni = c[1] ? (!c[2] ? c[1] + '-' : (c[2] !== c[1] ? c[1] + '-' + c[2] : c[1]))
-                        : (c[2] ? '…-' + c[2] : '');
-      const largo = W - 2 - (anni.length + 1);
-      let riga = '  ', prima = true;
-      c[0].split(' ').forEach(parola => {
-        if((riga + parola).length > (prima ? largo : W - 2)){
-          r.push(prima ? [seg(riga.padEnd(W - anni.length - 1), 'b'), seg(anni, 'c')]
-                       : [seg(riga, 'b')]);
-          riga = '   '; prima = false;
-        }
-        riga += parola + ' ';
-      });
-      if(riga.trim())
-        r.push(prima ? [seg(riga.padEnd(W - anni.length - 1), 'b'), seg(anni, 'c')]
-                     : [seg(riga, 'b')]);
+    r.push([seg(' INCARICHI DI GOVERNO', 'invg')]);
+    p.gv.forEach(c => {
+      rigaCarica(r, c[0], c[1], c[2]);
+      if(c[3]){
+        const governi = c[3].split(', ');
+        const detto = governi.length === 1 ? 'governo ' + governi[0]
+          : 'governi ' + governi.slice(0, -1).join(', ') + ' e ' + governi[governi.length - 1];
+        avvolgi(detto, '    ', '    ').forEach(l => r.push([seg(l, 'd')]));
+      }
     });
   }
+  // Le altre cariche: prima quelle datate prese dalla fonte, poi cio' che
+  // solo il cursus curato sa (segretari di partito, sindacati, Banca
+  // d'Italia). Se non avanza niente, la seconda parte non compare.
+  if(p.cd || p.cr){
+    r.push(vuota());
+    r.push([seg(p.gv ? ' ALTRE CARICHE' : ' CARICHE', 'invg')]);
+  }
+  if(p.cd) p.cd.forEach(c => rigaCarica(r, c[0], c[1], c[2]));
   if(p.cr){
     if(p.cd) r.push([seg('  — e inoltre —', 'd')]);
     p.cr.forEach(voce => avvolgi(voce, '  ', '   ')
@@ -1110,7 +1138,8 @@ function disegna(){
     const p = res.persona;
     // niente loading="lazy": la foto sta sotto la piega e non partirebbe mai
     box.innerHTML = (p.f ? '<img src="' + p.f + '" alt="' + esc(p.n) + '">' : '') +
-      '<div class="via">' + (p.w ? '<a href="' + p.w + '" target="_blank" rel="noopener">voce su Wikipedia</a><br>' : '') +
+      '<div class="via">' + (p.fc ? 'foto Camera dei deputati<br>' : '') +
+      (p.w ? '<a href="' + p.w + '" target="_blank" rel="noopener">voce su Wikipedia</a><br>' : '') +
       '<a href="https://www.wikidata.org/wiki/' + p.q + '" target="_blank" rel="noopener">record Wikidata ' + p.q + '</a></div>';
   } else box.innerHTML = '';
 

@@ -194,8 +194,14 @@ def descrizione_scheda(p, nomi, oggi):
         apertura = ('%s%s: le fonti non ne registrano la morte, ma non sanno '
                     'dire se sia ancora in vita.'
                     % (p['n'], ' (%s)' % nascita if nascita else ''))
+    governo = ''
+    anni_gov = sorted(a for c in p.get('gv', []) for a in (c[1], c[2]) if a)
+    if anni_gov:
+        governo = ('Incarichi di governo nel %s.' % anni_gov[0] if anni_gov[0] == anni_gov[-1]
+                   else 'Incarichi di governo dal %s al %s.' % (anni_gov[0], anni_gov[-1]))
+    studi = (p['st'].rstrip('.') + '.') if p.get('st') else ''
     return ' '.join(x for x in (apertura, partito_in_chiaro(p, nomi),
-                                legislature_in_chiaro(p)) if x)
+                                legislature_in_chiaro(p), governo, studi) if x)
 
 
 # ------------------------------------------------------------ le schermate
@@ -359,6 +365,8 @@ def testa(indirizzo, titolo, descrizione, persona, dati, extra_home):
             individuo['deathDate'] = p['d']
         if p.get('f'):
             individuo['image'] = p['f']
+        if p.get('g') == 'f':
+            individuo['gender'] = 'Female'
         grafo = {'@context': 'https://schema.org', '@type': 'ProfilePage',
                  'url': url, 'name': titolo, 'inLanguage': 'it-IT',
                  'dateModified': dati['generato'],
