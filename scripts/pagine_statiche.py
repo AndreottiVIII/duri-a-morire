@@ -55,6 +55,7 @@ PAGINE = {
     260: '/statistiche/defunti/',
     261: '/statistiche/defunti-per-partito/',
     270: '/statistiche/piu-incarichi/',
+    280: '/statistiche/piu-votati/',
     300: '/in-memoriam/',
     400: '/sorte-ignota/',
     500: '/compleanni/',
@@ -76,6 +77,11 @@ ELENCHI = {
 }
 
 NON_ELETTIVI = ('a vita', 'di diritto')
+
+# l'anno dell'elezione che apri' ogni legislatura
+ANNI_ELEZIONE = {'I': '1948', 'II': '1953', 'III': '1958', 'IV': '1963', 'V': '1968',
+                 'VI': '1972', 'VII': '1976', 'VIII': '1979', 'IX': '1983', 'X': '1987',
+                 'XI': '1992'}
 
 
 def eletti_per_luogo(persone, ramo):
@@ -221,6 +227,12 @@ def descrizione_scheda(p, nomi, oggi):
         governo = ('Incarichi di governo nel %s.' % anni_gov[0] if anni_gov[0] == anni_gov[-1]
                    else 'Incarichi di governo dal %s al %s.' % (anni_gov[0], anni_gov[-1]))
     studi = (p['st'].rstrip('.') + '.') if p.get('st') else ''
+    if p.get('pf'):
+        # il risultato migliore: e' il numero che chi cerca vuole sapere
+        leg, voti = max(p['pf'], key=lambda x: x[1])
+        anno = ANNI_ELEZIONE.get(leg, '')
+        governo = (governo + ' ' if governo else '') + \
+            'Record personale: %s preferenze nel %s.' % (format(voti, ',').replace(',', '.'), anno)
     return ' '.join(x for x in (apertura, partito_in_chiaro(p, nomi),
                                 legislature_in_chiaro(p), governo, studi) if x)
 
@@ -321,6 +333,9 @@ def schermate(dati):
     pagina(270, 'I parlamentari della Prima Repubblica con più incarichi',
            'La classifica di chi ha occupato più poltrone: ministeri, sottosegretariati, '
            'presidenze delle Camere, delle commissioni e dei gruppi parlamentari.')
+    pagina(280, 'I parlamentari più votati della Prima Repubblica',
+           'La classifica dei voti di preferenza alla Camera dal 1948 al 1992, elezione '
+           'per elezione: da Andreotti a Moro, da Berlinguer a Rumor.')
     pagina(300, 'In memoriam: i parlamentari della Prima Repubblica scomparsi',
            'I %d parlamentari e ministri della Prima Repubblica che non ci sono più, '
            'dal più recente.' % len(defunti))

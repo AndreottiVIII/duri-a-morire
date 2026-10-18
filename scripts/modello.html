@@ -318,8 +318,6 @@ PAGINE[100] = () => {
     vocemenu(130, 'HALL OF FAME',
              hof.filter(p => p.s === 1).length + '/' + hof.length, 'g'),
     vocemenu(110, 'PER LEGISLATURA'),
-    vocemenu(140, 'PER CIRCOSCRIZIONE (CAMERA)'),
-    vocemenu(145, 'PER REGIONE (SENATO)'),
     vocemenu(200, 'STATISTICHE'),
     vocemenu(500, 'COMPLEANNI'),
     vocemenu(150, 'RICERCA'),
@@ -501,6 +499,19 @@ PAGINE[135] = () => {
   return {righe: r, sottopagine: 1};
 };
 
+// I piu' votati: le preferenze di ogni elezione alla Camera, dal 1948 al
+// 1992, una riga per persona ed elezione. Le prime cinquecento.
+PAGINE[280] = paginaRighe(() => {
+  const anni = {};
+  DATI.legislature.forEach(L => { anni[L[0]] = L[1].slice(0, 4); });
+  const tutte = [];
+  P.forEach(p => (p.pf || []).forEach(x => tutte.push([p, x[0], x[1]])));
+  return tutte.sort((a, b) => b[2] - a[2]).slice(0, 500).map(c => [
+    seg(' '), {t: tronca(c[0].n, 22).padEnd(22), c: c[0].s === 1 ? 'b' : 'd', link: c[0].q},
+    seg(' ' + (anni[c[1]] || ''), 'c'),
+    seg(c[2].toLocaleString('it-IT').padStart(W - 29), 'g')]);
+}, 'I PIÙ VOTATI', 'preferenze 1948-1992, fonte Min. Interno');
+
 // La stessa classifica della 135, ma per tutti: chi ha occupato piu'
 // poltrone, al governo e in Parlamento.
 PAGINE[270] = paginaRighe(() => P.map(p => [p, quantiIncarichi(p)])
@@ -543,6 +554,9 @@ PAGINE[200] = () => {
     vocemenu(250, 'PIÙ LEGISLATURE'),
     vocemenu(260, 'STATISTICHE DEI DEFUNTI'),
     vocemenu(270, 'PIÙ INCARICHI'),
+    vocemenu(280, 'I PIÙ VOTATI'),
+    vocemenu(140, 'PER CIRCOSCRIZIONE (CAMERA)'),
+    vocemenu(145, 'PER REGIONE (SENATO)'),
   ], sottopagine: 1};
 };
 
@@ -894,6 +908,12 @@ function scheda(q, sub){
   // Studi e professione come li scrive la Camera: "Laurea in lettere;
   // insegnante".
   if(p.st) avvolgi(p.st, ' ', ' ').forEach(l => r.push([seg(l, 'b')]));
+  // la famiglia in Parlamento: chi altro dell'elenco e' suo parente
+  (p.fa || []).forEach(f => {
+    const altro = perQid[f[1]];
+    if(altro) r.push([seg(' ' + f[0] + ': ', 'd'),
+                      {t: tronca(altro.n, W - f[0].length - 4), c: 'c', link: altro.q}]);
+  });
   r.push(vuota());
   const leg = legislatureDi(p), gov = governiDi(p);
   if(leg.length){
@@ -902,20 +922,31 @@ function scheda(q, sub){
       // una riga per legislatura: dove sedeva e dove era stato eletto
       const dove = {};
       p.el.forEach(e => { dove[e[0]] = e; });
+      // i voti di preferenza, a destra, dove l'archivio del Ministero li ha
+      const voti = {};
+      (p.pf || []).forEach(x => { voti[x[0]] = x[1]; });
       leg.forEach(m => {
         const e = dove[m];
         const ramo = !e || m === 'Costituente' ? '' : (e[1] === 'S' ? 'Senato, ' : 'Camera, ');
+        const numero = voti[m] ? voti[m].toLocaleString('it-IT') : '';
+        const spazio = W - 15 - (numero ? numero.length + 1 : 0);
         const riga = [seg('  ' + m.padEnd(12), 'c')];
+        let usati = 14;
         if(e && NON_ELETTIVI.indexOf(e[2]) < 0){
           // il luogo porta alla pagina di chi e' stato eletto li'
+          const luogo = tronca(e[2], spazio - ramo.length);
           riga.push(seg(ramo, 'b'));
-          riga.push({t: tronca(e[2], W - 15 - ramo.length), c: 'b',
-                     el: (e[1] === 'S' ? 'reg:' : 'circ:') + e[2]});
+          riga.push({t: luogo, c: 'b', el: (e[1] === 'S' ? 'reg:' : 'circ:') + e[2]});
+          usati += ramo.length + luogo.length;
         } else {
-          riga.push(seg(tronca(e ? ramo + e[2] : '', W - 15), 'b'));
+          const testo = tronca(e ? ramo + e[2] : '', spazio);
+          riga.push(seg(testo, 'b'));
+          usati += testo.length;
         }
+        if(numero) riga.push(seg(sp(W - 1 - usati - numero.length) + numero, 'g'));
         r.push(riga);
       });
+      if(p.pf) r.push([seg('  a destra le preferenze (Min. Interno)', 'd')]);
     } else {
       avvolgi(leg.join('  '), '  ', '  ').forEach(l => r.push([seg(l, 'c')]));
     }

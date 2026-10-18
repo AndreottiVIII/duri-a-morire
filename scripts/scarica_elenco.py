@@ -8,6 +8,7 @@ servito come 1 gennaio, e preso alla lettera produrrebbe compleanni inventati.
 import sys, os, json, time, datetime, re, urllib.parse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import wd, camera, senato, wikipedia, camera_anagrafe, cariche_parlamento, proposte_camera
+import preferenze_camera
 
 # La console di Windows parla ancora cp1252 e va in errore su una lettera
 # straniera: un nome come Stojan Spetic ha fatto morire lo script prima che
@@ -365,6 +366,36 @@ def scarica_treccani(persone):
     print('  %d schede con una voce della Treccani' % len(trovate))
 
 
+# Padri, madri, coniugi, figli, fratelli e parenti, ma solo quando anche
+# l'altro sta nell'elenco: e' la famiglia in Parlamento, non l'albero.
+PARENTELE = {'P22': 'padre', 'P25': 'madre', 'P26': 'coniuge', 'P40': 'figlio',
+             'P3373': 'fratello', 'P1038': 'parente'}
+Q_PARENTI = """SELECT ?a ?p ?b WHERE {
+  VALUES ?a { %s }
+  VALUES ?p { %s }
+  ?a ?p ?b .
+}"""
+
+
+def scarica_parenti(persone):
+    lista = sorted(persone)
+    righe = []
+    for i in range(0, len(lista), 300):
+        righe += cache_o_query('parenti_%d' % i, Q_PARENTI % (
+            ' '.join('wd:' + q for q in lista[i:i + 300]),
+            ' '.join('wdt:' + k for k in PARENTELE)))
+    coppie = 0
+    for r in righe:
+        a, b = wd.qid(r, 'a'), wd.qid(r, 'b')
+        rel = PARENTELE.get((wd.v(r, 'p') or '').rsplit('/', 1)[-1])
+        if a in persone and b in persone and a != b and rel:
+            voci = persone[a].setdefault('parenti', [])
+            if [rel, b] not in voci:
+                voci.append([rel, b])
+                coppie += 1
+    print('  %d legami di parentela fra persone dell\'elenco' % coppie)
+
+
 def leggi_json(nome):
     percorso = os.path.join(QUI, '..', 'data', nome)
     if not os.path.exists(percorso):
@@ -639,7 +670,8 @@ def main():
     # L'anagrafe della Camera: sesso, studi e professione, foto ufficiale,
     # Consulta Nazionale, e gli incarichi di governo coi nomi di allora.
     print('Anagrafe della Camera...')
-    camera_anagrafe.aggancia(persone, camera_anagrafe.anagrafe(oggi), camera.chiave, alias)
+    anagrafe = camera_anagrafe.anagrafe(oggi)
+    camera_anagrafe.aggancia(persone, anagrafe, camera.chiave, alias)
     # Le cariche dentro il Parlamento: presidenti e vicepresidenti delle
     # Camere, questori, presidenti di commissione e di gruppo.
     print('Cariche parlamentari...')
@@ -651,6 +683,12 @@ def main():
     # li legge il generatore dalla copia versionata.
     print('Proposte di legge...')
     proposte_camera.aggancia(persone, proposte_camera.proposte(oggi))
+    # I voti di preferenza alla Camera, dall'archivio del Ministero dell'Interno.
+    print('Preferenze...')
+    preferenze_camera.aggancia(persone, preferenze_camera.preferenze(oggi, anagrafe), anagrafe)
+    # Le parentele fra persone che sono tutte nell'elenco, da Wikidata.
+    print('Famiglie...')
+    scarica_parenti(persone)
 
     print('Cariche della hall of fame...')
     scarica_cariche(persone, list(hof))

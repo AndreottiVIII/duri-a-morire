@@ -643,6 +643,10 @@ def compatta(p):
         d['el'] = [[m] + elezioni[m] for m in d['m'] if m in elezioni]
     if p.get('proposte'):
         d['pl'] = [p['proposte']['primo'], p['proposte']['cofirmate']]
+    # i voti di preferenza, legislatura per legislatura: ['X', 75251]
+    if p.get('preferenze'):
+        d['pf'] = [[x[0], x[4]] for x in sorted(p['preferenze'],
+                                                key=lambda x: ORDINE_MANDATI.index(x[0]))]
     governo = incarichi_governo(p.get('incarichi_governo') or [])
     if governo:
         d['gv'] = governo
@@ -683,6 +687,20 @@ def compatta(p):
 def main():
     grezzo = json.load(open(INGRESSO, encoding='utf-8'))
     persone = [compatta(p) for p in grezzo['persone']]
+    # Le parentele, dette dal punto di vista della scheda: di Antonio Gava,
+    # Silvio Gava e' il padre. La parola dipende dal sesso dell'altro, quando
+    # l'anagrafe della Camera lo sa.
+    genere = {p['qid']: p.get('genere') for p in grezzo['persone']}
+    parole = {'figlio': ('figlio', 'figlia'), 'fratello': ('fratello', 'sorella')}
+    per_qid = {d['q']: d for d in persone}
+    for p in grezzo['persone']:
+        if p.get('parenti') and p['qid'] in per_qid:
+            fa = []
+            for rel, altro in p['parenti']:
+                if rel in parole:
+                    rel = parole[rel][1] if genere.get(altro) == 'f' else parole[rel][0]
+                fa.append([rel, altro])
+            per_qid[p['qid']]['fa'] = fa
     # le righe di spiegazione scritte a mano, con la fonte
     note = json.load(open(os.path.join(QUI, '..', 'data', 'note_redazione.json'), encoding='utf-8'))
     for d in persone:
