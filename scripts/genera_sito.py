@@ -600,11 +600,19 @@ def gia_in_parlamento(c, parlamento):
     return False
 
 
+def nome_mostrato(nome):
+    """Senza le precisazioni che Wikipedia aggiunge agli omonimi: "Antonio
+    Cali' (politico)", "Pasquale Valsecchi (1904-1982)". Resta quella che dice
+    qualcosa, come il cognome da sposata: "Cristina Papa (De Santis)"."""
+    return re.sub(r'\s*\((?:politico|politica|senatore|senatrice|deputato|deputata)?'
+                  r'\s*[\d\s\-–]*\)$', '', nome or '').strip() or '?'
+
+
 def compatta(p):
     """Una persona ridotta all'osso: il file finito deve restare leggero."""
     d = {
         'q': p['qid'],
-        'n': p['nome'] or '?',
+        'n': nome_mostrato(p['nome']),
         'b': p['nascita'],
         'bp': p['prec_nascita'],
         'd': p['morte'],

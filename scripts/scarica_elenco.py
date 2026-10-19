@@ -678,6 +678,17 @@ def main():
                 continue
             if come == 'data':
                 p['aggancio'] = 'data di nascita'
+            # stesso anno, ma il registro sa anche il giorno: Francesco
+            # Primerano su Wikidata e' solo "1915", al Senato 31 maggio 1915
+            # Ma un "1 novembre" del registro, dove Wikidata sa solo "novembre",
+            # e' un giorno messo per riempire il campo: Adelmo Riccardi resta
+            # di novembre 1924.
+            if (v.get('nascita') and len(v['nascita']) == 10 and p['nascita']
+                    and len(p['nascita']) < 10
+                    and v['nascita'][:len(p['nascita'])] == p['nascita']
+                    and not v['nascita'].endswith('-01-01')
+                    and not (len(p['nascita']) == 7 and v['nascita'].endswith('-01'))):
+                p['nascita'], p['prec_nascita'] = v['nascita'], 'giorno'
             if v.get('nascita') and p['nascita'] and v['nascita'][:4] != p['nascita'][:4]:
                 discordanze.append((p['nome'], p['nascita'], v['nascita'], etichetta))
                 # Sulla nascita crediamo al registro ufficiale, non a Wikidata.
