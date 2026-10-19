@@ -522,6 +522,10 @@ def partito_di(p):
     """
     if p.get('partito_hof'):
         return sigla_curata(p['partito_hof'])
+    # scritto a mano con la sua fonte, per chi in Parlamento non ha avuto
+    # nemmeno un gruppo (correzioni_redazione.json)
+    if p.get('partito_redazione'):
+        return sigla([p['partito_redazione']], mandati=p['mandati'])
     ammessi = [x for x in p['partiti'] if nel_perimetro(x)]
     if e_contenitore(p.get('gruppo_eletto')) and ammessi:
         return sigla(ammessi, mandati=p['mandati'])

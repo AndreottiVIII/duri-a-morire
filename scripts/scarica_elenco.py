@@ -760,6 +760,23 @@ def main():
             print('    %-26s %s' % (p['nome'], m[0]))
     print('  %d decessi che solo Wikipedia registrava' % len(trovate))
 
+    # Quinta fonte, scritta a mano: quello che nessun archivio sa e una fonte
+    # citata si', come la morte di Giorgio Spadaccia, deputato radicale per un
+    # giorno nel 1979, che racconta il fratello Gianfranco. Vale solo dove le
+    # altre tacciono, e la fonte va in pagina.
+    correzioni = leggi_json('correzioni_redazione.json')
+    for q, c in correzioni.items():
+        p = persone.get(q)
+        if not p:
+            continue
+        if c.get('morte') and not p['morte']:
+            p['morte'] = c['morte']
+            p['prec_morte'] = 'giorno' if len(c['morte']) == 10 else 'anno'
+            p['fonte_morte'] = c['fonte']
+        if c.get('partito'):
+            p['partito_redazione'] = c['partito']
+    print('  %d correzioni della redazione' % len(correzioni))
+
     # Una morte che ha il solo anno, che viene dalla sola Wikidata, e che il
     # registro ufficiale smentisce tacendo, e' quasi sempre un fine mandato
     # finito nella casella sbagliata: Stojan Spetic risultava morto nel 1992,
