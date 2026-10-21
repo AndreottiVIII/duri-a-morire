@@ -197,6 +197,121 @@ def senatori_dal_registro(persone, oggi):
                 persone[q]['dal_senato'] = True
     print('  %d senatori riconosciuti dal numero del Senato, %d aggiunti all\'elenco'
           % (len(assegnate) - len(nuovi), len(nuovi)))
+    senza = {i: v for i, v in ids.items() if i not in di_chi}
+    try:
+        assegnate.update(senatori_senza_numero(persone, senza))
+    except Exception as e:
+        # un passaggio in piu', non una ragione per fermare il giro
+        sys.stderr.write('  senatori senza numero saltati (%s)\n' % e)
+    return assegnate
+
+
+# I senatori che su Wikidata non hanno il numero del Senato. Il registro ne da'
+# nome, nascita, morte, citta' di nascita, sesso e professione.
+Q_SENATORI_REGISTRO = """PREFIX osr: <http://dati.senato.it/osr/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?s ?nome ?nascita ?morte ?citta ?sesso ?prof WHERE {
+  ?s rdfs:label ?nome .
+  FILTER(?s IN (%s))
+  OPTIONAL { ?s osr:dataNascita ?nascita } OPTIONAL { ?s osr:dataMorte ?morte }
+  OPTIONAL { ?s osr:cittaNascita ?citta } OPTIONAL { ?s foaf:gender ?sesso }
+  OPTIONAL { ?s osr:professione ?x . ?x rdfs:label ?prof }
+}"""
+Q_PER_NASCITA = """SELECT ?p ?l WHERE {
+  ?p wdt:P569 ?d . FILTER(?d = "%sT00:00:00Z"^^xsd:dateTime)
+  ?p wdt:P27 wd:Q38 . ?p rdfs:label ?l . FILTER(LANG(?l) = "it")
+}"""
+
+
+def senatori_senza_numero(persone, senza):
+    """Tre strade, dalla piu' sicura:
+    1. e' gia' nell'elenco: stesso giorno di nascita e un pezzo di cognome in
+       comune (Emilio Canevari, che avevamo solo per la Costituente);
+    2. Wikidata ha una voce, senza numero: stesso giorno di nascita, cittadino
+       italiano, il cognome nell'etichetta, e una sola voce cosi';
+    3. nessuna voce: entra una scheda essenziale coi soli dati del registro,
+       e un codice nostro, 'S' e il numero del Senato, al posto di quello
+       Wikidata."""
+    if not senza:
+        return {}
+    # a gruppi di 15: una richiesta troppo lunga il Senato la rifiuta (403)
+    elenco, righe = sorted(senza), []
+    for a in range(0, len(elenco), 15):
+        # FILTER IN e non VALUES: il Senato risponde 400 a VALUES
+        righe += senato.interroga(Q_SENATORI_REGISTRO % ', '.join(
+            '<http://dati.senato.it/senatore/%s>' % i for i in elenco[a:a + 15]))
+        time.sleep(0.5)
+    dati = {}
+    for r in righe:
+        i = wd.v(r, 's').rsplit('/', 1)[-1]
+        d = dati.setdefault(i, {})
+        for k in ('nome', 'nascita', 'morte', 'citta', 'sesso'):
+            d[k] = d.get(k) or wd.v(r, k)
+        # la professione puo' venire in due versioni: la piu' completa
+        if len(wd.v(r, 'prof') or '') > len(d.get('prof') or ''):
+            d['prof'] = wd.v(r, 'prof')
+    pezzi = lambda nome: {x for x in camera.chiave(nome or '').split() if len(x) >= 4}
+    assegnate = {}
+    conti = [0, 0, 0]
+    ordine = [COSTITUENTE[0]] + [L[0] for L in LEGISLATURE]
+    for i, voce in sorted(senza.items()):
+        d = dati.get(i) or {}
+        nascita = (d.get('nascita') or '')[:10]
+        if len(nascita) != 10:
+            continue
+        miei = pezzi(voce['chiave'])
+        morte = (d.get('morte') or '')[:10]
+        # stesso giorno di nascita; oppure stesso giorno di morte con la
+        # nascita a un anno al piu': Camera e Senato non sempre concordano
+        # (Vittorio Pugliese 23 o 26 gennaio 1905, Ezio Maria Gray 1884 o 1885)
+        def stesso(p):
+            if p['nascita'] == nascita:
+                return True
+            return (len(morte) == 10 and p.get('morte') == morte and p['nascita']
+                    and abs(int(p['nascita'][:4]) - int(nascita[:4])) <= 1)
+        gia = [p for p in persone.values() if not p.get('chiave_senato')
+               and stesso(p) and miei & pezzi(p['nome'])]
+        if len(gia) == 1:
+            p = gia[0]
+            p['chiave_senato'] = voce['chiave']
+            p['legislature_senato'] = sorted(voce['legs'])
+            assegnate[voce['chiave']] = p['qid']
+            conti[0] += 1
+            continue
+        voci = [(wd.qid(r, 'p'), wd.v(r, 'l')) for r in
+                cache_o_query('nascita_%s' % nascita, Q_PER_NASCITA % nascita)]
+        voci = list({q: l for q, l in voci if miei & pezzi(l)}.items())
+        if len(voci) == 1 and voci[0][0] not in persone:
+            q = voci[0][0]
+            sue = cache_o_query('senatore_%s' % q, Q_PERSONE % ('wd:' + q))
+            for m in sorted(voce['legs'], key=ordine.index):
+                assorbi(persone, sue or [{'p': {'value': 'http://www.wikidata.org/entity/' + q}}], m)
+            persone[q].update({'chiave_senato': voce['chiave'], 'dal_senato': True})
+            assegnate[voce['chiave']] = q
+            conti[1] += 1
+            continue
+        if voci:
+            continue          # piu' voci possibili, o gia' presa: meglio niente
+        q = 'S' + i
+        morte = morte or None
+        persone[q] = {
+            'qid': q, 'nome': d.get('nome'), 'nascita': nascita, 'prec_nascita': 'giorno',
+            'morte': morte, 'prec_morte': 'giorno' if morte else None,
+            'foto': None, 'wikipedia': None,
+            'mandati': sorted(voce['legs'], key=ordine.index),
+            'cariche': set(), 'partiti': set(),
+            'chiave_senato': voce['chiave'], 'dal_senato': True, 'solo_registro': True,
+            'genere': {'M': 'm', 'F': 'f'}.get(d.get('sesso') or ''),
+            'studi': d.get('prof'),
+            'luoghi': {'nascita': d['citta']} if d.get('citta') else None,
+        }
+        if morte:
+            persone[q]['fonte_morte'] = 'Senato'
+        assegnate[voce['chiave']] = q
+        conti[2] += 1
+    print('  senza numero del Senato: %d gia\' nell\'elenco, %d trovati su Wikidata, '
+          '%d schede dal solo registro' % tuple(conti))
     return assegnate
 
 
@@ -411,7 +526,7 @@ Q_TRECCANI = """SELECT ?p ?dbi ?enc WHERE {
 
 
 def scarica_treccani(persone):
-    lista = sorted(persone)
+    lista = sorted(q for q in persone if q.startswith('Q'))
     righe = []
     for i in range(0, len(lista), 300):
         righe += cache_o_query('treccani_%d' % i, Q_TRECCANI % ' '.join(
@@ -441,7 +556,7 @@ Q_PARENTI = """SELECT ?a ?p ?b WHERE {
 
 
 def scarica_parenti(persone):
-    lista = sorted(persone)
+    lista = sorted(q for q in persone if q.startswith('Q'))
     righe = []
     for i in range(0, len(lista), 300):
         righe += cache_o_query('parenti_%d' % i, Q_PARENTI % (
@@ -471,7 +586,7 @@ Q_LUOGHI = """SELECT ?a ?p ?nome WHERE {
 
 
 def scarica_luoghi(persone):
-    lista = sorted(persone)
+    lista = sorted(q for q in persone if q.startswith('Q'))
     righe = []
     for i in range(0, len(lista), 300):
         righe += cache_o_query('luoghi_%d' % i, Q_LUOGHI % (
@@ -657,6 +772,8 @@ def main():
         recuperati = 0
         for p in persone.values():
             wd_n, wd_m = nascite_wd.get(p['qid']), morti_wd.get(p['qid'])
+            if modulo is camera and p.get('solo_registro'):
+                continue      # senatore e basta: un deputato omonimo non e' lui
             if modulo is senato and p.get('chiave_senato'):
                 # col numero del Senato non si tira a indovinare: quella voce o niente
                 v = modulo.cerca(reg, p['chiave_senato'],

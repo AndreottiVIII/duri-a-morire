@@ -1221,7 +1221,8 @@ async function controllaOra(){
   // anche l'indirizzo va sulla 600, non solo lo schermo
   mostra(Object.assign({}, STATO_INIZIALE, {pagina: 600, filtro: stato.filtro}), true);
   try {
-    const daVedere = viventi.concat(ignoti).map(p => p.q);
+    // chi ha solo il registro del Senato non ha un codice Wikidata da chiedere
+    const daVedere = viventi.concat(ignoti).map(p => p.q).filter(q => /^Q\d+$/.test(q));
     const lotti = [];
     for(let i = 0; i < daVedere.length; i += 250) lotti.push(daVedere.slice(i, i + 250));
     const trovati = [];
@@ -1446,7 +1447,7 @@ function disegna(){
       '<div class="via">' + (p.fc ? 'foto Camera dei deputati<br>' : '') +
       collegamentiAutorevoli(p) +
       (p.w ? '<a href="' + p.w + '" target="_blank" rel="noopener">voce su Wikipedia</a><br>' : '') +
-      '<a href="https://www.wikidata.org/wiki/' + p.q + '" target="_blank" rel="noopener">record Wikidata ' + p.q + '</a></div>';
+      (/^Q\d+$/.test(p.q) ? '<a href="https://www.wikidata.org/wiki/' + p.q + '" target="_blank" rel="noopener">record Wikidata ' + p.q + '</a>' : '') + '</div>';
   } else box.innerHTML = '';
 
   // le frecce compaiono solo dove servono: spente sembravano rotte

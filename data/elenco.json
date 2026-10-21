@@ -1,5 +1,5 @@
 {
- "generato": "2026-10-19",
+ "generato": "2026-10-21",
  "eta_massima_credibile": 106,
  "persone": [
   {
@@ -2063,6 +2063,50 @@
    "hall_of_fame": false
   },
   {
+   "qid": "S921",
+   "nome": "Ada Valeria Fabj",
+   "nascita": "1927-08-22",
+   "prec_nascita": "giorno",
+   "morte": null,
+   "prec_morte": null,
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "XI"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "ada fabj valeria",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "f",
+   "studi": "Avvocato",
+   "luoghi": {
+    "nascita": "Bologna"
+   },
+   "gruppo_eletto": "PDS",
+   "registro_muto": "Senato",
+   "elezioni": {
+    "XI": [
+     "S",
+     "Emilia Romagna"
+    ]
+   },
+   "scheda_senato": "11:921",
+   "gruppi": [
+    [
+     "XI",
+     "S",
+     "PDS",
+     "1992-04-27",
+     "1994-04-14"
+    ]
+   ],
+   "stato": "vivente",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
    "qid": "Q57836798",
    "nome": "Ada Valeria Ruhl Bonazzola",
    "nascita": "1921-10-11",
@@ -3491,6 +3535,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "chiave_senato": "adolfo sarti",
    "id_camera": "19920",
    "nascita_camera": "1928-06-19",
    "gruppo_eletto": "DEMOCRATICO CRISTIANO",
@@ -7206,8 +7251,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Genova",
-    "nascita": "Milano"
+    "nascita": "Milano",
+    "morte": "Genova"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -7999,8 +8044,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Voghera",
-    "nascita": "Voghera"
+    "nascita": "Voghera",
+    "morte": "Voghera"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -16464,8 +16509,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Premilcuore",
-    "nascita": "Bertinoro"
+    "nascita": "Bertinoro",
+    "morte": "Premilcuore"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -18517,8 +18562,8 @@
    "treccani": "alessandro-faedo",
    "luoghi": {
     "morte": "Pisa",
-    "nascita": "Chiampo",
-    "sepoltura": "cimitero della Misericordia"
+    "sepoltura": "cimitero della Misericordia",
+    "nascita": "Chiampo"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -19032,6 +19077,51 @@
     "morte": "Firenze"
    },
    "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
+   "qid": "S1334",
+   "nome": "Alessandro Lippi",
+   "nascita": "1943-01-16",
+   "prec_nascita": "giorno",
+   "morte": null,
+   "prec_morte": null,
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "IX"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "alessandro lippi",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": "Avvocato, dirigente della regione toscana",
+   "luoghi": {
+    "nascita": "Viareggio"
+   },
+   "gruppo_eletto": "PCI",
+   "registro_muto": "Senato",
+   "anagrafe_camera": "301262",
+   "elezioni": {
+    "IX": [
+     "S",
+     "Toscana"
+    ]
+   },
+   "scheda_senato": "9:1334",
+   "gruppi": [
+    [
+     "IX",
+     "S",
+     "PCI",
+     "1986-07-01",
+     "1987-07-01"
+    ]
+   ],
+   "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -20369,6 +20459,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "chiave_senato": "alessio pasquini",
    "id_camera": "21700",
    "nascita_camera": "1930-02-21",
    "gruppo_eletto": "PARTITO COMUNISTA ITALIANO",
@@ -23734,8 +23825,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Bologna",
-    "nascita": "Vienna"
+    "nascita": "Vienna",
+    "morte": "Bologna"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -24263,8 +24354,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Capolona",
-    "nascita": "Chiusi della Verna"
+    "nascita": "Chiusi della Verna",
+    "morte": "Capolona"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -24457,8 +24548,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Bologna",
-    "nascita": "Cagliari"
+    "nascita": "Cagliari",
+    "morte": "Bologna"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -25843,6 +25934,51 @@
     "nascita": "Napoli",
     "morte": "Napoli"
    },
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
+   "qid": "S7228",
+   "nome": "Amedeo Murgia",
+   "nascita": "1907-03-11",
+   "prec_nascita": "giorno",
+   "morte": "1975-01-02",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "IV"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "amedeo murgia",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": "Funzionario di ruolo",
+   "luoghi": {
+    "nascita": "Ballao"
+   },
+   "fonte_morte": "Senato",
+   "gruppo_eletto": "DC",
+   "anagrafe_camera": "304490",
+   "elezioni": {
+    "IV": [
+     "S",
+     "Lazio"
+    ]
+   },
+   "scheda_senato": "4:7228",
+   "gruppi": [
+    [
+     "IV",
+     "S",
+     "DC",
+     "1966-11-16",
+     "1968-06-04"
+    ]
+   ],
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -29477,6 +29613,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "chiave_senato": "anelito barontini",
    "id_camera": "17840",
    "nascita_camera": "1912-04-21",
    "gruppo_eletto": "COMUNISTA",
@@ -31947,8 +32084,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Racalmuto",
-    "nascita": "Regalbuto"
+    "nascita": "Regalbuto",
+    "morte": "Racalmuto"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -32662,9 +32799,54 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Fiera di Primiero",
-    "morte": "Borgo Valsugana"
+    "morte": "Borgo Valsugana",
+    "nascita": "Fiera di Primiero"
    },
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
+   "qid": "S9656",
+   "nome": "Angelo Giorgetti",
+   "nascita": "1894-04-01",
+   "prec_nascita": "giorno",
+   "morte": "1971-07-29",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "IV"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "angelo giorgetti",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": "Industriale",
+   "luoghi": {
+    "nascita": "Viareggio"
+   },
+   "fonte_morte": "Senato",
+   "gruppo_eletto": "PSI-PSDI unificati",
+   "anagrafe_camera": "304488",
+   "elezioni": {
+    "IV": [
+     "S",
+     "Toscana"
+    ]
+   },
+   "scheda_senato": "4:9656",
+   "gruppi": [
+    [
+     "IV",
+     "S",
+     "PSI-PSDI UNIFICATI",
+     "1966-11-24",
+     "1968-06-04"
+    ]
+   ],
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -38053,8 +38235,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Molinella",
-    "nascita": "Conselice"
+    "nascita": "Conselice",
+    "morte": "Molinella"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -38516,8 +38698,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Leonforte",
-    "nascita": "Nissoria"
+    "nascita": "Nissoria",
+    "morte": "Leonforte"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -40985,6 +41167,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "chiave_senato": "antonino senese",
    "id_camera": "20040",
    "nascita_camera": "1930-02-01",
    "gruppo_eletto": "DEMOCRAZIA CRISTIANA",
@@ -44888,6 +45071,51 @@
     "morte": "Mantova",
     "nascita": "Savelli"
    },
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
+   "qid": "S6636",
+   "nome": "Antonio Cassese",
+   "nascita": "1919-10-21",
+   "prec_nascita": "giorno",
+   "morte": "1992-09-20",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "IV"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "antonio cassese",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": "Medico chirurgo specialista in odontoiatria e protesi dentaria",
+   "luoghi": {
+    "nascita": "Eboli"
+   },
+   "fonte_morte": "Senato",
+   "gruppo_eletto": "PCI",
+   "anagrafe_camera": "303952",
+   "elezioni": {
+    "IV": [
+     "S",
+     "Campania"
+    ]
+   },
+   "scheda_senato": "4:6636",
+   "gruppi": [
+    [
+     "IV",
+     "S",
+     "PCI",
+     "1963-05-16",
+     "1968-06-04"
+    ]
+   ],
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -51195,8 +51423,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Nuoro",
-    "nascita": "Orgosolo"
+    "nascita": "Orgosolo",
+    "morte": "Nuoro"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -54830,6 +55058,7 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
+   "chiave_senato": "antonio ventre",
    "id_camera": "22160",
    "nascita_camera": "1931-07-09",
    "gruppo_eletto": "DEMOCRAZIA CRISTIANA",
@@ -55545,6 +55774,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "chiave_senato": "arcangelo lobianco",
    "id_camera": "3430",
    "nascita_camera": "1929-09-09",
    "gruppo_eletto": "DEMOCRAZIA CRISTIANA",
@@ -63667,8 +63897,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Vallada Agordina",
-    "morte": "Auronzo di Cadore"
+    "morte": "Auronzo di Cadore",
+    "nascita": "Vallada Agordina"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -66709,6 +66939,7 @@
    "partiti": [
     "Partito Liberale Italiano"
    ],
+   "chiave_senato": "benedetto croce",
    "id_camera": "27710",
    "nascita_camera": "1866-02-25",
    "gruppo_eletto": "UNIONE DEMOCRATICA NAZIONALE",
@@ -74592,8 +74823,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Fermo",
-    "morte": "Rieti"
+    "morte": "Rieti",
+    "nascita": "Fermo"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -76981,10 +77212,10 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "chiave_senato": "carla nespolo",
    "id_camera": "16290",
    "nascita_camera": "1943-03-04",
    "gruppo_eletto": "PARTITO COMUNISTA ITALIANO",
-   "aggancio": "data di nascita",
    "anagrafe_camera": "16290",
    "genere": "f",
    "studi": "Laurea in filosofia; insegnante",
@@ -76997,8 +77228,17 @@
     "VIII": [
      "C",
      "Cuneo"
+    ],
+    "IX": [
+     "S",
+     "Piemonte"
+    ],
+    "X": [
+     "S",
+     "Piemonte"
     ]
    },
+   "scheda_senato": "10:1693",
    "gruppi": [
     [
      "VII",
@@ -77013,6 +77253,20 @@
      "PCI",
      "1979-06-20",
      "1983-07-11"
+    ],
+    [
+     "IX",
+     "S",
+     "PCI",
+     "1983-07-19",
+     "1987-07-01"
+    ],
+    [
+     "X",
+     "S",
+     "PCI",
+     "1987-07-09",
+     "1992-04-22"
     ]
    ],
    "treccani": "carla-federica-nespolo",
@@ -80320,8 +80574,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Monte Carlo",
-    "nascita": "Finale Ligure"
+    "nascita": "Finale Ligure",
+    "morte": "Monte Carlo"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -81909,6 +82163,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "chiave_senato": "carlo merolli",
    "id_camera": "200613",
    "nascita_camera": "1927-02-10",
    "gruppo_eletto": "DEMOCRAZIA CRISTIANA",
@@ -88022,12 +88277,14 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/CelesteBastianetto.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Celeste_Bastianetto",
    "mandati": [
-    "Costituente"
+    "Costituente",
+    "I"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana"
    ],
    "partiti": [],
+   "chiave_senato": "bastianetto celeste",
    "id_camera": "12230",
    "nascita_camera": "1899-07-20",
    "gruppo_eletto": "DEMOCRATICO CRISTIANO",
@@ -88039,8 +88296,22 @@
     "Costituente": [
      "C",
      "Venezia"
+    ],
+    "I": [
+     "S",
+     "Veneto"
     ]
    },
+   "scheda_senato": "1:9189",
+   "gruppi": [
+    [
+     "I",
+     "S",
+     "DC",
+     "1948-05-08",
+     "1953-06-24"
+    ]
+   ],
    "luoghi": {
     "morte": "Venezia",
     "nascita": "San Donà di Piave"
@@ -89613,8 +89884,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Châtillon",
-    "nascita": "Saint-Vincent"
+    "nascita": "Saint-Vincent",
+    "morte": "Châtillon"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -95630,8 +95901,8 @@
     ]
    },
    "luoghi": {
-    "nascita": "Catania",
-    "morte": "Palermo"
+    "morte": "Palermo",
+    "nascita": "Catania"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -96655,8 +96926,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Castelnuovo di Ceva",
-    "nascita": "Arvier"
+    "nascita": "Arvier",
+    "morte": "Castelnuovo di Ceva"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -98674,8 +98945,8 @@
     "cofirmate": 31
    },
    "luoghi": {
-    "nascita": "Brindisi",
-    "morte": "Lecce"
+    "morte": "Lecce",
+    "nascita": "Brindisi"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -100005,8 +100276,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Arcispedale S. Maria Nuova (Reggio nell'Emilia)",
-    "nascita": "Villa Minozzo"
+    "nascita": "Villa Minozzo",
+    "morte": "Arcispedale S. Maria Nuova (Reggio nell'Emilia)"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -100801,7 +101072,7 @@
    "morte": "2008-08-30",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Dante%20Rossi%20senato.jpg",
-   "wikipedia": "https://it.wikipedia.org/wiki/Dante_Rossi_(politico)",
+   "wikipedia": "https://it.wikipedia.org/wiki/Dante_Rossi_(politico_1919)",
    "mandati": [
     "VI"
    ],
@@ -105441,8 +105712,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Avezzano",
-    "nascita": "Cocullo"
+    "nascita": "Cocullo",
+    "morte": "Avezzano"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -106748,6 +107019,51 @@
     ]
    ],
    "stato": "vivente",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
+   "qid": "S6741",
+   "nome": "Domenico Gaudio",
+   "nascita": "1916-07-05",
+   "prec_nascita": "giorno",
+   "morte": "2000-10-05",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "VI"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "domenico gaudio",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": "Insegnante, avvocato",
+   "luoghi": {
+    "nascita": "Mendicino"
+   },
+   "fonte_morte": "Senato",
+   "gruppo_eletto": "DC",
+   "anagrafe_camera": "301152",
+   "elezioni": {
+    "VI": [
+     "S",
+     "Calabria"
+    ]
+   },
+   "scheda_senato": "6:6741",
+   "gruppi": [
+    [
+     "VI",
+     "S",
+     "DC",
+     "1972-05-25",
+     "1976-07-04"
+    ]
+   ],
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -109694,8 +110010,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Introdacqua",
-    "morte": "Sulmona"
+    "morte": "Sulmona",
+    "nascita": "Introdacqua"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -112625,12 +112941,14 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/EduardoDiGiovanni.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Eduardo_Di_Giovanni",
    "mandati": [
-    "Costituente"
+    "Costituente",
+    "I"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana"
    ],
    "partiti": [],
+   "chiave_senato": "di eduardo giovanni",
    "id_camera": "27780",
    "nascita_camera": "1875-11-07",
    "gruppo_eletto": "PARTITO SOCIALISTA ITALIANO",
@@ -112652,6 +112970,16 @@
      "Catania"
     ]
    },
+   "scheda_senato": "1:9264",
+   "gruppi": [
+    [
+     "I",
+     "S",
+     "US",
+     "1948-05-08",
+     "1953-06-24"
+    ]
+   ],
    "luoghi": {
     "morte": "Roma",
     "nascita": "Siracusa"
@@ -117126,8 +117454,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Matera",
-    "nascita": "Matera"
+    "nascita": "Matera",
+    "morte": "Matera"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -117909,8 +118237,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Pesaro",
-    "nascita": "Ascoli Piceno"
+    "nascita": "Ascoli Piceno",
+    "morte": "Pesaro"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -118487,12 +118815,15 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/EmilioCanevari.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Emilio_Canevari",
    "mandati": [
-    "Costituente"
+    "Costituente",
+    "I",
+    "II"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana"
    ],
    "partiti": [],
+   "chiave_senato": "canevari emilio",
    "id_camera": "27450",
    "nascita_camera": "1880-01-21",
    "gruppo_eletto": "PARTITO SOCIALISTA ITALIANO",
@@ -118531,8 +118862,29 @@
     "Costituente": [
      "C",
      "Milano"
+    ],
+    "II": [
+     "S",
+     "Lombardia"
     ]
    },
+   "scheda_senato": "2:9224",
+   "gruppi": [
+    [
+     "I",
+     "S",
+     "US",
+     "1948-05-08",
+     "1953-06-24"
+    ],
+    [
+     "II",
+     "S",
+     "LIB. SOC. REP.",
+     "1953-06-25",
+     "1958-06-11"
+    ]
+   ],
    "treccani": "emilio-canevari_(Dizionario-Biografico)",
    "luoghi": {
     "morte": "Roma",
@@ -119846,8 +120198,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Firenze",
-    "nascita": "Napoli"
+    "nascita": "Napoli",
+    "morte": "Firenze"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -120088,6 +120440,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "chiave_senato": "emilio rubbi",
    "id_camera": "16650",
    "nascita_camera": "1930-06-15",
    "gruppo_eletto": "DEMOCRAZIA CRISTIANA",
@@ -123262,6 +123615,47 @@
    "hall_of_fame": false
   },
   {
+   "qid": "Q2119365",
+   "nome": "Enrico Falck",
+   "nascita": "1899-01-21",
+   "prec_nascita": "giorno",
+   "morte": "1953-06-15",
+   "prec_morte": "giorno",
+   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Enrico%20Falck.jpg",
+   "wikipedia": "https://it.wikipedia.org/wiki/Enrico_Falck_(imprenditore_1899)",
+   "mandati": [
+    "I"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "enrico falck",
+   "dal_senato": true,
+   "gruppo_eletto": "DC",
+   "fonte_morte": "Senato",
+   "anagrafe_camera": "303309",
+   "genere": "m",
+   "elezioni": {
+    "I": [
+     "S",
+     "Lombardia"
+    ]
+   },
+   "scheda_senato": "1:9271",
+   "studi": "Industriale",
+   "gruppi": [
+    [
+     "I",
+     "S",
+     "DC",
+     "1948-05-08",
+     "1953-06-24"
+    ]
+   ],
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
    "qid": "Q3054632",
    "nome": "Enrico Ferri",
    "nascita": "1942-02-17",
@@ -124292,8 +124686,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Acqualagna",
     "morte": "Bascapè",
+    "nascita": "Acqualagna",
     "sepoltura": "cimitero di Matelica"
    },
    "stato": "deceduto",
@@ -125625,6 +126019,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "chiave_senato": "enrico roselli",
    "id_camera": "26840",
    "nascita_camera": "1909-10-30",
    "gruppo_eletto": "DEMOCRATICO CRISTIANO",
@@ -126490,6 +126885,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "chiave_senato": "capalozza enzo",
    "id_camera": "18150",
    "nascita_camera": "1908-08-21",
    "gruppo_eletto": "COMUNISTA",
@@ -126684,8 +127080,8 @@
    ],
    "treccani": "enzo-enriques-agnoletti_(Dizionario-Biografico)",
    "luoghi": {
-    "morte": "Firenze",
-    "nascita": "Bologna"
+    "nascita": "Bologna",
+    "morte": "Firenze"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -129528,8 +129924,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Sagliano Micca",
-    "morte": "Roma"
+    "morte": "Roma",
+    "nascita": "Sagliano Micca"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -134149,14 +134545,15 @@
   {
    "qid": "Q3736397",
    "nome": "Ezio Maria Gray",
-   "nascita": "1885-10-09",
+   "nascita": "1884-10-09",
    "prec_nascita": "giorno",
    "morte": "1969-02-08",
    "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Gray%20IV.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Ezio_Maria_Gray",
    "mandati": [
-    "II"
+    "II",
+    "IV"
    ],
    "cariche": [
     "deputato della Repubblica Italiana"
@@ -134165,6 +134562,7 @@
     "Associazione Nazionalista Italiana",
     "Partito Nazionale Fascista"
    ],
+   "chiave_senato": "ezio gray",
    "id_camera": "18930",
    "nascita_camera": "1885-10-09",
    "gruppo_eletto": "MOVIMENTO SOCIALE ITALIANO",
@@ -134176,8 +134574,13 @@
     "II": [
      "C",
      "Roma"
+    ],
+    "IV": [
+     "S",
+     "Lazio"
     ]
    },
+   "scheda_senato": "4:9659",
    "gruppi": [
     [
      "II",
@@ -134185,6 +134588,20 @@
      "MSI",
      "1953-07-22",
      "1958-06-11"
+    ],
+    [
+     "IV",
+     "S",
+     "MSI",
+     "1963-05-16",
+     "1965-03-30"
+    ],
+    [
+     "IV",
+     "S",
+     "MSI",
+     "1965-03-31",
+     "1968-06-04"
     ]
    ],
    "treccani": "ezio-maria-gray_(Dizionario-Biografico)",
@@ -134324,6 +134741,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "chiave_senato": "ezio santarelli",
    "id_camera": "19880",
    "nascita_camera": "1921-03-14",
    "gruppo_eletto": "COMUNISTA",
@@ -138770,6 +139188,43 @@
    "hall_of_fame": false
   },
   {
+   "qid": "Q19838950",
+   "nome": "Felice Platone",
+   "nascita": "1896-01-11",
+   "prec_nascita": "giorno",
+   "morte": "1962-10-08",
+   "prec_morte": "giorno",
+   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Felice%20Platone%201962.jpg",
+   "wikipedia": "https://it.wikipedia.org/wiki/Felice_Platone_(1896)",
+   "mandati": [
+    "Costituente"
+   ],
+   "cariche": [
+    "deputato dell'Assemblea Costituente della Repubblica Italiana"
+   ],
+   "partiti": [],
+   "id_camera": "13740",
+   "nascita_camera": "1896-01-11",
+   "gruppo_eletto": "COMUNISTA",
+   "anagrafe_camera": "13740",
+   "genere": "m",
+   "studi": "Laurea in giurisprudenza; avvocato",
+   "storia_camera": "felice-platone-18960111",
+   "elezioni": {
+    "Costituente": [
+     "C",
+     "Cuneo"
+    ]
+   },
+   "luoghi": {
+    "morte": "Asti",
+    "nascita": "Rignano Flaminio"
+   },
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
    "qid": "Q65953043",
    "nome": "Felice Platone",
    "nascita": "1899-02-12",
@@ -138821,43 +139276,6 @@
    "luoghi": {
     "morte": "Asti",
     "nascita": "Azzano d'Asti"
-   },
-   "stato": "deceduto",
-   "non_eletto": false,
-   "hall_of_fame": false
-  },
-  {
-   "qid": "Q19838950",
-   "nome": "Felice Platone",
-   "nascita": "1896-01-11",
-   "prec_nascita": "giorno",
-   "morte": "1962-10-08",
-   "prec_morte": "giorno",
-   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Felice%20Platone%201962.jpg",
-   "wikipedia": "https://it.wikipedia.org/wiki/Felice_Platone_(1896)",
-   "mandati": [
-    "Costituente"
-   ],
-   "cariche": [
-    "deputato dell'Assemblea Costituente della Repubblica Italiana"
-   ],
-   "partiti": [],
-   "id_camera": "13740",
-   "nascita_camera": "1896-01-11",
-   "gruppo_eletto": "COMUNISTA",
-   "anagrafe_camera": "13740",
-   "genere": "m",
-   "studi": "Laurea in giurisprudenza; avvocato",
-   "storia_camera": "felice-platone-18960111",
-   "elezioni": {
-    "Costituente": [
-     "C",
-     "Cuneo"
-    ]
-   },
-   "luoghi": {
-    "morte": "Asti",
-    "nascita": "Rignano Flaminio"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -141367,8 +141785,8 @@
    ],
    "treccani": "fermo-solari_(Dizionario-Biografico)",
    "luoghi": {
-    "nascita": "Prato Carnico",
-    "morte": "Udine"
+    "morte": "Udine",
+    "nascita": "Prato Carnico"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -141421,6 +141839,51 @@
    "hall_of_fame": true,
    "cursus": "Affari Sociali (1993-1994)",
    "partito_hof": "PSI"
+  },
+  {
+   "qid": "S9644",
+   "nome": "Fernando Colombi Guidotti",
+   "nascita": "1892-06-02",
+   "prec_nascita": "giorno",
+   "morte": "1968-07-18",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "IV"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "colombi fernando guidotti",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": "Avvocato",
+   "luoghi": {
+    "nascita": "Pellegrino Parmense"
+   },
+   "fonte_morte": "Senato",
+   "gruppo_eletto": "PLI",
+   "anagrafe_camera": "304484",
+   "elezioni": {
+    "IV": [
+     "S",
+     "Emilia Romagna"
+    ]
+   },
+   "scheda_senato": "4:9644",
+   "gruppi": [
+    [
+     "IV",
+     "S",
+     "PLI",
+     "1968-03-07",
+     "1968-06-04"
+    ]
+   ],
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
   },
   {
    "qid": "Q106675072",
@@ -141673,9 +142136,9 @@
     ]
    ],
    "luoghi": {
+    "nascita": "Grosseto",
     "morte": "Principina a Mare",
-    "sepoltura": "cimitero di Santa Fiora",
-    "nascita": "Grosseto"
+    "sepoltura": "cimitero di Santa Fiora"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -148560,8 +149023,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Amalfi",
-    "nascita": "Maiori"
+    "nascita": "Maiori",
+    "morte": "Amalfi"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -149686,6 +150149,51 @@
     "nascita": "Foggia",
     "morte": "Foggia"
    },
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
+   "qid": "S9514",
+   "nome": "Francesco Calauti",
+   "nascita": "1889-07-16",
+   "prec_nascita": "giorno",
+   "morte": "1966-08-07",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "II"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "calauti francesco",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": "Medico",
+   "luoghi": {
+    "nascita": "Siderno"
+   },
+   "fonte_morte": "Senato",
+   "gruppo_eletto": "DC",
+   "anagrafe_camera": "303606",
+   "elezioni": {
+    "II": [
+     "S",
+     "Calabria"
+    ]
+   },
+   "scheda_senato": "2:9514",
+   "gruppi": [
+    [
+     "II",
+     "S",
+     "DC",
+     "1953-06-25",
+     "1958-06-11"
+    ]
+   ],
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -160237,6 +160745,58 @@
    "hall_of_fame": false
   },
   {
+   "qid": "S9562",
+   "nome": "Francesco Rogadeo",
+   "nascita": "1892-11-08",
+   "prec_nascita": "giorno",
+   "morte": "1985-09-08",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "II"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "francesco rogadeo",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": "Ammiraglio di divisione in congedo assoluto",
+   "luoghi": {
+    "nascita": "Napoli"
+   },
+   "fonte_morte": "Senato",
+   "gruppo_eletto": "PNM",
+   "anagrafe_camera": "300849",
+   "elezioni": {
+    "II": [
+     "S",
+     "Puglia"
+    ]
+   },
+   "scheda_senato": "2:9562",
+   "gruppi": [
+    [
+     "II",
+     "S",
+     "PNM",
+     "1953-06-25",
+     "1956-11-07"
+    ],
+    [
+     "II",
+     "S",
+     "PNM",
+     "1956-11-07",
+     "1958-06-11"
+    ]
+   ],
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
    "qid": "Q535345",
    "nome": "Francesco Rutelli",
    "nascita": "1954-06-14",
@@ -165252,8 +165812,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Bibbiena",
-    "morte": "Arezzo"
+    "morte": "Arezzo",
+    "nascita": "Bibbiena"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -165379,8 +165939,8 @@
     "cofirmate": 24
    },
    "luoghi": {
-    "morte": "Chieti",
-    "nascita": "Foggia"
+    "nascita": "Foggia",
+    "morte": "Chieti"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -167443,8 +168003,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Gattico",
-    "morte": "Arona"
+    "morte": "Arona",
+    "nascita": "Gattico"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -167580,6 +168140,41 @@
     "nascita": "Roma",
     "morte": "Cortina d'Ampezzo"
    },
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
+   "qid": "S1877",
+   "nome": "Franco Pilla",
+   "nascita": "1924-10-31",
+   "prec_nascita": "giorno",
+   "morte": "1992-12-02",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "X"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "franco pilla",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": null,
+   "luoghi": {
+    "nascita": "Cessalto"
+   },
+   "fonte_morte": "Senato",
+   "anagrafe_camera": "301373",
+   "elezioni": {
+    "X": [
+     "S",
+     "Veneto"
+    ]
+   },
+   "scheda_senato": "10:1877",
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -171837,8 +172432,8 @@
     "cofirmate": 6
    },
    "luoghi": {
-    "morte": "Sarzana",
-    "nascita": "Riesi"
+    "nascita": "Riesi",
+    "morte": "Sarzana"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -173560,8 +174155,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Castiglione delle Stiviere",
-    "morte": "San Giovanni al Natisone"
+    "morte": "San Giovanni al Natisone",
+    "nascita": "Castiglione delle Stiviere"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -177747,8 +178342,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Casoli",
-    "morte": "Francavilla al Mare"
+    "morte": "Francavilla al Mare",
+    "nascita": "Casoli"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -178897,8 +179492,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Ceva",
-    "morte": "San Michele Mondovì"
+    "morte": "San Michele Mondovì",
+    "nascita": "Ceva"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -180568,6 +181163,51 @@
     "nascita": "Cosenza",
     "morte": "Cosenza"
    },
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
+   "qid": "S9611",
+   "nome": "Giacomo Ottolenghi",
+   "nascita": "1906-04-03",
+   "prec_nascita": "giorno",
+   "morte": "1974-10-01",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "III"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "giacomo ottolenghi",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": "Avvocato",
+   "luoghi": {
+    "nascita": "Vicenza"
+   },
+   "fonte_morte": "Senato",
+   "gruppo_eletto": "PSI",
+   "anagrafe_camera": "303751",
+   "elezioni": {
+    "III": [
+     "S",
+     "Emilia Romagna"
+    ]
+   },
+   "scheda_senato": "3:9611",
+   "gruppi": [
+    [
+     "III",
+     "S",
+     "PSI",
+     "1958-06-12",
+     "1963-05-15"
+    ]
+   ],
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -193071,8 +193711,8 @@
    ],
    "luoghi": {
     "morte": "Roma",
-    "nascita": "Salsomaggiore Terme",
-    "sepoltura": "cimitero del Verano"
+    "sepoltura": "cimitero del Verano",
+    "nascita": "Salsomaggiore Terme"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -199778,6 +200418,80 @@
    "hall_of_fame": false
   },
   {
+   "qid": "Q107355381",
+   "nome": "Giovambattista Grimaldi",
+   "nascita": "1902-06-27",
+   "prec_nascita": "giorno",
+   "morte": "1992-02-27",
+   "prec_morte": "giorno",
+   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Luigi%20Grimaldi%20IV.jpg",
+   "wikipedia": "https://it.wikipedia.org/wiki/Luigi_Grimaldi_(politico)",
+   "mandati": [
+    "IV",
+    "V"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "grimaldi luigi",
+   "dal_senato": true,
+   "id_camera": "8710",
+   "nascita_camera": "1923-05-08",
+   "gruppo_eletto": "COMUNISTA",
+   "fonte_morte": "Senato",
+   "anagrafe_camera": "8710",
+   "genere": "m",
+   "studi": "Laurea in giurisprudenza",
+   "storia_camera": "giovambattista-grimaldi-19230508",
+   "elezioni": {
+    "IV": [
+     "S",
+     "Sicilia"
+    ],
+    "V": [
+     "S",
+     "Sicilia"
+    ]
+   },
+   "scheda_senato": "5:6761",
+   "gruppi": [
+    [
+     "IV",
+     "S",
+     "MSI",
+     "1963-05-16",
+     "1968-06-04"
+    ],
+    [
+     "IV",
+     "C",
+     "PCI",
+     "1963-07-01",
+     "1968-06-04"
+    ],
+    [
+     "V",
+     "S",
+     "MSI",
+     "1968-06-05",
+     "1972-05-24"
+    ],
+    [
+     "V",
+     "C",
+     "MISTO",
+     "1968-07-09",
+     "1972-05-24"
+    ]
+   ],
+   "proposte": {
+    "primo": 1,
+    "cofirmate": 29
+   },
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
    "qid": "Q20089928",
    "nome": "Giovan Battista Raja",
    "nascita": "1884-02-04",
@@ -200637,8 +201351,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "San Gennaro Vesuviano",
-    "morte": "Ottaviano"
+    "morte": "Ottaviano",
+    "nascita": "San Gennaro Vesuviano"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -203374,6 +204088,63 @@
    "hall_of_fame": false
   },
   {
+   "qid": "S6559",
+   "nome": "Giovanni Bellinzona",
+   "nascita": "1928-08-09",
+   "prec_nascita": "giorno",
+   "morte": "2005-09-13",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "VII",
+    "VIII"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "bellinzona giovanni",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": "Operaio",
+   "luoghi": {
+    "nascita": "Voghera"
+   },
+   "fonte_morte": "Senato",
+   "gruppo_eletto": "PCI",
+   "anagrafe_camera": "301234",
+   "elezioni": {
+    "VII": [
+     "S",
+     "Lombardia"
+    ],
+    "VIII": [
+     "S",
+     "Lombardia"
+    ]
+   },
+   "scheda_senato": "8:6559",
+   "gruppi": [
+    [
+     "VII",
+     "S",
+     "PCI",
+     "1976-07-05",
+     "1979-06-19"
+    ],
+    [
+     "VIII",
+     "S",
+     "PCI",
+     "1979-06-20",
+     "1983-07-11"
+    ]
+   ],
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
    "qid": "Q2246904",
    "nome": "Giovanni Berlinguer",
    "nascita": "1924-07-09",
@@ -204742,8 +205513,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Faenza",
-    "nascita": "Mercato Saraceno"
+    "nascita": "Mercato Saraceno",
+    "morte": "Faenza"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -205097,8 +205868,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Pistoia",
-    "nascita": "Lucca"
+    "nascita": "Lucca",
+    "morte": "Pistoia"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -206156,8 +206927,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Novara",
-    "morte": "Novara"
+    "morte": "Novara",
+    "nascita": "Novara"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -210674,8 +211445,8 @@
     ]
    },
    "luoghi": {
-    "nascita": "Livorno",
-    "morte": "Grosseto"
+    "morte": "Grosseto",
+    "nascita": "Livorno"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -211826,8 +212597,8 @@
    ],
    "luoghi": {
     "morte": "Roma",
-    "sepoltura": "cimitero del Verano",
-    "nascita": "Mesagne"
+    "nascita": "Mesagne",
+    "sepoltura": "cimitero del Verano"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -213667,12 +214438,14 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giovanni%20Persico.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Giovanni_Persico_(politico_1878)",
    "mandati": [
-    "Costituente"
+    "Costituente",
+    "I"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana"
    ],
    "partiti": [],
+   "chiave_senato": "giovanni persico",
    "id_camera": "28340",
    "nascita_camera": "1878-12-30",
    "gruppo_eletto": "DEMOCRAZIA DEL LAVORO",
@@ -213707,6 +214480,23 @@
      "Napoli"
     ]
    },
+   "incarichi_parlamento": [
+    {
+     "carica": "Presidente della 2ª Commissione Permanente (Giustizia e Autorizzazioni a Procedere)",
+     "da": "1948-06-16",
+     "a": "1953-06-24"
+    }
+   ],
+   "scheda_senato": "1:9384",
+   "gruppi": [
+    [
+     "I",
+     "S",
+     "US",
+     "1948-05-08",
+     "1953-06-24"
+    ]
+   ],
    "luoghi": {
     "morte": "Roma",
     "nascita": "Benevento"
@@ -214730,8 +215520,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Lonato del Garda",
-    "nascita": "Calvisano"
+    "nascita": "Calvisano",
+    "morte": "Lonato del Garda"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -215851,8 +216641,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Chiavari",
-    "morte": "Lavagna"
+    "morte": "Lavagna",
+    "nascita": "Chiavari"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -219965,8 +220755,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "San Benedetto del Tronto",
-    "morte": "Ascoli Piceno"
+    "morte": "Ascoli Piceno",
+    "nascita": "San Benedetto del Tronto"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -219991,6 +220781,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "chiave_senato": "giuliano vassalli",
    "id_camera": "27050",
    "nascita_camera": "1915-04-25",
    "gruppo_eletto": "PARTITO SOCIALISTA ITALIANO - PARTITO SOCIALISTA DEMOCRATICO ITALIANO UNIFICATI",
@@ -225950,6 +226741,58 @@
    "hall_of_fame": false
   },
   {
+   "qid": "S9654",
+   "nome": "Giuseppe Antonio Giancane",
+   "nascita": "1911-09-18",
+   "prec_nascita": "giorno",
+   "morte": "1979-06-01",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "IV"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "antonio giancane giuseppe",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": "Impiegato (gestore depositi vari) amministrazione poste e telecomunicazioni - direzione di taranto",
+   "luoghi": {
+    "nascita": "Monteroni di Lecce"
+   },
+   "fonte_morte": "Senato",
+   "gruppo_eletto": "PSI",
+   "anagrafe_camera": "300926",
+   "elezioni": {
+    "IV": [
+     "S",
+     "Puglia"
+    ]
+   },
+   "scheda_senato": "4:9654",
+   "gruppi": [
+    [
+     "IV",
+     "S",
+     "PSI",
+     "1963-05-16",
+     "1966-11-10"
+    ],
+    [
+     "IV",
+     "S",
+     "PSI-PSDI UNIFICATI",
+     "1966-11-11",
+     "1968-06-04"
+    ]
+   ],
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
    "qid": "Q3770006",
    "nome": "Giuseppe Arata",
    "nascita": "1901-08-29",
@@ -227682,8 +228525,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Biella",
-    "nascita": "Gozzano"
+    "nascita": "Gozzano",
+    "morte": "Biella"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -228709,8 +229552,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Manciano",
-    "morte": "Pisa"
+    "morte": "Pisa",
+    "nascita": "Manciano"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -228976,6 +229819,50 @@
    "luoghi": {
     "nascita": "Guardiagrele"
    },
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
+   "qid": "S6597",
+   "nome": "Giuseppe Borzi",
+   "nascita": "1931-02-10",
+   "prec_nascita": "giorno",
+   "morte": "2009-07-19",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "VIII"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "borzi giuseppe",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": "Funzionario dell'inps",
+   "luoghi": {
+    "nascita": "Zagarolo"
+   },
+   "fonte_morte": "Senato",
+   "gruppo_eletto": "DC",
+   "elezioni": {
+    "VIII": [
+     "S",
+     "Lazio"
+    ]
+   },
+   "scheda_senato": "8:6597",
+   "gruppi": [
+    [
+     "VIII",
+     "S",
+     "DC",
+     "1979-06-20",
+     "1983-07-11"
+    ]
+   ],
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -229583,6 +230470,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "chiave_senato": "brusasca giuseppe",
    "id_camera": "18060",
    "nascita_camera": "1900-08-30",
    "gruppo_eletto": "DEMOCRATICO CRISTIANO",
@@ -229876,6 +230764,7 @@
    "partiti": [
     "Blocco Nazionale della Libertà"
    ],
+   "chiave_senato": "buonocore giuseppe",
    "id_camera": "27420",
    "nascita_camera": "1876-06-06",
    "gruppo_eletto": "BLOCCO NAZIONALE DELLA LIBERTA'",
@@ -234003,8 +234892,8 @@
    ],
    "luoghi": {
     "morte": "Lecco",
-    "sepoltura": "cimitero del Verano",
-    "nascita": "Cerignola"
+    "nascita": "Cerignola",
+    "sepoltura": "cimitero del Verano"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -234583,6 +235472,46 @@
     "nascita": "Caluso"
    },
    "stato": "vivente",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
+   "qid": "Q55282064",
+   "nome": "Giuseppe Faravelli",
+   "nascita": "1896-05-29",
+   "prec_nascita": "giorno",
+   "morte": "1974-06-15",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": "https://it.wikipedia.org/wiki/Giuseppe_Faravelli",
+   "mandati": [
+    "III"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "faravelli giuseppe",
+   "dal_senato": true,
+   "gruppo_eletto": "Misto",
+   "anagrafe_camera": "303742",
+   "genere": "m",
+   "elezioni": {
+    "III": [
+     "S",
+     "Lombardia"
+    ]
+   },
+   "scheda_senato": "3:9593",
+   "studi": "Giornalista",
+   "gruppi": [
+    [
+     "III",
+     "S",
+     "MISTO",
+     "1962-01-17",
+     "1963-05-15"
+    ]
+   ],
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -235207,6 +236136,58 @@
    "luoghi": {
     "nascita": "Nus"
    },
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
+   "qid": "Q109279246",
+   "nome": "Giuseppe Fimognari",
+   "nascita": "1932-11-01",
+   "prec_nascita": "giorno",
+   "morte": "2024-01-05",
+   "prec_morte": "giorno",
+   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giuseppe%20Fimognari%20VIII.jpg",
+   "wikipedia": "https://it.wikipedia.org/wiki/Giuseppe_Fimognari",
+   "mandati": [
+    "VIII",
+    "IX"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "beniamino fimognari giuseppe",
+   "dal_senato": true,
+   "gruppo_eletto": "DC",
+   "anagrafe_camera": "301123",
+   "genere": "m",
+   "elezioni": {
+    "VIII": [
+     "S",
+     "Calabria"
+    ],
+    "IX": [
+     "S",
+     "Calabria"
+    ]
+   },
+   "scheda_senato": "9:986",
+   "studi": "Medico",
+   "gruppi": [
+    [
+     "VIII",
+     "S",
+     "DC",
+     "1979-06-20",
+     "1983-07-11"
+    ],
+    [
+     "IX",
+     "S",
+     "DC",
+     "1983-07-19",
+     "1987-07-01"
+    ]
+   ],
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -236715,6 +237696,63 @@
    "hall_of_fame": false
   },
   {
+   "qid": "S7251",
+   "nome": "Giuseppe Garoli",
+   "nascita": "1926-04-15",
+   "prec_nascita": "giorno",
+   "morte": "1985-01-18",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "VI",
+    "VII"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "garoli giuseppe",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": "Funzionario di partito",
+   "luoghi": {
+    "nascita": "Cremona"
+   },
+   "fonte_morte": "Senato",
+   "gruppo_eletto": "PCI",
+   "anagrafe_camera": "304113",
+   "elezioni": {
+    "VI": [
+     "S",
+     "Lombardia"
+    ],
+    "VII": [
+     "S",
+     "Lombardia"
+    ]
+   },
+   "scheda_senato": "7:7251",
+   "gruppi": [
+    [
+     "VI",
+     "S",
+     "PCI",
+     "1972-05-25",
+     "1976-07-04"
+    ],
+    [
+     "VII",
+     "S",
+     "PCI",
+     "1976-07-05",
+     "1979-06-19"
+    ]
+   ],
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
    "qid": "Q22341843",
    "nome": "Giuseppe Gatti",
    "nascita": "1926-04-06",
@@ -237157,7 +238195,7 @@
    "prec_nascita": "giorno",
    "morte": "1953-06-20",
    "prec_morte": "giorno",
-   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giuseppe%20Giuletti%2C%20syndicaliste%20italien%20%281919%29.jpg",
+   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giuseppe%20Giulietti%2C%20syndicaliste%20italien%20%281919%29.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Giuseppe_Giulietti_(sindacalista)",
    "mandati": [
     "I"
@@ -237750,6 +238788,88 @@
     "morte": "Roma",
     "nascita": "Manduria"
    },
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
+   "qid": "S6762",
+   "nome": "Giuseppe Grossi",
+   "nascita": "1920-09-04",
+   "prec_nascita": "giorno",
+   "morte": "2007-01-27",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "VI"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "giuseppe grossi",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": "Libero professionista",
+   "luoghi": {
+    "nascita": "Soncino"
+   },
+   "fonte_morte": "Senato",
+   "gruppo_eletto": "PSI",
+   "anagrafe_camera": "304116",
+   "elezioni": {
+    "VI": [
+     "S",
+     "Lombardia"
+    ]
+   },
+   "scheda_senato": "6:6762",
+   "gruppi": [
+    [
+     "VI",
+     "S",
+     "PSI",
+     "1972-05-25",
+     "1976-07-04"
+    ]
+   ],
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
+   "qid": "Q16560825",
+   "nome": "Giuseppe Guarascio",
+   "nascita": "1928-10-07",
+   "prec_nascita": "giorno",
+   "morte": "2013-02-17",
+   "prec_morte": "giorno",
+   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Giuseppe%20Guarascio%20IX.jpg",
+   "wikipedia": "https://it.wikipedia.org/wiki/Giuseppe_Guarascio",
+   "mandati": [
+    "IX"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "giuseppe guarascio paolo",
+   "dal_senato": true,
+   "gruppo_eletto": "PCI",
+   "elezioni": {
+    "IX": [
+     "S",
+     "Calabria"
+    ]
+   },
+   "scheda_senato": "9:1214",
+   "gruppi": [
+    [
+     "IX",
+     "S",
+     "PCI",
+     "1983-07-19",
+     "1987-07-01"
+    ]
+   ],
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -238438,8 +239558,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Ragusa",
-    "morte": "Modica"
+    "morte": "Modica",
+    "nascita": "Ragusa"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -247593,6 +248713,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "chiave_senato": "giuseppe terragni",
    "id_camera": "12550",
    "nascita_camera": "1902-03-18",
    "gruppo_eletto": "DEMOCRATICO CRISTIANO",
@@ -248793,8 +249914,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Massa Marittima",
-    "nascita": "San Miniato"
+    "nascita": "San Miniato",
+    "morte": "Massa Marittima"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -249318,6 +250439,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "chiave_senato": "giuseppe vignola",
    "id_camera": "22180",
    "nascita_camera": "1925-05-29",
    "gruppo_eletto": "PARTITO COMUNISTA ITALIANO",
@@ -253241,8 +254363,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Cividale del Friuli",
-    "nascita": "Faedis"
+    "nascita": "Faedis",
+    "morte": "Cividale del Friuli"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -253850,8 +254972,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Lucito",
-    "morte": "Termoli"
+    "morte": "Termoli",
+    "nascita": "Lucito"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -258912,8 +260034,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Chienes",
-    "morte": "Brunico"
+    "morte": "Brunico",
+    "nascita": "Chienes"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -259031,8 +260153,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Taormina",
-    "nascita": "Mongiuffi Melia"
+    "nascita": "Mongiuffi Melia",
+    "morte": "Taormina"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -259861,6 +260983,75 @@
    "hall_of_fame": false
   },
   {
+   "qid": "S7319",
+   "nome": "Ignazio Petrone",
+   "nascita": "1915-08-08",
+   "prec_nascita": "giorno",
+   "morte": "1981-01-08",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "IV",
+    "V",
+    "VI"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "ignazio petrone",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": "Avvocato",
+   "luoghi": {
+    "nascita": "Pignola"
+   },
+   "fonte_morte": "Senato",
+   "gruppo_eletto": "PCI",
+   "anagrafe_camera": "300947",
+   "elezioni": {
+    "IV": [
+     "S",
+     "Basilicata"
+    ],
+    "V": [
+     "S",
+     "Basilicata"
+    ],
+    "VI": [
+     "S",
+     "Basilicata"
+    ]
+   },
+   "scheda_senato": "6:7319",
+   "gruppi": [
+    [
+     "IV",
+     "S",
+     "PCI",
+     "1963-05-16",
+     "1968-06-04"
+    ],
+    [
+     "V",
+     "S",
+     "PCI",
+     "1968-06-05",
+     "1972-05-24"
+    ],
+    [
+     "VI",
+     "S",
+     "PCI",
+     "1972-05-25",
+     "1976-07-04"
+    ]
+   ],
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
    "qid": "Q3792368",
    "nome": "Ignazio Pirastu",
    "nascita": "1921-03-31",
@@ -260357,6 +261548,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "chiave_senato": "barontini ilio",
    "id_camera": "27220",
    "nascita_camera": "1890-09-28",
    "gruppo_eletto": "COMUNISTA",
@@ -261509,6 +262701,63 @@
    "hall_of_fame": false
   },
   {
+   "qid": "S6896",
+   "nome": "Ismer Piva",
+   "nascita": "1921-01-25",
+   "prec_nascita": "giorno",
+   "morte": "1995-01-09",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "V",
+    "VI"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "ismer piva",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": "Impiegato",
+   "luoghi": {
+    "nascita": "Ferrara"
+   },
+   "fonte_morte": "Senato",
+   "gruppo_eletto": "PCI",
+   "anagrafe_camera": "301033",
+   "elezioni": {
+    "V": [
+     "S",
+     "Emilia Romagna"
+    ],
+    "VI": [
+     "S",
+     "Emilia Romagna"
+    ]
+   },
+   "scheda_senato": "6:6896",
+   "gruppi": [
+    [
+     "V",
+     "S",
+     "PCI",
+     "1968-06-05",
+     "1972-05-24"
+    ],
+    [
+     "VI",
+     "S",
+     "PCI",
+     "1972-05-25",
+     "1976-07-04"
+    ]
+   ],
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
    "qid": "Q109469468",
    "nome": "Italico Santoro",
    "nascita": "1940-10-16",
@@ -262595,8 +263844,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Brescia",
-    "nascita": "Oberhausen"
+    "nascita": "Oberhausen",
+    "morte": "Brescia"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -266488,8 +267737,8 @@
    ],
    "luoghi": {
     "morte": "Roma",
-    "nascita": "Varazze",
-    "sepoltura": "cimitero monumentale di Milano"
+    "sepoltura": "cimitero monumentale di Milano",
+    "nascita": "Varazze"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -269477,8 +270726,8 @@
    ],
    "luoghi": {
     "morte": "Milano",
-    "sepoltura": "cimitero del Verano",
-    "nascita": "Pisa"
+    "nascita": "Pisa",
+    "sepoltura": "cimitero del Verano"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -269976,8 +271225,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Povegliano",
-    "morte": "Villorba"
+    "morte": "Villorba",
+    "nascita": "Povegliano"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -270723,8 +271972,8 @@
    ],
    "treccani": "lionello-puppi",
    "luoghi": {
-    "nascita": "Belluno",
-    "morte": "Treviso"
+    "morte": "Treviso",
+    "nascita": "Belluno"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -271088,8 +272337,8 @@
    ],
    "treccani": "livio-paladin_(Dizionario-Biografico)",
    "luoghi": {
-    "morte": "Padova",
-    "nascita": "Trieste"
+    "nascita": "Trieste",
+    "morte": "Padova"
    },
    "stato": "deceduto",
    "non_eletto": true,
@@ -271504,6 +272753,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "chiave_senato": "lodovico montini",
    "id_camera": "19350",
    "nascita_camera": "1896-05-08",
    "gruppo_eletto": "DEMOCRATICO CRISTIANO",
@@ -272714,6 +273964,7 @@
    "partiti": [
     "Partito Radicale"
    ],
+   "chiave_senato": "lievers lorenzo strik",
    "gruppo_eletto": "Fed. Eur. Ec.",
    "registro_muto": "Senato",
    "anagrafe_camera": "38970",
@@ -275433,8 +276684,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Pavia",
-    "nascita": "Pola"
+    "nascita": "Pola",
+    "morte": "Pavia"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -276650,8 +277901,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Collegno",
-    "nascita": "Asti"
+    "nascita": "Asti",
+    "morte": "Collegno"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -279015,8 +280266,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Velletri",
-    "nascita": "Sora"
+    "nascita": "Sora",
+    "morte": "Velletri"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -279109,8 +280360,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Alcamo",
-    "morte": "Gibellina"
+    "morte": "Gibellina",
+    "nascita": "Alcamo"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -279309,6 +280560,51 @@
     "nascita": "Scafati",
     "morte": "Scafati"
    },
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
+   "qid": "S9655",
+   "nome": "Luigi Alberto Gigliotti",
+   "nascita": "1897-01-24",
+   "prec_nascita": "giorno",
+   "morte": "1981-12-30",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "IV"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "alberto gigliotti luigi",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": "Avvocato",
+   "luoghi": {
+    "nascita": "Decollatura"
+   },
+   "fonte_morte": "Senato",
+   "gruppo_eletto": "PCI",
+   "anagrafe_camera": "301067",
+   "elezioni": {
+    "IV": [
+     "S",
+     "Lazio"
+    ]
+   },
+   "scheda_senato": "4:9655",
+   "gruppi": [
+    [
+     "IV",
+     "S",
+     "PCI",
+     "1963-05-16",
+     "1968-06-04"
+    ]
+   ],
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -282353,8 +283649,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Romeno",
-    "morte": "Cles"
+    "morte": "Cles",
+    "nascita": "Romeno"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -282682,6 +283978,7 @@
    "partiti": [
     "Partito Socialista Italiano"
    ],
+   "chiave_senato": "castagno luigi",
    "id_camera": "13710",
    "nascita_camera": "1893-07-11",
    "gruppo_eletto": "PARTITO SOCIALISTA ITALIANO",
@@ -283428,6 +284725,50 @@
     "nascita": "Arcade",
     "morte": "San Pietro in Casale"
    },
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
+   "qid": "S6673",
+   "nome": "Luigi Cortesi",
+   "nascita": "1932-03-18",
+   "prec_nascita": "giorno",
+   "morte": "2017-11-17",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "VIII"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "cortesi luigi",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": "Operaio",
+   "luoghi": {
+    "nascita": "Pietrasanta"
+   },
+   "fonte_morte": "Senato",
+   "gruppo_eletto": "PCI",
+   "elezioni": {
+    "VIII": [
+     "S",
+     "Toscana"
+    ]
+   },
+   "scheda_senato": "8:6673",
+   "gruppi": [
+    [
+     "VIII",
+     "S",
+     "PCI",
+     "1982-10-21",
+     "1983-07-11"
+    ]
+   ],
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -284633,8 +285974,8 @@
    "treccani": "luigi-einaudi_(Dizionario-Biografico)",
    "luoghi": {
     "morte": "Roma",
-    "nascita": "Carrù",
-    "sepoltura": "Dogliani"
+    "sepoltura": "Dogliani",
+    "nascita": "Carrù"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -287078,6 +288419,51 @@
    "hall_of_fame": false
   },
   {
+   "qid": "S6767",
+   "nome": "Luigi Gullo",
+   "nascita": "1917-03-09",
+   "prec_nascita": "giorno",
+   "morte": "1998-09-26",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "IV"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "gullo luigi",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": "Avvocato, docente universitario",
+   "luoghi": {
+    "nascita": "Cosenza"
+   },
+   "fonte_morte": "Senato",
+   "gruppo_eletto": "PCI",
+   "anagrafe_camera": "303963",
+   "elezioni": {
+    "IV": [
+     "S",
+     "Calabria"
+    ]
+   },
+   "scheda_senato": "4:6767",
+   "gruppi": [
+    [
+     "IV",
+     "S",
+     "PCI",
+     "1963-05-16",
+     "1968-06-04"
+    ]
+   ],
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
    "qid": "Q701205",
    "nome": "Luigi Longo",
    "nascita": "1900-03-15",
@@ -287294,8 +288680,8 @@
    ],
    "luoghi": {
     "morte": "Roma",
-    "sepoltura": "cimitero del Verano",
-    "nascita": "Fubine Monferrato"
+    "nascita": "Fubine Monferrato",
+    "sepoltura": "cimitero del Verano"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -287908,8 +289294,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Bergamo",
-    "nascita": "Firenze"
+    "nascita": "Firenze",
+    "morte": "Bergamo"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -290342,8 +291728,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Francavilla di Sicilia",
-    "morte": "Santa Teresa di Riva"
+    "morte": "Santa Teresa di Riva",
+    "nascita": "Francavilla di Sicilia"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -292037,6 +293423,54 @@
     "morte": "Galatina"
    },
    "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
+   "qid": "Q3840256",
+   "nome": "Luigi Vinci",
+   "nascita": "1939-05-29",
+   "prec_nascita": "giorno",
+   "morte": null,
+   "prec_morte": null,
+   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Luigi%20Vinci%20datisenato.jpg",
+   "wikipedia": "https://it.wikipedia.org/wiki/Luigi_Vinci",
+   "mandati": [
+    "XI"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "luigi vinci",
+   "dal_senato": true,
+   "gruppo_eletto": "Rif.Com.",
+   "registro_muto": "Senato",
+   "anagrafe_camera": "200972",
+   "genere": "m",
+   "elezioni": {
+    "XI": [
+     "S",
+     "Lombardia"
+    ]
+   },
+   "scheda_senato": "11:2499",
+   "studi": "Ricercatore",
+   "gruppi": [
+    [
+     "XI",
+     "S",
+     "RIF.COM.",
+     "1992-04-27",
+     "1992-05-12"
+    ],
+    [
+     "XI",
+     "S",
+     "RIF.COM.",
+     "1992-05-12",
+     "1994-04-14"
+    ]
+   ],
+   "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -297821,8 +299255,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Orta San Giulio",
-    "nascita": "Inverigo"
+    "nascita": "Inverigo",
+    "morte": "Orta San Giulio"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -298177,8 +299611,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Genova",
-    "morte": "Torino"
+    "morte": "Torino",
+    "nascita": "Genova"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -298823,8 +300257,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Perugia",
-    "nascita": "Catanzaro"
+    "nascita": "Catanzaro",
+    "morte": "Perugia"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -301586,8 +303020,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Terni",
-    "nascita": "Porano"
+    "nascita": "Porano",
+    "morte": "Terni"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -301689,8 +303123,8 @@
    ],
    "luoghi": {
     "morte": "Perugia",
-    "nascita": "Spello",
-    "sepoltura": "cimitero monumentale di Perugia"
+    "sepoltura": "cimitero monumentale di Perugia",
+    "nascita": "Spello"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -302806,8 +304240,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Grosseto",
-    "nascita": "Roccastrada"
+    "nascita": "Roccastrada",
+    "morte": "Grosseto"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -303288,8 +304722,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Plataci",
-    "morte": "Cosenza"
+    "morte": "Cosenza",
+    "nascita": "Plataci"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -305731,6 +307165,7 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
+   "chiave_senato": "dosi mario",
    "id_camera": "18690",
    "nascita_camera": "1903-10-16",
    "gruppo_eletto": "DEMOCRATICO CRISTIANO",
@@ -306415,6 +307850,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "chiave_senato": "fioret mario",
    "id_camera": "2580",
    "nascita_camera": "1930-03-12",
    "gruppo_eletto": "DEMOCRAZIA CRISTIANA",
@@ -306707,8 +308143,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Gallipoli",
-    "morte": "Lecce"
+    "morte": "Lecce",
+    "nascita": "Gallipoli"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -310801,8 +312237,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Mirano",
-    "nascita": "Noale"
+    "nascita": "Noale",
+    "morte": "Mirano"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -310994,8 +312430,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Piacenza",
-    "morte": "Parma"
+    "morte": "Parma",
+    "nascita": "Piacenza"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -323187,8 +324623,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Matera",
-    "nascita": "Miglionico"
+    "nascita": "Miglionico",
+    "morte": "Matera"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -324511,8 +325947,8 @@
    ],
    "treccani": "michele-de-pietro_(Dizionario-Biografico)",
    "luoghi": {
-    "nascita": "Cursi",
-    "morte": "Lecce"
+    "morte": "Lecce",
+    "nascita": "Cursi"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -329319,8 +330755,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Badia Polesine",
-    "morte": "Trezzano sul Naviglio"
+    "morte": "Trezzano sul Naviglio",
+    "nascita": "Badia Polesine"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -332488,8 +333924,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Pescara",
-    "morte": "Pescara"
+    "morte": "Pescara",
+    "nascita": "Pescara"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -333822,6 +335258,51 @@
    "luoghi": {
     "nascita": "Torre Annunziata"
    },
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
+   "qid": "S707",
+   "nome": "Nicola Costanzo",
+   "nascita": "1928-09-12",
+   "prec_nascita": "giorno",
+   "morte": "1996-08-24",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "IX"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "costanzo nicola",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": "Avvocato",
+   "luoghi": {
+    "nascita": "Frattamaggiore"
+   },
+   "fonte_morte": "Senato",
+   "gruppo_eletto": "MSI - DN",
+   "anagrafe_camera": "301108",
+   "elezioni": {
+    "IX": [
+     "S",
+     "Campania"
+    ]
+   },
+   "scheda_senato": "9:707",
+   "gruppi": [
+    [
+     "IX",
+     "S",
+     "MSI - DN",
+     "1986-03-26",
+     "1987-07-01"
+    ]
+   ],
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -335718,8 +337199,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Cascina",
-    "nascita": "Castelfiorentino"
+    "nascita": "Castelfiorentino",
+    "morte": "Cascina"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -335940,8 +337421,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "San Severino Marche",
-    "nascita": "Ussita"
+    "nascita": "Ussita",
+    "morte": "San Severino Marche"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -341635,6 +343116,51 @@
    "hall_of_fame": false
   },
   {
+   "qid": "S7195",
+   "nome": "Oreste Catalano",
+   "nascita": "1919-12-01",
+   "prec_nascita": "giorno",
+   "morte": "1984-03-10",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "V"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "catalano oreste",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": "Impiegato",
+   "luoghi": {
+    "nascita": "Scafati"
+   },
+   "fonte_morte": "Senato",
+   "gruppo_eletto": "PCI",
+   "anagrafe_camera": "301002",
+   "elezioni": {
+    "V": [
+     "S",
+     "Campania"
+    ]
+   },
+   "scheda_senato": "5:7195",
+   "gruppi": [
+    [
+     "V",
+     "S",
+     "PCI",
+     "1970-01-29",
+     "1972-05-24"
+    ]
+   ],
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
    "qid": "Q87333972",
    "nome": "Oreste Ferrari",
    "nascita": "1890-05-05",
@@ -341652,8 +343178,8 @@
    "partiti": [],
    "treccani": "oreste-ferrari_(Dizionario-Biografico)",
    "luoghi": {
-    "nascita": "Locca",
-    "morte": "Bellinzona"
+    "morte": "Bellinzona",
+    "nascita": "Locca"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -346193,8 +347719,8 @@
    ],
    "treccani": "paolo-barile_(Dizionario-Biografico)",
    "luoghi": {
-    "morte": "Firenze",
-    "nascita": "Bologna"
+    "nascita": "Bologna",
+    "morte": "Firenze"
    },
    "stato": "deceduto",
    "non_eletto": true,
@@ -346287,8 +347813,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Viareggio",
-    "morte": "Pietrasanta"
+    "morte": "Pietrasanta",
+    "nascita": "Viareggio"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -349732,6 +351258,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "chiave_senato": "guerrini paolo",
    "id_camera": "15700",
    "nascita_camera": "1939-01-11",
    "gruppo_eletto": "PARTITO COMUNISTA ITALIANO",
@@ -350225,8 +351752,8 @@
     "cofirmate": 13
    },
    "luoghi": {
-    "nascita": "Monfalcone",
-    "morte": "Cervignano del Friuli"
+    "morte": "Cervignano del Friuli",
+    "nascita": "Monfalcone"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -351645,8 +353172,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Urbino",
-    "morte": "Ancona"
+    "morte": "Ancona",
+    "nascita": "Urbino"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -352225,8 +353752,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Scafati",
-    "morte": "Torre del Greco"
+    "morte": "Torre del Greco",
+    "nascita": "Scafati"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -353023,6 +354550,7 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
+   "chiave_senato": "lops pasquale",
    "id_camera": "23740",
    "nascita_camera": "1927-06-01",
    "gruppo_eletto": "PARTITO COMUNISTA ITALIANO",
@@ -353431,6 +354959,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "chiave_senato": "pasquale perugini",
    "id_camera": "24200",
    "nascita_camera": "1926-07-05",
    "gruppo_eletto": "DEMOCRAZIA CRISTIANA",
@@ -360009,8 +361538,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Chiari",
-    "nascita": "Castelcovati"
+    "nascita": "Castelcovati",
+    "morte": "Chiari"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -361487,8 +363016,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Biella",
-    "nascita": "Cigliano"
+    "nascita": "Cigliano",
+    "morte": "Biella"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -363024,8 +364553,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Ischia",
-    "nascita": "Putignano"
+    "nascita": "Putignano",
+    "morte": "Ischia"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -364055,6 +365584,7 @@
     "deputato della Repubblica Italiana"
    ],
    "partiti": [],
+   "chiave_senato": "pietro pirolo",
    "id_camera": "4710",
    "nascita_camera": "1921-11-19",
    "gruppo_eletto": "MOVIMENTO SOCIALE ITALIANO - DESTRA NAZIONALE",
@@ -364254,6 +365784,7 @@
    "partiti": [
     "Partito Repubblicano Italiano"
    ],
+   "chiave_senato": "pietro pitrone",
    "gruppo_eletto": "Misto",
    "anagrafe_camera": "301404",
    "genere": "m",
@@ -365362,8 +366893,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Lecce",
-    "morte": "Pescara"
+    "morte": "Pescara",
+    "nascita": "Lecce"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -365703,6 +367234,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "chiave_senato": "ludovico pietro vergani",
    "aggancio": "data di nascita",
    "id_camera": "11500",
    "nascita_camera": "1907-10-14",
@@ -365715,9 +367247,32 @@
     "V": [
      "C",
      "Milano"
+    ],
+    "III": [
+     "S",
+     "Lombardia"
+    ],
+    "IV": [
+     "S",
+     "Lombardia"
     ]
    },
+   "scheda_senato": "4:9623",
    "gruppi": [
+    [
+     "III",
+     "S",
+     "PCI",
+     "1958-06-12",
+     "1963-05-15"
+    ],
+    [
+     "IV",
+     "S",
+     "PCI",
+     "1963-05-16",
+     "1968-06-04"
+    ],
     [
      "V",
      "C",
@@ -367486,6 +369041,51 @@
    "hall_of_fame": false
   },
   {
+   "qid": "S7223",
+   "nome": "Primo Guarnieri",
+   "nascita": "1914-07-04",
+   "prec_nascita": "giorno",
+   "morte": "1982-05-07",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "IV"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "guarnieri primo",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": "Direttore didattico",
+   "luoghi": {
+    "nascita": "Adria"
+   },
+   "fonte_morte": "Senato",
+   "gruppo_eletto": "DC",
+   "anagrafe_camera": "304489",
+   "elezioni": {
+    "IV": [
+     "S",
+     "Veneto"
+    ]
+   },
+   "scheda_senato": "4:7223",
+   "gruppi": [
+    [
+     "IV",
+     "S",
+     "DC",
+     "1967-01-19",
+     "1968-06-04"
+    ]
+   ],
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
    "qid": "Q18420306",
    "nome": "Primo Lucchesi",
    "nascita": "1912-06-02",
@@ -368423,6 +370023,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "chiave_senato": "quinto tosatti",
    "gruppo_eletto": "DC",
    "anagrafe_camera": "303411",
    "genere": "m",
@@ -370707,6 +372308,7 @@
    "partiti": [
     "Partito Nazionale Monarchico"
    ],
+   "chiave_senato": "guariglia raffaele",
    "gruppo_eletto": "PNM",
    "anagrafe_camera": "300836",
    "genere": "m",
@@ -375096,6 +376698,7 @@
    "partiti": [
     "Partito Comunista Italiano"
    ],
+   "chiave_senato": "remo scappini",
    "id_camera": "19950",
    "nascita_camera": "1908-02-01",
    "gruppo_eletto": "COMUNISTA",
@@ -377261,8 +378864,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Montecchio Maggiore",
-    "morte": "Resana"
+    "morte": "Resana",
+    "nascita": "Montecchio Maggiore"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -381400,8 +383003,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Stradella",
-    "nascita": "Canneto Pavese"
+    "nascita": "Canneto Pavese",
+    "morte": "Stradella"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -384114,8 +385717,8 @@
     ]
    ],
    "luoghi": {
+    "morte": "Roma",
     "nascita": "Torino",
-    "morte": "Torino",
     "sepoltura": "Cimitero Parco di Torino"
    },
    "stato": "deceduto",
@@ -385716,6 +387319,51 @@
     "nascita": "Siena",
     "morte": "Siena"
    },
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
+   "qid": "S1072",
+   "nome": "Roberto Galdieri",
+   "nascita": "1923-01-02",
+   "prec_nascita": "giorno",
+   "morte": "1986-03-24",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "IX"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "galdieri roberto",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": null,
+   "luoghi": {
+    "nascita": "Napoli"
+   },
+   "fonte_morte": "Senato",
+   "gruppo_eletto": "MSI - DN",
+   "anagrafe_camera": "301130",
+   "elezioni": {
+    "IX": [
+     "S",
+     "Campania"
+    ]
+   },
+   "scheda_senato": "9:1072",
+   "gruppi": [
+    [
+     "IX",
+     "S",
+     "MSI - DN",
+     "1985-05-16",
+     "1986-03-24"
+    ]
+   ],
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -387343,6 +388991,46 @@
    "luoghi": {
     "nascita": "Pontecchio Polesine"
    },
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
+   "qid": "Q19588407",
+   "nome": "Roberto Romei",
+   "nascita": "1926-12-20",
+   "prec_nascita": "giorno",
+   "morte": "2013-12-05",
+   "prec_morte": "giorno",
+   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Roberto%20Romei.jpg",
+   "wikipedia": "https://it.wikipedia.org/wiki/Roberto_Romei_(politico)",
+   "mandati": [
+    "IX"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "roberto romei",
+   "dal_senato": true,
+   "gruppo_eletto": "DC",
+   "anagrafe_camera": "301292",
+   "genere": "m",
+   "elezioni": {
+    "IX": [
+     "S",
+     "Lombardia"
+    ]
+   },
+   "scheda_senato": "9:2067",
+   "studi": "Sindacalista o esponente di associazione",
+   "gruppi": [
+    [
+     "IX",
+     "S",
+     "DC",
+     "1983-07-19",
+     "1987-07-01"
+    ]
+   ],
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -389263,6 +390951,7 @@
     "senatore della Repubblica Italiana"
    ],
    "partiti": [],
+   "chiave_senato": "rodolfo salvagiani",
    "gruppo_eletto": "PCI",
    "anagrafe_camera": "303356",
    "genere": "m",
@@ -390093,8 +391782,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Torino",
-    "nascita": "Como"
+    "nascita": "Como",
+    "morte": "Torino"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -392494,8 +394183,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Cetona",
-    "nascita": "Bagnara Calabra"
+    "nascita": "Bagnara Calabra",
+    "morte": "Cetona"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -393019,8 +394708,8 @@
    "treccani": "ruggero-grieco_(Dizionario-Biografico)",
    "luoghi": {
     "nascita": "Foggia",
-    "morte": "Massa Lombarda",
-    "sepoltura": "cimitero del Verano"
+    "sepoltura": "cimitero del Verano",
+    "morte": "Massa Lombarda"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -394997,8 +396686,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Messina",
-    "nascita": "Lipari"
+    "nascita": "Lipari",
+    "morte": "Messina"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -395086,6 +396775,51 @@
     "morte": "Casarano",
     "nascita": "Galatina"
    },
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
+   "qid": "S6695",
+   "nome": "Salvatore De Simone",
+   "nascita": "1914-04-20",
+   "prec_nascita": "giorno",
+   "morte": "1994-07-27",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "III"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "de salvatore simone",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": "Professore di lingua francese",
+   "luoghi": {
+    "nascita": "Rossano"
+   },
+   "fonte_morte": "Senato",
+   "gruppo_eletto": "PCI",
+   "anagrafe_camera": "304440",
+   "elezioni": {
+    "III": [
+     "S",
+     "Calabria"
+    ]
+   },
+   "scheda_senato": "3:6695",
+   "gruppi": [
+    [
+     "III",
+     "S",
+     "PCI",
+     "1961-02-01",
+     "1963-05-15"
+    ]
+   ],
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -398126,6 +399860,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "chiave_senato": "salvatore sica",
    "gruppo_eletto": "DC",
    "anagrafe_camera": "301183",
    "genere": "m",
@@ -409915,8 +411650,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Francavilla al Mare",
-    "nascita": "Sant'Agata di Puglia"
+    "nascita": "Sant'Agata di Puglia",
+    "morte": "Francavilla al Mare"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -411548,8 +413283,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Fumone",
-    "morte": "Meldola"
+    "morte": "Meldola",
+    "nascita": "Fumone"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -413669,12 +415404,14 @@
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/TitoOroNobili.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Tito_Oro_Nobili",
    "mandati": [
-    "Costituente"
+    "Costituente",
+    "I"
    ],
    "cariche": [
     "deputato dell'Assemblea Costituente della Repubblica Italiana"
    ],
    "partiti": [],
+   "chiave_senato": "nobili oro tito",
    "id_camera": "28260",
    "nascita_camera": "1882-03-23",
    "gruppo_eletto": "PARTITO SOCIALISTA ITALIANO",
@@ -413688,6 +415425,16 @@
      "Perugia"
     ]
    },
+   "scheda_senato": "1:9368",
+   "gruppi": [
+    [
+     "I",
+     "S",
+     "PSI",
+     "1948-05-08",
+     "1953-06-24"
+    ]
+   ],
    "treccani": "tito-oro-nobili_(Dizionario-Biografico)",
    "luoghi": {
     "morte": "Roma",
@@ -421279,8 +423026,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Grumo Nevano",
-    "morte": "Massa Lubrense"
+    "morte": "Massa Lubrense",
+    "nascita": "Grumo Nevano"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -424791,8 +426538,8 @@
     "cofirmate": 125
    },
    "luoghi": {
-    "morte": "Matelica",
-    "nascita": "San Severino Marche"
+    "nascita": "San Severino Marche",
+    "morte": "Matelica"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -426038,6 +427785,51 @@
     "morte": "Bologna",
     "nascita": "Rimini"
    },
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
+   "qid": "S904",
+   "nome": "Vielmo Duo'",
+   "nascita": "1931-07-14",
+   "prec_nascita": "giorno",
+   "morte": "2020-12-08",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "X"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "duo vielmo",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": "Avvocato",
+   "luoghi": {
+    "nascita": "Badia Polesine"
+   },
+   "fonte_morte": "Senato",
+   "gruppo_eletto": "DC",
+   "anagrafe_camera": "301358",
+   "elezioni": {
+    "X": [
+     "S",
+     "Veneto"
+    ]
+   },
+   "scheda_senato": "10:904",
+   "gruppi": [
+    [
+     "X",
+     "S",
+     "DC",
+     "1990-02-07",
+     "1992-04-22"
+    ]
+   ],
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -428819,6 +430611,46 @@
    "hall_of_fame": false
   },
   {
+   "qid": "Q15711032",
+   "nome": "Vincenzo Leggieri",
+   "nascita": "1924-01-17",
+   "prec_nascita": "giorno",
+   "morte": "2013-02-08",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": "https://it.wikipedia.org/wiki/Vincenzo_Leggieri",
+   "mandati": [
+    "VI"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "leggieri vincenzo",
+   "dal_senato": true,
+   "gruppo_eletto": "DC",
+   "anagrafe_camera": "301157",
+   "genere": "m",
+   "elezioni": {
+    "VI": [
+     "S",
+     "Basilicata"
+    ]
+   },
+   "scheda_senato": "6:6785",
+   "studi": "Medico",
+   "gruppi": [
+    [
+     "VI",
+     "S",
+     "DC",
+     "1972-05-25",
+     "1976-07-04"
+    ]
+   ],
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
    "qid": "Q18288584",
    "nome": "Vincenzo Madonia",
    "nascita": "1925-06-27",
@@ -429238,6 +431070,87 @@
     "morte": "Roma",
     "nascita": "Nicastro"
    },
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
+   "qid": "S9344",
+   "nome": "Vincenzo Menghi",
+   "nascita": "1888-02-06",
+   "prec_nascita": "giorno",
+   "morte": "1972-09-12",
+   "prec_morte": "giorno",
+   "foto": null,
+   "wikipedia": null,
+   "mandati": [
+    "I",
+    "II",
+    "III"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "menghi vincenzo",
+   "dal_senato": true,
+   "solo_registro": true,
+   "genere": "m",
+   "studi": "Avvocato, pubblicista",
+   "luoghi": {
+    "nascita": "Tivoli"
+   },
+   "fonte_morte": "Senato",
+   "gruppo_eletto": "DC",
+   "anagrafe_camera": "303337",
+   "incarichi_parlamento": [
+    {
+     "carica": "Presidente della 8ª Commissione Permanente (Agricoltura e Alimentazione)",
+     "da": "1953-07-28",
+     "a": "1958-06-11"
+    },
+    {
+     "carica": "Presidente della 8ª Commissione Permanente (Agricoltura e Alimentazione)",
+     "da": "1958-07-10",
+     "a": "1963-05-15"
+    }
+   ],
+   "elezioni": {
+    "I": [
+     "S",
+     "Lazio"
+    ],
+    "II": [
+     "S",
+     "Lazio"
+    ],
+    "III": [
+     "S",
+     "Lazio"
+    ]
+   },
+   "scheda_senato": "3:9344",
+   "gruppi": [
+    [
+     "I",
+     "S",
+     "DC",
+     "1948-05-08",
+     "1953-06-24"
+    ],
+    [
+     "II",
+     "S",
+     "DC",
+     "1953-06-25",
+     "1958-06-11"
+    ],
+    [
+     "III",
+     "S",
+     "DC",
+     "1958-06-12",
+     "1963-05-15"
+    ]
+   ],
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -433065,6 +434978,68 @@
     "nascita": "Teramo",
     "morte": "Teramo"
    },
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
+   "qid": "Q108542993",
+   "nome": "Vinicio Ziino",
+   "nascita": "1900-08-21",
+   "prec_nascita": "giorno",
+   "morte": "1986-06-19",
+   "prec_morte": "giorno",
+   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Vinicio%20Ziino%20I.jpg",
+   "wikipedia": "https://it.wikipedia.org/wiki/Vinicio_Ziino",
+   "mandati": [
+    "I"
+   ],
+   "cariche": [],
+   "partiti": [],
+   "chiave_senato": "vinicio ziino",
+   "dal_senato": true,
+   "gruppo_eletto": "DC",
+   "anagrafe_camera": "300676",
+   "genere": "m",
+   "consulta": 1,
+   "incarichi_governo": [
+    {
+     "a": "1951-07-26",
+     "carica": "Sottosegretario di Stato all'Industria e Commercio",
+     "da": "1950-01-31",
+     "governo": "De Gasperi VI"
+    }
+   ],
+   "elezioni": {
+    "I": [
+     "S",
+     "Sicilia"
+    ]
+   },
+   "scheda_senato": "1:7026",
+   "gruppi": [
+    [
+     "I",
+     "S",
+     "DC",
+     "1948-05-08",
+     "1950-12-31"
+    ],
+    [
+     "I",
+     "S",
+     "DC",
+     "1951-01-01",
+     "1952-12-31"
+    ],
+    [
+     "I",
+     "S",
+     "DC",
+     "1953-01-01",
+     "1953-06-24"
+    ]
+   ],
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -440668,6 +442643,7 @@
    "partiti": [
     "Democrazia Cristiana"
    ],
+   "chiave_senato": "pugliese vittorio",
    "id_camera": "19720",
    "nascita_camera": "1905-01-26",
    "gruppo_eletto": "DEMOCRATICO CRISTIANO",
@@ -441354,6 +443330,7 @@
     "Partito Comunista Italiano",
     "Partito Comunista del Territorio Libero di Trieste"
    ],
+   "chiave_senato": "vidali vittorio",
    "id_camera": "20320",
    "nascita_camera": "1900-09-27",
    "gruppo_eletto": "COMUNISTA",

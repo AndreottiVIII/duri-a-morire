@@ -438,8 +438,9 @@ def testa(indirizzo, titolo, descrizione, persona, dati, extra_home):
     righe = ['<link rel="canonical" href="%s">' % e(url)]
     if persona:
         p = persona
-        individuo = {'@type': 'Person', 'name': p['n'],
-                     'sameAs': ['https://www.wikidata.org/wiki/' + p['q']]}
+        individuo = {'@type': 'Person', 'name': p['n'], 'sameAs': []}
+        if p['q'].startswith('Q'):
+            individuo['sameAs'].append('https://www.wikidata.org/wiki/' + p['q'])
         if p.get('w'):
             individuo['sameAs'].append(p['w'])
         if p['b']:
