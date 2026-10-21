@@ -551,6 +551,10 @@ def costruisci(scheletro, dati, home, uscita_archivio, titoli_proposte=None):
                           '<script>var PAGINA = {"generato":"%s"};</script>\n'
                           '<script src="/televideo.js?v=%s"></script>'
                           % (v, impronta(programma))))
+    # L'icona incorporata (data:) serve solo all'edizione a file unico: qui
+    # sarebbe la prima dichiarata, e Google, che non la legge, finiva per
+    # mostrare il mappamondo grigio. Restano i file veri della testa.
+    involucro = re.sub(r'<link rel="icon"[^>]*href="data:[^"]*">\n?', '', involucro)
     e = lambda s: html.escape(s, quote=True)
 
     def monta(indirizzo, num, titolo_pieno, descrizione, persona, h1, extra_home=''):
