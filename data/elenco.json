@@ -1,5 +1,5 @@
 {
- "generato": "2026-10-21",
+ "generato": "2026-10-22",
  "eta_massima_credibile": 106,
  "persone": [
   {
@@ -7881,8 +7881,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Teramo",
-    "nascita": "Pistoia"
+    "nascita": "Pistoia",
+    "morte": "Teramo"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -8044,8 +8044,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Voghera",
-    "morte": "Voghera"
+    "morte": "Voghera",
+    "nascita": "Voghera"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -12890,8 +12890,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Borgo Valsugana",
     "nascita": "Pieve Tesino",
+    "morte": "Borgo Valsugana",
     "sepoltura": "Basilica di San Lorenzo fuori le mura"
    },
    "stato": "deceduto",
@@ -18562,8 +18562,8 @@
    "treccani": "alessandro-faedo",
    "luoghi": {
     "morte": "Pisa",
-    "sepoltura": "cimitero della Misericordia",
-    "nascita": "Chiampo"
+    "nascita": "Chiampo",
+    "sepoltura": "cimitero della Misericordia"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -23825,8 +23825,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Vienna",
-    "morte": "Bologna"
+    "morte": "Bologna",
+    "nascita": "Vienna"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -24194,7 +24194,6 @@
    ],
    "chiave_senato": "alfredo mantica",
    "gruppo_eletto": "MSI - DN",
-   "registro_muto": "Senato",
    "elezioni": {
     "X": [
      "S",
@@ -24354,8 +24353,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Chiusi della Verna",
-    "morte": "Capolona"
+    "morte": "Capolona",
+    "nascita": "Chiusi della Verna"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -24548,8 +24547,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Cagliari",
-    "morte": "Bologna"
+    "morte": "Bologna",
+    "nascita": "Cagliari"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -32799,8 +32798,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Borgo Valsugana",
-    "nascita": "Fiera di Primiero"
+    "nascita": "Fiera di Primiero",
+    "morte": "Borgo Valsugana"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -38698,8 +38697,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Nissoria",
-    "morte": "Leonforte"
+    "morte": "Leonforte",
+    "nascita": "Nissoria"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -40020,8 +40019,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Carini",
-    "morte": "Partinico"
+    "morte": "Partinico",
+    "nascita": "Carini"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -43993,8 +43992,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Napoli",
-    "nascita": "Campobasso"
+    "nascita": "Campobasso",
+    "morte": "Napoli"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -47077,8 +47076,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Genova",
-    "morte": "Genova"
+    "morte": "Genova",
+    "nascita": "Genova"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -51423,8 +51422,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Orgosolo",
-    "morte": "Nuoro"
+    "morte": "Nuoro",
+    "nascita": "Orgosolo"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -54973,8 +54972,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Padova",
-    "nascita": "Verona"
+    "nascita": "Verona",
+    "morte": "Padova"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -60859,8 +60858,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Montebello Vicentino",
-    "morte": "San Bonifacio"
+    "morte": "San Bonifacio",
+    "nascita": "Montebello Vicentino"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -60998,8 +60997,8 @@
    ],
    "luoghi": {
     "morte": "Roma",
-    "sepoltura": "cimitero del Verano",
-    "nascita": "Massa"
+    "nascita": "Massa",
+    "sepoltura": "cimitero del Verano"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -63897,8 +63896,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Auronzo di Cadore",
-    "nascita": "Vallada Agordina"
+    "nascita": "Vallada Agordina",
+    "morte": "Auronzo di Cadore"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -64978,8 +64977,8 @@
     "cofirmate": 12
    },
    "luoghi": {
-    "nascita": "Trieste",
-    "morte": "Trieste"
+    "morte": "Trieste",
+    "nascita": "Trieste"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -67599,8 +67598,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Bologna",
-    "nascita": "Trento"
+    "nascita": "Trento",
+    "morte": "Bologna"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -74823,8 +74822,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Rieti",
-    "nascita": "Fermo"
+    "nascita": "Fermo",
+    "morte": "Rieti"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -78403,8 +78402,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Luzzara",
-    "morte": "Mantova"
+    "morte": "Mantova",
+    "nascita": "Luzzara"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -80574,8 +80573,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Finale Ligure",
-    "morte": "Monte Carlo"
+    "morte": "Monte Carlo",
+    "nascita": "Finale Ligure"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -89884,8 +89883,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Saint-Vincent",
-    "morte": "Châtillon"
+    "morte": "Châtillon",
+    "nascita": "Saint-Vincent"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -91029,8 +91028,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Palermo",
-    "morte": "Palermo"
+    "morte": "Palermo",
+    "nascita": "Palermo"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -95901,8 +95900,8 @@
     ]
    },
    "luoghi": {
-    "morte": "Palermo",
-    "nascita": "Catania"
+    "nascita": "Catania",
+    "morte": "Palermo"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -96057,8 +96056,8 @@
    ],
    "partiti": [],
    "luoghi": {
-    "nascita": "Catania",
-    "morte": "Catania"
+    "morte": "Catania",
+    "nascita": "Catania"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -96926,8 +96925,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Arvier",
-    "morte": "Castelnuovo di Ceva"
+    "morte": "Castelnuovo di Ceva",
+    "nascita": "Arvier"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -99789,8 +99788,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Bergamo",
-    "nascita": "Bergamo"
+    "nascita": "Bergamo",
+    "morte": "Bergamo"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -101409,8 +101408,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Supino",
-    "morte": "Colleferro"
+    "morte": "Colleferro",
+    "nascita": "Supino"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -102983,8 +102982,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Arzignano",
-    "nascita": "San Bonifacio"
+    "nascita": "San Bonifacio",
+    "morte": "Arzignano"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -105712,8 +105711,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Cocullo",
-    "morte": "Avezzano"
+    "morte": "Avezzano",
+    "nascita": "Cocullo"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -110010,8 +110009,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Sulmona",
-    "nascita": "Introdacqua"
+    "nascita": "Introdacqua",
+    "morte": "Sulmona"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -117225,8 +117224,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Biella",
-    "nascita": "Mezzana Mortigliengo"
+    "nascita": "Mezzana Mortigliengo",
+    "morte": "Biella"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -120198,8 +120197,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Napoli",
-    "morte": "Firenze"
+    "morte": "Firenze",
+    "nascita": "Napoli"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -120341,8 +120340,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Martina Franca",
-    "nascita": "Squinzano"
+    "nascita": "Squinzano",
+    "morte": "Martina Franca"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -123651,6 +123650,10 @@
      "1953-06-24"
     ]
    ],
+   "luoghi": {
+    "morte": "Milano",
+    "nascita": "Lecco"
+   },
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -124686,9 +124689,9 @@
     ]
    ],
    "luoghi": {
-    "morte": "Bascapè",
+    "sepoltura": "cimitero di Matelica",
     "nascita": "Acqualagna",
-    "sepoltura": "cimitero di Matelica"
+    "morte": "Bascapè"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -126712,8 +126715,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Bergamo",
-    "nascita": "Verona"
+    "nascita": "Verona",
+    "morte": "Bergamo"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -133887,8 +133890,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Pietra Ligure",
-    "nascita": "Tangeri"
+    "nascita": "Tangeri",
+    "morte": "Pietra Ligure"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -136940,8 +136943,8 @@
     "cofirmate": 5
    },
    "luoghi": {
-    "morte": "Udine",
-    "nascita": "Mortegliano"
+    "nascita": "Mortegliano",
+    "morte": "Udine"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -143522,8 +143525,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Acquedolci",
-    "nascita": "San Fratello"
+    "nascita": "San Fratello",
+    "morte": "Acquedolci"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -145406,8 +145409,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Montefranco",
-    "morte": "Terni"
+    "morte": "Terni",
+    "nascita": "Montefranco"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -154021,88 +154024,6 @@
    "hall_of_fame": false
   },
   {
-   "qid": "Q3749970",
-   "nome": "Francesco Ferrari",
-   "nascita": "1893-09-06",
-   "prec_nascita": "giorno",
-   "morte": "1980-07-17",
-   "prec_morte": "giorno",
-   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Foto%20Francesco%20Ferrari%201893-1980.jpg",
-   "wikipedia": "https://it.wikipedia.org/wiki/Francesco_Ferrari_(politico_1893)",
-   "mandati": [
-    "II"
-   ],
-   "cariche": [
-    "deputato della Repubblica Italiana"
-   ],
-   "partiti": [
-    "Partito Socialista Italiano"
-   ],
-   "id_camera": "8130",
-   "nascita_camera": "1893-09-06",
-   "gruppo_eletto": "PARTITO SOCIALISTA ITALIANO",
-   "anagrafe_camera": "8130",
-   "genere": "m",
-   "studi": "Commerciante",
-   "incarichi_governo": [
-    {
-     "a": "1969-08-05",
-     "carica": "Sottosegretario di Stato alla Difesa",
-     "da": "1968-12-14",
-     "governo": "Rumor I"
-    },
-    {
-     "a": "1970-03-27",
-     "carica": "Sottosegretario di Stato alle Poste e Telecomunicazioni",
-     "da": "1969-08-07",
-     "governo": "Rumor II"
-    }
-   ],
-   "storia_camera": "francesco-ferrari-18930906",
-   "elezioni": {
-    "II": [
-     "C",
-     "Mantova"
-    ]
-   },
-   "gruppi": [
-    [
-     "II",
-     "C",
-     "PSI",
-     "1953-07-21",
-     "1958-06-11"
-    ]
-   ],
-   "proposte": {
-    "primo": 4,
-    "cofirmate": 10
-   },
-   "sconfitte": [
-    [
-     "III",
-     "1958",
-     "MANTOVA-CREMONA",
-     "PSI",
-     2467
-    ],
-    [
-     "V",
-     "1968",
-     "MANTOVA-CREMONA",
-     "PSIUP",
-     108
-    ]
-   ],
-   "luoghi": {
-    "nascita": "Castel Goffredo",
-    "morte": "Castel Goffredo"
-   },
-   "stato": "deceduto",
-   "non_eletto": false,
-   "hall_of_fame": false
-  },
-  {
    "qid": "Q18223370",
    "nome": "Francesco Ferrari",
    "nascita": "1905-10-15",
@@ -154220,6 +154141,88 @@
    },
    "luoghi": {
     "nascita": "Casarano"
+   },
+   "stato": "deceduto",
+   "non_eletto": false,
+   "hall_of_fame": false
+  },
+  {
+   "qid": "Q3749970",
+   "nome": "Francesco Ferrari",
+   "nascita": "1893-09-06",
+   "prec_nascita": "giorno",
+   "morte": "1980-07-17",
+   "prec_morte": "giorno",
+   "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Foto%20Francesco%20Ferrari%201893-1980.jpg",
+   "wikipedia": "https://it.wikipedia.org/wiki/Francesco_Ferrari_(politico_1893)",
+   "mandati": [
+    "II"
+   ],
+   "cariche": [
+    "deputato della Repubblica Italiana"
+   ],
+   "partiti": [
+    "Partito Socialista Italiano"
+   ],
+   "id_camera": "8130",
+   "nascita_camera": "1893-09-06",
+   "gruppo_eletto": "PARTITO SOCIALISTA ITALIANO",
+   "anagrafe_camera": "8130",
+   "genere": "m",
+   "studi": "Commerciante",
+   "incarichi_governo": [
+    {
+     "a": "1969-08-05",
+     "carica": "Sottosegretario di Stato alla Difesa",
+     "da": "1968-12-14",
+     "governo": "Rumor I"
+    },
+    {
+     "a": "1970-03-27",
+     "carica": "Sottosegretario di Stato alle Poste e Telecomunicazioni",
+     "da": "1969-08-07",
+     "governo": "Rumor II"
+    }
+   ],
+   "storia_camera": "francesco-ferrari-18930906",
+   "elezioni": {
+    "II": [
+     "C",
+     "Mantova"
+    ]
+   },
+   "gruppi": [
+    [
+     "II",
+     "C",
+     "PSI",
+     "1953-07-21",
+     "1958-06-11"
+    ]
+   ],
+   "proposte": {
+    "primo": 4,
+    "cofirmate": 10
+   },
+   "sconfitte": [
+    [
+     "III",
+     "1958",
+     "MANTOVA-CREMONA",
+     "PSI",
+     2467
+    ],
+    [
+     "V",
+     "1968",
+     "MANTOVA-CREMONA",
+     "PSIUP",
+     108
+    ]
+   ],
+   "luoghi": {
+    "nascita": "Castel Goffredo",
+    "morte": "Castel Goffredo"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -155993,8 +155996,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Maddaloni",
-    "morte": "Santa Maria Capua Vetere"
+    "morte": "Santa Maria Capua Vetere",
+    "nascita": "Maddaloni"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -157652,8 +157655,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Grugliasco",
-    "nascita": "Tollegno"
+    "nascita": "Tollegno",
+    "morte": "Grugliasco"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -165484,8 +165487,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Roma",
-    "nascita": "Parigi"
+    "nascita": "Parigi",
+    "morte": "Roma"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -165939,8 +165942,8 @@
     "cofirmate": 24
    },
    "luoghi": {
-    "nascita": "Foggia",
-    "morte": "Chieti"
+    "morte": "Chieti",
+    "nascita": "Foggia"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -172432,8 +172435,8 @@
     "cofirmate": 6
    },
    "luoghi": {
-    "nascita": "Riesi",
-    "morte": "Sarzana"
+    "morte": "Sarzana",
+    "nascita": "Riesi"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -179492,8 +179495,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "San Michele Mondovì",
-    "nascita": "Ceva"
+    "nascita": "Ceva",
+    "morte": "San Michele Mondovì"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -186355,8 +186358,8 @@
    "nome": "Gianfranco Morgando",
    "nascita": "1949-12-20",
    "prec_nascita": "giorno",
-   "morte": null,
-   "prec_morte": null,
+   "morte": "2026-10-21",
+   "prec_morte": "giorno",
    "foto": "http://commons.wikimedia.org/wiki/Special:FilePath/Gianfranco%20Morgando.jpg",
    "wikipedia": "https://it.wikipedia.org/wiki/Gianfranco_Morgando",
    "mandati": [
@@ -186372,6 +186375,7 @@
    "nascita_camera": "1949-12-20",
    "gruppo_eletto": "DEMOCRATICO CRISTIANO",
    "registro_muto": "Camera dei deputati",
+   "fonte_morte": "Wikipedia",
    "anagrafe_camera": "33800",
    "genere": "m",
    "studi": "Laurea in scienze politiche; dirigente pubblico",
@@ -186434,7 +186438,7 @@
    "luoghi": {
     "nascita": "Borgiallo"
    },
-   "stato": "vivente",
+   "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
   },
@@ -200487,6 +200491,9 @@
     "primo": 1,
     "cofirmate": 29
    },
+   "luoghi": {
+    "nascita": "Enna"
+   },
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -202932,8 +202939,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Bosa",
-    "nascita": "Olzai"
+    "nascita": "Olzai",
+    "morte": "Bosa"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -205868,8 +205875,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Lucca",
-    "morte": "Pistoia"
+    "morte": "Pistoia",
+    "nascita": "Lucca"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -206927,8 +206934,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Novara",
-    "nascita": "Novara"
+    "nascita": "Novara",
+    "morte": "Novara"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -209910,8 +209917,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Roccavione",
-    "morte": "Dronero"
+    "morte": "Dronero",
+    "nascita": "Roccavione"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -211682,8 +211689,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Roma",
-    "nascita": "Londra"
+    "nascita": "Londra",
+    "morte": "Roma"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -212597,8 +212604,8 @@
    ],
    "luoghi": {
     "morte": "Roma",
-    "nascita": "Mesagne",
-    "sepoltura": "cimitero del Verano"
+    "sepoltura": "cimitero del Verano",
+    "nascita": "Mesagne"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -215520,8 +215527,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Calvisano",
-    "morte": "Lonato del Garda"
+    "morte": "Lonato del Garda",
+    "nascita": "Calvisano"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -228525,8 +228532,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Gozzano",
-    "morte": "Biella"
+    "morte": "Biella",
+    "nascita": "Gozzano"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -232101,8 +232108,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Sesto San Giovanni",
-    "nascita": "Voghera"
+    "nascita": "Voghera",
+    "morte": "Sesto San Giovanni"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -235511,6 +235518,11 @@
      "1963-05-15"
     ]
    ],
+   "treccani": "giuseppe-faravelli_(Dizionario-Biografico)",
+   "luoghi": {
+    "morte": "Milano",
+    "nascita": "Broni"
+   },
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -236188,6 +236200,10 @@
      "1987-07-01"
     ]
    ],
+   "luoghi": {
+    "nascita": "Gerace",
+    "morte": "Locri"
+   },
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -238870,6 +238886,10 @@
      "1987-07-01"
     ]
    ],
+   "luoghi": {
+    "morte": "Catanzaro",
+    "nascita": "Cotronei"
+   },
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -239907,8 +239927,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Sambiase",
-    "morte": "Lamezia Terme"
+    "morte": "Lamezia Terme",
+    "nascita": "Sambiase"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -241698,8 +241718,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Rossano",
-    "nascita": "Napoli"
+    "nascita": "Napoli",
+    "morte": "Rossano"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -246224,8 +246244,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Giarre",
-    "morte": "Macchia"
+    "morte": "Macchia",
+    "nascita": "Giarre"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -258226,8 +258246,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Squillace",
-    "morte": "Soverato"
+    "morte": "Soverato",
+    "nascita": "Squillace"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -261579,8 +261599,8 @@
    ],
    "treccani": "ilio-barontini_(Dizionario-Biografico)",
    "luoghi": {
-    "morte": "Scandicci",
-    "nascita": "Cecina"
+    "nascita": "Cecina",
+    "morte": "Scandicci"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -266110,8 +266130,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Fano",
-    "nascita": "Terni"
+    "nascita": "Terni",
+    "morte": "Fano"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -267737,8 +267757,8 @@
    ],
    "luoghi": {
     "morte": "Roma",
-    "sepoltura": "cimitero monumentale di Milano",
-    "nascita": "Varazze"
+    "nascita": "Varazze",
+    "sepoltura": "cimitero monumentale di Milano"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -269430,8 +269450,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Marina di Pietrasanta",
-    "nascita": "Seravezza"
+    "nascita": "Seravezza",
+    "morte": "Marina di Pietrasanta"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -271225,8 +271245,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Villorba",
-    "nascita": "Povegliano"
+    "nascita": "Povegliano",
+    "morte": "Villorba"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -283649,8 +283669,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Cles",
-    "nascita": "Romeno"
+    "nascita": "Romeno",
+    "morte": "Cles"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -283702,8 +283722,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Folgaria",
-    "morte": "Strigno"
+    "morte": "Strigno",
+    "nascita": "Folgaria"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -286399,8 +286419,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Cosenza",
-    "morte": "Cosenza"
+    "morte": "Cosenza",
+    "nascita": "Cosenza"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -289294,8 +289314,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Firenze",
-    "morte": "Bergamo"
+    "morte": "Bergamo",
+    "nascita": "Firenze"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -293470,6 +293490,9 @@
      "1994-04-14"
     ]
    ],
+   "luoghi": {
+    "nascita": "Roma"
+   },
    "stato": "vivente",
    "non_eletto": false,
    "hall_of_fame": false
@@ -299255,8 +299278,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Inverigo",
-    "morte": "Orta San Giulio"
+    "morte": "Orta San Giulio",
+    "nascita": "Inverigo"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -303123,8 +303146,8 @@
    ],
    "luoghi": {
     "morte": "Perugia",
-    "sepoltura": "cimitero monumentale di Perugia",
-    "nascita": "Spello"
+    "nascita": "Spello",
+    "sepoltura": "cimitero monumentale di Perugia"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -304240,8 +304263,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Roccastrada",
-    "morte": "Grosseto"
+    "morte": "Grosseto",
+    "nascita": "Roccastrada"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -304722,8 +304745,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Cosenza",
-    "nascita": "Plataci"
+    "nascita": "Plataci",
+    "morte": "Cosenza"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -305275,8 +305298,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Catanzaro",
-    "morte": "Soverato"
+    "morte": "Soverato",
+    "nascita": "Catanzaro"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -305611,8 +305634,8 @@
    },
    "treccani": "mario-cevolotto_(Dizionario-Biografico)",
    "luoghi": {
-    "nascita": "Treviso",
-    "morte": "Viareggio"
+    "morte": "Viareggio",
+    "nascita": "Treviso"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -309544,8 +309567,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Parma",
-    "morte": "Bologna"
+    "morte": "Bologna",
+    "nascita": "Parma"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -310412,8 +310435,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Nuoro",
-    "nascita": "Tortolì"
+    "nascita": "Tortolì",
+    "morte": "Nuoro"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -312028,8 +312051,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Salerno",
-    "morte": "Napoli"
+    "morte": "Napoli",
+    "nascita": "Salerno"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -312237,8 +312260,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Noale",
-    "morte": "Mirano"
+    "morte": "Mirano",
+    "nascita": "Noale"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -320167,8 +320190,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Pieve di Coriano",
-    "nascita": "Poggio Rusco"
+    "nascita": "Poggio Rusco",
+    "morte": "Pieve di Coriano"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -324623,8 +324646,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Miglionico",
-    "morte": "Matera"
+    "morte": "Matera",
+    "nascita": "Miglionico"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -327798,7 +327821,6 @@
    ],
    "chiave_senato": "michele pinto",
    "gruppo_eletto": "DC",
-   "registro_muto": "Senato",
    "anagrafe_camera": "200752",
    "genere": "m",
    "incarichi_governo": [
@@ -327855,8 +327877,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Sangineto",
-    "nascita": "Teggiano"
+    "nascita": "Teggiano",
+    "morte": "Sangineto"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -328257,8 +328279,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Nocera Inferiore",
-    "morte": "Nocera Inferiore"
+    "morte": "Nocera Inferiore",
+    "nascita": "Nocera Inferiore"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -330755,8 +330777,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Trezzano sul Naviglio",
-    "nascita": "Badia Polesine"
+    "nascita": "Badia Polesine",
+    "morte": "Trezzano sul Naviglio"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -333309,8 +333331,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Carpineti",
-    "morte": "Albinea"
+    "morte": "Albinea",
+    "nascita": "Carpineti"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -333924,8 +333946,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Pescara",
-    "nascita": "Pescara"
+    "nascita": "Pescara",
+    "morte": "Pescara"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -337421,8 +337443,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Ussita",
-    "morte": "San Severino Marche"
+    "morte": "San Severino Marche",
+    "nascita": "Ussita"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -339263,8 +339285,8 @@
    ],
    "luoghi": {
     "morte": "Roma",
-    "nascita": "Reggio Emilia",
-    "sepoltura": "cimitero del Verano"
+    "sepoltura": "cimitero del Verano",
+    "nascita": "Reggio Emilia"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -340924,8 +340946,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Maranzana",
-    "morte": "Grazzano Badoglio"
+    "morte": "Grazzano Badoglio",
+    "nascita": "Maranzana"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -341197,8 +341219,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Ancona",
-    "morte": "Ancona"
+    "morte": "Ancona",
+    "nascita": "Ancona"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -352227,8 +352249,8 @@
    ],
    "luoghi": {
     "morte": "Bologna",
-    "sepoltura": "cimitero di San Ruffino",
-    "nascita": "Scandiano"
+    "nascita": "Scandiano",
+    "sepoltura": "cimitero di San Ruffino"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -353752,8 +353774,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Torre del Greco",
-    "nascita": "Scafati"
+    "nascita": "Scafati",
+    "morte": "Torre del Greco"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -354717,8 +354739,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Castelnovo ne' Monti",
-    "nascita": "Vetto"
+    "nascita": "Vetto",
+    "morte": "Castelnovo ne' Monti"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -360543,8 +360565,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Cuggiono",
-    "nascita": "Gallarate"
+    "nascita": "Gallarate",
+    "morte": "Cuggiono"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -361538,8 +361560,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Castelcovati",
-    "morte": "Chiari"
+    "morte": "Chiari",
+    "nascita": "Castelcovati"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -363016,8 +363038,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Cigliano",
-    "morte": "Biella"
+    "morte": "Biella",
+    "nascita": "Cigliano"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -365396,8 +365418,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Sassari",
-    "nascita": "Tempio Pausania"
+    "nascita": "Tempio Pausania",
+    "morte": "Sassari"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -366485,8 +366507,8 @@
    "treccani": "pietro-secchia_(Dizionario-Biografico)",
    "luoghi": {
     "morte": "Roma",
-    "sepoltura": "cimitero del Verano",
-    "nascita": "Occhieppo Superiore"
+    "nascita": "Occhieppo Superiore",
+    "sepoltura": "cimitero del Verano"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -369552,8 +369574,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Crespadoro",
-    "morte": "Bassano del Grappa"
+    "morte": "Bassano del Grappa",
+    "nascita": "Crespadoro"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -375238,8 +375260,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Lanusei",
-    "morte": "Sassari"
+    "morte": "Sassari",
+    "nascita": "Lanusei"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -378074,8 +378096,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Ancona",
-    "morte": "Ancona"
+    "morte": "Ancona",
+    "nascita": "Ancona"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -378864,8 +378886,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Resana",
-    "nascita": "Montecchio Maggiore"
+    "nascita": "Montecchio Maggiore",
+    "morte": "Resana"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -384415,8 +384437,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Napoli",
-    "morte": "Napoli"
+    "morte": "Napoli",
+    "nascita": "Napoli"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -389031,6 +389053,10 @@
      "1987-07-01"
     ]
    ],
+   "luoghi": {
+    "morte": "Roma",
+    "nascita": "Montevarchi"
+   },
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -391782,8 +391808,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Como",
-    "morte": "Torino"
+    "morte": "Torino",
+    "nascita": "Como"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -396686,8 +396712,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Lipari",
-    "morte": "Messina"
+    "morte": "Messina",
+    "nascita": "Lipari"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -400775,8 +400801,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Avellino",
-    "nascita": "Avellino"
+    "nascita": "Avellino",
+    "morte": "Avellino"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -407217,8 +407243,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Monfalcone",
-    "morte": "Monfalcone"
+    "morte": "Monfalcone",
+    "nascita": "Monfalcone"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -411650,8 +411676,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Sant'Agata di Puglia",
-    "morte": "Francavilla al Mare"
+    "morte": "Francavilla al Mare",
+    "nascita": "Sant'Agata di Puglia"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -414194,8 +414220,8 @@
     ]
    ],
    "luoghi": {
-    "morte": "Cles",
-    "nascita": "Romallo"
+    "nascita": "Romallo",
+    "morte": "Cles"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -416816,9 +416842,9 @@
     ]
    ],
    "luoghi": {
-    "sepoltura": "Caserta",
     "nascita": "Napoli",
-    "morte": "Napoli"
+    "morte": "Napoli",
+    "sepoltura": "Caserta"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -420215,8 +420241,8 @@
     ]
    ],
    "luoghi": {
-    "nascita": "Trieste",
-    "morte": "Padova"
+    "morte": "Padova",
+    "nascita": "Trieste"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -426538,8 +426564,8 @@
     "cofirmate": 125
    },
    "luoghi": {
-    "nascita": "San Severino Marche",
-    "morte": "Matelica"
+    "morte": "Matelica",
+    "nascita": "San Severino Marche"
    },
    "stato": "deceduto",
    "non_eletto": false,
@@ -430646,6 +430672,10 @@
      "1976-07-04"
     ]
    ],
+   "luoghi": {
+    "nascita": "Venosa",
+    "morte": "Venosa"
+   },
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
@@ -435040,6 +435070,9 @@
      "1953-06-24"
     ]
    ],
+   "luoghi": {
+    "nascita": "Messina"
+   },
    "stato": "deceduto",
    "non_eletto": false,
    "hall_of_fame": false
