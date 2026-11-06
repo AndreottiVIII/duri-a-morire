@@ -79,6 +79,9 @@
   footer a{color:var(--spento)}
   #colofone a{color:var(--ciano);text-decoration:none;border-bottom:1px dotted var(--spento);cursor:pointer}
   #colofone a:hover{border-bottom-color:var(--ciano)}
+  #altro-sito{display:block;margin-top:.6em}
+  #altro-sito a{color:var(--ciano);text-decoration:none;border-bottom:1px dotted var(--spento)}
+  #altro-sito a:hover{border-bottom-color:var(--ciano)}
   /* visibile solo a chi legge con un lettore di schermo e ai motori: il
      titolo vero della pagina, che graficamente e' gia' nella testata */
   .solo-lettori{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -1456,6 +1459,10 @@ function disegna(){
   document.getElementById('subetichetta').textContent = (stato.sub + 1) + ' / ' + nsub;
   document.getElementById('pieno').textContent =
     ' — ' + P.length + ' schede, aggiornate il ' + dataIt(DATI.generato) + '.';
+  // Il rimando alla scheda sul sito gemello vale solo per la pagina con cui
+  // si e' entrati: appena si passa a un'altra schermata non c'entra piu'.
+  const gemella = document.getElementById('scheda-seconda');
+  if(gemella && location.pathname !== gemella.dataset.pagina) gemella.remove();
   const rimando = document.getElementById('colofone');
   if(COLOFONE && !rimando.dataset.pronto){
     rimando.dataset.pronto = '1';

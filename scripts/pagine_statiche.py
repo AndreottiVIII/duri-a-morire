@@ -27,9 +27,13 @@ import os
 import re
 import tarfile
 import unicodedata
+import urllib.parse
 
 INDIRIZZO = 'https://primarepubblica.net'
 SITO = 'Prima Repubblica Tracker'
+SECONDA = 'https://secondarepubblica.it'
+SCHEDE_SECONDA = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data',
+                              'seconda_repubblica.json')
 
 
 def titolo_pieno(titolo):
@@ -558,8 +562,25 @@ def costruisci(scheletro, dati, home, uscita_archivio, titoli_proposte=None):
     involucro = re.sub(r'<link rel="icon"[^>]*href="data:[^"]*">\n?', '', involucro)
     e = lambda s: html.escape(s, quote=True)
 
+    # Il rimando al sito gemello (scelta di Davide del 6/11/2026): una riga in
+    # fondo a ogni pagina, scritta nella pagina stessa e non dal programma,
+    # cosi' Google la legge anche senza eseguirlo. Nelle schede di chi ha
+    # seduto anche dopo il 1994 porta dritto alla sua scheda di la'.
+    gemello = json.load(open(SCHEDE_SECONDA, encoding='utf-8'))
+
+    def piede(persona):
+        riga = ('Dallo stesso autore: <a href="%s/">Seconda Repubblica Tracker</a>, '
+                'i parlamentari dal 1994 al 2013' % SECONDA)
+        indirizzo = persona and (gemello.get(persona['q'])
+                                 or gemello.get(urllib.parse.unquote(persona.get('w') or '')))
+        if indirizzo:
+            riga += ('<span id="scheda-seconda" data-pagina="%s">, con <a href="%s%s">la scheda di %s</a></span>'
+                     % (e('/onorevole/%s/' % persona['u']), SECONDA, e(indirizzo), e(persona['n'])))
+        return '<span id="altro-sito"> %s.</span>\n</footer>' % riga
+
     def monta(indirizzo, num, titolo_pieno, descrizione, persona, h1, extra_home=''):
         return (involucro
+                .replace('</footer>', piede(persona), 1)
                 .replace('%%TITOLO%%', e(titolo_pieno))
                 .replace('<!--%%CANONICO%%-->',
                          testa(indirizzo, titolo_pieno, descrizione, persona, dati, extra_home))
