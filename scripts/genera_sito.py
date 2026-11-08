@@ -8,6 +8,7 @@ import sys, os, json, datetime, re
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import cursus
 import pagine_statiche
+import impacchetta
 
 QUI = os.path.dirname(os.path.abspath(__file__))
 INGRESSO = os.path.join(QUI, '..', 'data', 'elenco.json')
@@ -792,8 +793,9 @@ def main():
     }
 
     modello = open(MODELLO, encoding='utf-8').read()
-    base = modello.replace('/*__DATI__*/',
-                           json.dumps(dati, ensure_ascii=False, separators=(',', ':')))
+    # le persone impacchettate (impacchetta.py): il programma deve restare
+    # sotto i 2 MB che Google legge di ogni file
+    base = modello.replace('/*__DATI__*/', impacchetta.dati_impacchettati(dati))
 
     os.makedirs(USCITA_DIR, exist_ok=True)
     descrizione = DESCRIZIONE_TRACKER % migliaia(len(dati['persone']))
@@ -818,8 +820,7 @@ def main():
     dati_veri = dict(dati, persone=persone_veri, __INDIRIZZI__=None)
     _, titolo_home, testata_home, _, _ = EDIZIONI[1]
     scheletro = (modello
-                 .replace('/*__DATI__*/',
-                          json.dumps(dati_veri, ensure_ascii=False, separators=(',', ':')))
+                 .replace('/*__DATI__*/', impacchetta.dati_impacchettati(dati_veri))
                  .replace('<!--%%PRESENTAZIONE%%-->', presentazione('tracker.html', dati))
                  .replace('%%TESTATA%%', testata_home)
                  .replace('/*__COLOFONE__*/', json.dumps(COLOFONE, ensure_ascii=False)))

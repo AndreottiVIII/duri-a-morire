@@ -131,7 +131,35 @@
 </footer>
 
 <script>
-const DATI = /*__DATI__*/;
+const DATI = spacchetta(/*__DATI__*/);
+// Le persone arrivano impacchettate (scripts/impacchetta.py), perche' il
+// programma resti sotto i 2 MB che Google legge di ogni file: qui si
+// ricompone l'elenco identico. Schemi di chiavi, vocabolari per colonna,
+// foto e voci di Wikipedia senza l'inizio e la fine sempre uguali.
+function spacchetta(d){
+  const k = d.persone;
+  if (!k || Array.isArray(k)) return d;
+  const FOTO_INIZIO = 'https://commons.wikimedia.org/wiki/Special:FilePath/',
+        FOTO_FINE = '?width=260', VOCE_INIZIO = 'https://it.wikipedia.org/wiki/';
+  const fuori = (x, voci) => typeof x === 'number' ? voci[x]
+    : Array.isArray(x) ? x.map(y => fuori(y, voci))
+    : (x && typeof x === 'object') ? Object.fromEntries(Object.entries(x).map(([a, b]) => [a, fuori(b, voci)]))
+    : x;
+  d.persone = k.righe.map(r => {
+    const chiavi = k.schemi[r[0]], p = {};
+    for (let i = 0; i < chiavi.length; i++){
+      const c = chiavi[i], m = k.modi[c];
+      let v = r[i + 1];
+      if (m && m[0] === 'v' && typeof v === 'number') v = JSON.parse(m[1][v]);
+      else if (m && m[0] === 'f') v = fuori(v, m[1]);
+      if (c === 'f' && typeof v === 'string' && !v.startsWith('http')) v = FOTO_INIZIO + v + FOTO_FINE;
+      if (c === 'w' && typeof v === 'string' && !v.startsWith('http')) v = VOCE_INIZIO + v;
+      p[c] = v;
+    }
+    return p;
+  });
+  return d;
+}
 const TESTATA = '%%TESTATA%%';
 const COLOFONE = /*__COLOFONE__*/;
 const W = 40, RIGHE_LISTA = 18;

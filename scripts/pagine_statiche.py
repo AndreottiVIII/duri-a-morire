@@ -31,6 +31,7 @@ import urllib.parse
 
 INDIRIZZO = 'https://primarepubblica.net'
 SITO = 'Prima Repubblica Tracker'
+PESO_MASSIMO_PROGRAMMA = 2000000
 SECONDA = 'https://secondarepubblica.it'
 SCHEDE_SECONDA = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data',
                               'seconda_repubblica.json')
@@ -618,6 +619,12 @@ def costruisci(scheletro, dati, home, uscita_archivio, titoli_proposte=None):
                 titoli_proposte[p['q']], ensure_ascii=False, separators=(',', ':'))
 
     file['stile.css'] = stile
+    # Google legge solo i primi 2 MB di ogni file: oltre, il Televideo gli
+    # arriva a meta' e ogni pagina e' vuota (Seconda Repubblica Tracker, 22/10/2026).
+    # Meglio un sito fermo a ieri che un sito invisibile.
+    if len(programma.encode('utf-8')) > PESO_MASSIMO_PROGRAMMA:
+        raise SystemExit('televideo.js pesa %d byte, oltre %d: Google lo leggerebbe a meta.'
+                         % (len(programma.encode('utf-8')), PESO_MASSIMO_PROGRAMMA))
     file['televideo.js'] = programma
 
     # La mappa del sito: tutte le pagine da far trovare. La data c'e' solo
