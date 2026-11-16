@@ -58,6 +58,18 @@ COLOFONE = [
     'Quando le fonti sono in disaccordo, il sito lo scrive. Quando nessuna sa '
     'rispondere lo scrive lo stesso: né vivo né morto, non risulta.',
     '',
+    '#VISITE E COOKIE',
+    'Il sito conta le visite con Google Analytics solo se lo accettate '
+    'nell’avviso che compare alla prima visita. In quel caso Google Analytics '
+    'salva dei cookie che durano fino a due anni e riceve la pagina che '
+    'guardate, il tipo di dispositivo e la città approssimativa. Google non '
+    'conserva l’indirizzo IP, e i dati non servono per la pubblicità.',
+    '',
+    'Se rifiutate, niente cookie e niente Google Analytics. Le visite si '
+    'contano comunque in forma anonima con GoatCounter, che non usa cookie.',
+    '',
+    'Per cambiare la scelta: il link «Cookie» in fondo alla pagina.',
+    '',
     '#RIPRODUZIONE',
     'I dati sono pubblici e liberi alla fonte: Wikidata e gli open data di '
     'Camera e Senato. Le fotografie vengono da Wikimedia Commons e restano dei '

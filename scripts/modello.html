@@ -86,6 +86,20 @@
      titolo vero della pagina, che graficamente e' gia' nella testata */
   .solo-lettori{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   footer .presentazione{margin:0 0 .5em}
+  /* l'avviso sui cookie, come una schermata del Televideo */
+  #pr-ck{position:fixed;left:8px;right:8px;bottom:10px;z-index:9000;max-width:34em;margin:0 auto;
+    background:var(--nero);color:var(--bianco);border:2px solid var(--ciano);padding:12px 14px;
+    font:15px/1.4 "Cascadia Mono","Consolas","DejaVu Sans Mono","Liberation Mono",monospace;
+    box-shadow:0 6px 24px rgba(0,0,0,.6)}
+  #pr-ck .pr-ck-t{display:inline-block;background:var(--ciano);color:var(--nero);padding:0 6px;margin-bottom:8px}
+  #pr-ck p{margin:0 0 12px}
+  #pr-ck a{color:var(--ciano)}
+  #pr-ck .pr-ck-b{display:flex;gap:10px}
+  #pr-ck button{flex:1 1 0;min-height:44px;font:inherit;font-weight:bold;cursor:pointer;
+    background:var(--giallo);color:var(--nero);border:0;padding:8px 12px}
+  #pr-ck button:hover{background:var(--bianco)}
+  #pr-cambia{color:var(--ciano);text-decoration:none;border-bottom:1px dotted var(--spento);cursor:pointer}
+  @media print{#pr-ck{display:none}}
 </style>
 <!-- Contatore di visite GoatCounter: niente cookie, niente dati personali. Conta
      solo sul dominio dell'edizione che gira fuori, non su github.io ne' dal disco. -->
@@ -98,6 +112,87 @@
   s.src = 'https://gc.zgo.at/count.js';
   s.setAttribute('data-goatcounter', 'https://' + codice + '.goatcounter.com/count');
   document.head.appendChild(s);
+})();
+</script>
+<!-- Visite con Google Analytics, SOLO dopo "Accetto" nell'avviso sui cookie
+     (stessa evidenza ai due pulsanti; chiudere senza scegliere = niente conteggio).
+     La scelta resta nel browser (localStorage 'pr-cookie'); la pagina 700 (Info)
+     spiega tutto, e il link "Cookie" in fondo riapre la scelta (window.prCookie()).
+     Fuori da primarepubblica.net (github.io, disco, anteprime) niente avviso e
+     niente Analytics; con navigator.webdriver (controlli automatici) niente avviso. -->
+<script>
+(function(){
+  'use strict';
+  var ID = 'G-F590KT37DG', CHIAVE = 'pr-cookie';
+  var SITO = /(^|\.)primarepubblica\.net$/.test(location.hostname);
+  function leggi(){ try { return localStorage.getItem(CHIAVE); } catch (e) { return null; } }
+  function scrivi(v){ try { localStorage.setItem(CHIAVE, v); } catch (e) {} }
+  var partito = false;
+  function avvia(){
+    if (partito || !SITO) return;
+    partito = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){ window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', ID, {allow_google_signals: false, allow_ad_personalization_signals: false});
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ID;
+    document.head.appendChild(s);
+  }
+  function togliCookie(){
+    document.cookie.split(';').forEach(function(c){
+      var n = c.split('=')[0].trim();
+      if (!/^_ga/.test(n)) return;
+      ['', location.hostname, '.' + location.hostname.replace(/^www\./, '')].forEach(function(d){
+        document.cookie = n + '=; Max-Age=0; path=/' + (d ? '; domain=' + d : '');
+      });
+    });
+  }
+  var box = null;
+  function chiudi(){ if (box && box.parentNode) box.parentNode.removeChild(box); box = null; }
+  function scegli(v){
+    var prima = leggi();
+    scrivi(v);
+    chiudi();
+    if (v === 'si') avvia();
+    else { togliCookie(); if (prima === 'si' && partito) location.reload(); }
+  }
+  function mostra(){
+    if (box || !document.body) return;
+    box = document.createElement('div');
+    box.id = 'pr-ck';
+    box.setAttribute('role', 'region');
+    box.setAttribute('aria-label', 'Avviso sui cookie');
+    box.setAttribute('data-nosnippet', '');
+    box.innerHTML =
+      '<span class="pr-ck-t">COOKIE</span>' +
+      '<p>Questo sito conta le visite con Google Analytics, che usa dei cookie. Serve solo a sapere quali pagine vengono lette: niente pubblicit&agrave;. <a href="/info/">Come funziona</a></p>' +
+      '<div class="pr-ck-b"><button type="button" data-v="si">Accetto</button><button type="button" data-v="no">Rifiuto</button></div>';
+    box.addEventListener('click', function(e){
+      var b = e.target.closest ? e.target.closest('button[data-v]') : null;
+      if (b) scegli(b.getAttribute('data-v'));
+    });
+    document.body.appendChild(box);
+  }
+  window.prCookie = function(){ if (SITO) mostra(); };
+  function pronto(){
+    // il link per cambiare la scelta, in fondo alla pagina
+    var f = document.querySelector('footer');
+    if (SITO && f && !document.getElementById('pr-cambia')){
+      var a = document.createElement('a');
+      a.id = 'pr-cambia'; a.href = '/info/'; a.textContent = 'Cookie';
+      a.addEventListener('click', function(e){ e.preventDefault(); mostra(); });
+      f.appendChild(document.createTextNode(' '));
+      f.appendChild(a);
+    }
+    var scelta = leggi();
+    if (scelta !== 'si' && scelta !== 'no' && SITO && !navigator.webdriver) mostra();
+  }
+  if (leggi() === 'si') avvia();
+  // chi ha rifiutato: via i cookie anche quelli riscritti da Google mentre la pagina si ricaricava
+  else if (leggi() === 'no') togliCookie();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', pronto); else pronto();
 })();
 </script>
 </head>
